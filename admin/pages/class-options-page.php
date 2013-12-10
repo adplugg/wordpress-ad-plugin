@@ -116,7 +116,7 @@ class AdPlugg_Options_Page {
             $installation_content = '
             <h2>Installation/Configuration</h2>
             <p>
-                The AdPlugg WordPress Plugin makes is super easy
+                The AdPlugg WordPress Ad Plugin makes is super easy
                 to put ads on your WordPress Site.
             </p>
             <ol>
