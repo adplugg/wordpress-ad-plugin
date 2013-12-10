@@ -24,7 +24,7 @@ class AdPlugg_Widget extends WP_Widget {
      * Widget form creation
      */
     function form($instance) {
-        echo '<a href="options-general.php?page=adplugg">configure</a>';
+        echo '<a href="options-general.php?page=adplugg">Configure at adplugg.com</a>';
     }
 
     /**
