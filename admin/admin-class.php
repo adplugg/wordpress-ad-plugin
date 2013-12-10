@@ -77,9 +77,17 @@ class AdPlugg_Admin {
             delete_option(ADPLUGG_NOTICES_NAME);
         }
         
-        if(!adplugg_is_access_key_installed()) {
+        if(!adplugg_is_access_code_installed()) {
             if($page != "adplugg") {
                 $notices[]= 'You\'ve activated the AdPlugg Plugin, yay! Now lets <a href="options-general.php?page=adplugg">configure</a> it!';
+            }
+        }
+        
+        if(!adplugg_is_widget_enabled()) {
+            if($page == "widget") {
+                $notices[]= 'Drag the AdPlugg Widget into a Widget Area to display Ads on your site.';
+            } else {
+                $notices[]= 'Your configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area. <a href="options-general.php?page=widget.php">Widget Configuration</a>';
             }
         }
         

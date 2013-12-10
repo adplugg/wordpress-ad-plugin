@@ -39,9 +39,10 @@ class AdPlugg_Options_Page {
                     <input type="submit" name="Submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
                 </p>
             </form>
-            <?php if(adplugg_is_access_key_installed()) { ?>
-            <br/>
-            Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank">adplugg.com</a>.
+            <?php if(adplugg_is_access_code_installed()) { ?>
+                <br/>
+                Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank">adplugg.com</a>.<br/>
+                Place the AdPlugg Widget on the <a href="options-general.php?page=widget.php">WordPress Widgets Configuration Page</a><br/>
             <?php } //end if ?>
         </div>
     <?php
