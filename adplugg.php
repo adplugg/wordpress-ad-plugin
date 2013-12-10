@@ -38,6 +38,7 @@ if(!defined('ADPLUGG_VERSION')) {
     define('ADPLUGG_BASENAME', plugin_basename(__FILE__));
     define('ADPLUGG_OPTIONS_NAME', 'adplugg_options');
     define('ADPLUGG_NOTICES_NAME', 'adplugg_notices');
+    define('ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg');
 }
 
 // Register the AdPlugg Widget

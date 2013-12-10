@@ -110,6 +110,7 @@ class AdPlugg_Admin {
     function adplugg_uninstall() {
         delete_option(ADPLUGG_OPTIONS_NAME);
         delete_option(ADPLUGG_NOTICES_NAME);
+        delete_option(ADPLUGG_WIDGET_OPTIONS_NAME);
     }
 
 }
