@@ -1,34 +1,10 @@
 <?php
-/*
- * Copyright (c) 2013 AdPlugg <legal@adplugg.com>. All rights reserved.
- * 
- * This file is part of the Adplugg Ad Plugin.
- *
- * Permission is hereby granted, to any person obtaining a copy of this software
- * and associated documentation files (the "Software"), to use and modify the
- * Software for commercial, personal, educational or governmental purposes, 
- * subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- * 
- * The Software may not be distributed without the express permission of
- * AdPlugg.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
+/**
  * Functions for rendering the AdPlugg contextual help for the options page 
  * within the WordPress Administrator.
  * @package AdPlugg
  * @since 1.0
  */
-
     
 function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
     global $adplugg_hook;
@@ -50,8 +26,8 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
             <li>Activate the plugin</li>
             <li>Create an account at <a href="http://www.adplugg.com">adplugg.com</a> and add at least one ad.</li>
             <li>Get your AdPlugg Access Code and add it to the Access Code field on this page.</li>
-            <li>Go to your <a href="' . admin_url('widgets.php') . '">Widgets configuration page</a> and drag the AdPlugg Widget to
-                a Widget area.
+            <li>Go to your <a href="' . admin_url('widgets.php') . '">Widgets configuration page</a> and drag the AdPlugg Ad Widget to
+                a Widget Area.
             </li>
             <li>Your ad(s) should now be viewable from your blog.
         </ol>';
@@ -77,7 +53,7 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
           <li>Is The AdPlugg plugin is installed and activated?</li>
           <li>Have you created an AdPlugg account at <a href="http://www.adplugg.com">www.adplugg.com</a>?</li>
           <li>Do you have at least one active ad in your AdPlugg account?</li>
-          <li>Have you added the AdPlugg widget to a widget area? You can do this from the 
+          <li>Have you added the AdPlugg Ad Widget to a Widget Area? You can do this from the 
           <a href="' . admin_url('widgets.php') . '">Widgets configuration page</a>.</li>
         </ul>
         <p>
