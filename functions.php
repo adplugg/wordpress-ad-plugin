@@ -22,49 +22,25 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- *
- */
-
-/**
- * Class to create the adplugg widget
+ * 
+ * This file contains general functions for use by the AdPlugg Plugin.
  * @package AdPlugg
  * @since 1.0
  */
-class AdPlugg_Widget extends WP_Widget {
-
-    /**
-     * Constructor
-     */
-    function AdPlugg_Widget() {
-        $widget_options = array( 'classname' => 'adplugg', 'description' => __('A widget for displaying ads ', 'adplugg') );  
-        parent::__construct('adplugg', $name = __('AdPlugg', 'adplugg'), $widget_options);
-    }
-
-    /**
-     * Widget form creation
-     */
-    function form($instance) {
-        echo '<a href="options-general.php?page=adplugg">configure</a>';
-    }
-
-    /**
-     * Widget update
-     */
-    function update($new_instance, $old_instance) {
-        //
-    }
-
-    /**
-     * Widget display
-     */
-    function widget($args, $instance) {
-        extract($args);
-
-        echo $before_widget;
-
-        // Display the widget
-        echo '<div class="adplugg-placement"></div>';
-
-        echo $after_widget;
+    
+/**
+ * Function that looks to see if an adplugg access key has been installed
+ * @return boolean Returns true if an access key is installed, otherwise
+ * returns false.
+ */
+function adplugg_is_access_key_installed() {
+    $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
+    if($options['access_code']) {
+        return true;
+    } else {
+        return false;
     }
 }
+
+
+

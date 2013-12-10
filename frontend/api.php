@@ -23,14 +23,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * Functions for rendering the AdPlugg API code.
+ * Function to add the AdPlugg api to the DOM
+ * @package AdPlugg
+ * @since 1.0
  */
 
-/**
- * Function to add the AdPlugg api to the DOM
- */
 function adplugg_add_api() {
-    $options = get_option('adplugg_options', array() );
+    $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
     if($options['access_code']) {
  ?>
 <script>
