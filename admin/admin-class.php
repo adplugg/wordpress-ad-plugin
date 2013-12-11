@@ -83,7 +83,7 @@ class AdPlugg_Admin {
             }
         }
         
-        if(!adplugg_is_widget_enabled()) {
+        if(!adplugg_is_widget_active()) {
             if($page == "widget") {
                 $notices[]= 'Drag the AdPlugg Widget into a Widget Area to display ads on your site.';
             } else {

@@ -24,7 +24,7 @@ function adplugg_is_access_code_installed() {
  * @return boolean Returns true if the widget is activated, otherwise
  * returns false.
  */
-function adplugg_is_widget_activated() {
+function adplugg_is_widget_active() {
     if(is_active_widget(false, false, 'adplugg', true )) {
         return true;
     } else {
