@@ -16,7 +16,7 @@ class AdPlugg_Widget extends WP_Widget {
      * Constructor
      */
     function AdPlugg_Widget() {
-        $widget_options = array( 'classname' => 'adplugg', 'description' => __('A widget for displaying ads ', 'adplugg') );  
+        $widget_options = array( 'classname' => 'adplugg', 'description' => __('A widget for displaying ads ', 'adplugg') );
         parent::__construct('adplugg', $name = __('AdPlugg', 'adplugg'), $widget_options);
     }
 

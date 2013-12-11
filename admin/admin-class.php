@@ -67,7 +67,8 @@ class AdPlugg_Admin {
         $options = get_option(ADPLUGG_OPTIONS_NAME);
         $stored_notices = get_option(ADPLUGG_NOTICES_NAME);
         $page = $_GET["page"];
-        $notices = array();
+        //$script = end((explode('/', $_SERVER['REQUEST_URI'])));
+        $script = end(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
         
         //stored notices
         if($stored_notices) {
@@ -81,19 +82,19 @@ class AdPlugg_Admin {
             if($page != "adplugg") {
                 $notices[]= 'You\'ve activated the AdPlugg Plugin, yay! Now lets <a href="options-general.php?page=adplugg">configure</a> it!';
             }
-        }
-        
-        if(!adplugg_is_widget_active()) {
-            if($page == "widget") {
-                $notices[]= 'Drag the AdPlugg Widget into a Widget Area to display ads on your site.';
-            } else {
-                $notices[]= 'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area. <a href="options-general.php?page=widget.php">Widget Configuration</a>';
+        } else {
+            if(!adplugg_is_widget_active()) {
+                if($script == "widgets.php") {
+                    $notices[]= 'Drag the AdPlugg Widget into a Widget Area to display ads on your site.';
+                } else {
+                    $notices[]= 'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area. Go to <a href="' . admin_url('widgets.php') . '">Widget Configuration</a>.';
+                }
             }
         }
         
         //print the notices
         foreach($notices as $notice) {
-            echo '<div class="updated"><p>AdPlugg: ' . $notice . '</p></div>';
+            echo '<div class="updated"><p><strong>AdPlugg:</strong> ' . $notice . '</p></div>';
         }
     }
     

@@ -41,7 +41,7 @@ class AdPlugg_Options_Page {
             </form>
             <?php if(adplugg_is_access_code_installed()) { ?>
                 <br/>
-                Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank">adplugg.com</a>.<br/>
+                Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank">adplugg.com</a>.<br/><br/>
                 Place the AdPlugg Widget on the <a href="options-general.php?page=widget.php">WordPress Widgets Configuration Page</a><br/>
             <?php } //end if ?>
         </div>

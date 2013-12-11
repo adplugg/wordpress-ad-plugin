@@ -25,7 +25,12 @@ function adplugg_is_access_code_installed() {
  * returns false.
  */
 function adplugg_is_widget_active() {
-    if(is_active_widget(false, false, 'adplugg', true )) {
+    $widget_options = get_option(ADPLUGG_WIDGET_OPTIONS_NAME);
+    
+    /* is_active_widget doesn't work if the plugin is deactivated and then reactivated.
+     * if the widget is active it will have more than one option, so this works.
+     */
+    if( (!is_null($widget_options)) && (sizeof($widget_options) > 1) ) {
         return true;
     } else {
         return false;
