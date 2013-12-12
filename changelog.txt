@@ -1,6 +1,6 @@
 = 1.0 =
 
-* Initial release.
+* First public release.
 
 = 0.1 =
 
