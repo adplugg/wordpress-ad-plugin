@@ -34,7 +34,7 @@ PS: You'll need an [adplugg.com Access Code](http://www.adplugg.com/apusers/sign
 == Changelog ==
 
 = 1.0 =
-* Initial release.
+* Initial release. Posted to wordpress.org.
 
 = 0.1 =
 * Beta release.
