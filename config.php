@@ -7,8 +7,8 @@
  * @since 1.1
  */
 
-//Override the ADPLUGG_HOST
-define('ADPLUGG_HOST', '192.168.33.10/apusers/app_dev.php');
+//Override the ADPLUGG_ADSERVER
+//define('ADPLUGG_ADSERVER', '192.168.33.10/apusers/app_dev.php');
 
 //Override the ADPLUGG_VERSION
 //define('ADPLUGG_VERSION', '1.1');
