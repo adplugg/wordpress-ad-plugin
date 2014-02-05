@@ -1,3 +1,8 @@
+= 1.1 =
+
+* Added Support for Zones
+* Switched to using version 1.1 of ad.js (which supports Zones)
+
 = 1.0 =
 
 * First public release. Posted to wordpress.org.

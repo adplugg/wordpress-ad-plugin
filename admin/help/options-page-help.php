@@ -30,7 +30,18 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
                 a Widget Area.
             </li>
             <li>Your ad(s) should now be viewable from your blog.
-        </ol>';
+        </ol>
+        <h2>Additional Options</h2>
+        <p>Advanced users can use the following options to customize what ads are served</p>
+        <ul>
+            <li>
+                Optionally add a Zone machine name into the widget to tie the
+                widget to a Zone.  Zones can be set up from your account
+                at <a href="http://www.adplugg.com">adplugg.com</a>.  Zones make
+                it so that you can load different ads in different areas of the
+                page.
+            </li>
+        </ul>';
         
         $use_content = '
         <h2>Using AdPlugg</h2>
