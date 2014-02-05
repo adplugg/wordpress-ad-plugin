@@ -1,6 +1,6 @@
 = 1.0 =
 
-* First public release.
+* First public release. Posted to wordpress.org.
 
 = 0.1 =
 
