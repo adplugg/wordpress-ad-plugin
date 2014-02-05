@@ -32,14 +32,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 //define constants
-if(!defined('ADPLUGG_VERSION')) {
-    define('ADPLUGG_VERSION', '1.0');
-    define('ADPLUGG_PATH', plugin_dir_path( __FILE__ ));
-    define('ADPLUGG_BASENAME', plugin_basename(__FILE__));
-    define('ADPLUGG_OPTIONS_NAME', 'adplugg_options');
-    define('ADPLUGG_NOTICES_NAME', 'adplugg_notices');
-    define('ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg');
-}
+define('ADPLUGG_PATH', plugin_dir_path( __FILE__ ));
+define('ADPLUGG_BASENAME', plugin_basename(__FILE__));
+
+// Included the optional conffig.php file
+include_once(ADPLUGG_PATH . 'config.php');
+
+if(!defined('ADPLUGG_ADSERVER')) { define('ADPLUGG_ADSERVER', 'www.adplugg.com/apusers'); }
+if(!defined('ADPLUGG_VERSION')) { define('ADPLUGG_VERSION', '1.1'); }
+
+define('ADPLUGG_OPTIONS_NAME', 'adplugg_options');
+define('ADPLUGG_NOTICES_NAME', 'adplugg_notices');
+define('ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg');
+
 
 // Register the AdPlugg Widget
 require_once(ADPLUGG_PATH . 'widgets/AdPlugg_Widget.php');
