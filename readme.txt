@@ -17,7 +17,7 @@ ads on your WordPress site.
 The AdPlugg WordPress Ad Plugin works in conjunction with the 
 [adplugg.com](http://www.adplugg.com) ad service.
 
-Major features in version 1.1 include:
+Major features in version 1.1.1 include:
 
 * Ability to add your AdPlugg ads to your WordPress site from the WordPress Administrator with no access to the underlying source code required.
 * Ability to add you AdPlugg ads to any Widget Area on your site by dragging the AdPlugg Widget into that area.
