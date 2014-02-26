@@ -6,7 +6,7 @@ ads on your WordPress site.
 Welcome to the AdPlugg WordPress Ad Plugin Github repository
 ---------------------------------------------------------
 
-While the documentation for the AdPlugg [WordPress Ad Plugin](http://www.adplugg.com/apusers/download/wordpress)
+While the documentation for the AdPlugg [WordPress Ad Plugin](http://www.adplugg.com/apusers/download/wordpress-ad-plugin)
 can be found on adplugg.com, here you can browse the source of the plugin as
 well as find, discuss and submit issues.
 
