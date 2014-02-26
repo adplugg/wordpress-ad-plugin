@@ -80,7 +80,7 @@ class AdPlugg_Admin {
         
         if(!adplugg_is_access_code_installed()) {
             if($page != "adplugg") {
-                $notices[]= 'You\'ve activated the AdPlugg Plugin, yay! Now lets <a href="options-general.php?page=adplugg">configure</a> it!';
+                $notices[]= 'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a href="options-general.php?page=adplugg">configure</a> it!';
             }
         } else {
             if(!adplugg_is_widget_active()) {

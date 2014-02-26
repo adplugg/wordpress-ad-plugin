@@ -13,7 +13,7 @@ well as find, discuss and submit issues.
 Installation
 ------------
 
-Here's a [guide on how to install AdPlugg Ad Plugin in your WordPress site](http://www.adplugg.com/support/help/wordpress-ad-plugin/installation/).
+Here's a [guide on how to install AdPlugg Ad Plugin in your WordPress site](http://www.adplugg.com/support/help/downloading-and-installing/wordpress-ad-plugin).
 If you want to run the Git version though, you have two options:
 
 * You can clone the GitHub repository: https://github.com/adplugg/wordpress-ad-plugin.git

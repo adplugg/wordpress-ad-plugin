@@ -1,3 +1,8 @@
+= 1.1.1 =
+
+* Fixed grammatical issues with the help.
+* Updated the readme.txt file.
+
 = 1.1 =
 
 * Added Support for Zones.

@@ -18,7 +18,7 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
         $installation_content = '
         <h2>Installation/Configuration</h2>
         <p>
-            The AdPlugg WordPress Ad Plugin makes is super easy
+            The AdPlugg WordPress Ad Plugin makes it super easy
             to put ads on your WordPress Site.
         </p>
         <ol>
@@ -45,7 +45,7 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
         
         $use_content = '
         <h2>Using AdPlugg</h2>
-        <p>Once you have AdPlugg set up and working most things that can be done
+        <p>Once you have AdPlugg set up and working, most things that can be done
         from <a href="http://www.adplugg.com">adplugg.com</a>. This includes:</p>
         <ul>
           <li>Creating, modifying and deleting ads</li>
@@ -59,9 +59,9 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
         
         $troubleshooting_content = '
         <h2>Troubleshooting</h2>
-        <p>If ads aren\'t displaying on your site please check the following:</p>
+        <p>If ads aren\'t displaying on your site, please check the following:</p>
         <ul>
-          <li>Is The AdPlugg plugin is installed and activated?</li>
+          <li>Is The AdPlugg plugin installed and activated?</li>
           <li>Have you created an AdPlugg account at <a href="http://www.adplugg.com">www.adplugg.com</a>?</li>
           <li>Do you have at least one active ad in your AdPlugg account?</li>
           <li>Have you added the AdPlugg Ad Widget to a Widget Area? You can do this from the 

@@ -92,20 +92,20 @@ class AdPlugg_Options_Page {
 	if ($screen_id == $adplugg_hook) { 
             $overview_content = '
             <h1>AdPlugg Plugin Help</h1>
-            <p>Need help, using the adplugg plugin? Use the tabs to the left
+            <p>Need help using the adplugg plugin? Use the tabs to the left
                to find instructions for installation, use and troubleshooting.
             </p>';
             $installation_content = '
             <h2>Installation/Configuration</h2>
             <p>
-                The AdPlugg WordPress Ad Plugin makes is super easy
+                The AdPlugg WordPress Ad Plugin makes it super easy
                 to put ads on your WordPress Site.
             </p>
             <ol>
-                <li>Install the plugin</li>
-                <li>Activate the plugin</li>
-                <li>Create an account at <a href="http://www.adplugg.com">adplugg.com</a></li>
-                <li>Get your AdPlugg Access Code and add it to the Access Code field on this page</li>
+                <li>Install the plugin.</li>
+                <li>Activate the plugin.</li>
+                <li>Create an account at <a href="http://www.adplugg.com">adplugg.com</a>.</li>
+                <li>Get your AdPlugg Access Code and add it to the Access Code field on this page.</li>
                 <li>Go to your widgets page and drag the AdPlugg Ad Widget to
                     wherever you want your ads to display.
                 </li>
