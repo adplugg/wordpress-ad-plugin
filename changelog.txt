@@ -1,4 +1,4 @@
-= 1.1.1 =
+= 1.1.2 =
 
 * Fixed grammatical issues with the help.
 * Updated the readme.txt file.
