@@ -35,11 +35,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 define('ADPLUGG_PATH', plugin_dir_path( __FILE__ ));
 define('ADPLUGG_BASENAME', plugin_basename(__FILE__));
 
-// Included the optional conffig.php file
-include_once(ADPLUGG_PATH . 'config.php');
+// Included the optional config.php file
+if(file_exists(ADPLUGG_PATH . 'config.php')) {
+    include_once(ADPLUGG_PATH . 'config.php');
+}
 
 if(!defined('ADPLUGG_ADSERVER')) { define('ADPLUGG_ADSERVER', 'www.adplugg.com/apusers'); }
-if(!defined('ADPLUGG_VERSION')) { define('ADPLUGG_VERSION', '1.1.2'); }
+if(!defined('ADPLUGG_VERSION')) { define('ADPLUGG_VERSION', '1.1.3'); }
 
 define('ADPLUGG_OPTIONS_NAME', 'adplugg_options');
 define('ADPLUGG_NOTICES_NAME', 'adplugg_notices');

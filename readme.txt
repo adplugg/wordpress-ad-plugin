@@ -4,6 +4,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: advertising, ad manager, ads, ad, ad management, ad rotator, widget, banner management, ad server, images, image, sidebar, plugin, post
 Requires at least: 3.3
+Tested up to: 3.8.1
 Stable tag: 1.1.3
 
 The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to display
