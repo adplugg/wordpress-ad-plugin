@@ -1,4 +1,5 @@
 = 1.1.3 =
+
 * Fixed two broken links
 * Updated the copyright date
 
@@ -6,16 +7,6 @@
 
 * Fixed grammatical issues with the help.
 * Updated the readme.txt file.
-* Updated the copyright date
-
-= 1.1.2 =
-
-* Fixed grammatical issues with the help.
-* Updated the readme.txt file.
-
-
-
-* Updated the readme.txt
 
 = 1.1 =
 
