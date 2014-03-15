@@ -22,22 +22,22 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
             to put ads on your WordPress Site.
         </p>
         <ol>
-            <li>Install the plugin</li>
-            <li>Activate the plugin</li>
-            <li>Create an account at <a href="http://www.adplugg.com">adplugg.com</a> and add at least one ad.</li>
+            <li>Install the plugin.</li>
+            <li>Activate the plugin.</li>
+            <li>Create an account at <a href="http://www.adplugg.com" target="_blank">adplugg.com</a> and add at least one ad.</li>
             <li>Get your AdPlugg Access Code and add it to the Access Code field on this page.</li>
-            <li>Go to your <a href="' . admin_url('widgets.php') . '">Widgets configuration page</a> and drag the AdPlugg Ad Widget to
+            <li>Go to the <a href="' . admin_url('widgets.php') . '">Widgets configuration page</a> and drag the AdPlugg Ad Widget into
                 a Widget Area.
             </li>
             <li>Your ad(s) should now be viewable from your blog.
         </ol>
         <h2>Additional Options</h2>
-        <p>Advanced users can use the following options to customize what ads are served</p>
+        <p>Advanced users can use the following options to customize what ads are served.</p>
         <ul>
             <li>
                 Optionally add a Zone machine name into the widget to tie the
                 widget to a Zone.  Zones can be set up from your account
-                at <a href="http://www.adplugg.com">adplugg.com</a>.  Zones make
+                at <a href="http://www.adplugg.com" target="_blank">adplugg.com</a>.  Zones make
                 it so that you can load different ads in different areas of the
                 page.
             </li>
@@ -46,7 +46,7 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
         $use_content = '
         <h2>Using AdPlugg</h2>
         <p>Once you have AdPlugg set up and working, most things that can be done
-        from <a href="http://www.adplugg.com">adplugg.com</a>. This includes:</p>
+        from <a href="http://www.adplugg.com" target="_blank">adplugg.com</a>. This includes:</p>
         <ul>
           <li>Creating, modifying and deleting ads</li>
           <li>Activating and deactivating ads</li>
@@ -74,7 +74,9 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
         
         $sidebar_content = '
         <h5>For more Information:</strong></h5>
-        <a href="http://www.adplugg.com/support/help">AdPlugg Help Center</a>
+        <a href="http://www.adplugg.com/support/help" target="_blank">AdPlugg Help Center</a><br/>
+        <a href="http://www.adplugg.com/support/cookbook" target="_blank">AdPlugg Cookbook</a><br/>
+        <a href="http://www.adplugg.com/contact" target="_blank">Contact AdPlugg</a><br/>
         ';
         
         //overview tab
