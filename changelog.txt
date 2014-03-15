@@ -1,3 +1,7 @@
+= 1.1.5 =
+
+* Improved the help and linked to the new Cookbook
+
 = 1.1.4 =
 
 * Fixed two broken links
