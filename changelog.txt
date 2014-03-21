@@ -1,3 +1,7 @@
+= 1.1.6 =
+
+* Updated the readme.txt (removed outdated info, listed new ad rotator feature)
+
 = 1.1.5 =
 
 * Improved the help and linked to the new Cookbook
