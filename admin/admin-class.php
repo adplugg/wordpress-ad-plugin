@@ -66,9 +66,10 @@ class AdPlugg_Admin {
     function adplugg_admin_notices() {
         $options = get_option(ADPLUGG_OPTIONS_NAME);
         $stored_notices = get_option(ADPLUGG_NOTICES_NAME);
-        $page = $_GET["page"];
+        $page = (isset($_GET["page"])) ? $_GET["page"] : "";
         //$script = end((explode('/', $_SERVER['REQUEST_URI'])));
         $script = end(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
+        $notices = array();
         
         //stored notices
         if($stored_notices) {
