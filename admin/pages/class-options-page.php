@@ -1,10 +1,4 @@
 <?php
-/**
- * Class for rendering the AdPlugg Options/Settings page within the WordPress
- * Administrator.
- * @package AdPlugg
- * @since 1.0
- */
 
 /**
  * Class for rendering the AdPlugg Options/Settings page within the WordPress
@@ -48,7 +42,6 @@ class AdPlugg_Options_Page {
     <?php
     }
 
-
     /**
      * Function to add the options page to the settings menu.
      */
@@ -63,7 +56,7 @@ class AdPlugg_Options_Page {
     function adplugg_options_render_access_section_text() {
     ?>
         <p>
-            To use AdPlugg you will need an AdPlugg Access Code.  To get
+            To use AdPlugg, you will need an AdPlugg Access Code.  To get
             your AdPlugg Access Code, log in or register (it's free) at 
             <a href="http://www.adplugg.com" target="_blank">
                 www.adplugg.com
@@ -87,65 +80,6 @@ class AdPlugg_Options_Page {
     <?php
     }
     
-    function adplugg_help($contextual_help, $screen_id, $screen) {
-	global $adplugg_hook;
-	if ($screen_id == $adplugg_hook) { 
-            $overview_content = '
-            <h1>AdPlugg Plugin Help</h1>
-            <p>Need help using the adplugg plugin? Use the tabs to the left
-               to find instructions for installation, use and troubleshooting.
-            </p>';
-            $installation_content = '
-            <h2>Installation/Configuration</h2>
-            <p>
-                The AdPlugg WordPress Ad Plugin makes it super easy
-                to put ads on your WordPress Site.
-            </p>
-            <ol>
-                <li>Install the plugin.</li>
-                <li>Activate the plugin.</li>
-                <li>Create an account at <a href="http://www.adplugg.com">adplugg.com</a>.</li>
-                <li>Get your AdPlugg Access Code and add it to the Access Code field on this page.</li>
-                <li>Go to your widgets page and drag the AdPlugg Ad Widget to
-                    wherever you want your ads to display.
-                </li>
-            </ol>';
-            $troubleshooting_content = '
-            <h2>Troubleshooting</h2>
-            ';
-            $use_content = '
-            <h2>Using AdPlugg</h2>
-            ';
-            //overview tab
-            $screen->add_help_tab(array(
-                'id' => 'adplugg_overview',
-                'title' => 'Overview',
-                'content' => $overview_content
-            ));
-            //installation tab
-            $screen->add_help_tab(array(
-                'id' => 'adplugg_installation',
-                'title' => 'Installation',
-                'content' => $installation_content
-            ));
-            //use tab
-            $screen->add_help_tab(array(
-                'id' => 'adplugg_use',
-                'title' => 'Using AdPlugg',
-                'content' => $use_content
-            ));
-            //installation tab
-            $screen->add_help_tab(array(
-                'id' => 'adplugg_troubleshooting',
-                'title' => 'Troubleshooting',
-                'content' => $troubleshooting_content
-            ));
-            
-        } 
-        return $contextual_help;
-        
-    }
-
     /**
      * Function to initialize the AdPlugg options page.
      */
@@ -158,7 +92,8 @@ class AdPlugg_Options_Page {
                 'adplugg'
         );
         add_settings_field(
-                'access_code', 'Access Code', 
+                'access_code', 
+                'Access Code', 
                 array(&$this, 'adplugg_options_render_access_code'),
                 'adplugg', 
                 'adplugg_options_access_section'
@@ -166,15 +101,38 @@ class AdPlugg_Options_Page {
     }
 
     /**
-     * Function to validate the submitted AdPlugg options field values
+     * Function to validate the submitted AdPlugg options field values. 
+     * 
+     * This function overrites the old values instead of completely replacing them so
+     * that we don't overwrite values that weren't submitted (such as the 
+     * version).
      * @param array $input The submitted values
-     * @return string Returns the submitted values minus any that failed validation.
+     * @return array Returns the new options to be stored in the database.
      */
     function adplugg_options_validate($input) {
-        $newinput['access_code'] = trim($input['access_code']);
-        if(!preg_match('/^[a-z0-9]+$/i', $newinput['access_code'])) {
-            $newinput['access_code'] = '';
+        $old_options = get_option(ADPLUGG_OPTIONS_NAME);
+        $new_options = $old_options;  //start with the old options.
+        
+        $msg_type = null;
+        $msg_message = null;
+        
+        //process the new values
+        $new_options['access_code'] = trim($input['access_code']);
+        if(!preg_match('/^[a-z0-9]+$/i', $new_options['access_code'])) {
+            $msg_type = 'error';
+            $msg_message = 'Please enter a valid Access Code.';
+        } else {
+            $msg_type = 'updated';
+            $msg_message = 'Settings saved.';
         }
-        return $newinput;
+        
+        add_settings_error(
+            'AdPluggOptionsSaveMessage',
+            esc_attr('settings_updated'),
+            $msg_message,
+            $msg_type
+        );
+        
+        return $new_options;
     }
 }
