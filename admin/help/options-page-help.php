@@ -6,6 +6,15 @@
  * @since 1.0
  */
     
+/**
+ * Add help for the adplugg options page into the WordPress admin help system.
+ * @global type $adplugg_hook
+ * @param string $contextual_help The default contextual help that our 
+ * function is going to replace.
+ * @param string $screen_id Used to identify the page that we are on.
+ * @param string $screen Used to access the elements of the current page.
+ * @return string The new contextual help.
+ */
 function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
     global $adplugg_hook;
     if ($screen_id == $adplugg_hook) { 

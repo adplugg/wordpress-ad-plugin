@@ -29,4 +29,4 @@ If you find an issue, [let us know here](https://github.com/adplugg/wordpress-ad
 Support
 -------
 This is a developer's portal for the AdPlugg WordPress Ad Plugin and should not be used for support. For support, please visit
-the [AdPlugg Help Center](http://www.adplugg.com/support/help/wordpress-ad-plugin/installation/).
+the [AdPlugg Help Center](http://www.adplugg.com/support/help/).

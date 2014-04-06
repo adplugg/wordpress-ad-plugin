@@ -1,12 +1,4 @@
 <?php
-/**
- * AdPlugg Admin class.
- * The AdPlugg Admin class sets up and controls the AdPlugg Plugin administrator
- * interace.
- *
- * @package AdPlugg
- * @since 1.0
- */
 
 /**
  * AdPlugg Admin class.
@@ -31,8 +23,8 @@ class AdPlugg_Admin {
     
     /**
      * Add settings link on plugin page
-     * @param type $links
-     * @return type
+     * @param array $links An array of existing links for the plugin
+     * @return array The new array of links
      */
     function adplugg_settings_link($links) { 
         $settings_link = '<a href="options-general.php?page=adplugg">Settings</a>'; 
@@ -49,10 +41,10 @@ class AdPlugg_Admin {
         if($data_version != ADPLUGG_VERSION) {
             $options['version'] = ADPLUGG_VERSION;
             update_option(ADPLUGG_OPTIONS_NAME, $options);
-            if(!is_null($dataVersion)) {  //skip if not an upgrade
+            if(!is_null($data_version)) {  //skip if not an upgrade
                 //do any necessary version data upgrades here
                 $notices = get_option(ADPLUGG_NOTICES_NAME);
-                $notices[] = "Upgraded version $data_version to " . ADPLUGG_VERSION . ".";
+                $notices[] = "Upgraded version from $data_version to " . ADPLUGG_VERSION . ".";
                 update_option('adplugg_notices', $notices);
             }
         }
@@ -64,7 +56,6 @@ class AdPlugg_Admin {
      * the database.
      */
     function adplugg_admin_notices() {
-        $options = get_option(ADPLUGG_OPTIONS_NAME);
         $stored_notices = get_option(ADPLUGG_NOTICES_NAME);
         $page = (isset($_GET["page"])) ? $_GET["page"] : "";
         //$script = end((explode('/', $_SERVER['REQUEST_URI'])));
@@ -100,15 +91,14 @@ class AdPlugg_Admin {
     }
     
     /**
-     * Called when the plugin is activated.  Adds an activated notice to the 
-     * notices queue.
+     * Called when the plugin is activated.
      */
     function adplugg_activation() {
         //
     }
 
     /**
-     * Function called on AdPlugg deactivation
+     * Called when the plugin is deactivated.
      */
     function adplugg_deactivation() {
         //
