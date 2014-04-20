@@ -58,9 +58,7 @@ class AdPlugg_Options_Page {
         <p>
             To use AdPlugg, you will need an AdPlugg Access Code.  To get
             your AdPlugg Access Code, log in or register (it's free) at 
-            <a href="http://www.adplugg.com" target="_blank">
-                www.adplugg.com
-            </a>
+            <a href="http://www.adplugg.com" target="_blank">adplugg.com</a>.
         </p>
     <?php
     }
@@ -75,7 +73,7 @@ class AdPlugg_Options_Page {
         <p class="description">
             You must enter a valid AdPlugg Access Code here. If you need an
             Access Code, you can create one
-            <a href="http://www.adplugg.com/apusers/signup" target="_blank">here</a>.
+            <a href="https://www.adplugg.com/apusers/signup" target="_blank">here</a>.
         </p>
     <?php
     }
@@ -118,7 +116,7 @@ class AdPlugg_Options_Page {
         
         //process the new values
         $new_options['access_code'] = trim($input['access_code']);
-        if(!preg_match('/^[a-z0-9]+$/i', $new_options['access_code'])) {
+        if(!preg_match('/^[a-z0-9]*$/i', $new_options['access_code'])) {
             $msg_type = 'error';
             $msg_message = 'Please enter a valid Access Code.';
         } else {
