@@ -5,23 +5,35 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: advertising, ad manager, ads, ad, ad management, ad rotator, widget, banner management, ad server, images, image, sidebar, plugin, post
 Requires at least: 3.3
 Tested up to: 3.9
-Stable tag: 1.1.11
+Stable tag: 1.1.12
 
 The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to display
 ads on your WordPress site.
 
 == Description ==
-The AdPlugg WordPress Ad Plugin works in conjunction with the FREE 
+The AdPlugg WordPress Ad Plugin works in conjunction with the <strong>FREE</strong> 
 [adplugg.com](http://www.adplugg.com) ad service.
 
-Major features in version 1.1.11 include:
+= Plugin Features =
+The AdPlugg WordPress Ad Plugin includes the following awesome features:
 
 * Ability to add your AdPlugg ads to your WordPress site from the WordPress Administrator with no access to the underlying source code required.
 * Ability to add you AdPlugg ads to any Widget Area on your site by dragging the AdPlugg Widget into that area.
 * Support for Zones allowing you to put different ads in different locations on a page.
-* Ad rotator feature allowing you to rotate which ads are displayed as well as the relative positioning of multiple ads.
 
-PS: You'll need a free [adplugg.com Access Code](https://www.adplugg.com/apusers/signup) to use it.
+<strong>PS: You'll need a free [adplugg.com Access Code](https://www.adplugg.com/apusers/signup) in order to use the plugin.</strong>
+
+= AdPlugg Service Features =
+The FREE AdPlugg Ad Service includes the following amazing features:
+
+* Ad Rotating - Rotate which ads are didplayed or the relative positioning of multiple ads.
+* Ad Scheduling - Set the start and stop dates for an individual ad or group of ads.
+* Ad Tracking - Track ad impressions and ad clicks.
+* Analytics - View daily, monthly or yearly graphs of your impressions and clicks.
+* Zones - Break your site up into different zones such as the top bar or side bar.
+* Placements - Group your ads into placements to simplify management and tracking.
+* Easy Setup - Easily create and setup your ads.
+
 
 == Installation ==
 
@@ -32,6 +44,9 @@ PS: You'll need a free [adplugg.com Access Code](https://www.adplugg.com/apusers
 5. Optionally add the Zone machine name into the widget. This will make it so that the AdPlugg server only loads ads designated for the zone into the widget.
 
 == Changelog ==
+
+= 1.1.12 =
+* Updated the description and feature listing in the readme.txt file
 
 = 1.1.11 =
 * Access Code validation now allows null values.
