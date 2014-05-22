@@ -5,7 +5,7 @@ License URI: http://www.gnu.org/licenses/gpl.html
 Tags: advertising, ad manager, ads, ad, ad management, ad rotator, widget, banner management, ad server, images, image, sidebar, plugin, post
 Requires at least: 3.3
 Tested up to: 3.9
-Stable tag: 1.1.12
+Stable tag: 1.1.13
 
 The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to display
 ads on your WordPress site.
@@ -45,8 +45,11 @@ The FREE AdPlugg Ad Service includes the following amazing features:
 
 == Changelog ==
 
+= 1.1.13 =
+* Fixed null options bug.
+
 = 1.1.12 =
-* Updated the description and feature listing in the readme.txt file
+* Updated the description and feature listing in the readme.txt file.
 
 = 1.1.11 =
 * Access Code validation now allows null values.

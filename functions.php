@@ -12,7 +12,8 @@
  */
 function adplugg_is_access_code_installed() {
     $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
-    if($options['access_code']) {
+    
+    if(array_key_exists('access_code', $options)) {
         return true;
     } else {
         return false;

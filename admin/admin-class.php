@@ -36,8 +36,8 @@ class AdPlugg_Admin {
      * Init the adplugg admin
      */
     function adplugg_admin_init() {
-        $options = get_option(ADPLUGG_OPTIONS_NAME);
-        $data_version = $options['version'];
+        $options = get_option(ADPLUGG_OPTIONS_NAME, array());
+        $data_version = (array_key_exists('version', $options)) ? $options['version'] : null;
         if($data_version != ADPLUGG_VERSION) {
             $options['version'] = ADPLUGG_VERSION;
             update_option(ADPLUGG_OPTIONS_NAME, $options);

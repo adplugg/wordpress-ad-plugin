@@ -10,7 +10,7 @@
  */
 function adplugg_add_api() {
     $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
-    if($options['access_code']) {
+    if(array_key_exists('access_code', $options)) {
  ?>
 <script>
     (function(ac) {

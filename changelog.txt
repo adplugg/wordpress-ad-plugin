@@ -1,6 +1,10 @@
+= 1.1.13 =
+
+* Fixed null options bug.
+
 = 1.1.12 =
 
-* Updated the description and feature listing in the readme.txt file
+* Updated the description and feature listing in the readme.txt file.
 
 = 1.1.11 =
 
