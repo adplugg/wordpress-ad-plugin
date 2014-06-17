@@ -48,6 +48,10 @@ class AdPlugg_Admin {
                 update_option('adplugg_notices', $notices);
             }
         }
+        
+        //Add the AdPlugg admin stylesheet to the WP admin head
+        wp_register_style('adPluggAdminStylesheet', plugins_url('css/admin.css', __FILE__) );
+        wp_enqueue_style('adPluggAdminStylesheet');
     }
 
     /**

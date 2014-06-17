@@ -32,14 +32,14 @@ class AdPlugg_Widget extends WP_Widget {
 	}
         
         echo '<p>
-                  <a href="http://www.adplugg.com" target="_blank">Configure at adplugg.com</a>
+                  <a href="http://www.adplugg.com" target="_blank" title="Configure at adplugg.com">Configure at adplugg.com</a>
               </p>
-              <h4>Optional Settings</h4>
-              <p>
+              <fieldset class="adplugg-fieldset">
+                  <legend>Optional Settings</legend>
                   <label for="' . $this->get_field_id('zone') .'">Zone:</label>
                   <input class="widefat" id="' . $this->get_field_id('zone') . '" name="' . $this->get_field_name('zone') . '" type="text" value="' . $zone . '" />
                   <small>Enter the zone machine name.</small>
-              </p>';
+              </fieldset>';
     }
 
     /**
