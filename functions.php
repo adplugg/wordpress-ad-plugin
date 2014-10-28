@@ -21,6 +21,23 @@ function adplugg_is_access_code_installed() {
 }
 
 /**
+ * Function that gets the active access_code
+ * @return string Returns the active access code.
+ */
+function adplugg_get_active_access_code() {
+    $access_code = null;
+    $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
+    if(array_key_exists('access_code', $options)) {
+        $access_code = $options['access_code'];
+    }
+    if(defined('ADPLUGG_OVERRIDE_ACCESS_CODE')) {
+        $access_code = ADPLUGG_OVERRIDE_ACCESS_CODE;
+    }
+    
+    return $access_code;
+}
+
+/**
  * Function that looks to see if the AdPlugg Widget has been activated.
  * @return boolean Returns true if the widget is activated, otherwise
  * returns false.

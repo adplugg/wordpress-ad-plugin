@@ -9,8 +9,10 @@
  * Function that adds the AdPlugg api to the DOM.
  */
 function adplugg_add_api() {
-    $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
-    if(array_key_exists('access_code', $options)) {
+    $access_code = adplugg_get_active_access_code();
+    
+    //Load the api (if there is an access_code)
+    if(!empty($access_code)) {
  ?>
 <script>
     (function(ac) {
@@ -20,8 +22,15 @@ function adplugg_add_api() {
       js = d.createElement(s); js.id = id;
       js.src = '//<?php echo ADPLUGG_ADSERVER; ?>/serve/' + ac + '/js/1.1/ad.js';
       fjs.parentNode.insertBefore(js, fjs);
-    }('<?php echo $options['access_code']; ?>'));
+    }('<?php echo $access_code; ?>'));
 </script>
 <?php
-    } //end if
+        //Optionally load the QUnit tests.
+        if( (defined('ADPLUGG_LOAD_QUNIT')) && (ADPLUGG_LOAD_QUNIT == true) ) {
+            require_once(ADPLUGG_PATH . 'tests/qunit.php');
+            load_qunit();
+        }
+        
+    } //end if access_code
+    
 } //end adplugg_add_api

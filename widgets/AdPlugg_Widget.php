@@ -22,6 +22,7 @@ class AdPlugg_Widget extends WP_Widget {
 
     /**
      * Widget form creation
+     * @param array $instance Current settings
      */
     function form($instance) {
         // Check values
@@ -34,7 +35,7 @@ class AdPlugg_Widget extends WP_Widget {
         echo '<p>
                   <a href="http://www.adplugg.com" target="_blank" title="Configure at adplugg.com">Configure at adplugg.com</a>
               </p>
-              <fieldset class="adplugg-fieldset">
+              <fieldset class="adplugg-widget-fieldset">
                   <legend>Optional Settings</legend>
                   <label for="' . $this->get_field_id('zone') .'">Zone:</label>
                   <input class="widefat" id="' . $this->get_field_id('zone') . '" name="' . $this->get_field_name('zone') . '" type="text" value="' . $zone . '" />
