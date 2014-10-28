@@ -1,3 +1,7 @@
+= 1.1.16 =
+
+* Added unit and functional testing.
+
 = 1.1.15 =
 
 * Updated the readme.txt file to reflect that WP 4.0 is fully tested and working.
@@ -17,7 +21,6 @@
 = 1.1.11 =
 
 * Access Code validation now allows null values.
-
 
 = 1.1.10 =
 
