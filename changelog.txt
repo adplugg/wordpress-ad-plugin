@@ -1,5 +1,9 @@
 = 1.1.17 =
 
+* Fixed broken link to widgets from the options page.
+
+= 1.1.17 =
+
 * Added support for widget titles.
 
 = 1.1.16 =
