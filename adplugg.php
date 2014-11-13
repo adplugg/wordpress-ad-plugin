@@ -41,7 +41,7 @@ if(file_exists(ADPLUGG_PATH . 'config.php')) {
 }
 
 if(!defined('ADPLUGG_ADSERVER')) { define('ADPLUGG_ADSERVER', 'www.adplugg.com/apusers'); }
-if(!defined('ADPLUGG_VERSION')) { define('ADPLUGG_VERSION', '1.1.18'); }
+if(!defined('ADPLUGG_VERSION')) { define('ADPLUGG_VERSION', '1.1.19'); }
 
 define('ADPLUGG_OPTIONS_NAME', 'adplugg_options');
 define('ADPLUGG_NOTICES_NAME', 'adplugg_notices');
@@ -59,12 +59,12 @@ if(is_admin()) {
     //---- ADMIN ----//
     //includes
     require_once(ADPLUGG_PATH . 'admin/admin-class.php');
-    require_once(ADPLUGG_PATH . 'admin/pages/class-options-page.php' );
-    require_once(ADPLUGG_PATH . 'admin/help/options-page-help.php' );
+    require_once(ADPLUGG_PATH . 'admin/pages/class-options-page.php');
+    require_once(ADPLUGG_PATH . 'admin/help/options-page-help.php');
     
     //Plugin setup and registrations
     $adplugg_admin = new AdPlugg_Admin();
-    register_activation_hook(__FILE__, array('AdPlugg_Admin', 'adplugg_activation' ) );
+    register_activation_hook(__FILE__, array('AdPlugg_Admin', 'adplugg_activation'));
     register_deactivation_hook(__FILE__, array('AdPlugg_Admin', 'adplugg_deactivation'));
     register_uninstall_hook(__FILE__, array('AdPlugg_Admin', 'adplugg_uninstall'));
     

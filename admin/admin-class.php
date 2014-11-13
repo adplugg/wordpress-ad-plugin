@@ -61,9 +61,8 @@ class AdPlugg_Admin {
      */
     function adplugg_admin_notices() {
         $stored_notices = get_option(ADPLUGG_NOTICES_NAME);
-        $page = (isset($_GET["page"])) ? $_GET["page"] : "";
-        //$script = end((explode('/', $_SERVER['REQUEST_URI'])));
-        $script = end(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
+        $screen = get_current_screen();
+        $screen_id = (!empty($screen) ? $screen->id : null);
         $notices = array();
         
         //stored notices
@@ -75,12 +74,12 @@ class AdPlugg_Admin {
         }
         
         if(!adplugg_is_access_code_installed()) {
-            if($page != "adplugg") {
+            if($screen_id != "settings_page_adplugg") {
                 $notices[]= 'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a href="options-general.php?page=adplugg">configure</a> it!';
             }
         } else {
             if(!adplugg_is_widget_active()) {
-                if($script == "widgets.php") {
+                if($screen_id == "widgets") {
                     $notices[]= 'Drag the AdPlugg Widget into a Widget Area to display ads on your site.';
                 } else {
                     $notices[]= 'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area. Go to <a href="' . admin_url('widgets.php') . '">Widget Configuration</a>.';
@@ -97,21 +96,21 @@ class AdPlugg_Admin {
     /**
      * Called when the plugin is activated.
      */
-    function adplugg_activation() {
+    static function adplugg_activation() {
         //
     }
 
     /**
      * Called when the plugin is deactivated.
      */
-    function adplugg_deactivation() {
+    static function adplugg_deactivation() {
         //
     }
     
     /**
      * Function called when AdPlugg is uninstalled
      */
-    function adplugg_uninstall() {
+    static function adplugg_uninstall() {
         delete_option(ADPLUGG_OPTIONS_NAME);
         delete_option(ADPLUGG_NOTICES_NAME);
         delete_option(ADPLUGG_WIDGET_OPTIONS_NAME);
