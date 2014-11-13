@@ -13,7 +13,7 @@
 function adplugg_is_access_code_installed() {
     $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
     
-    if(array_key_exists('access_code', $options)) {
+    if(!empty($options['access_code'])) {
         return true;
     } else {
         return false;
@@ -27,7 +27,7 @@ function adplugg_is_access_code_installed() {
 function adplugg_get_active_access_code() {
     $access_code = null;
     $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
-    if(array_key_exists('access_code', $options)) {
+    if(!empty($options['access_code'])) {
         $access_code = $options['access_code'];
     }
     if(defined('ADPLUGG_OVERRIDE_ACCESS_CODE')) {
