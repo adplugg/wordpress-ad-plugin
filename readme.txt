@@ -34,7 +34,6 @@ The FREE AdPlugg Ad Service includes the following amazing features:
 * Placements - Group your ads into placements to simplify management and tracking.
 * Easy Setup - Easily create and setup your ads.
 
-
 == Installation ==
 
 1. Upload the AdPlugg WordPress Ad Plugin to your blog.
@@ -42,6 +41,10 @@ The FREE AdPlugg Ad Service includes the following amazing features:
 3. Enter your [adplugg.com Acccess Code](https://www.adplugg.com/apusers/signup).
 4. Drag the AdPlugg Ad Widget to the Widget Area where you want your ads to display.
 5. Optionally add the Zone machine name into the widget. This will make it so that the AdPlugg server only loads ads designated for the zone into the widget.
+
+== Frequently Asked Questions ==
+
+Visit the [AdPlugg Question/Answer system at AdPlugg.com] (http://www.adplugg.com/support/question-answer).
 
 == Changelog ==
 
