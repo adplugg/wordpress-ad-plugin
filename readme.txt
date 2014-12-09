@@ -44,7 +44,7 @@ The FREE AdPlugg Ad Service includes the following amazing features:
 
 == Frequently Asked Questions ==
 
-For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.com] (http://www.adplugg.com/support/question-answer).
+For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.com](http://www.adplugg.com/support/question-answer).
 
 == Changelog ==
 
