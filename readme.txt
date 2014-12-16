@@ -46,6 +46,10 @@ The FREE AdPlugg Ad Service includes the following amazing features:
 
 For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.com](http://www.adplugg.com/support/question-answer).
 
+== Screenshots ==
+
+1. The AdPlugg WordPress Ad Plugin makes it easy to place ads on your WordPress site.
+
 == Changelog ==
 
 = 1.1.24 =
