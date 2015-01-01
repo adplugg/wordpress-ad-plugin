@@ -1,5 +1,9 @@
 = 1.1.27 =
 
+* Added Works with Free and Pro Versions to readme.txt
+
+= 1.1.26 =
+
 * Updated the readme.txt file to reflect that WP 4.1 is fully tested and working.
 
 = 1.1.25 =
