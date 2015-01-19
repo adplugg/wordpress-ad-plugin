@@ -13,17 +13,13 @@ class OptionsPageHelpTest extends WP_UnitTestCase {
     
     /**
      * Test the adplugg_options_page_help function.
-     */    
+     */
     public function test_adplugg_options_page_help() {
         //set up the variables
         $contextual_help = "";
-        global $adplugg_hook;
         $adplugg_hook = 'mock-hook';
         $screen_id = $adplugg_hook;
         $screen = WP_Screen::get($adplugg_hook);
-        
-        //Assert that the AdPlugg help is not in the screen.
-        $this->assertNotContains('AdPlugg Plugin Help', serialize($screen));
         
         //run the function
         adplugg_options_page_help($contextual_help, $screen_id, $screen);
