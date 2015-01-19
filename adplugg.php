@@ -60,7 +60,7 @@ if(is_admin()) {
     //includes
     require_once(ADPLUGG_PATH . 'admin/admin-class.php');
     require_once(ADPLUGG_PATH . 'admin/pages/class-options-page.php');
-    require_once(ADPLUGG_PATH . 'admin/help/options-page-help.php');
+    require_once(ADPLUGG_PATH . 'admin/help/help-dispatch.php');
     
     //Plugin setup and registrations
     $adplugg_admin = new AdPlugg_Admin();
@@ -70,7 +70,7 @@ if(is_admin()) {
     
     //set up the options page 
     $adplugg_options_page = new AdPlugg_Options_Page();
-    add_filter('contextual_help', 'adplugg_options_page_help', 10, 3);
+    add_filter('contextual_help', 'adplugg_help_dispatch', 10, 3);
 
 } else {
     //---- FRONT END ----//
