@@ -34,6 +34,8 @@ class AdPlugg_Widget extends WP_Widget {
         //Render the form
         echo '<p>
                   <a href="http://www.adplugg.com" target="_blank" title="Configure at adplugg.com">Configure at adplugg.com</a>
+                  |
+                  <a href="#" onclick="jQuery(\'a#contextual-help-link\').trigger(\'click\'); return false;" title="Help">Help</a>
               </p>
               <fieldset class="adplugg-widget-fieldset">
                   <legend>Optional Settings</legend>
