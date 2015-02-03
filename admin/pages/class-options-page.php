@@ -36,9 +36,9 @@ class AdPlugg_Options_Page {
             <?php if(adplugg_is_access_code_installed()) { ?>
                 <br/>
                 <ul>
-                    <li>Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank">adplugg.com</a>.</li>
-                    <li>Place the AdPlugg Widget on my site from the <a href="<?php echo admin_url( 'widgets.php' )?>">WordPress Widgets Configuration Page</a>.</li>
-                    <li>Get <a href="#" onclick="jQuery('a#contextual-help-link').trigger('click');">help</a> using this plugin.</li>
+                    <li>Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank" title="Manage my ads at adplugg.com">adplugg.com</a>.</li>
+                    <li>Place the AdPlugg Widget on my site from the <a href="<?php echo admin_url( 'widgets.php' )?>" title="Go to the Widgets Configuration Page.">WordPress Widgets Configuration Page</a>.</li>
+                    <li>Get <a href="#" onclick="jQuery('a#contextual-help-link').trigger('click');" title="Get help using this plugin.">help</a> using this plugin.</li>
                 </ul>
             <?php } //end if ?>
         </div>
@@ -61,7 +61,7 @@ class AdPlugg_Options_Page {
         <p>
             To use AdPlugg, you will need an AdPlugg Access Code.  To get
             your AdPlugg Access Code, log in or register (it's free) at 
-            <a href="http://www.adplugg.com" target="_blank">adplugg.com</a>.
+            <a href="http://www.adplugg.com" target="_blank" title="adplugg.com">adplugg.com</a>.
         </p>
     <?php
     }
@@ -77,7 +77,7 @@ class AdPlugg_Options_Page {
         <p class="description">
             You must enter a valid AdPlugg Access Code here. If you need an
             Access Code, you can create one
-            <a href="https://www.adplugg.com/apusers/signup" target="_blank">here</a>.
+            <a href="https://www.adplugg.com/apusers/signup" target="_blank" title="AdPlugg Signup">here</a>.
         </p>
     <?php
     }
