@@ -1,3 +1,8 @@
+= 1.1.34 =
+
+* Fixed a bug with the access code validation function.
+* Improved the validation functions.
+
 = 1.1.33 =
 
 * Simplified the widget constructor.
