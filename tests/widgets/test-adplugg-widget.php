@@ -62,6 +62,36 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
     }
     
     /**
+     * Test the update function's validation.
+     */
+    public function test_update_validation() {
+        $old_title = 'old_title';
+        $new_title = '"><script>alert(document.cookie)</script>';
+        $old_zone = 'old_zone';
+        $new_zone = '"><script>alert(document.cookie)</script>';
+        $adplugg_widget = new AdPlugg_Widget();
+        
+        $old_instance = array();
+        $old_instance['title'] = $old_title;
+        $old_instance['zone'] = $old_zone;
+        
+        $new_instance = array();
+        $new_instance['title'] = $new_title;
+        $new_instance['zone'] = $new_zone;
+        
+        //Run the function.
+        $ret_instance = $adplugg_widget->update($new_instance, $old_instance);
+        
+        //Assert that the ret_instance title does not include illegal characters
+        $illegals_regex = "/[\<\>]+/";
+        echo $ret_instance['zone'];
+        $this->assertEquals(0, preg_match($illegals_regex, $ret_instance['title']));
+        
+        //Assert that the ret_instance zone does not include illegal characters
+        $this->assertEquals(0, preg_match($illegals_regex, $ret_instance['zone']));
+    }
+    
+    /**
      * Test the widget function.
      */    
     public function test_widget() {
