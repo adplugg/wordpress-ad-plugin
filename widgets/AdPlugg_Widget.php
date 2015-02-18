@@ -53,8 +53,9 @@ class AdPlugg_Widget extends WP_Widget {
      */
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
-        $instance['title'] = strip_tags($new_instance['title']);
-        $instance['zone'] = strip_tags($new_instance['zone']);
+        $instance['title'] = wp_kses($new_instance['title'], array());
+        $instance['zone'] = wp_kses($new_instance['zone'], array());
+        
         
         return $instance;
     }
