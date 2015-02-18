@@ -123,6 +123,7 @@ class AdPlugg_Options_Page {
         if(!preg_match('/^[a-z0-9]*$/i', $new_options['access_code'])) {
             $msg_type = 'error';
             $msg_message = 'Please enter a valid Access Code.';
+            $new_options['access_code'] = '';
         } else {
             $msg_type = 'updated';
             $msg_message = 'Settings saved.';
