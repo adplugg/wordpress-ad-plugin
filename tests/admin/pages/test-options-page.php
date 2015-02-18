@@ -105,7 +105,37 @@ class OptionsPageTest extends WP_UnitTestCase {
         $settings_errors = get_settings_errors();
         
         //Assert that an error was thrown
-        $this->assertEquals("error", $settings_errors[0]["type"]);  
+        $this->assertEquals("error", $settings_errors[0]["type"]);
+        
+        //Assert that the settings were not stored.
+        $this->assertTrue(empty($new_options['access_code']));
+    }
+    
+    /**
+     * Test that the adplugg_options_validate function returns an error
+     * when the input contains html and javascript.
+     */
+    public function test_adplugg_options_validate_attack() {
+        //Clear out any previous settings errors.
+        global $wp_settings_errors;
+        $wp_settings_errors = null;
+        
+        $adplugg_options_page = new AdPlugg_Options_Page();
+        
+        $input = array();
+        $input['access_code'] = '"><script>alert(document.cookie)</script>';
+        
+        //Run the function.
+        $new_options = $adplugg_options_page->adplugg_options_validate($input);
+        
+        //Get the messages
+        $settings_errors = get_settings_errors();
+        
+        //Assert that an error was thrown
+        $this->assertEquals("error", $settings_errors[0]["type"]);
+        
+        //Assert that the settings were not stored.
+        $this->assertTrue(empty($new_options['access_code']));
     }
     
     /**
@@ -135,8 +165,10 @@ class OptionsPageTest extends WP_UnitTestCase {
         }
         
         //Assert that the settings were saved.
-        $this->assertEquals("updated", $settings_errors[0]["type"]);  
+        $this->assertEquals("updated", $settings_errors[0]["type"]);
+        
+        //Assert that the settings were stored.
+        $this->assertFalse(empty($new_options['access_code']));
     }
-    
 }
 
