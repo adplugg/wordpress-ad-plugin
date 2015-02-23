@@ -53,6 +53,9 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 
 == Changelog ==
 
+= 1.1.35 =
+* Updated the readme.txt file to reflect that WP 4.1.1 is fully tested and working.
+
 = 1.1.34 =
 * Fixed a bug with the access code validation function.
 * Improved the validation functions.
