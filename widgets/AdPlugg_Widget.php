@@ -26,7 +26,7 @@ class AdPlugg_Widget extends WP_Widget {
      */
     function form($instance) {
         // Check values
-	      $title = (($instance) && (isset($instance['title']))) 
+	$title = (($instance) && (isset($instance['title']))) 
                     ? $instance['title'] : '';
         $zone = (($instance) && (isset($instance['zone']))) 
                     ? $instance['zone'] : '';
