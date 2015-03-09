@@ -62,7 +62,7 @@ class ApiTest extends WP_UnitTestCase {
         //Set the ADPLUGG_LOAD_QUNIT constant
         if(!defined('ADPLUGG_LOAD_QUNIT')) { define('ADPLUGG_LOAD_QUNIT', true); }
         
-        //Set the access_code
+        //Set the access_code (API won't render without it)
         $options = get_option(ADPLUGG_OPTIONS_NAME, array());
         $options['access_code'] = 'A0000';
         update_option(ADPLUGG_OPTIONS_NAME, $options);
