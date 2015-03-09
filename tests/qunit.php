@@ -5,6 +5,10 @@
  * @since 1.1.16
  */
 
+/**
+ * Loads QUnit and the tests for the passed test suite.
+ * @param string $test_suite The test suite that you want to load.
+ */
 function load_qunit($test_suite) {
     ?>
         <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.15.0.css">
