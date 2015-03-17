@@ -43,25 +43,6 @@ class OptionsPageTest extends WP_UnitTestCase {
     }
     
     /**
-     * Test that the adplugg_options_render_page function outputs the qunit
-     * interface when ADPLUGG_LOAD_QUNIT is set to TRUE.
-     */    
-    public function test_adplugg_options_render_page_outputs_qunit() {
-        //Set the ADPLUGG_LOAD_QUNIT constant
-        if(!defined('ADPLUGG_LOAD_QUNIT')) { define('ADPLUGG_LOAD_QUNIT', true); }
-        
-        $adplugg_options_page = new AdPlugg_Options_Page();
-        
-        //Assert that the QUnit interface is output.
-        ob_start();
-        $adplugg_options_page->adplugg_options_render_page();
-        $outbound = ob_get_contents();
-        ob_end_clean();
-        
-        $this->assertContains('qunit', $outbound);
-    }
-    
-    /**
      * Test the adplugg_add_options_page_to_menu function.
      */    
     public function test_adplugg_add_options_page_to_menu() {

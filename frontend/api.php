@@ -28,7 +28,7 @@ function adplugg_add_api() {
         //Optionally load the QUnit tests.
         if( (defined('ADPLUGG_LOAD_QUNIT')) && (ADPLUGG_LOAD_QUNIT == true) ) {
             require_once(ADPLUGG_PATH . 'tests/qunit.php');
-            load_qunit('frontend-api');
+            adplugg_load_qunit('frontend-api');
         }
         
     } //end if access_code

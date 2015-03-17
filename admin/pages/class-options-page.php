@@ -41,13 +41,6 @@ class AdPlugg_Options_Page {
                     <li>Get <a href="#" onclick="jQuery('a#contextual-help-link').trigger('click'); return false;" title="Get help using this plugin.">help</a> using this plugin.</li>
                 </ul>
             <?php } //end if ?>
-            <?php
-                //Optionally load the QUnit tests.
-                if( (defined('ADPLUGG_LOAD_QUNIT')) && (ADPLUGG_LOAD_QUNIT == true) ) {
-                    require_once(ADPLUGG_PATH . 'tests/qunit.php');
-                    load_qunit('admin-options-page');
-                }
-            ?>
         </div>
     <?php
     }

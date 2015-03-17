@@ -47,13 +47,13 @@ define('ADPLUGG_OPTIONS_NAME', 'adplugg_options');
 define('ADPLUGG_NOTICES_NAME', 'adplugg_notices');
 define('ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg');
 
+//includes
+require_once(ADPLUGG_PATH . 'functions.php');
+require_once(ADPLUGG_PATH . 'tests/qunit.php');
+require_once(ADPLUGG_PATH . 'widgets/AdPlugg_Widget.php');
 
 // Register the AdPlugg Widget
-require_once(ADPLUGG_PATH . 'widgets/AdPlugg_Widget.php');
 add_action('widgets_init', create_function('', 'return register_widget("AdPlugg_Widget");'));
-
-//include the adplugg functions
-require_once(ADPLUGG_PATH . 'functions.php');
 
 if(is_admin()) {
     //---- ADMIN ----//
@@ -71,6 +71,11 @@ if(is_admin()) {
     //set up the options page 
     $adplugg_options_page = new AdPlugg_Options_Page();
     add_filter('contextual_help', 'adplugg_help_dispatch', 10, 3);
+    
+    //load qunit
+    if( (defined('ADPLUGG_LOAD_QUNIT')) && (ADPLUGG_LOAD_QUNIT == true) ) {
+        add_action('admin_footer', 'adplugg_load_qunit');
+    }
 
 } else {
     //---- FRONT END ----//
