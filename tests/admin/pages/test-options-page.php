@@ -46,7 +46,17 @@ class OptionsPageTest extends WP_UnitTestCase {
      * Test the adplugg_add_options_page_to_menu function.
      */    
     public function test_adplugg_add_options_page_to_menu() {
-        //TODO
+        wp_set_current_user($this->factory->user->create(array( 'role' => 'administrator')));
+        
+        //Assert that the menu page doesn't yet exist
+        $this->assertEquals("", menu_page_url('adplugg', false));
+        
+        $adplugg_options_page = new AdPlugg_Options_Page();
+        $adplugg_options_page->adplugg_add_options_page_to_menu();
+        
+        //Assert that the menu page was added
+        $expected = 'http://example.org/wp-admin/options-general.php?page=adplugg';
+        $this->assertEquals($expected, menu_page_url('adplugg', false));
     }
     
     /**
