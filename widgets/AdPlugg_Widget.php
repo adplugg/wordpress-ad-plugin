@@ -53,7 +53,7 @@ class AdPlugg_Widget extends WP_Widget {
      */
     function update($new_instance, $old_instance) {
         $instance = $old_instance;
-        $instance['title'] = sanitize_title($new_instance['title']);
+        $instance['title'] = sanitize_text_field($new_instance['title']);
         $instance['zone'] = sanitize_key($new_instance['zone']);
         
         return $instance;

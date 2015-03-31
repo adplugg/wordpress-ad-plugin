@@ -62,9 +62,37 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
     }
     
     /**
-     * Test the update function's validation.
+     * Test the update function's validation strips illegal and malicious data.
      */
-    public function test_update_validation() {
+    public function test_update_validation_passes_when_valid() {
+        $old_title = 'old_title';
+        $new_title = 'Our Sponsors';
+        $old_zone = 'old_zone';
+        $new_zone = 'new_zone';
+        $adplugg_widget = new AdPlugg_Widget();
+        
+        $old_instance = array();
+        $old_instance['title'] = $old_title;
+        $old_instance['zone'] = $old_zone;
+        
+        $new_instance = array();
+        $new_instance['title'] = $new_title;
+        $new_instance['zone'] = $new_zone;
+        
+        //Run the function.
+        $ret_instance = $adplugg_widget->update($new_instance, $old_instance);
+        
+        //Assert that the validation passed and the title was set as expected
+        $this->assertEquals($new_title, $ret_instance['title']);
+        
+        //Assert that the validation passed and the zone was set as expected
+        $this->assertEquals($new_zone, $ret_instance['zone']);
+    }
+    
+    /**
+     * Test the update function's validation strips illegal and malicious data.
+     */
+    public function test_update_validation_strips_illegals() {
         $old_title = 'old_title';
         $new_title = '"><script>alert(document.cookie)</script>';
         $old_zone = 'old_zone';
@@ -82,13 +110,14 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
         //Run the function.
         $ret_instance = $adplugg_widget->update($new_instance, $old_instance);
         
-        //Assert that the ret_instance title does not include illegal characters
-        $illegals_regex = "/[\<\>]+/";
+        //Assert that the malicious code was removed
+        $illegal_regex = "/\<script\>/";
+        //echo $ret_instance['title'];
         //echo $ret_instance['zone'];
-        $this->assertEquals(0, preg_match($illegals_regex, $ret_instance['title']));
+        $this->assertEquals(0, preg_match($illegal_regex, $ret_instance['title']));
         
         //Assert that the ret_instance zone does not include illegal characters
-        $this->assertEquals(0, preg_match($illegals_regex, $ret_instance['zone']));
+        $this->assertEquals(0, preg_match($illegal_regex, $ret_instance['zone']));
     }
     
     /**
