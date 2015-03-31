@@ -84,7 +84,7 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
         
         //Assert that the ret_instance title does not include illegal characters
         $illegals_regex = "/[\<\>]+/";
-        echo $ret_instance['zone'];
+        //echo $ret_instance['zone'];
         $this->assertEquals(0, preg_match($illegals_regex, $ret_instance['title']));
         
         //Assert that the ret_instance zone does not include illegal characters
