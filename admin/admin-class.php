@@ -45,7 +45,7 @@ class AdPlugg_Admin {
                 //do any necessary version data upgrades here
                 $notices = get_option(ADPLUGG_NOTICES_NAME);
                 $notices[] = "Upgraded version from $data_version to " . ADPLUGG_VERSION . ".";
-                update_option('adplugg_notices', $notices);
+                update_option(ADPLUGG_NOTICES_NAME, $notices);
             }
         }
         
