@@ -1,3 +1,8 @@
+= 1.1.42 =
+
+* Changed notices option reference to use constant.
+* Updated the readme.txt file.
+
 = 1.1.41 =
 
 * Fixed widget title sanitization bug.
