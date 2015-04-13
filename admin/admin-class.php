@@ -18,7 +18,6 @@ class AdPlugg_Admin {
         add_filter("plugin_action_links_" . ADPLUGG_BASENAME, array(&$this, 'adplugg_settings_link'));
         
         add_action('admin_init', array(&$this, 'adplugg_admin_init'));
-        add_action('admin_notices', array(&$this, 'adplugg_admin_notices'));
     }
     
     /**
@@ -51,54 +50,10 @@ class AdPlugg_Admin {
         //Add the AdPlugg admin stylesheet to the WP admin head
         wp_register_style('adPluggAdminStylesheet', plugins_url('../css/admin.css', __FILE__) );
         wp_enqueue_style('adPluggAdminStylesheet');
-    }
-
-    /**
-     * Add Notices in the administrator. Notices may be stored in the 
-     * adplugg_options. Once the notices have been displayed, delete them from
-     * the database.
-     */
-    function adplugg_admin_notices() {
         
-        $screen = get_current_screen();
-        $screen_id = (!empty($screen) ? $screen->id : null);
-        
-        // Start the notices array off with any that are queued.
-        $notices = adplugg_notice_pull_all_queued();
-        
-        // Add any new notices based on the current state of the plugin, etc.
-        if(!adplugg_is_access_code_installed()) {
-            if($screen_id != "settings_page_adplugg") {
-                
-                $notices[]= AdPlugg_Notice::create('nag_configure', 'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a href="options-general.php?page=adplugg">configure</a> it!');
-            }
-        } else {
-            if(!adplugg_is_widget_active()) {
-                if($screen_id == "widgets") {
-                    $notices[]= AdPlugg_Notice::create('nag_widget_1', 'Drag the AdPlugg Widget into a Widget Area to display ads on your site.', 'updated', true);
-                } else {
-                    $notices[]= AdPlugg_Notice::create('nag_widget_2', 'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area. Go to <a href="' . admin_url('widgets.php') . '">Widget Configuration</a>.', 'updated', true);
-                }
-            }
-        }
-        
-        //print the notices
-        $out = '';
-        foreach($notices as $notice) {
-            $out .= '<div class="' . $notice->get_type() . ' adplugg-notice">';
-            $out .=     '<p>' .
-                            '<strong>AdPlugg:</strong> ' .
-                            $notice->get_message() . 
-                        '</p>';
-            if($notice->is_dismissible()) {
-                $out .= '<p>' .
-                            '<button type="button">Remind Me Later</button>' .
-                            '<button type="button">Don\'t Remind Me Again</button>' .
-                        '</p>';
-            }
-            $out .= '</div>';
-        }
-        echo $out;
+        //Add the AdPlugg admin JavaScript page to the WP admin head
+        wp_register_script('adPluggAdminJavaScriptPage', plugins_url('../js/admin.js', __FILE__) );
+        wp_enqueue_script('adPluggAdminJavaScriptPage');
     }
     
     /**
@@ -116,11 +71,12 @@ class AdPlugg_Admin {
     }
     
     /**
-     * Function called when AdPlugg is uninstalled
+     * Called when plugin is uninstalled.
      */
     static function adplugg_uninstall() {
         delete_option(ADPLUGG_OPTIONS_NAME);
         delete_option(ADPLUGG_NOTICES_NAME);
+        delete_option(ADPLUGG_NOTICES_DISMISSED_NAME);
         delete_option(ADPLUGG_WIDGET_OPTIONS_NAME);
     }
 

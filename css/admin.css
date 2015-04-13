@@ -1,3 +1,9 @@
+/**
+ * Style for AdPlugg in the administrator.
+ * @package AdPlugg
+ * @since 1.1
+ */
+
 fieldset.adplugg-widget-fieldset {
     padding: 4px 6px 6px 6px;
     border: solid 1px #e5e5e5;
@@ -21,4 +27,5 @@ fieldset.adplugg-widget-fieldset legend {
 .adplugg-notice button:hover {
     background-color: #e0e0e0;
     color: #555;
+    cursor: pointer;
 }

@@ -43,8 +43,11 @@ if(file_exists(ADPLUGG_PATH . 'config.php')) {
 if(!defined('ADPLUGG_ADSERVER')) { define('ADPLUGG_ADSERVER', 'www.adplugg.com/apusers'); }
 if(!defined('ADPLUGG_VERSION')) { define('ADPLUGG_VERSION', '1.1.42'); }
 
+//Persisted options
 define('ADPLUGG_OPTIONS_NAME', 'adplugg_options');
 define('ADPLUGG_NOTICES_NAME', 'adplugg_notices');
+define('ADPLUGG_NOTICES_DISMISSED_NAME', 'adplugg_notices_dismissed');
+
 define('ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg');
 
 //includes
@@ -58,10 +61,16 @@ add_action('widgets_init', create_function('', 'return register_widget("AdPlugg_
 if(is_admin()) {
     //---- ADMIN ----//
     //includes
+    require_once(ADPLUGG_PATH . 'admin/notices/notice-class.php');
+    require_once(ADPLUGG_PATH . 'admin/notices/notice-controller-class.php');
     require_once(ADPLUGG_PATH . 'admin/notices/notices.php');
+    
     require_once(ADPLUGG_PATH . 'admin/admin-class.php');
     require_once(ADPLUGG_PATH . 'admin/pages/class-options-page.php');
     require_once(ADPLUGG_PATH . 'admin/help/help-dispatch.php');
+    
+    //Set up the notifications system.
+    $adplugg_notice_controller = new AdPlugg_Notice_Controller();
     
     //Plugin setup and registrations
     $adplugg_admin = new AdPlugg_Admin();

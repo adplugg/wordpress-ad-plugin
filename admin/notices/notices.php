@@ -4,8 +4,6 @@
  * @package AdPlugg
  * @since 1.2
  */
-
-require_once(ADPLUGG_PATH . 'admin/notices/notice-class.php');
     
 /**
  * Adds a notice to the database for display on the next refresh

@@ -2,7 +2,7 @@
 
 /**
  * AdPlugg Notice class.
- * The AdPlugg Notice class is used for working with adplugg notices.
+ * The AdPlugg Notice class represents an AdPlugg notice.
  * @package AdPlugg
  * @since 1.2
  */
@@ -33,6 +33,12 @@ class AdPlugg_Notice {
      */
     private $dismissible;
     
+    /* 
+     * A string (such as '+30 days') for use in php's strtotime function.
+     * @var $remind_when string
+     */
+    private $remind_when;
+    
     /**
      * Constructor.
      */
@@ -45,15 +51,20 @@ class AdPlugg_Notice {
      * AdPlug_Notice::create('nag_widget', 'some message', true/false );
      * @param string $notice_key The notice_key is a key such as "nag_widget".
      * @param string $message The message that you want to display to the user.
-     * @param boolean $dismissible Whether or not the message is dismissible.
-     * @param string $type The notice type ('error', 'updated', or 'update-nag').
+     * @param string $type (optional) The notice type ('error', 'updated', or 
+     * 'update-nag').
+     * @param boolean $dismissible (optional) Whether or not the message is
+     * dismissible.
+     * @param string $remind_when A string (such as '+30 days') for use in php's
+     * strtotime function.
      * @return \self Works like a constructor.
      */
     public static function create(
                                 $notice_key, 
                                 $message, 
                                 $type = 'updated', 
-                                $dismissible = false) 
+                                $dismissible = false,
+                                $remind_when = null) 
     {
         $instance = new self();
         
@@ -61,6 +72,7 @@ class AdPlugg_Notice {
         $instance->message = $message;
         $instance->type = $type;
         $instance->dismissible = $dismissible;
+        $instance->remond_when = $remind_when;
         
         return $instance;
     }
@@ -79,6 +91,7 @@ class AdPlugg_Notice {
         $instance->message = $array['message'];
         $instance->type = $array['type'];
         $instance->dismissible = $array['dismissible'];
+        $instance->remind_when = $array['remind_when'];
         
         return $instance;
     }
