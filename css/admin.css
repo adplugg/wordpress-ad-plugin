@@ -8,3 +8,17 @@ fieldset.adplugg-widget-fieldset legend {
     margin: 0;
     padding: 0;
 }
+.adplugg-notice button {
+    background-color: #fafafa;
+    color: #666;
+    border-radius: 2px;
+    margin-right: 8px;
+    padding: 2px 8px;
+    border: none;
+    box-shadow: none;
+    
+}
+.adplugg-notice button:hover {
+    background-color: #e0e0e0;
+    color: #555;
+}

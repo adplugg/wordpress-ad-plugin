@@ -1,6 +1,9 @@
 <?php
 
+require_once(ADPLUGG_PATH . 'admin/notices/notice-class.php');
+require_once(ADPLUGG_PATH . 'admin/notices/notices.php');
 require_once(ADPLUGG_PATH . 'admin/admin-class.php');
+
 
 /**
  * The AdminTest class includes tests for testing the AdPlugg_Admin class.

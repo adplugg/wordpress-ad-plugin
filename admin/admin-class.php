@@ -43,9 +43,8 @@ class AdPlugg_Admin {
             update_option(ADPLUGG_OPTIONS_NAME, $options);
             if(!is_null($data_version)) {  //skip if not an upgrade
                 //do any necessary version data upgrades here
-                $notices = get_option(ADPLUGG_NOTICES_NAME);
-                $notices[] = "Upgraded version from $data_version to " . ADPLUGG_VERSION . ".";
-                update_option(ADPLUGG_NOTICES_NAME, $notices);
+                $upgrade_notice = AdPlugg_Notice::create('notify_upgrade', "Upgraded version from $data_version to " . ADPLUGG_VERSION . ".");
+                adplugg_notice_add_to_queue($upgrade_notice);
             }
         }
         
@@ -60,37 +59,46 @@ class AdPlugg_Admin {
      * the database.
      */
     function adplugg_admin_notices() {
-        $stored_notices = get_option(ADPLUGG_NOTICES_NAME);
+        
         $screen = get_current_screen();
         $screen_id = (!empty($screen) ? $screen->id : null);
-        $notices = array();
         
-        //stored notices
-        if($stored_notices) {
-            foreach($stored_notices as $notice) {
-                $notices[] = $notice;
-            }
-            delete_option(ADPLUGG_NOTICES_NAME);
-        }
+        // Start the notices array off with any that are queued.
+        $notices = adplugg_notice_pull_all_queued();
         
+        // Add any new notices based on the current state of the plugin, etc.
         if(!adplugg_is_access_code_installed()) {
             if($screen_id != "settings_page_adplugg") {
-                $notices[]= 'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a href="options-general.php?page=adplugg">configure</a> it!';
+                
+                $notices[]= AdPlugg_Notice::create('nag_configure', 'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a href="options-general.php?page=adplugg">configure</a> it!');
             }
         } else {
             if(!adplugg_is_widget_active()) {
                 if($screen_id == "widgets") {
-                    $notices[]= 'Drag the AdPlugg Widget into a Widget Area to display ads on your site.';
+                    $notices[]= AdPlugg_Notice::create('nag_widget_1', 'Drag the AdPlugg Widget into a Widget Area to display ads on your site.', 'updated', true);
                 } else {
-                    $notices[]= 'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area. Go to <a href="' . admin_url('widgets.php') . '">Widget Configuration</a>.';
+                    $notices[]= AdPlugg_Notice::create('nag_widget_2', 'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area. Go to <a href="' . admin_url('widgets.php') . '">Widget Configuration</a>.', 'updated', true);
                 }
             }
         }
         
         //print the notices
+        $out = '';
         foreach($notices as $notice) {
-            echo '<div class="updated"><p><strong>AdPlugg:</strong> ' . $notice . '</p></div>';
+            $out .= '<div class="' . $notice->get_type() . ' adplugg-notice">';
+            $out .=     '<p>' .
+                            '<strong>AdPlugg:</strong> ' .
+                            $notice->get_message() . 
+                        '</p>';
+            if($notice->is_dismissible()) {
+                $out .= '<p>' .
+                            '<button type="button">Remind Me Later</button>' .
+                            '<button type="button">Don\'t Remind Me Again</button>' .
+                        '</p>';
+            }
+            $out .= '</div>';
         }
+        echo $out;
     }
     
     /**
