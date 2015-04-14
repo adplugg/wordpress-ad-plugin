@@ -63,7 +63,7 @@ if(is_admin()) {
     //includes
     require_once(ADPLUGG_PATH . 'admin/notices/notice-class.php');
     require_once(ADPLUGG_PATH . 'admin/notices/notice-controller-class.php');
-    require_once(ADPLUGG_PATH . 'admin/notices/notices.php');
+    require_once(ADPLUGG_PATH . 'admin/notices/notice-functions.php');
     
     require_once(ADPLUGG_PATH . 'admin/admin-class.php');
     require_once(ADPLUGG_PATH . 'admin/pages/class-options-page.php');
