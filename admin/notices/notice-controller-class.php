@@ -52,18 +52,20 @@ class AdPlugg_Notice_Controller {
         //print the notices
         $out = '';
         foreach($notices as $notice) {
-            $out .= '<div id="'.$notice->get_notice_key().'" class="' . $notice->get_type() . ' adplugg-notice">';
-            $out .=     '<p>' .
-                            '<strong>AdPlugg:</strong> ' .
-                            $notice->get_message() . 
-                        '</p>';
-            if($notice->is_dismissible()) {
-                $out .= '<p>' .
-                            '<button type="button" onclick="adpluggPostNoticePref(this, \''.$notice->get_notice_key().'\', \'+30 days\');">Remind Me Later</button>' .
-                            '<button type="button" onclick="adpluggPostNoticePref(this, \''.$notice->get_notice_key().'\', null);">Don\'t Remind Me Again</button>' .
-                        '</p>';
+            if(!$notice->is_dismissed()) {
+                $out .= '<div id="'.$notice->get_notice_key().'" class="' . $notice->get_type() . ' adplugg-notice">';
+                $out .=     '<p>' .
+                                '<strong>AdPlugg:</strong> ' .
+                                $notice->get_message() . 
+                            '</p>';
+                if($notice->is_dismissible()) {
+                    $out .= '<p>' .
+                                '<button type="button" onclick="adpluggPostNoticePref(this, \''.$notice->get_notice_key().'\', \'+30 days\');">Remind Me Later</button>' .
+                                '<button type="button" onclick="adpluggPostNoticePref(this, \''.$notice->get_notice_key().'\', null);">Don\'t Remind Me Again</button>' .
+                            '</p>';
+                }
+                $out .= '</div>';
             }
-            $out .= '</div>';
         }
         echo $out;
     }

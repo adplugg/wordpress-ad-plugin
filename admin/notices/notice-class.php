@@ -142,6 +142,27 @@ class AdPlugg_Notice {
         
         return $data_array;
     }
+    
+    /**
+     * Returns whether or not the notice is dismissed.
+     * @return boolean Whether or not the notice is dismissed.
+     */
+    public function is_dismissed() {
+        $ret = false;
+        $dismissals = get_option(ADPLUGG_NOTICES_DISMISSED_NAME, array());
+        if(array_key_exists($this->notice_key, $dismissals)) {
+            $remind_on = $dismissals[$this->notice_key];
+            if($remind_on != null) {
+                if($remind_on > time()) {
+                    $ret = true;
+                }
+            } else {
+                $ret = true;
+            }
+        }
+        
+        return $ret;
+    }
 
 }
 
