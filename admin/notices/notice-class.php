@@ -72,7 +72,7 @@ class AdPlugg_Notice {
         $instance->message = $message;
         $instance->type = $type;
         $instance->dismissible = $dismissible;
-        $instance->remond_when = $remind_when;
+        $instance->remind_when = $remind_when;
         
         return $instance;
     }
@@ -91,7 +91,9 @@ class AdPlugg_Notice {
         $instance->message = $array['message'];
         $instance->type = $array['type'];
         $instance->dismissible = $array['dismissible'];
-        $instance->remind_when = $array['remind_when'];
+        if(isset($array['remind_when'])) {
+            $instance->remind_when = $array['remind_when'];
+        }
         
         return $instance;
     }
@@ -137,7 +139,8 @@ class AdPlugg_Notice {
             'notice_key' => $this->notice_key,
             'message' => $this->message,
             'type' => $this->type,
-            'dismissible' => $this->dismissible
+            'dismissible' => $this->dismissible,
+            'remind_when' => $this->remind_when
         );
         
         return $data_array;

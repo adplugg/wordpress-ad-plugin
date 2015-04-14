@@ -16,7 +16,6 @@ class AdPlugg_Notice_Controller {
      */
     function __construct() {
         add_action('admin_notices', array(&$this, 'adplugg_admin_notices'));
-        add_action('admin_footer', array(&$this, 'adplugg_admin_notices_footer'));
         add_action('wp_ajax_adplugg_set_notice_pref', array(&$this, 'adplugg_set_notice_pref_callback'));
     }
 
@@ -36,7 +35,6 @@ class AdPlugg_Notice_Controller {
         // Add any new notices based on the current state of the plugin, etc.
         if(!adplugg_is_access_code_installed()) {
             if($screen_id != "settings_page_adplugg") {
-                
                 $notices[]= AdPlugg_Notice::create('nag_configure', 'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a href="options-general.php?page=adplugg">configure</a> it!');
             }
         } else {
