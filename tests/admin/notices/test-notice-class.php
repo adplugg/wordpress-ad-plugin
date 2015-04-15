@@ -7,7 +7,7 @@ require_once(ADPLUGG_PATH . 'admin/notices/notice-class.php');
  * class
  *
  * @package AdPlugg
- * @since 1.2
+ * @since 1.2.0
  */
 class NoticeTest extends WP_UnitTestCase {
     

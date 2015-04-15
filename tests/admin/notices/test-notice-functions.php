@@ -8,7 +8,7 @@ require_once(ADPLUGG_PATH . 'admin/notices/notice-functions.php');
  * functions.
  *
  * @package AdPlugg
- * @since 1.2
+ * @since 1.2.0
  */
 class NoticeFunctionsTest extends WP_UnitTestCase {
     

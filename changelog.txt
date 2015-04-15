@@ -1,3 +1,7 @@
+= 1.2 =
+
+* Added an advanced notices system with dismissible notices.
+
 = 1.1.42 =
 
 * Changed notices option reference to use constant.

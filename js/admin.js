@@ -1,7 +1,7 @@
 /**
  * Style for AdPlugg in the administrator.
  * @package AdPlugg
- * @since 1.2
+ * @since 1.2.0
  */
 
 /**
