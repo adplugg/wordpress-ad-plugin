@@ -1,3 +1,7 @@
+= 1.2.2 =
+
+* Updated the readme.txt file to reflect that WP 4.2.1 is fully tested and working.
+
 = 1.2.1 =
 
 * Updated the readme.txt file to reflect that WP 4.2 is fully tested and working.
