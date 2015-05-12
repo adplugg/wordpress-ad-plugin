@@ -17,15 +17,16 @@
 function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
     $overview_content = '
     <h1>AdPlugg Plugin Help</h1>
-    <p>Need help using the adplugg plugin? Use the tabs to the left
-       to find instructions for installation, use and troubleshooting.
+    <p>
+        Need help using the adplugg plugin? Use the tabs to the left to find
+        instructions for installation, use and troubleshooting.
     </p>';
 
     $installation_content = '
     <h2>Installation/Configuration</h2>
     <p>
-        The AdPlugg WordPress Ad Plugin makes it super easy
-        to put ads on your WordPress Site.
+        The AdPlugg WordPress Ad Plugin makes it super easy to put ads on your
+        WordPress Site.
     </p>
     <ol>
         <li>Install the plugin.</li>
@@ -35,7 +36,7 @@ function adplugg_options_page_help($contextual_help, $screen_id, $screen) {
         <li>Go to the <a href="' . admin_url('widgets.php') . '" title="Widgets configuration page">Widgets configuration page</a> and drag the AdPlugg Ad Widget into
             a Widget Area.
         </li>
-        <li>Your ad(s) should now be viewable from your blog.
+        <li>Your ad(s) should now be viewable from your blog.</li>
     </ol>
     <h2>Additional Options</h2>
     <p>Advanced users can use the following options to customize what ads are served.</p>
