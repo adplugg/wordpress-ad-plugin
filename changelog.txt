@@ -1,3 +1,7 @@
+= 1.2.4 =
+
+* Fixed the markup in the options page help.
+
 = 1.2.3 =
 
 * Fixed the QUnit styling.
