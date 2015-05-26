@@ -13,7 +13,7 @@
 */
 QUnit.test( "Test images loaded", function( assert ) {
     var imgTags = $(".adplugg-tag").find("img");
-    assert.equal(imgTags.length, 2, "Images were loaded");
+    assert.equal(imgTags.length, 3, "Images were loaded");
 });
 
 /**
@@ -29,7 +29,7 @@ QUnit.test( "Test links loaded", function( assert ) {
 */
 QUnit.test( "Test track back images loaded", function( assert ) {
     var atbs = $(".adplugg-atb");
-    assert.equal(atbs.length, 2, "Track back images were loaded");
+    assert.equal(atbs.length, 3, "Track back images were loaded");
 });
 
 
