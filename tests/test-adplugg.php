@@ -2,7 +2,7 @@
 
 /**
  * The AdPluggTest class includes tests for testing the main AdPlugg_Admin
- * class (in the admin-class.php file).
+ * class (in the class-admin.php file).
  *
  * @package AdPlugg
  * @since 1.1.16

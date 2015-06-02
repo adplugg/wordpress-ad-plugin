@@ -1,6 +1,6 @@
 <?php
 
-require_once(ADPLUGG_PATH . 'admin/notices/notice-controller-class.php');
+require_once(ADPLUGG_PATH . 'admin/notices/class-notice-controller.php');
 
 /**
  * The NoticeControllerTest class includes tests for testing the various methods

@@ -1,6 +1,6 @@
 <?php
 
-require_once(ADPLUGG_PATH . 'admin/notices/notice-class.php');
+require_once(ADPLUGG_PATH . 'admin/notices/class-notice.php');
 
 /**
  * The NoticeTest class includes tests for testing the AdPlugg_Notice

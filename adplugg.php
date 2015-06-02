@@ -61,11 +61,11 @@ add_action('widgets_init', create_function('', 'return register_widget("AdPlugg_
 if(is_admin()) {
     //---- ADMIN ----//
     //includes
-    require_once(ADPLUGG_PATH . 'admin/notices/notice-class.php');
-    require_once(ADPLUGG_PATH . 'admin/notices/notice-controller-class.php');
+    require_once(ADPLUGG_PATH . 'admin/notices/class-notice.php');
+    require_once(ADPLUGG_PATH . 'admin/notices/class-notice-controller.php');
     require_once(ADPLUGG_PATH . 'admin/notices/notice-functions.php');
     
-    require_once(ADPLUGG_PATH . 'admin/admin-class.php');
+    require_once(ADPLUGG_PATH . 'admin/class-admin.php');
     require_once(ADPLUGG_PATH . 'admin/pages/class-options-page.php');
     require_once(ADPLUGG_PATH . 'admin/help/help-dispatch.php');
     
