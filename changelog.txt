@@ -1,3 +1,7 @@
+= 1.2.7 =
+
+* Renamed several class files to adhere to WP coding standards.
+
 = 1.2.6 =
 
 * Updated QUnit tests for timed rotate config changes.
