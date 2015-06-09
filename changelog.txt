@@ -1,3 +1,7 @@
+= 1.2.8 =
+
+* Fixed issue causing the help link to not display.
+
 = 1.2.7 =
 
 * Renamed several class files to adhere to WP coding standards.
