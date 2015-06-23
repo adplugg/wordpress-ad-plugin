@@ -11,8 +11,7 @@
 class AdPlugg_Admin {
     
     /**
-     * Constructor, constructs the options page and adds it to the Settings
-     * menu.
+     * Constructor, constructs the class and registers filters and actions.
      */
     function __construct() {
         add_filter("plugin_action_links_" . ADPLUGG_BASENAME, array(&$this, 'adplugg_settings_link'));
