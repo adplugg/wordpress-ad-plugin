@@ -11,8 +11,8 @@
 class AdPlugg_Notice_Controller {
     
     /**
-     * Constructor, constructs the options page and adds it to the Settings
-     * menu.
+     * Constructor, constructs the AdPlugg_Notice_Controller and registers
+     * actions.
      */
     function __construct() {
         add_action('admin_notices', array(&$this, 'adplugg_admin_notices'));
