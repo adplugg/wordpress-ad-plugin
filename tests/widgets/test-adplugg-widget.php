@@ -13,9 +13,12 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
     
     /**
      * Test the constructor.
-     */    
+     */ 
     public function test_constructor() {
-        //TODO     
+        $adplugg_widget = new AdPlugg_Widget();
+        
+        //Assert that the widget is constructed
+        $this->assertEquals('AdPlugg_Widget', get_class($adplugg_widget));    
     }
     
     /**
