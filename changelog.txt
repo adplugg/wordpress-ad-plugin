@@ -1,3 +1,7 @@
+= 1.2.12 =
+
+* Added PHPUnit test for the AdPlugg_Widget constructor.
+
 = 1.2.11 =
 
 * Fixed the PHPDoc in the notice controller class.
