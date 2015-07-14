@@ -32,65 +32,65 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 //define constants
-define('ADPLUGG_PATH', plugin_dir_path( __FILE__ ));
-define('ADPLUGG_BASENAME', plugin_basename(__FILE__));
+define( 'ADPLUGG_PATH', plugin_dir_path( __FILE__ ) );
+define( 'ADPLUGG_BASENAME', plugin_basename(__FILE__) );
 
 // Include the optional config.php file
-if(file_exists(ADPLUGG_PATH . 'config.php')) {
-    include_once(ADPLUGG_PATH . 'config.php');
+if( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
+    include_once( ADPLUGG_PATH . 'config.php' );
 }
 
-if(!defined('ADPLUGG_ADSERVER')) { define('ADPLUGG_ADSERVER', 'www.adplugg.com/apusers'); }
-if(!defined('ADPLUGG_VERSION')) { define('ADPLUGG_VERSION', '1.2.12'); }
+if( ! defined( 'ADPLUGG_ADSERVER' ) ) { define( 'ADPLUGG_ADSERVER', 'www.adplugg.com/apusers' ); }
+if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.2.12' ); }
 
 //Persisted options
-define('ADPLUGG_OPTIONS_NAME', 'adplugg_options');
-define('ADPLUGG_NOTICES_NAME', 'adplugg_notices');
-define('ADPLUGG_NOTICES_DISMISSED_NAME', 'adplugg_notices_dismissed');
+define( 'ADPLUGG_OPTIONS_NAME', 'adplugg_options' );
+define( 'ADPLUGG_NOTICES_NAME', 'adplugg_notices' );
+define( 'ADPLUGG_NOTICES_DISMISSED_NAME', 'adplugg_notices_dismissed' );
 
-define('ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg');
+define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 
 //includes
-require_once(ADPLUGG_PATH . 'functions.php');
-require_once(ADPLUGG_PATH . 'tests/qunit.php');
-require_once(ADPLUGG_PATH . 'widgets/AdPlugg_Widget.php');
+require_once( ADPLUGG_PATH . 'functions.php' );
+require_once( ADPLUGG_PATH . 'tests/qunit.php' );
+require_once( ADPLUGG_PATH . 'widgets/AdPlugg_Widget.php' );
 
 // Register the AdPlugg Widget
-add_action('widgets_init', create_function('', 'return register_widget("AdPlugg_Widget");'));
+add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlugg_Widget");' ) );
 
-if(is_admin()) {
+if( is_admin() ) {
     //---- ADMIN ----//
     //includes
-    require_once(ADPLUGG_PATH . 'admin/notices/class-notice.php');
-    require_once(ADPLUGG_PATH . 'admin/notices/class-notice-controller.php');
-    require_once(ADPLUGG_PATH . 'admin/notices/notice-functions.php');
+    require_once( ADPLUGG_PATH . 'admin/notices/class-notice.php' );
+    require_once( ADPLUGG_PATH . 'admin/notices/class-notice-controller.php' );
+    require_once( ADPLUGG_PATH . 'admin/notices/notice-functions.php' );
     
-    require_once(ADPLUGG_PATH . 'admin/class-admin.php');
-    require_once(ADPLUGG_PATH . 'admin/pages/class-options-page.php');
-    require_once(ADPLUGG_PATH . 'admin/help/help-dispatch.php');
+    require_once( ADPLUGG_PATH . 'admin/class-admin.php' );
+    require_once( ADPLUGG_PATH . 'admin/pages/class-options-page.php' );
+    require_once( ADPLUGG_PATH . 'admin/help/help-dispatch.php' );
     
     //Set up the notifications system.
     $adplugg_notice_controller = new AdPlugg_Notice_Controller();
     
     //Plugin setup and registrations
     $adplugg_admin = new AdPlugg_Admin();
-    register_activation_hook(__FILE__, array('AdPlugg_Admin', 'adplugg_activation'));
-    register_deactivation_hook(__FILE__, array('AdPlugg_Admin', 'adplugg_deactivation'));
-    register_uninstall_hook(__FILE__, array('AdPlugg_Admin', 'adplugg_uninstall'));
+    register_activation_hook( __FILE__, array( 'AdPlugg_Admin', 'adplugg_activation' ));
+    register_deactivation_hook( __FILE__, array( 'AdPlugg_Admin', 'adplugg_deactivation' ));
+    register_uninstall_hook( __FILE__, array( 'AdPlugg_Admin', 'adplugg_uninstall' ));
     
     //set up the options page 
     $adplugg_options_page = new AdPlugg_Options_Page();
-    add_filter('contextual_help', 'adplugg_help_dispatch', 10, 3);
+    add_filter( 'contextual_help', 'adplugg_help_dispatch', 10, 3 );
     
     //load qunit
-    if( (defined('ADPLUGG_LOAD_QUNIT')) && (ADPLUGG_LOAD_QUNIT == true) ) {
-        add_action('admin_footer', 'adplugg_load_qunit');
+    if( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
+        add_action( 'admin_footer', 'adplugg_load_qunit' );
     }
 
 } else {
     //---- FRONT END ----//
     //add the API
-    require_once(ADPLUGG_PATH . 'frontend/api.php');
-    add_action('wp_footer', 'adplugg_add_api');
+    require_once( ADPLUGG_PATH . 'frontend/api.php' );
+    add_action( 'wp_footer', 'adplugg_add_api' );
 
 }
