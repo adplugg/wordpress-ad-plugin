@@ -11,9 +11,9 @@
  * returns false.
  */
 function adplugg_is_access_code_installed() {
-    $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
+    $options = get_option( ADPLUGG_OPTIONS_NAME, array() );
     
-    if(!empty($options['access_code'])) {
+    if( ! empty( $options['access_code'] ) ) {
         return true;
     } else {
         return false;
@@ -26,11 +26,11 @@ function adplugg_is_access_code_installed() {
  */
 function adplugg_get_active_access_code() {
     $access_code = null;
-    $options = get_option(ADPLUGG_OPTIONS_NAME, array() );
-    if(!empty($options['access_code'])) {
+    $options = get_option( ADPLUGG_OPTIONS_NAME, array() );
+    if( ! empty( $options['access_code'] ) ) {
         $access_code = $options['access_code'];
     }
-    if(defined('ADPLUGG_OVERRIDE_ACCESS_CODE')) {
+    if( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
         $access_code = ADPLUGG_OVERRIDE_ACCESS_CODE;
     }
     
@@ -43,17 +43,14 @@ function adplugg_get_active_access_code() {
  * returns false.
  */
 function adplugg_is_widget_active() {
-    $widget_options = get_option(ADPLUGG_WIDGET_OPTIONS_NAME);
+    $widget_options = get_option( ADPLUGG_WIDGET_OPTIONS_NAME );
     
     /* is_active_widget doesn't work if the plugin is deactivated and then reactivated.
      * if the widget is active it will have more than one option, so this works.
      */
-    if( (!is_null($widget_options)) && (sizeof($widget_options) > 1) ) {
+    if( ( ! is_null( $widget_options ) ) && ( sizeof( $widget_options ) > 1 ) ) {
         return true;
     } else {
         return false;
     }
 }
-
-
-
