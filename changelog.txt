@@ -1,3 +1,7 @@
+= 1.2.14 =
+
+* Updated functions.php for WP coding standards.
+
 = 1.2.13 =
 
 * Updated adplugg.php for WP coding standards.
