@@ -4,7 +4,7 @@
 Plugin Name: AdPlugg
 Plugin URI: http://www.adplugg.com
 Description: The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to easily insert ads on your WordPress blog. To get started: 1) Click the "Activate" link to the left of this description, 2) <a href="https://www.adplugg.com/apusers/signup">Sign up for a free AdPlugg account</a>, and 3) Go to the AdPlugg configuration page, and save your AdPlugg Access Code.
-Version: 1.2.14
+Version: 1.2.15
 Author: AdPlugg
 Author URI: www.adplugg.com
 License: GPL v3
@@ -41,7 +41,7 @@ if( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
 }
 
 if( ! defined( 'ADPLUGG_ADSERVER' ) ) { define( 'ADPLUGG_ADSERVER', 'www.adplugg.com/apusers' ); }
-if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.2.14' ); }
+if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.2.15' ); }
 
 //Persisted options
 define( 'ADPLUGG_OPTIONS_NAME', 'adplugg_options' );
