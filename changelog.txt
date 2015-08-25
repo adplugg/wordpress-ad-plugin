@@ -1,3 +1,8 @@
+= 1.2.18 =
+
+* Increased the size of the Access Code field.
+* Fixed a bug with the help link on WP 4.3.
+
 = 1.2.17 =
 
 * Fixed cosmetic spacing issue with the widget fieldset.
