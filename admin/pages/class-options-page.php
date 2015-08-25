@@ -73,7 +73,7 @@ class AdPlugg_Options_Page {
         $options = get_option(ADPLUGG_OPTIONS_NAME, array());
         $access_code = (array_key_exists('access_code', $options)) ? $options['access_code'] : "";
      ?>
-        <input id="adplugg_access_code" name="adplugg_options[access_code]" size="5" type="text" value="<?php echo $access_code ?>" />
+        <input id="adplugg_access_code" name="adplugg_options[access_code]" size="9" type="text" value="<?php echo $access_code ?>" />
         <p class="description">
             You must enter a valid AdPlugg Access Code here. If you need an
             Access Code, you can create one
