@@ -1,3 +1,7 @@
+= 1.2.19 =
+
+* Updated all "API" references to "SDK".
+
 = 1.2.18 =
 
 * Increased the size of the Access Code field.
