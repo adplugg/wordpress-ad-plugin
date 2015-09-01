@@ -1,17 +1,17 @@
 <?php
 /**
- * Functions for adding the API to the WordPress front end.
+ * Functions for adding the SDK to the WordPress front end.
  * @package AdPlugg
  * @since 1.0
  */
 
 /**
- * Function that adds the AdPlugg api to the DOM.
+ * Function that adds the AdPlugg sdk to the DOM.
  */
-function adplugg_add_api() {
+function adplugg_add_sdk() {
     $access_code = adplugg_get_active_access_code();
     
-    //Load the api (if there is an access_code)
+    //Load the sdk (if there is an access_code)
     if(!empty($access_code)) {
  ?>
 <script>
@@ -28,9 +28,9 @@ function adplugg_add_api() {
         //Optionally load the QUnit tests.
         if( (defined('ADPLUGG_LOAD_QUNIT')) && (ADPLUGG_LOAD_QUNIT == true) ) {
             require_once(ADPLUGG_PATH . 'tests/qunit.php');
-            adplugg_load_qunit('frontend-api');
+            adplugg_load_qunit('frontend-sdk');
         }
         
     } //end if access_code
     
-} //end adplugg_add_api
+} //end adplugg_add_sdk

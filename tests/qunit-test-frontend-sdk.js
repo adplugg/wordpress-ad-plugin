@@ -1,5 +1,5 @@
 /**
- * QUnit tests for the AdPlugg plugin API.
+ * QUnit tests for the AdPlugg plugin SDK.
  * 
  * Note: that you will need to use the 'mock' access code in order for these
  * to pass.

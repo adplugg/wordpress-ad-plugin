@@ -89,8 +89,8 @@ if( is_admin() ) {
 
 } else {
     //---- FRONT END ----//
-    //add the API
-    require_once( ADPLUGG_PATH . 'frontend/api.php' );
-    add_action( 'wp_footer', 'adplugg_add_api' );
+    //add the SDK
+    require_once( ADPLUGG_PATH . 'frontend/sdk.php' );
+    add_action( 'wp_footer', 'adplugg_add_sdk' );
 
 }
