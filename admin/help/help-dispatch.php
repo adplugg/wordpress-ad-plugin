@@ -6,8 +6,8 @@
  * @since 1.1.29
  */
 
-require_once(ADPLUGG_PATH . 'admin/help/options-page-help.php');
-require_once(ADPLUGG_PATH . 'admin/help/widgets-page-help.php');
+require_once( ADPLUGG_PATH . 'admin/help/options-page-help.php' );
+require_once( ADPLUGG_PATH . 'admin/help/widgets-page-help.php' );
     
 /**
  * Add help for the AdPlugg plugin to the WordPress admin help system.
@@ -18,15 +18,15 @@ require_once(ADPLUGG_PATH . 'admin/help/widgets-page-help.php');
  * @param string $screen Used to access the elements of the current page.
  * @return string The new contextual help.
  */
-function adplugg_help_dispatch($contextual_help, $screen_id, $screen) {
+function adplugg_help_dispatch( $contextual_help, $screen_id, $screen ) {
     global $adplugg_hook;
     
-    switch ($screen_id) {
+    switch ( $screen_id ) {
         case $adplugg_hook:
-            $contextual_help = adplugg_options_page_help($contextual_help, $screen_id, $screen);
+            $contextual_help = adplugg_options_page_help( $contextual_help, $screen_id, $screen );
             break;
         case 'widgets':
-            $contextual_help = adplugg_widgets_page_help($contextual_help, $screen_id, $screen);
+            $contextual_help = adplugg_widgets_page_help( $contextual_help, $screen_id, $screen );
             break;
     }
     
