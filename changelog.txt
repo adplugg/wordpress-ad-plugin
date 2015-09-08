@@ -1,3 +1,7 @@
+= 1.2.20 =
+
+* Updated help-dispatch.php for WP coding standards.
+
 = 1.2.19 =
 
 * Updated all "API" references to "SDK".
