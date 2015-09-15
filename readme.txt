@@ -2,7 +2,7 @@
 Contributors: adplugg
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: advertising, ad manager, admanager, ads, ad, ad management, ad rotator, admin, banner, widget, banner management, banner manager, ad server, adserver, images, image, sidebar, plugin, post
+Tags: advertising, ad manager, admanager, ads, ad, ad management, ad rotator, admin, banner, widget, banner management, banner manager, ad server, adserver, images, image, sidebar, plugin, post, google, adsense
 Requires at least: 3.3
 Tested up to: 4.3
 Stable tag: 1.2.20
@@ -25,9 +25,10 @@ The AdPlugg WordPress Ad Plugin includes the following awesome features:
 <strong>PS: You'll need a free [adplugg.com Access Code](https://www.adplugg.com/apusers/signup) in order to use the plugin.</strong>
 
 = AdPlugg Service Features =
+
 The FREE AdPlugg Ad Service includes the following amazing features:
 
-* Ad Rotating - Rotate which ads are didplayed or the relative positioning of multiple ads.
+* Ad Rotating - Rotate which ads are displayed or the relative positioning of multiple ads.
 * Ad Scheduling - Set the start and stop dates for an individual ad or group of ads.
 * Ad Tracking - Track ad impressions and ad clicks.
 * Analytics - View daily, monthly or yearly graphs of your impressions and clicks.
@@ -35,6 +36,13 @@ The FREE AdPlugg Ad Service includes the following amazing features:
 * Placements - Group your ads into placements to simplify management and tracking.
 * Easy Setup - Easily create and setup your ads.
 * Timed Rotate - (NEW) Set your ads to rotate after a set interval.
+
+The PRO AdPlugg Ad Service adds the following additional features:
+
+* Downloadable PDF, Excel and CSV Reports
+* Unlimited Scaling
+* Additional ad formats including Custom/HTML5, Flash, JavaScript, bar, dialog, interstitial, slide-in, text, and more.
+* Ability to serve ad tags from third party systems such as Google AdSense.
 
 == Installation ==
 
