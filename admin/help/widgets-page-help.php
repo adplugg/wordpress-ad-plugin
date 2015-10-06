@@ -14,7 +14,7 @@
  * @param string $screen Used to access the elements of the current page.
  * @return string The new contextual help.
  */
-function adplugg_widgets_page_help($contextual_help, $screen_id, $screen) {
+function adplugg_widgets_page_help( $contextual_help, $screen_id, $screen ) {
     
     $content = '
     <h1>AdPlugg Widget Help</h1>
@@ -39,11 +39,11 @@ function adplugg_widgets_page_help($contextual_help, $screen_id, $screen) {
       </li>
     </ul>';
     
-    $screen->add_help_tab(array(
+    $screen->add_help_tab( array(
         'id' => 'adplugg_widget',
         'title' => 'AdPlugg Widget',
         'content' => $content
-    ));
+    ) );
     
     return $contextual_help;
 
