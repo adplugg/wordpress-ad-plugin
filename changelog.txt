@@ -1,3 +1,7 @@
+= 1.2.25 =
+
+* Updated install-wp-tests.sh for compatibility with latest WP.
+
 = 1.2.24 =
 
 * Updated widgets-page-help.php for WP coding standards.
