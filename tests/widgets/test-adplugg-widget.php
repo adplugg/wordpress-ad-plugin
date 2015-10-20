@@ -22,6 +22,16 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
     }
     
     /**
+     * Test that the widget is registered with WordPress.
+     */
+    public function test_widget_registration() {
+        $widgets = array_keys( $GLOBALS['wp_widget_factory']->widgets );
+        
+        //Assert that the widget is registered
+        $this->assertTrue(in_array("AdPlugg_Widget", $widgets));       
+    }
+    
+    /**
      * Test the form function.
      */    
     public function test_form() {
