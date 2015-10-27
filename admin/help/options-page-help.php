@@ -63,6 +63,25 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     </ul>
     <p>Access my <a href="https://www.adplugg.com/apusers/login" target="_blank" title="AdPlugg account">AdPlugg account</a></p>
     ';
+    
+    $tags_content = '
+    <h2>Ad Tags/Shortcodes</h2>
+    <p>Once you have AdPlugg intalled, you can add AdPlugg Ad Tags to your site
+    and they will be filled with any ads that you target to them from your
+    account at <a href="http://www.adplugg.com" target="_blank" 
+    title="adplugg.com">adplugg.com</a>
+    </p>
+    <p>You can add AdPlugg Ad Tags can to Posts, Pages, theme files, etc.</p>
+    <p>The AdPlugg Widget simply adds an Ad Tag to your Widget Area.  You could
+    insert the same Ad Tag by other means if you wanted (by using a text widget 
+    for example).
+    </p>
+    <p>Though they work in a similar fashion to Shortcodes, AdPlugg has chosen 
+    to use Ad Tags instead of shortcodes as they are more powerfull, more 
+    flexible, and more familiar to most users.  You can read more about Ad Tags
+    <a href=""title="Ad Tags" 
+    href="http://www.adplugg.com/support/help/ad-tags">here</a>.
+    </p>';
 
     $troubleshooting_content = '
     <h2>Troubleshooting</h2>
@@ -103,6 +122,12 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
         'id' => 'adplugg_use',
         'title' => 'Using AdPlugg',
         'content' => $use_content
+    ) );
+    //use tab
+    $screen->add_help_tab( array(
+        'id' => 'adplugg_tags',
+        'title' => 'Tags/Shortcodes',
+        'content' => $tags_content
     ) );
     //installation tab
     $screen->add_help_tab( array(
