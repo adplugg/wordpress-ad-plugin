@@ -1,3 +1,7 @@
+= 1.2.29 =
+
+* Widget title in the admin now includes the zone (if one is set).
+
 = 1.2.28 =
 
 * Updated class-notice-controller.php for WP coding standards.
