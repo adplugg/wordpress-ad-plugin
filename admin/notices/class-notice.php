@@ -64,7 +64,7 @@ class AdPlugg_Notice {
                                 $message, 
                                 $type = 'updated', 
                                 $dismissible = false,
-                                $remind_when = null) 
+                                $remind_when = null ) 
     {
         $instance = new self();
         
@@ -84,14 +84,14 @@ class AdPlugg_Notice {
      * @param array $array An array containing the Notice data
      * @return \self Works like a constructor.
      */
-    public static function recreate($array) {
+    public static function recreate( $array ) {
         $instance = new self();
         
         $instance->notice_key = $array['notice_key'];
         $instance->message = $array['message'];
         $instance->type = $array['type'];
         $instance->dismissible = $array['dismissible'];
-        if(isset($array['remind_when'])) {
+        if ( isset($array['remind_when'] ) ) {
             $instance->remind_when = $array['remind_when'];
         }
         
@@ -152,11 +152,11 @@ class AdPlugg_Notice {
      */
     public function is_dismissed() {
         $ret = false;
-        $dismissals = get_option(ADPLUGG_NOTICES_DISMISSED_NAME, array());
-        if(array_key_exists($this->notice_key, $dismissals)) {
+        $dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
+        if ( array_key_exists( $this->notice_key, $dismissals ) ) {
             $remind_on = $dismissals[$this->notice_key];
-            if($remind_on != null) {
-                if($remind_on > time()) {
+            if ( $remind_on != null ) {
+                if ( $remind_on > time() ) {
                     $ret = true;
                 }
             } else {
