@@ -1,3 +1,7 @@
+= 1.2.32 =
+
+* Updated class-options-page.php for WP coding standards.
+
 = 1.2.31 =
 
 * Updated notice-functions.php for WP coding standards.
