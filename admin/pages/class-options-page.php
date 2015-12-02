@@ -13,8 +13,8 @@ class AdPlugg_Options_Page {
      * menu.
      */
     function __construct() {
-        add_action('admin_menu', array( &$this, 'adplugg_add_options_page_to_menu' ));
-        add_action('admin_init', array( &$this, 'adplugg_options_init' ));
+        add_action( 'admin_menu', array( &$this, 'adplugg_add_options_page_to_menu' ) );
+        add_action( 'admin_init', array( &$this, 'adplugg_options_init' ) );
     }
     
     
@@ -26,20 +26,20 @@ class AdPlugg_Options_Page {
         <div class="wrap">
             <div id="icon-options-general" class="icon32"><br /></div><h2>AdPlugg Settings</h2>
             <form action="options.php" method="post">
-                <?php settings_fields('adplugg_options'); ?>
-                <?php do_settings_sections('adplugg'); ?>
+                <?php settings_fields( 'adplugg_options' ); ?>
+                <?php do_settings_sections( 'adplugg' ); ?>
 
                 <p class="submit">
-                    <input type="submit" name="Submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
+                    <input type="submit" name="Submit" id="submit" class="button button-primary" value="<?php esc_attr_e( 'Save Changes' ); ?>" />
                 </p>
             </form>
             <br/>
             <ul>
-                <?php if(adplugg_is_access_code_installed()) { ?>
+                <?php if ( adplugg_is_access_code_installed() ) { ?>
                     <li>Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank" title="Manage my ads at adplugg.com">adplugg.com</a>.</li>
-                    <li>Place the AdPlugg Widget on my site from the <a href="<?php echo admin_url( 'widgets.php' )?>" title="Go to the Widgets Configuration Page.">WordPress Widgets Configuration Page</a>.</li>
+                    <li>Place the AdPlugg Widget on my site from the <a href="<?php echo admin_url( 'widgets.php' ); ?>" title="Go to the Widgets Configuration Page.">WordPress Widgets Configuration Page</a>.</li>
                 <?php } //end if ?>
-                <li>Get <a href="#" onclick="jQuery('#contextual-help-link').trigger('click'); return false;" title="Get help using this plugin.">help</a> using this plugin.</li>
+                <li>Get <a href="#" onclick="jQuery( '#contextual-help-link' ).trigger( 'click' ); return false;" title="Get help using this plugin.">help</a> using this plugin.</li>
             </ul>
         </div>
     <?php
@@ -50,7 +50,7 @@ class AdPlugg_Options_Page {
      */
     function adplugg_add_options_page_to_menu() {
         global $adplugg_hook;
-        $adplugg_hook = add_options_page('AdPlugg Settings', 'AdPlugg', 'manage_options', 'adplugg', array( &$this, 'adplugg_options_render_page') );
+        $adplugg_hook = add_options_page( 'AdPlugg Settings', 'AdPlugg', 'manage_options', 'adplugg', array( &$this, 'adplugg_options_render_page' ) );
     }
 
     /**
@@ -70,10 +70,10 @@ class AdPlugg_Options_Page {
      * Function to render the access code field and description
      */
     function adplugg_options_render_access_code() {
-        $options = get_option(ADPLUGG_OPTIONS_NAME, array());
-        $access_code = (array_key_exists('access_code', $options)) ? $options['access_code'] : "";
+        $options = get_option( ADPLUGG_OPTIONS_NAME, array() );
+        $access_code = ( array_key_exists( 'access_code', $options ) ) ? $options['access_code'] : '';
      ?>
-        <input id="adplugg_access_code" name="adplugg_options[access_code]" size="9" type="text" value="<?php echo $access_code ?>" />
+        <input id="adplugg_access_code" name="adplugg_options[access_code]" size="9" type="text" value="<?php echo $access_code; ?>" />
         <p class="description">
             You must enter a valid AdPlugg Access Code here. If you need an
             Access Code, you can create one
@@ -86,19 +86,19 @@ class AdPlugg_Options_Page {
      * Function to initialize the AdPlugg options page.
      */
     function adplugg_options_init() {
-        register_setting('adplugg_options', ADPLUGG_OPTIONS_NAME, array( &$this, 'adplugg_options_validate' ) );
+        register_setting( 'adplugg_options', ADPLUGG_OPTIONS_NAME, array( &$this, 'adplugg_options_validate' ) );
         add_settings_section(
-                'adplugg_options_access_section',
-                'Access Settings',
-                array( &$this,'adplugg_options_render_access_section_text'),
-                'adplugg'
+            'adplugg_options_access_section',
+            'Access Settings',
+            array( &$this,'adplugg_options_render_access_section_text' ),
+            'adplugg'
         );
         add_settings_field(
-                'access_code', 
-                'Access Code', 
-                array(&$this, 'adplugg_options_render_access_code'),
-                'adplugg', 
-                'adplugg_options_access_section'
+            'access_code', 
+            'Access Code', 
+            array( &$this, 'adplugg_options_render_access_code' ),
+            'adplugg', 
+            'adplugg_options_access_section'
         );
     }
 
@@ -111,16 +111,16 @@ class AdPlugg_Options_Page {
      * @param array $input The submitted values
      * @return array Returns the new options to be stored in the database.
      */
-    function adplugg_options_validate($input) {
-        $old_options = get_option(ADPLUGG_OPTIONS_NAME);
+    function adplugg_options_validate( $input ) {
+        $old_options = get_option( ADPLUGG_OPTIONS_NAME );
         $new_options = $old_options;  //start with the old options.
         
         $msg_type = null;
         $msg_message = null;
         
         //process the new values
-        $new_options['access_code'] = trim($input['access_code']);
-        if(!preg_match('/^[a-z0-9]*$/i', $new_options['access_code'])) {
+        $new_options['access_code'] = trim( $input['access_code'] );
+        if ( ! preg_match( '/^[a-z0-9]*$/i', $new_options['access_code'] ) ) {
             $msg_type = 'error';
             $msg_message = 'Please enter a valid Access Code.';
             $new_options['access_code'] = '';
