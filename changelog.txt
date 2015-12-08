@@ -1,3 +1,7 @@
+= 1.2.33 =
+
+* Updated class-notice-controller.php to use generic function names.
+
 = 1.2.32 =
 
 * Updated class-options-page.php for WP coding standards.
