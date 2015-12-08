@@ -15,8 +15,8 @@ class AdPlugg_Notice_Controller {
      * actions.
      */
     function __construct() {
-        add_action( 'admin_notices', array( &$this, 'adplugg_admin_notices' ) );
-        add_action( 'wp_ajax_adplugg_set_notice_pref', array( &$this, 'adplugg_set_notice_pref_callback' ) );
+        add_action( 'admin_notices', array( &$this, 'admin_notices' ) );
+        add_action( 'wp_ajax_adplugg_set_notice_pref', array( &$this, 'set_notice_pref_callback' ) );
     }
 
     /**
@@ -24,7 +24,7 @@ class AdPlugg_Notice_Controller {
      * adplugg_options. Once the notices have been displayed, delete them from
      * the database.
      */
-    function adplugg_admin_notices() {
+    function admin_notices() {
         
         $screen = get_current_screen();
         $screen_id = ( ! empty( $screen ) ? $screen->id : null );
@@ -71,7 +71,7 @@ class AdPlugg_Notice_Controller {
     /**
      * Called via ajax to dismiss a notice. Registered in the constructor above.
      */
-    function adplugg_set_notice_pref_callback() {
+    function set_notice_pref_callback() {
         //Get the variables from the post request
         $notice_key = $_POST['notice_key'];
         $remind_when = $_POST['remind_when'];

@@ -65,7 +65,7 @@ class AdminTest extends WP_UnitTestCase {
         //Assert that a notice of the upgrade was registered.
         $adplugg_notice_controller = new AdPlugg_Notice_Controller();
         ob_start();
-        $adplugg_notice_controller->adplugg_admin_notices();
+        $adplugg_notice_controller->admin_notices();
         $outbound = ob_get_contents();
         ob_end_clean();
         $this->assertContains("Upgraded version from", $outbound);

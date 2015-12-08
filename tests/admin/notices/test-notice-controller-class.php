@@ -21,23 +21,24 @@ class NoticeControllerTest extends WP_UnitTestCase {
         
         //Assert that the admin notices function is registered.
         $function_names = get_function_names($wp_filter['admin_notices']);
-        $this->assertContains('adplugg_admin_notices', $function_names);
+        var_dump($function_names);
+        $this->assertContains('admin_notices', $function_names);
         
         //Assert that the admin notices function is registered.
         $function_names = get_function_names($wp_filter['wp_ajax_adplugg_set_notice_pref']);
-        $this->assertContains('adplugg_set_notice_pref_callback', $function_names); 
+        $this->assertContains('set_notice_pref_callback', $function_names); 
     }
     
      /**
-     * Test the adplugg_admin_notices function.
+     * Test the admin_notices function.
      * TODO: add more tests for this function.
      */    
-    public function test_adplugg_admin_notices() {
+    public function test_admin_notices() {
         $adplugg_notice_controller = new AdPlugg_Notice_Controller();
         
         //assert that a notice was registered
         ob_start();
-        $adplugg_notice_controller->adplugg_admin_notices();
+        $adplugg_notice_controller->admin_notices();
         $outbound = ob_get_contents();
         ob_end_clean();
         
@@ -45,9 +46,9 @@ class NoticeControllerTest extends WP_UnitTestCase {
     }
     
     /**
-     * Test the adplugg_set_notice_pref_callback function.
+     * Test the set_notice_pref_callback function.
      */
-    public function test_adplugg_set_notice_pref_callback() {
+    public function test_set_notice_pref_callback() {
         $notice_key = 'test_notice';
         $remind_when = '+30 days';
         $expected = '{"notice_key":"'.$notice_key.'","status":"success"}';
@@ -60,7 +61,7 @@ class NoticeControllerTest extends WP_UnitTestCase {
         //Assert that the expected output string is returned.
         $this->expectOutputString($expected);
         try {
-            $adplugg_notice_controller->adplugg_set_notice_pref_callback();
+            $adplugg_notice_controller->set_notice_pref_callback();
         } catch(WPDieException $ex) {
             //
         }
