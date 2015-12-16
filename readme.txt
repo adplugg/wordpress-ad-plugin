@@ -99,7 +99,7 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 * Updated options-page-help.php for WP coding standards.
 
 = 1.2.22 =
-Updated the readme.txt file to reflect that WP 4.3.1 is fully tested and working.
+* Updated the readme.txt file to reflect that WP 4.3.1 is fully tested and working.
 
 = 1.2.21 =
 * Updated the readme.txt to show Pro features.
