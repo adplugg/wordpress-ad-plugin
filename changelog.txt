@@ -1,3 +1,7 @@
+= 1.2.34 =
+
+* Updated the readme.txt file to reflect that WP 4.4 is fully tested and working.
+
 = 1.2.33 =
 
 * Updated class-notice-controller.php to use generic function names.
@@ -44,7 +48,7 @@
 
 = 1.2.22 =
 
-Updated the readme.txt file to reflect that WP 4.3.1 is fully tested and working.
+* Updated the readme.txt file to reflect that WP 4.3.1 is fully tested and working.
 
 = 1.2.21 =
 
