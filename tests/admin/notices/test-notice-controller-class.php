@@ -21,7 +21,7 @@ class NoticeControllerTest extends WP_UnitTestCase {
         
         //Assert that the admin notices function is registered.
         $function_names = get_function_names($wp_filter['admin_notices']);
-        var_dump($function_names);
+        //var_dump($function_names);
         $this->assertContains('admin_notices', $function_names);
         
         //Assert that the admin notices function is registered.
