@@ -12,7 +12,7 @@ function adplugg_add_sdk() {
     $access_code = adplugg_get_active_access_code();
     
     //Load the sdk (if there is an access_code)
-    if(!empty($access_code)) {
+    if ( ! empty( $access_code ) ) {
  ?>
 <script>
     (function(ac) {
@@ -26,9 +26,9 @@ function adplugg_add_sdk() {
 </script>
 <?php
         //Optionally load the QUnit tests.
-        if( (defined('ADPLUGG_LOAD_QUNIT')) && (ADPLUGG_LOAD_QUNIT == true) ) {
-            require_once(ADPLUGG_PATH . 'tests/qunit.php');
-            adplugg_load_qunit('frontend-sdk');
+        if ( ( defined( 'ADPLUGG_LOAD_QUNIT' ) ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
+            require_once( ADPLUGG_PATH . 'tests/qunit.php' );
+            adplugg_load_qunit( 'frontend-sdk' );
         }
         
     } //end if access_code
