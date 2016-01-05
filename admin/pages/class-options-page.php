@@ -13,15 +13,15 @@ class AdPlugg_Options_Page {
      * menu.
      */
     function __construct() {
-        add_action( 'admin_menu', array( &$this, 'adplugg_add_options_page_to_menu' ) );
-        add_action( 'admin_init', array( &$this, 'adplugg_options_init' ) );
+        add_action( 'admin_menu', array( &$this, 'add_to_menu' ) );
+        add_action( 'admin_init', array( &$this, 'admin_init' ) );
     }
     
     
     /**
      * Function to render the AdPlugg options page.
      */
-    function adplugg_options_render_page() {
+    function render_page() {
     ?>
         <div class="wrap">
             <div id="icon-options-general" class="icon32"><br /></div><h2>AdPlugg Settings</h2>
@@ -48,15 +48,15 @@ class AdPlugg_Options_Page {
     /**
      * Function to add the options page to the settings menu.
      */
-    function adplugg_add_options_page_to_menu() {
+    function add_to_menu() {
         global $adplugg_hook;
-        $adplugg_hook = add_options_page( 'AdPlugg Settings', 'AdPlugg', 'manage_options', 'adplugg', array( &$this, 'adplugg_options_render_page' ) );
+        $adplugg_hook = add_options_page( 'AdPlugg Settings', 'AdPlugg', 'manage_options', 'adplugg', array( &$this, 'render_page' ) );
     }
 
     /**
      * Function to render the text for the access section.
      */
-    function adplugg_options_render_access_section_text() {
+    function render_access_section_text() {
     ?>
         <p>
             To use AdPlugg, you will need an AdPlugg Access Code.  To get
@@ -69,7 +69,7 @@ class AdPlugg_Options_Page {
     /**
      * Function to render the access code field and description
      */
-    function adplugg_options_render_access_code() {
+    function render_access_code() {
         $options = get_option( ADPLUGG_OPTIONS_NAME, array() );
         $access_code = ( array_key_exists( 'access_code', $options ) ) ? $options['access_code'] : '';
      ?>
@@ -85,18 +85,18 @@ class AdPlugg_Options_Page {
     /**
      * Function to initialize the AdPlugg options page.
      */
-    function adplugg_options_init() {
-        register_setting( 'adplugg_options', ADPLUGG_OPTIONS_NAME, array( &$this, 'adplugg_options_validate' ) );
+    function admin_init() {
+        register_setting( 'adplugg_options', ADPLUGG_OPTIONS_NAME, array( &$this, 'validate' ) );
         add_settings_section(
             'adplugg_options_access_section',
             'Access Settings',
-            array( &$this,'adplugg_options_render_access_section_text' ),
+            array( &$this,'render_access_section_text' ),
             'adplugg'
         );
         add_settings_field(
             'access_code', 
             'Access Code', 
-            array( &$this, 'adplugg_options_render_access_code' ),
+            array( &$this, 'render_access_code' ),
             'adplugg', 
             'adplugg_options_access_section'
         );
@@ -111,7 +111,7 @@ class AdPlugg_Options_Page {
      * @param array $input The submitted values
      * @return array Returns the new options to be stored in the database.
      */
-    function adplugg_options_validate( $input ) {
+    function validate( $input ) {
         $old_options = get_option( ADPLUGG_OPTIONS_NAME );
         $new_options = $old_options;  //start with the old options.
         
