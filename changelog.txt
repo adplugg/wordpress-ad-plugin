@@ -1,3 +1,7 @@
+= 1.2.37 =
+
+* Updated class-options-page.php to use generic function names.
+
 = 1.2.36 =
 
 * Updated sdk.php for WP coding standards.
