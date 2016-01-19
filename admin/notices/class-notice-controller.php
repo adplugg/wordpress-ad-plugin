@@ -20,9 +20,8 @@ class AdPlugg_Notice_Controller {
     }
 
     /**
-     * Add Notices in the administrator. Notices may be stored in the 
-     * adplugg_options. Once the notices have been displayed, delete them from
-     * the database.
+     * Add Notices in the administrator. Adds both notices from the db and
+     * notices based on the current state of the plugin (see code).
      */
     function admin_notices() {
         
