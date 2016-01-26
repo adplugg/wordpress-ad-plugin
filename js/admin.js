@@ -13,7 +13,6 @@
  * @returns {boolean} Retruns false;
  */
 function adpluggPostNoticePref(buttonObj, noticeKey, remindWhen) {
-    console.log("in adpluggPostNoticePref");
     var data = {
         'action': 'adplugg_set_notice_pref',
         'notice_key': noticeKey,
