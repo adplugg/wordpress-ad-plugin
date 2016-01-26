@@ -1,3 +1,7 @@
+= 1.2.40 =
+
+* Removed debug messages from admin.js
+
 = 1.2.39 =
 
 * Updated the comments on the AdPlugg_Notice_Controller's admin_notices() function.
