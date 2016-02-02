@@ -1,3 +1,7 @@
+= 1.2.41 =
+
+* Truncated the Changelog in readme.txt and provided link to changelog.txt
+
 = 1.2.40 =
 
 * Removed debug messages from admin.js
