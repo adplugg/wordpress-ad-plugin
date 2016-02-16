@@ -47,6 +47,7 @@ if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.2.40' ); }
 define( 'ADPLUGG_OPTIONS_NAME', 'adplugg_options' );
 define( 'ADPLUGG_NOTICES_NAME', 'adplugg_notices' );
 define( 'ADPLUGG_NOTICES_DISMISSED_NAME', 'adplugg_notices_dismissed' );
+define( 'ADPLUGG_RATED_NAME', 'adplugg_rated' );
 
 define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 

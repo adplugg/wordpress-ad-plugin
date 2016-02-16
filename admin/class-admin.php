@@ -15,8 +15,10 @@ class AdPlugg_Admin {
      */
     function __construct() {
         add_filter( 'plugin_action_links_' . ADPLUGG_BASENAME, array( &$this, 'adplugg_settings_link' ) );
+        add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 1 );
         
         add_action( 'admin_init', array( &$this, 'adplugg_admin_init' ) );
+        add_action( 'wp_ajax_adplugg_rated', array( &$this, 'rated_callback' ) );
     }
     
     /**
@@ -53,6 +55,45 @@ class AdPlugg_Admin {
         //Add the AdPlugg admin JavaScript page to the WP admin head
         wp_register_script( 'adPluggAdminJavaScriptPage', plugins_url( '../js/admin.js', __FILE__ ) );
         wp_enqueue_script( 'adPluggAdminJavaScriptPage' );
+    }
+    
+    /**
+     * Change the admin footer text on AdPlugg admin pages.
+     *
+     * @param  string $footer_text
+     * @return string
+     */
+    public function admin_footer_text( $footer_text ) {
+        $screen = get_current_screen();
+        $screen_id = ( ! empty( $screen ) ? $screen->id : null );
+
+        // only do on the adplugg settings page and if the user has already added an access code.
+        if ( ( $screen_id == 'settings_page_adplugg' ) && ( adplugg_is_access_code_installed() ) ) {
+            //if not already clicked/rated
+            if ( ! get_option( ADPLUGG_RATED_NAME ) ) {
+                
+                //NOTE: the click action for the link is defined in admin.js
+                $footer_text = 'If you like <strong>AdPlugg</strong>, please leave us a ' .
+                                '<a ' .
+                                  'href="https://wordpress.org/support/view/plugin-reviews/adplugg?filter=5#postform" ' .
+                                  'target="_blank" class="adplugg-rating-link" data-rated="Thanks :)">' . 
+                                    '&#9733;&#9733;&#9733;&#9733;&#9733;' . 
+                                '</a> rating. A huge thank you in advance from the AdPlugg Team!';
+            } else {
+                //show when rating link already clicked
+                $footer_text = 'Thank you for using AdPlugg.';
+            }
+        }
+
+        return $footer_text;
+    }
+    
+    /**
+     * Called via ajax to when the rate link is clicked.
+     */
+    function rated_callback() {
+        update_option( ADPLUGG_RATED_NAME, 1 );
+	wp_die(); //terminate immediately and return a proper response
     }
     
     /**

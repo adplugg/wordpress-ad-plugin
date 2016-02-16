@@ -28,3 +28,14 @@ function adpluggPostNoticePref(buttonObj, noticeKey, remindWhen) {
     
     return false;
 }
+
+/**
+ * Set the rating link click action
+ * @param {type} param
+ */
+jQuery(document).ready(function() {
+    jQuery( 'a.adplugg-rating-link' ).click( function() {
+        jQuery.post( ajaxurl, { action: 'adplugg_rated' } );
+        jQuery( this ).parent().text( jQuery( this ).data( 'rated' ) );
+    });
+});
