@@ -1,3 +1,7 @@
+= 1.2.43 =
+
+* Added a custom footer to the settings screen.
+
 = 1.2.42 =
 
 * Updated the readme.txt file to reflect that WP 4.4.2 is fully tested and working.
