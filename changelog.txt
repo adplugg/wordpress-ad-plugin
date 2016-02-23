@@ -1,3 +1,7 @@
+= 1.2.44 =
+
+* Updated the description/help on the plugin listing in the WP admin.
+
 = 1.2.43 =
 
 * Added a custom footer to the settings screen.
