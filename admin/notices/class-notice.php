@@ -48,7 +48,7 @@ class AdPlugg_Notice {
     
     /**
      * Static function to create a new Notice. Call using 
-     * AdPlug_Notice::create('nag_widget', 'some message', true/false );
+     * AdPlugg_Notice::create('nag_widget', 'some message', true/false );
      * @param string $notice_key The notice_key is a key such as "nag_widget".
      * @param string $message The message that you want to display to the user.
      * @param string $type (optional) The notice type ('error', 'updated', or 
@@ -79,7 +79,7 @@ class AdPlugg_Notice {
     
     /**
      * Static function to recreate a Notice. Call using 
-     * AdPlug_Notice::recreate($data_array);
+     * AdPlugg_Notice::recreate($data_array);
      * See the to_array function below for the expected array structure.
      * @param array $array An array containing the Notice data
      * @return \self Works like a constructor.
