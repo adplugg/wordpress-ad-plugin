@@ -14,7 +14,7 @@ function adplugg_add_sdk() {
     //Load the sdk (if there is an access_code)
     if ( ! empty( $access_code ) ) {
  ?>
-<script>
+<script data-cfasync="false">
     (function(ac) {
       var d = document, s = 'script', id = 'adplugg-adjs';
       var js, fjs = d.getElementsByTagName(s)[0];
