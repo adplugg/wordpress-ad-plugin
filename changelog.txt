@@ -1,3 +1,7 @@
+= 1.2.46 =
+
+* Added data-cfasync="false" attribute to the SDK script tag.
+
 = 1.2.45 =
 
 * Fixed some typos in the phpdoc in the AdPlugg_Notice class.
