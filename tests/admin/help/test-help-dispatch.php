@@ -1,6 +1,6 @@
 <?php
 
-require_once(ADPLUGG_PATH . 'admin/help/help-dispatch.php');
+require_once( ADPLUGG_PATH . 'admin/help/help-dispatch.php' );
 
 /**
  * The HelpDispatchTest class includes tests for testing the functions in the
@@ -17,20 +17,20 @@ class HelpDispatchTest extends WP_UnitTestCase {
      */    
     public function test_help_dispatch_for_options_page() {
         //set up the variables
-        $contextual_help = "";
+        $contextual_help = '';
         global $adplugg_hook;
         $adplugg_hook = 'mock-hook';
         $screen_id = $adplugg_hook;
-        $screen = WP_Screen::get($adplugg_hook);
+        $screen = WP_Screen::get( $adplugg_hook );
         
         //Assert that the AdPlugg help is not in the screen.
-        $this->assertNotContains('AdPlugg Plugin Help', serialize($screen));
+        $this->assertNotContains( 'AdPlugg Plugin Help', serialize( $screen ) );
         
         //run the function
-        adplugg_help_dispatch($contextual_help, $screen_id, $screen);
+        adplugg_help_dispatch( $contextual_help, $screen_id, $screen );
         
         //Asset that the AdPlugg help is now in the screen.
-        $this->assertContains('AdPlugg Plugin Help', serialize($screen));
+        $this->assertContains( 'AdPlugg Plugin Help', serialize( $screen ) );
     }
     
     /**
@@ -39,18 +39,18 @@ class HelpDispatchTest extends WP_UnitTestCase {
      */    
     public function test_help_dispatch_for_widgets_page() {
         //set up the variables
-        $contextual_help = "";
+        $contextual_help = '';
         $screen_id = 'widgets';
-        $screen = WP_Screen::get($screen_id);
+        $screen = WP_Screen::get( $screen_id );
         
         //Assert that the AdPlugg help is not in the screen.
-        $this->assertNotContains('AdPlugg Widget Help', serialize($screen));
+        $this->assertNotContains( 'AdPlugg Widget Help', serialize( $screen ) );
         
         //run the function
-        adplugg_help_dispatch($contextual_help, $screen_id, $screen);
+        adplugg_help_dispatch( $contextual_help, $screen_id, $screen );
         
         //Asset that the AdPlugg help is now in the screen.
-        $this->assertContains('AdPlugg Widget Help', serialize($screen));
+        $this->assertContains( 'AdPlugg Widget Help', serialize( $screen ) );
     }
     
 }
