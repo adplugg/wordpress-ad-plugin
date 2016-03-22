@@ -93,5 +93,9 @@ if( is_admin() ) {
     //add the SDK
     require_once( ADPLUGG_PATH . 'frontend/sdk.php' );
     add_action( 'wp_footer', 'adplugg_add_sdk' );
+    
+    //feeds
+    require_once( ADPLUGG_PATH . 'frontend/class-feed.php' );
+    AdPlugg_Feed::get_instance();
 
 }
