@@ -1,3 +1,7 @@
+= 1.2.49 =
+
+* Modified the ad tag filter for feeds to handle nested div tags.
+
 = 1.2.48 =
 
 * Now filtering in-content AdPlugg Ad Tags out of feeds.
