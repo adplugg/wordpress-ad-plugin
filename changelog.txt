@@ -1,3 +1,7 @@
+= 1.2.48 =
+
+* Now filtering in-content AdPlugg Ad Tags out of feeds.
+
 = 1.2.47 =
 
 * Updated test-help-dispatch.php for WP coding standards.
