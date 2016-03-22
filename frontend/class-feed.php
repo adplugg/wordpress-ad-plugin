@@ -45,7 +45,7 @@ class AdPlugg_Feed {
     public function filter_feed( $content ) {
 
         //ex: "<div class="adplugg-tag" data-adplugg-zone="incontent"></div>"
-        $adtag_regex = '/[\s]*<div.*?class\=["\']adplugg-tag["\'][^>]*><\/div>[\s]*/i';
+        $adtag_regex = '/[\s]*<div[^>]*?class\=["\']adplugg-tag["\'][^>]*?><\/div>[\s]*/i';
         
         $filtered_content = preg_replace( $adtag_regex, '', $content );
         

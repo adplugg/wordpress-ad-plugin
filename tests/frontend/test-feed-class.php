@@ -75,6 +75,25 @@ class FeedTest extends WP_UnitTestCase {
         $this->assertEquals( $expected_filtered_content, $filtered_content );
     }
     
+    /**
+     * Test that the filter_feed function removes an adplugg ad tag properly
+     * when nested.
+     */
+    public function test_filter_feed_removes_adplugg_ad_tag_when_nested() {
+        //set up the test data
+        $content                   = '<div><div>html content with an ad tag <div class="adplugg-tag" data-adplugg-zone="incontent"></div>.</div></div>';
+        $expected_filtered_content = '<div><div>html content with an ad tag.</div></div>';
+        
+        //get the singleton instance
+        $feed = AdPlugg_Feed::get_instance();
+        
+        //call the function
+        $filtered_content = $feed->filter_feed( $content );
+        
+        //assert that the content is unmodified;
+        $this->assertEquals( $expected_filtered_content, $filtered_content );
+    }
+    
     
 }
 
