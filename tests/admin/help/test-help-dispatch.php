@@ -20,7 +20,7 @@ class HelpDispatchTest extends WP_UnitTestCase {
         $contextual_help = '';
         global $adplugg_hook;
         $adplugg_hook = 'mock-hook';
-        $screen_id = $adplugg_hook;
+        $screen_id = 'toplevel_page_' . $adplugg_hook;
         $screen = WP_Screen::get( $adplugg_hook );
         
         //Assert that the AdPlugg help is not in the screen.

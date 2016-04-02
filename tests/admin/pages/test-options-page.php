@@ -55,7 +55,7 @@ class OptionsPageTest extends WP_UnitTestCase {
         $adplugg_options_page->add_to_menu();
         
         //Assert that the menu page was added
-        $expected = 'http://example.org/wp-admin/options-general.php?page=adplugg';
+        $expected = 'http://example.org/wp-admin/admin.php?page=adplugg';
         $this->assertEquals($expected, menu_page_url('adplugg', false));
     }
     

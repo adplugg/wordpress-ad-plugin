@@ -34,6 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //define constants
 define( 'ADPLUGG_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ADPLUGG_BASENAME', plugin_basename(__FILE__) );
+define( 'ADPLUGG_URL', plugins_url( '/', __FILE__ ) );
 
 // Include the optional config.php file
 if( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
