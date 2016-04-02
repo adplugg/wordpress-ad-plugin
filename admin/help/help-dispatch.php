@@ -7,6 +7,7 @@
  */
 
 require_once( ADPLUGG_PATH . 'admin/help/options-page-help.php' );
+require_once( ADPLUGG_PATH . 'admin/help/facebook-options-page-help.php' );
 require_once( ADPLUGG_PATH . 'admin/help/widgets-page-help.php' );
     
 /**
@@ -24,6 +25,9 @@ function adplugg_help_dispatch( $contextual_help, $screen_id, $screen ) {
     switch ( $screen_id ) {
         case 'toplevel_page_' . $adplugg_hook:
             $contextual_help = adplugg_options_page_help( $contextual_help, $screen_id, $screen );
+            break;
+        case $adplugg_hook . '_page_adplugg_facebook_settings':
+            $contextual_help = adplugg_facebook_options_page_help( $contextual_help, $screen_id, $screen );
             break;
         case 'widgets':
             $contextual_help = adplugg_widgets_page_help( $contextual_help, $screen_id, $screen );

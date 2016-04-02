@@ -39,7 +39,7 @@ class OptionsPageTest extends WP_UnitTestCase {
         $adplugg_options_page->render_page();
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains('AdPlugg Settings', $outbound);
+        $this->assertContains('AdPlugg General Settings', $outbound);
     }
     
     /**
