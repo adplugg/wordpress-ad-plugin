@@ -26,8 +26,8 @@ function adplugg_facebook_options_page_help(
             These settings allow you to include AdPlugg ads in your 
             <a href="http://www.adplugg.com/blog/facebook-instant-articles"
             target="_blank"> Facebook Instant Articles</a> header.  Ads included
-            in the header will be automatically placed by Facebook throghout the
-            acticle content.
+            in the header will be automatically placed by Facebook throughout the
+            content of the article.
         </p>
         <p>
             If you are new to AdPlugg, you may find it easier to place ads
@@ -54,31 +54,28 @@ function adplugg_facebook_options_page_help(
             Instant Articles Feed (for instance "Facebook Zone 1").
         </p>';
     
-    $zones_field_content = '
-        <h3>Zones Field Help</h3>
+    $widgets_content = '
+        <h3>Widgets Help</h3>
         <p>
-            The Zones field allows you to enter a list of Zones that will be
-            included in your Facebook Instant Articles header.  Facebook will
+            Once you\'ve enabled automatic placement.  Go to the  <a href="' . 
+            admin_url( 'widgets.php' ) . '" title="Widgets configuration page">
+            Widgets Configuration Page</a> and drag the AdPlugg Widget into the 
+            Facebook Instant Articles Ads Widget Area.  Configure the 
+            Widget including the Zone machine name, the width, the height and 
+            whether or not you want the Zone to be the "default" ad.  
+        </p>
+        <p>
+            The code from any Widgets in the Facebook Instant Articles Auto Ads
+            Widget Area will be automatically included in the header of each
+            post in your Instant Articles feed. Facebook will
             then automatically distribute them thoughout the article\'s content.
         </p>
         <p>
-            If you leave this field blank, no Zones will be added to your
-            Facebook Instant Articles header.
+            The Widget marked as the default will be flagged as the default ad
+            in your Instant Articles feed. This ad will be used for any remaining
+            slots after all ads have been used.
         </p>
-        <p>
-            If you haven\'t configured any AdPlugg Zones yet, please go to 
-            <a href="http://www.adplugg.com" target="_blank">adplugg.com</a> and
-            do so now.
-        </p>
-        <p>
-            Enter the machine name of the zones that you want included with a
-            comma in between each zone machine name. You can specify a "default"
-            Zone by entering an asterisk (*) after the zone\'s machine name.
-        </p>
-        <p>
-           Here\'s an example of what your entry might look like: 
-           "facebook_zone_1, facebook_zone_2*, facebook_zone_3".
-        </p>
+        
         ';
 
     $sidebar_content = '
@@ -110,11 +107,11 @@ function adplugg_facebook_options_page_help(
         'content' => $tips_content
     ) );
     
-    //Zones Field tab
+    //widgets tab
     $screen->add_help_tab( array(
-        'id' => 'adplugg_facebook_zones_field',
-        'title' => 'Zones Field',
-        'content' => $zones_field_content
+        'id' => 'adplugg_facebook_widgets',
+        'title' => 'Widgets',
+        'content' => $widgets_content
     ) );
 
     $screen->set_help_sidebar( $sidebar_content );

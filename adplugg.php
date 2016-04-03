@@ -55,11 +55,15 @@ define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 
 //Includes
 require_once( ADPLUGG_PATH . 'functions.php' );
+require_once( ADPLUGG_PATH . 'class-facebook.php' );
 require_once( ADPLUGG_PATH . 'tests/qunit.php' );
 require_once( ADPLUGG_PATH . 'widgets/AdPlugg_Widget.php' );
 
 //Register the AdPlugg Widget
 add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlugg_Widget");' ) );
+
+//Inits
+AdPlugg_Facebook::get_instance();
 
 if( is_admin() ) {
     //---- ADMIN ----//
@@ -86,7 +90,7 @@ if( is_admin() ) {
     $adplugg_options_page = new AdPlugg_Options_Page();
     add_filter( 'contextual_help', 'adplugg_help_dispatch', 10, 3 );
     
-    //Set up the Facebook options page
+    //Facebook integration
     AdPlugg_Facebook_Options_Page::get_instance();
     
     //Load qunit
@@ -103,5 +107,9 @@ if( is_admin() ) {
     //Feeds
     require_once( ADPLUGG_PATH . 'frontend/class-feed.php' );
     AdPlugg_Feed::get_instance();
+    
+    //Facebook Instant Articles
+    require_once( ADPLUGG_PATH . 'frontend/class-facebook-instant-articles.php' );
+    AdPlugg_Facebook_Instant_Articles::get_instance();
 
 }

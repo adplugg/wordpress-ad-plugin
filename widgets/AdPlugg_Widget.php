@@ -31,6 +31,12 @@ class AdPlugg_Widget extends WP_Widget {
                     ? $instance['title'] : '';
         $zone = ( ( $instance ) && ( isset( $instance['zone'] ) ) ) 
                     ? $instance['zone'] : '';
+        $width = ( ( $instance ) && ( isset( $instance['width'] ) ) ) 
+                    ? $instance['width'] : '';
+        $height = ( ( $instance ) && ( isset( $instance['height'] ) ) ) 
+                    ? $instance['height'] : '';
+        $default = ( ( $instance ) && ( isset( $instance['default'] ) ) ) 
+                    ? $instance['default'] : 0;
         
         //This is used below to set the title of the widget that is displayed within the admin.
         //It is passed to widgets.js based on the '-title' id suffix
@@ -38,21 +44,37 @@ class AdPlugg_Widget extends WP_Widget {
         
         //Render the form
         ?>
-              <p>
-                  <a href="http://www.adplugg.com" target="_blank" title="Configure at adplugg.com">Configure at adplugg.com</a>
-                  |
-                  <a href="#" onclick="jQuery(a#contextual-help-link).trigger(\'click\'); return false;" title="Help">Help</a>
-              </p>
-              <fieldset class="adplugg-widget-fieldset">
-                  <legend>Optional Settings</legend>
-                  <label for="<?php echo $this->get_field_id( 'title' ) ?>'">Title:</label>
-                  <input type="hidden" id="widget-title" value="<?php echo $widget_title; ?>">
-                  <?php echo '<input class="widefat" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" type="text" value="' . $title . '" />'; ?>
-                  <small>Enter a title for the widget.</small><br/>
-                  <label for="<?php echo $this->get_field_id( 'zone' ); ?>">Zone:</label>
-                  <?php echo '<input class="widefat" id="' . $this->get_field_id( 'zone' ) . '" name="' . $this->get_field_name( 'zone' ) . '" type="text" value="' . $zone . '" />'; ?>
-                  <small>Enter the zone machine name.</small><br/>
-              </fieldset>
+            <p>
+                <a href="http://www.adplugg.com" target="_blank" title="Configure at adplugg.com">Configure at adplugg.com</a>
+                |
+                <a href="#" onclick="jQuery( '#contextual-help-link' ).trigger('click'); return false;" title="Help">Help</a>
+            </p>
+            <fieldset class="adplugg-widget-fieldset">
+                <legend class="adplugg_widget_optional_legend">Optional Settings</legend>
+                <legend class="adplugg_widget_legend">Settings</legend>
+                <?php // ------ title ------ ?>
+                <label for="<?php echo $this->get_field_id( 'title' ) ?>'">Title:</label>
+                <input type="hidden" id="widget-title" value="<?php echo $widget_title; ?>">
+                <?php echo '<input class="widefat" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" type="text" value="' . $title . '" />'; ?>
+                <small>Enter a title for the widget.</small><br/>
+                <?php // ------ zone ------ ?>
+                <label for="<?php echo $this->get_field_id( 'zone' ); ?>">Zone:</label>
+                <?php echo '<input class="widefat" id="' . $this->get_field_id( 'zone' ) . '" name="' . $this->get_field_name( 'zone' ) . '" type="text" value="' . $zone . '" />'; ?>
+                <small>Enter the zone machine name.</small><br/>
+                <?php // ------ width ------ ?>
+                <label class="adplugg-fbia-only" for="<?php echo $this->get_field_id( 'width' ); ?>">Width:</label>
+                <?php echo '<input class="widefat adplugg-fbia-only" id="' . $this->get_field_id( 'width' ) . '" name="' . $this->get_field_name( 'width' ) . '" type="text" value="' . $width . '" />'; ?>
+                <small class="adplugg-fbia-only">Enter the width.</small><br class="adplugg-fbia-only"/>
+                <?php // ------ height ------ ?>
+                <label class="adplugg-fbia-only" for="<?php echo $this->get_field_id( 'height' ); ?>">Height:</label>
+                <?php echo '<input class="widefat adplugg-fbia-only" id="' . $this->get_field_id( 'height' ) . '" name="' . $this->get_field_name( 'height' ) . '" type="text" value="' . $height . '" />'; ?>
+                <small class="adplugg-fbia-only">Enter the height.</small><br class="adplugg-fbia-only"/>
+                <?php // ------ default ------ ?>
+                <label class="adplugg-fbia-only" for="<?php echo $this->get_field_id( 'default' ); ?>">
+                    <?php echo '<input class="adplugg-fbia-only" type="checkbox" id="' . $this->get_field_id( 'default' ) . '" name="' . $this->get_field_name( 'default' ) . '" value="1" ' . checked( 1, $default, false ) . '" />'; ?>
+                    Default
+                </label><br class="adplugg-fbia-only"/>
+                <small class="adplugg-fbia-only">Check to make this zone the default.</small><br class="adplugg-fbia-only"/>
         <?php
     }
 
@@ -63,6 +85,9 @@ class AdPlugg_Widget extends WP_Widget {
         $instance = $old_instance;
         $instance['title'] = sanitize_text_field( $new_instance['title'] );
         $instance['zone'] = sanitize_key( $new_instance['zone'] );
+        $instance['width'] = sanitize_key( $new_instance['width'] );
+        $instance['height'] = sanitize_key( $new_instance['height'] );
+        $instance['default'] = sanitize_key( $new_instance['default'] );
         
         return $instance;
     }
@@ -71,25 +96,40 @@ class AdPlugg_Widget extends WP_Widget {
      * Widget frontend display
      */
     function widget( $args, $instance ) {
+        
         extract($args);
+        
         //------ Set up the variables ---//
         $title = ( isset($instance['title'] ) ) 
                     ? apply_filters( 'widget_title', $instance['title'] )
                     : null;
         $zone = ( isset( $instance['zone'] ) ) ? $instance['zone'] : null;
         $zone_attribute = ( $zone ) ? ' data-adplugg-zone="' . $zone . '"' : '';
+        $width = ( isset( $instance['width'] ) ) ? $instance['width'] : 300;
+        $height = ( isset( $instance['height'] ) ) ? $instance['height'] : 250;
+        $default = ( isset( $instance['default'] ) && $instance['default'] == 1 ) ? 1 : 0;
         
         //------ Render the Widget ------//
-        echo $before_widget;
-        
-        // Render the title (if there is one).
-        if ( $title ) {
-            echo $before_title . $title . $after_title;
+        if( ( isset( $args['id'] ) ) && ( $args['id'] == 'facebook_ia_header' ) ) {
+            // ------------- FACEBOOK INSTANT ARTICLES FEED ----------//
+            $iframe_src = 'http://' . ADPLUGG_ADSERVER . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?zn=' . $zone;
+            $default_class = ($default) ? ' op-ad-default' : '';
+            echo "<figure class=\"op-ad" . $default_class . "\">\n";
+            echo     '<iframe src="' . $iframe_src . '" height="' . $height . '" width="' . $width . '"></iframe>' . "\n";
+            echo "</figure>\n";
+            
+        } else {
+            // --------------------- NORMAL OUTPUT -------------------//
+            echo $before_widget;
+            // Render the title (if there is one).
+            if ( $title ) {
+                echo $before_title . $title . $after_title;
+            }
+
+            // Add the AdPlugg tag
+            echo '<div class="adplugg-tag"' . $zone_attribute . '></div>';
+            echo $after_widget;
         }
-
-        // Add the AdPlugg tag
-        echo '<div class="adplugg-tag"' . $zone_attribute . '></div>';
-
-        echo $after_widget;
+        
     }
 }

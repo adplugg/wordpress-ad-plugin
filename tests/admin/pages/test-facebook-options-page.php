@@ -97,17 +97,17 @@ class AdPluggFacebookOptionsPageTest extends WP_UnitTestCase {
         $outbound = ob_get_contents();
         ob_end_clean();
         
-        //Assert that the zones field is registered/rendered.
-        $this->assertContains( 'name="adplugg_facebook_options[zones]"', $outbound );
+        //Assert that the enable field is registered/rendered.
+        $this->assertContains( 'adplugg_facebook_options[ia_enable_automatic_placement]', $outbound );
     }
     
     /**
-     * Test that the validate function doesn't throw any errors when the zones
+     * Test that the validate function doesn't throw any errors when the enable
      * input is valid.
      */
-    public function test_validate_valid_zones_input() {
-        //Set the zones entry that we will test with
-        $zones = 'fb_zone_1,fb_zone_2*, fb_zone_3';
+    public function test_validate_valid_enable_input() {
+        //Set the enabple input that we will test with
+        $enable_input = 1;
         
         //Clear out any previous settings errors.
         global $wp_settings_errors;
@@ -116,7 +116,7 @@ class AdPluggFacebookOptionsPageTest extends WP_UnitTestCase {
         $adplugg_facebook_options_page = new AdPlugg_Facebook_Options_Page();
         
         $input = array();
-        $input['zones'] = $zones;
+        $input['ia_enable_automatic_placement'] = $enable_input;
         
         //Run the function.
         $new_options = $adplugg_facebook_options_page->validate( $input );
@@ -133,16 +133,16 @@ class AdPluggFacebookOptionsPageTest extends WP_UnitTestCase {
         $this->assertEquals( 'updated', $settings_errors[0]['type'] );
         
         //Assert that the settings were stored.
-        $this->assertFalse( empty( $new_options['zones'] ) );
+        $this->assertFalse( empty( $new_options['ia_enable_automatic_placement'] ) );
     }
     
     /**
-     * Test that the validate function returns an error when the zones entry is
+     * Test that the validate function returns an error when the enable input is
      * invalid.
      */
-    public function test_validate_invalid_zones_input() {
-        //Set the zones entry that we will test with
-        $zones = '<injection>';
+    public function test_validate_invalid_enable_input() {
+        //Set the enable input that we will test with
+        $enable_input = '<injection>';
         
         //Clear out any previous settings errors.
         global $wp_settings_errors;
@@ -151,7 +151,7 @@ class AdPluggFacebookOptionsPageTest extends WP_UnitTestCase {
         $adplugg_facebook_options_page = new AdPlugg_Facebook_Options_Page();
         
         $input = array();
-        $input['zones'] = $zones; //invalid
+        $input['ia_enable_automatic_placement'] = $enable_input; //invalid
         
         //Run the function.
         $new_options = $adplugg_facebook_options_page->validate( $input );
@@ -163,42 +163,7 @@ class AdPluggFacebookOptionsPageTest extends WP_UnitTestCase {
         $this->assertEquals( 'error', $settings_errors[0]['type'] );
         
         //Assert that the settings were not stored.
-        $this->assertTrue( empty( $new_options['zones'] ) );
-    }
-    
-    /**
-     * Test that the validate function doesn't throw any errors when the zones
-     * input is empty.
-     */
-    public function test_validate_empty_zones_input() {
-        //Set the zones entry that we will test with
-        $zones = '';
-        
-        //Clear out any previous settings errors.
-        global $wp_settings_errors;
-        $wp_settings_errors = null;
-        
-        $adplugg_facebook_options_page = new AdPlugg_Facebook_Options_Page();
-        
-        $input = array();
-        $input['zones'] = $zones;
-        
-        //Run the function.
-        $new_options = $adplugg_facebook_options_page->validate( $input );
-        
-        //Get the messages
-        $settings_errors = get_settings_errors();
-        
-        //Assert that no errors were thrown.
-        foreach ( $settings_errors as $key => $details ) {
-            $this->assertNotEquals( 'error', $details['type'] );
-        }
-        
-        //Assert that the settings were saved.
-        $this->assertEquals( 'updated', $settings_errors[0]['type'] );
-        
-        //Assert that the settings were stored.
-        $this->assertEquals( '', $new_options['zones'] );
+        $this->assertTrue( empty( $new_options['ia_enable_automatic_placement'] ) );
     }
     
 }
