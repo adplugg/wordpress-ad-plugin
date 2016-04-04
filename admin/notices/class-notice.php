@@ -99,6 +99,37 @@ class AdPlugg_Notice {
     }
     
     /**
+     * Get's the html for the notice.
+     */
+    function get_rendered() {
+        $html = '';
+    
+        if( ! $this->is_dismissed() ) {
+            $html .= '<div id="' . $this->get_notice_key() . '" class="' . $this->get_type() . ' adplugg-notice">';
+            $html .=     '<p>' .
+                           '<strong>AdPlugg:</strong> ' .
+                           $this->get_message() . 
+                       '</p>';
+            if( $this->is_dismissible() ) {
+                $html .= '<p>' .
+                            '<button type="button" onclick="adpluggPostNoticePref(this, \'' . $this->get_notice_key() . '\', \'+30 days\');">Remind Me Later</button>' .
+                            '<button type="button" onclick="adpluggPostNoticePref(this, \'' . $this->get_notice_key() . '\', null);">Don\'t Remind Me Again</button>' .
+                        '</p>';
+            }
+            $html .= '</div>';
+        }
+        
+        return $html;
+    }
+    
+    /**
+     * Renders the html for the notice.
+     */
+    function render() {
+        echo $this->get_rendered();
+    }
+    
+    /**
      * Gets the value of notice_key.
      * @return string Returns the notice_key.
      */

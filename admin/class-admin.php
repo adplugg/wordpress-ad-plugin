@@ -115,6 +115,7 @@ class AdPlugg_Admin {
      */
     static function adplugg_uninstall() {
         delete_option( ADPLUGG_OPTIONS_NAME );
+        delete_option( ADPLUGG_FACEBOOK_OPTIONS_NAME );
         delete_option( ADPLUGG_NOTICES_NAME );
         delete_option( ADPLUGG_NOTICES_DISMISSED_NAME );
         delete_option( ADPLUGG_WIDGET_OPTIONS_NAME );

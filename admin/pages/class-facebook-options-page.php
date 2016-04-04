@@ -18,6 +18,7 @@ class AdPlugg_Facebook_Options_Page {
     public function __construct() {
         add_action( 'admin_menu', array( &$this, 'add_page_to_menu' ) );
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
+        add_action( 'admin_notices', array( &$this, 'admin_notices' ) );
     }
     
     /**
@@ -35,12 +36,34 @@ class AdPlugg_Facebook_Options_Page {
                 array( &$this, 'render_page' ) 
         );
     }
+    
+    /**
+     * Add notices for this page.
+     */
+    public function admin_notices() {
+        
+        $screen = get_current_screen();
+        $screen_id = ( ! empty( $screen ) ? $screen->id : null );
+
+        if( $screen_id == 'adplugg_page_adplugg_facebook_settings' ) {
+            //Show notice if fb-instant-articles plugin isn't found.
+            if ( ! defined( 'INSTANT_ARTICLES_SLUG' ) ) {
+                $fb_instant_articles_not_found_notice = 
+                        AdPlugg_Notice::create( 
+                            'notify_fb_instant_articles_not_found',
+                            '<a href="https://wordpress.org/plugins/fb-instant-articles/" title="Get the Facebook Instant Articles for WP plugin" >Facebook Instant Articles for WP</a> plugin not found.',
+                            'error'
+                        );
+                $fb_instant_articles_not_found_notice->render();
+            }
+        }
+    }
 
     /**
      * Function to initialize the AdPlugg Facebook Options page.
      */
     public function admin_init() {
-        
+            
         register_setting( 'adplugg_facebook_options', ADPLUGG_FACEBOOK_OPTIONS_NAME, array( &$this, 'validate' ) );
         
         add_settings_section(
@@ -87,7 +110,15 @@ class AdPlugg_Facebook_Options_Page {
             Articles feed, do the following:
         </p>
         <ol>
-            <li>Enable automatic placement by clicking the checkbox below.</li>
+            <li>
+                Ensure that you have the 
+                <a href="https://wordpress.org/plugins/fb-instant-articles/" 
+                   title="Get the Facebook Instant Articles for WP plugin" >
+                    Facebook Instant Articles for WP</a> plugin installed.
+            </li>
+            <li>
+                Enable automatic placement by clicking the checkbox below.
+            </li>
             <li>
                 Go to the <a href="<?php echo admin_url( 'widgets.php' ); ?>" 
                 title="Widgets configuration page">Widgets Configuration Page</a>
