@@ -19,7 +19,7 @@ class AdPluggFacebookTest extends WP_UnitTestCase {
         update_option(ADPLUGG_FACEBOOK_OPTIONS_NAME, $options);
         
         //assert that the sidebar is not registered
-        $this->assertFalse( array_key_exists( 'facebook_ia_header', $GLOBALS['wp_registered_sidebars'] ) );
+        $this->assertFalse( array_key_exists( 'facebook_ia_header_ads', $GLOBALS['wp_registered_sidebars'] ) );
         
         //get the singleton instance
         $adplugg_facebook = AdPlugg_Facebook::get_instance();
@@ -28,7 +28,7 @@ class AdPluggFacebookTest extends WP_UnitTestCase {
         $filtered_content = $adplugg_facebook->facebook_instant_articles_header_widget_area_init();
         
         //assert that the sidebar is registed
-        $this->assertTrue( array_key_exists( 'facebook_ia_header', $GLOBALS['wp_registered_sidebars'] ) );
+        $this->assertTrue( array_key_exists( 'facebook_ia_header_ads', $GLOBALS['wp_registered_sidebars'] ) );
         
     }
     

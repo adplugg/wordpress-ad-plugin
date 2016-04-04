@@ -31,7 +31,7 @@ fieldset.adplugg-widget-fieldset legend {
 }
 
 .adplugg-fbia-only {display: none;}
-#facebook_ia_header .adplugg-fbia-only {display: initial}
+#facebook_ia_header_ads .adplugg-fbia-only {display: initial}
 legend.adplugg_widget_legend {display: none;}
-#facebook_ia_header legend.adplugg_widget_optional_legend {display: none;}
-#facebook_ia_header legend.adplugg_widget_legend {display: block;}
+#facebook_ia_header_ads legend.adplugg_widget_optional_legend {display: none;}
+#facebook_ia_header_ads legend.adplugg_widget_legend {display: block;}

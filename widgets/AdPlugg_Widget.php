@@ -110,7 +110,7 @@ class AdPlugg_Widget extends WP_Widget {
         $default = ( isset( $instance['default'] ) && $instance['default'] == 1 ) ? 1 : 0;
         
         //------ Render the Widget ------//
-        if( ( isset( $args['id'] ) ) && ( $args['id'] == 'facebook_ia_header' ) ) {
+        if( ( isset( $args['id'] ) ) && ( $args['id'] == 'facebook_ia_header_ads' ) ) {
             // ------------- FACEBOOK INSTANT ARTICLES FEED ----------//
             $iframe_src = 'http://' . ADPLUGG_ADSERVER . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?zn=' . $zone;
             $default_class = ($default) ? ' op-ad-default' : '';

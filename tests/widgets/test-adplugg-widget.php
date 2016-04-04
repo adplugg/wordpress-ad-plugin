@@ -269,7 +269,7 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
         $args['after_widget'] = '';
         $args['before_title'] = '';
         $args['after_title'] = '';
-        $args['id'] = 'facebook_ia_header';
+        $args['id'] = 'facebook_ia_header_ads';
         $instance = array();
         $instance['zone'] = 'test_zone';
         $instance['width'] = 100;
@@ -299,7 +299,7 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
         $args['after_widget'] = '';
         $args['before_title'] = '';
         $args['after_title'] = '';
-        $args['id'] = 'facebook_ia_header';
+        $args['id'] = 'facebook_ia_header_ads';
         $instance = array();
         $instance['zone'] = null;
         $instance['width'] = null;

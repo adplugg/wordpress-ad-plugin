@@ -52,11 +52,11 @@ class AdPlugg_Facebook_Instant_Articles {
         
         if ( 
              ( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) && 
-             ( is_active_sidebar( 'facebook_ia_header' ) )
+             ( is_active_sidebar( 'facebook_ia_header_ads' ) )
            ) 
         {
             echo "<section class=\"op-ad-template\">\n";
-            dynamic_sidebar( 'facebook_ia_header' );
+            dynamic_sidebar( 'facebook_ia_header_ads' );
             echo "</section>\n";
         }
     }

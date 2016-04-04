@@ -27,7 +27,7 @@ class AdPlugg_Facebook {
         if(self::is_ia_automatic_placement_enabled()) {
             register_sidebar( array(
                     'name'          => 'Facebook Instant Articles Ads',
-                    'id'            => 'facebook_ia_header',
+                    'id'            => 'facebook_ia_header_ads',
                     'description'   => 'Drag the AdPlugg Widget here to have AdPlugg Ads automatically included in your Facebook Instant Articles.',
             ) );
         }
