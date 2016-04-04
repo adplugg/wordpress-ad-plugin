@@ -49,6 +49,7 @@ class AdPlugg_Facebook_Instant_Articles {
      * @param Instant_Articles_Post  $ia_post  The current article object.
      */
     public function header_injector( $ia_post ) {
+        $GLOBALS['adplugg_fbia_canonical_url'] = $ia_post->get_canonical_url();
         
         if ( 
              ( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) && 

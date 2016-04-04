@@ -112,8 +112,15 @@ class AdPlugg_Widget extends WP_Widget {
         //------ Render the Widget ------//
         if( ( isset( $args['id'] ) ) && ( $args['id'] == 'facebook_ia_header_ads' ) ) {
             // ------------- FACEBOOK INSTANT ARTICLES FEED ----------//
-            $iframe_src = 'http://' . ADPLUGG_ADSERVER . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?zn=' . $zone;
+            //configure variables
+            $post_url = $GLOBALS['adplugg_fbia_canonical_url'];
+            $host = urlencode( parse_url( $post_url, PHP_URL_HOST ) );
+            $path = urlencode( parse_url( $post_url, PHP_URL_PATH ) );
+            $zone_param = ( isset( $zone ) ) ? '&zn=' . urlencode( $zone ) : '';
+            $iframe_src = 'http://' . ADPLUGG_ADSERVER . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
             $default_class = ($default) ? ' op-ad-default' : '';
+            
+            //output ad tags
             echo "<figure class=\"op-ad" . $default_class . "\">\n";
             echo     '<iframe src="' . $iframe_src . '" height="' . $height . '" width="' . $width . '"></iframe>' . "\n";
             echo "</figure>\n";

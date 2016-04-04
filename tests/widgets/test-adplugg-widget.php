@@ -275,6 +275,7 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
         $instance['width'] = 100;
         $instance['height'] = 200;
         $instance['default'] = 1;
+        $GLOBALS['adplugg_fbia_canonical_url'] = 'http://www.example.com/blog/hello-world/';
         
         //Assert that the widget form is output with a title.
         ob_start();
@@ -285,6 +286,8 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
         $this->assertContains("100", $outbound);
         $this->assertContains("200", $outbound);
         $this->assertContains('op-ad-default', $outbound);
+        $this->assertContains('www.example.com', $outbound);
+        $this->assertContains('/blog/hello-world/', urldecode( $outbound ) );
     }
     
     /**
@@ -305,6 +308,7 @@ class AdPlugg_Widget_Test extends WP_UnitTestCase {
         $instance['width'] = null;
         $instance['height'] = null;
         $instance['default'] = 0;
+        $GLOBALS['adplugg_fbia_canonical_url'] = 'http://www.example.com/blog/hello-world';
         
         //Assert that the widget form is output with a title.
         ob_start();
