@@ -117,7 +117,7 @@ class AdPlugg_Widget extends WP_Widget {
             $host = urlencode( parse_url( $post_url, PHP_URL_HOST ) );
             $path = urlencode( parse_url( $post_url, PHP_URL_PATH ) );
             $zone_param = ( isset( $zone ) ) ? '&zn=' . urlencode( $zone ) : '';
-            $iframe_src = 'http://' . ADPLUGG_ADSERVER . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
+            $iframe_src = 'http://' . ADPLUGG_ADHTMLSERVER . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
             $default_class = ($default) ? ' op-ad-default' : '';
             
             //output ad tags

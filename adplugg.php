@@ -41,7 +41,8 @@ if( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
     include_once( ADPLUGG_PATH . 'config.php' );
 }
 
-if( ! defined( 'ADPLUGG_ADSERVER' ) ) { define( 'ADPLUGG_ADSERVER', 'www.adplugg.com/apusers' ); }
+if( ! defined( 'ADPLUGG_ADJSSERVER' ) ) { define( 'ADPLUGG_ADJSSERVER', 'www.adplugg.com/apusers' ); }
+if( ! defined( 'ADPLUGG_ADHTMLSERVER' ) ) { define( 'ADPLUGG_ADHTMLSERVER', 'www.adplugg.com' ); }
 if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.2.50' ); }
 
 //Persisted options
