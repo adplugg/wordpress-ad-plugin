@@ -110,9 +110,10 @@ class AdPlugg_Facebook_Instant_Articles {
             $sidebars_widgets = wp_get_sidebars_widgets();
             foreach ( (array) $sidebars_widgets['facebook_ia_header_ads'] as $id ) {
                 $widget = $wp_registered_widgets[$id]['callback']['0'];
+                $params = $wp_registered_widgets[$id]['params']['0'];
                 if( get_class( $widget) == 'AdPlugg_Widget' ) {
                     $option_name = $widget->option_name;
-                    $number = $widget->number;
+                    $number = $params['number'];
                     $all_options = get_option( $option_name, array() );
                     $instance = $all_options[$number];
                     
