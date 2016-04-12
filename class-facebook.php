@@ -18,6 +18,7 @@ class AdPlugg_Facebook {
      */
     function __construct() {
         add_action( 'widgets_init', array( &$this, 'facebook_instant_articles_header_widget_area_init' ) );
+        add_action( 'instant_articles_compat_registry_ads', array( $this, 'add_to_registry' ), 10, 1 );
     }
     
     /**
@@ -46,6 +47,22 @@ class AdPlugg_Facebook {
         }
 
         return $enabled;
+    }
+    
+    /**
+     * Add AdPlugg to the Facebook Instant Articles plugin ad registry.
+     * (fb-instant-articles 0.3+)
+     *
+     * @param array $registry Reference param. The registry where it will be stored.
+     */
+    function add_to_registry( &$registry ) {
+
+        $display_name = 'AdPlugg';
+        $identifier = 'adplugg';
+
+        $registry[ $identifier ] = array(
+                'name' => $display_name,
+        );
     }
     
     /*

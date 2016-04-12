@@ -126,6 +126,11 @@ class AdPlugg_Facebook_Options_Page {
                 Instant Articles Ads" (note you can add multiple widgets if 
                 desired).
             </li>
+            <li>
+                If you are using version 0.3 or higher of the Facebook Instant
+                Articles for WP plugin, go to its settings and select AdPlugg
+                as your Ad Type.
+            </li>
         </ol>
         <p>
             See the <a href="#" 
