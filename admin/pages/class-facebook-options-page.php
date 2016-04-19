@@ -171,7 +171,7 @@ class AdPlugg_Facebook_Options_Page {
         $msg_message = null;
         
         //process the new values
-        $new_options['ia_enable_automatic_placement'] = trim( $input['ia_enable_automatic_placement'] );
+        $new_options['ia_enable_automatic_placement'] = intval( $input['ia_enable_automatic_placement'] );
         if( ! preg_match('/^[01]$/', $new_options['ia_enable_automatic_placement'] ) ) {
             $msg_type = 'error';
             $msg_message = 'Invalid Enable Automatic Placement option.';

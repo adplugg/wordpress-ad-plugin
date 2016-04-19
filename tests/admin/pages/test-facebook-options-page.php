@@ -142,7 +142,7 @@ class AdPluggFacebookOptionsPageTest extends WP_UnitTestCase {
      */
     public function test_validate_invalid_enable_input() {
         //Set the enable input that we will test with
-        $enable_input = '<injection>';
+        $enable_input = '2';
         
         //Clear out any previous settings errors.
         global $wp_settings_errors;
@@ -164,6 +164,30 @@ class AdPluggFacebookOptionsPageTest extends WP_UnitTestCase {
         
         //Assert that the settings were not stored.
         $this->assertTrue( empty( $new_options['ia_enable_automatic_placement'] ) );
+    }
+    
+    /**
+     * Test that the validate function stores a 0 when an processing an
+     * injection attack.
+     */
+    public function test_validate_enable_input_attack() {
+        //Set the enable input that we will test with
+        $enable_input = '<injection>';
+        
+        //Clear out any previous settings errors.
+        global $wp_settings_errors;
+        $wp_settings_errors = null;
+        
+        $adplugg_facebook_options_page = new AdPlugg_Facebook_Options_Page();
+        
+        $input = array();
+        $input['ia_enable_automatic_placement'] = $enable_input; //invalid
+        
+        //Run the function.
+        $new_options = $adplugg_facebook_options_page->validate( $input );
+        
+        //Assert that a 0 was stored instead of the injection attempt.
+        $this->assertEquals( 0, $new_options['ia_enable_automatic_placement'] );
     }
     
 }
