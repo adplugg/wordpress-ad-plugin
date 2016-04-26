@@ -6,7 +6,7 @@ Tags: advertising, ad manager, admanager, ads, ad, ad management, ad rotator, ad
 Requires at least: 3.3
 Tested up to: 4.5
 FBIA tested up to: 2.9
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 
 The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to display
 ads on your WordPress site.
@@ -64,6 +64,9 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 1. The AdPlugg WordPress Ad Plugin makes it easy to place ads on your WordPress site.
 
 == Changelog ==
+
+= 1.3.4 =
+* Updated the readme.txt to reflect that the plugin is tested and working with up to v2.9 of the FBIA plugin.
 
 = 1.3.3 =
 * Fixed some buginess with the FBIA automatic placement enable field.
