@@ -36,6 +36,7 @@ class AdPlugg_Options_Page {
     ?>
         <div class="wrap">
             <div id="icon-options-general" class="icon32"><br /></div><h2>AdPlugg General Settings</h2>
+            <?php settings_errors(); ?>
             <form action="options.php" method="post">
                 <?php settings_fields( 'adplugg_options' ); ?>
                 <?php do_settings_sections( 'adplugg' ); ?>
