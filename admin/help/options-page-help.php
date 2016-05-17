@@ -97,6 +97,37 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     Please <a href="http://www.adplugg.com/contact" target="_blank" title="contact us">contact us</a> for additional support.
     </p>
     ';
+    
+    $faq_content = '
+    <h2>FAQ</h2>
+    <h5>Why do I need an access code?</h5>
+    <p>
+        AdPlugg is a service (and it\'s free!). When you register, you get your
+        own high powered, cloud based ad server/ad manager system.  From your
+        new AdPlugg account, you can serve ads to any number of sites using
+        sophisticated scheduling and rotation strategies. In addition, AdPlugg
+        will track your ad\'s impressions and clicks and provide you with detailed 
+        analytics. All of this is much too computationally expensive to attempt
+        on a typical WordPress shared hosting account.  So instead, AdPlugg was
+        designed to run as a service separate from your website.
+    </p>
+    <p>
+        Once you\'ve registered, you are given an access code. You enter your
+        access code into the AdPlugg WordPress Plugin settings so that your
+        wordpress site can retrieve ads from your AdPlugg account.
+    </p>
+    <p>
+        You can sign up for a free AdPlugg account and get your access code 
+        by going <a href="https://www.adplugg.com/apusers/signup" target="_blank" title="AdPlugg Signup">here</a>.
+    </p>
+    <h5>More Questions and Answers</h5>
+    <p>
+        Not seeing the question/answer that you are looking for? Please see our
+        <a href="http://www.adplugg.com/support/question-answer" 
+        target="_blank" title="Question and Answer Forum">Question/Answer forum
+        </a> for much more.
+    </p>
+    ';
 
     $sidebar_content = '
     <h5>For more Information:</strong></h5>
@@ -123,17 +154,23 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
         'title' => 'Using AdPlugg',
         'content' => $use_content
     ) );
-    //use tab
+    //tags tab
     $screen->add_help_tab( array(
         'id' => 'adplugg_tags',
         'title' => 'Tags/Shortcodes',
         'content' => $tags_content
     ) );
-    //installation tab
+    //troubleshooting tab
     $screen->add_help_tab( array(
         'id' => 'adplugg_troubleshooting',
         'title' => 'Troubleshooting',
         'content' => $troubleshooting_content
+    ) );
+    //FAQ tab
+    $screen->add_help_tab( array(
+        'id' => 'adplugg_faq',
+        'title' => 'FAQ',
+        'content' => $faq_content
     ) );
 
     $screen->set_help_sidebar( $sidebar_content );

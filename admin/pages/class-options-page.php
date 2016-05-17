@@ -65,9 +65,19 @@ class AdPlugg_Options_Page {
         <p>
             To use AdPlugg, you will need an AdPlugg Access Code.  To get
             your AdPlugg Access Code, log in or register (it's free) at 
-            <a href="http://www.adplugg.com" target="_blank" title="adplugg.com">adplugg.com</a>.
+            <a href="http://www.adplugg.com" target="_blank" title="adplugg.com">
+                adplugg.com</a>.
+        </p>
+    <?php if ( ! adplugg_is_access_code_installed() ) { ?>
+        <p>
+            <a href="#" onclick="
+                jQuery( '#contextual-help-link' ).trigger( 'click' );
+                jQuery( '#tab-link-adplugg_faq>a' ).trigger( 'click' ); 
+                return false;
+            " title="Why do I need an access code?">Why do I need an access code?</a>
         </p>
     <?php
+        }
     }
 
     /**
