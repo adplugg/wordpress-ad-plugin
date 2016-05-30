@@ -51,8 +51,28 @@ class AdPlugg_Options_Page {
                     <li>Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank" title="Manage my ads at adplugg.com">adplugg.com</a>.</li>
                     <li>Place the AdPlugg Widget on my site from the <a href="<?php echo admin_url( 'widgets.php' ); ?>" title="Go to the Widgets Configuration Page.">WordPress Widgets Configuration Page</a>.</li>
                 <?php } //end if ?>
-                <li>Get <a href="#" onclick="jQuery( '#contextual-help-link' ).trigger( 'click' ); return false;" title="Get help using this plugin.">help</a> using this plugin.</li>
             </ul>
+            <hr/>
+            <h3>Help</h3>
+            <?php if ( ! adplugg_is_access_code_installed() ) { ?>
+                <div class="adplugg-videos">
+                    <div class="adplugg-video-tile">
+                        <figure>
+                            <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><span class="wistia_embed wistia_async_qh4ytc46co popover=true popoverAnimateThumbnail=true" style="display:inline-block;height:94px;width:150px">&nbsp;</span>
+                            <figcaption>Quick Start Video<br/>(3:38)</figcaption>
+                        </figure>
+                    </div>
+                    <div class="adplugg-video-tile">
+                        <figure>
+                            <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><span class="wistia_embed wistia_async_kjxlwvcixg popover=true popoverAnimateThumbnail=true" style="display:inline-block;height:94px;width:150px">&nbsp;</span>
+                            <figcaption><i>Really</i> Quick Start Video<br/>(0:55)</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            <?php } //end if ?>
+            <p>
+                Get <a href="#" onclick="jQuery( '#contextual-help-link' ).trigger( 'click' ); return false;" title="Get help using this plugin.">help</a> using this plugin.
+            </p>
         </div>
     <?php
     }
@@ -63,21 +83,16 @@ class AdPlugg_Options_Page {
     function render_access_section_text() {
     ?>
         <p>
+            AdPlugg is an online service for managing and serving ads to your
+            website.
+        </p>
+        <p>
             To use AdPlugg, you will need an AdPlugg Access Code.  To get
             your AdPlugg Access Code, log in or register (it's free) at 
             <a href="http://www.adplugg.com" target="_blank" title="adplugg.com">
                 adplugg.com</a>.
         </p>
-    <?php if ( ! adplugg_is_access_code_installed() ) { ?>
-        <p>
-            <a href="#" onclick="
-                jQuery( '#contextual-help-link' ).trigger( 'click' );
-                jQuery( '#tab-link-adplugg_faq>a' ).trigger( 'click' ); 
-                return false;
-            " title="Why do I need an access code?">Why do I need an access code?</a>
-        </p>
-    <?php
-        }
+    <?php 
     }
 
     /**
@@ -92,6 +107,14 @@ class AdPlugg_Options_Page {
             You must enter a valid AdPlugg Access Code here. If you need an
             Access Code, you can create one
             <a href="https://www.adplugg.com/apusers/signup" target="_blank" title="AdPlugg Signup">here</a>.
+            <?php if ( ! adplugg_is_access_code_installed() ) { ?>
+                <br/>
+                <a href="#" onclick="
+                    jQuery( '#contextual-help-link' ).trigger( 'click' );
+                    jQuery( '#tab-link-adplugg_faq>a' ).trigger( 'click' ); 
+                    return false;
+                " title="Why do I need an access code?">Why do I need an access code?</a>
+            <?php } //end if?>
         </p>
     <?php
     }

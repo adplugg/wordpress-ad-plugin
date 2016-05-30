@@ -4,6 +4,7 @@
  * @since 1.1
  */
 
+/* Widget */
 fieldset.adplugg-widget-fieldset {
     padding: 4px 6px 6px 6px;
     border: solid 1px #e5e5e5;
@@ -14,6 +15,8 @@ fieldset.adplugg-widget-fieldset legend {
     margin: 0;
     padding: 0;
 }
+
+/* Notices */
 .adplugg-notice button {
     background-color: #fafafa;
     color: #666;
@@ -30,6 +33,22 @@ fieldset.adplugg-widget-fieldset legend {
     cursor: pointer;
 }
 
+/* Video Tiles */
+.adplugg-videos {
+    margin: 0 0 1em 3em;
+    overflow: hidden;
+}
+.adplugg-video-tile {
+    width: 180px;
+    float: left;
+    margin: 0 1em 1em 0;
+    text-align: center;
+}
+.adplugg-video-tile figurecaption{ font-weight: bold;}
+.adplugg-video-tile h2 {height: 2em;}
+.adplugg-video-tile figure { margin: 0;}
+
+/* FBIA */
 .adplugg-fbia-only {display: none;}
 #facebook_ia_header_ads .adplugg-fbia-only {display: initial}
 legend.adplugg_widget_legend {display: none;}

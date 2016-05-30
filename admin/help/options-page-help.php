@@ -20,7 +20,25 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     <p>
         Need help using the adplugg plugin? Use the tabs to the left to find
         instructions for installation, use and troubleshooting.
-    </p>';
+    </p>
+    <div style="overflow: hidden">
+        <div class="adplugg-video-tile">
+            <h2>Quick Start Video</h2>
+            <figure>
+                <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><span class="wistia_embed wistia_async_qh4ytc46co popover=true popoverAnimateThumbnail=true" style="display:inline-block;height:94px;width:150px">&nbsp;</span>    
+                <figcaption>(3:38)</figcaption>
+            </figure>
+        </div>
+        <div class="adplugg-video-tile">
+            <h2>Really Quick Start Video</h2>
+            <figure>
+                <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><span class="wistia_embed wistia_async_kjxlwvcixg popover=true popoverAnimateThumbnail=true" style="display:inline-block;height:94px;width:150px">&nbsp;</span>
+                <figcaption>(0:55)</figcaption>
+            </figure>
+        </div>
+    </div>
+    
+    ';
 
     $installation_content = '
     <h2>Installation/Configuration</h2>
@@ -48,7 +66,10 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
             it so that you can load different ads in different areas of the
             page.
         </li>
-    </ul>';
+    </ul>
+    <h2>Quick Start Video</h2>
+    <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><span class="wistia_embed wistia_async_qh4ytc46co popover=true popoverAnimateThumbnail=true" style="display:inline-block;height:94px;width:150px">&nbsp;</span>
+    ';
 
     $use_content = '
     <h2>Using AdPlugg</h2>
