@@ -1,4 +1,4 @@
-= 1.3.10 =
+= 1.3.11 =
 
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v2.11 of the FBIA plugin.
 
