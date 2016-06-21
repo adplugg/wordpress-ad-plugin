@@ -16,6 +16,11 @@ fieldset.adplugg-widget-fieldset legend {
     padding: 0;
 }
 
+fieldset.adplugg-widget-fieldset input[type='checkbox'] {
+    -webkit-appearance: button;
+}
+
+
 /* Notices */
 .adplugg-notice button {
     background-color: #fafafa;
