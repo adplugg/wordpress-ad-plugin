@@ -17,7 +17,7 @@ class NoticeTest extends WP_UnitTestCase {
     public function test_constructor() {
         $notice = new AdPlugg_Notice();
         
-        $this->assertNotNull($notice);        
+        $this->assertNotNull( $notice );        
     }
     
     /**
@@ -25,10 +25,10 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_create() {
         $notice_key = 'test_notice';
-        $notice = AdPlugg_Notice::create($notice_key, 'This is a test notice');
+        $notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
         
         //Assert that the notice_key is as expected.
-        $this->assertEquals($notice_key, $notice->get_notice_key());
+        $this->assertEquals( $notice_key, $notice->get_notice_key() );
     }
     
     /**
@@ -43,10 +43,10 @@ class NoticeTest extends WP_UnitTestCase {
         $array['type'] = 'updated';
         $array['dismissible'] = false;
         
-        $notice = AdPlugg_Notice::recreate($array);
+        $notice = AdPlugg_Notice::recreate( $array );
         
         //Assert that the notice_key is as expected.
-        $this->assertEquals($notice_key, $notice->get_notice_key());
+        $this->assertEquals( $notice_key, $notice->get_notice_key() );
     }
     
     /**
@@ -54,10 +54,10 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_get_notice_key() {
         $notice_key = 'test_notice';
-        $notice = AdPlugg_Notice::create($notice_key, 'This is a test notice');
+        $notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
         
         //Assert that the notice_key is returned as expected.
-        $this->assertEquals($notice_key, $notice->get_notice_key());
+        $this->assertEquals( $notice_key, $notice->get_notice_key() );
     }
     
     /**
@@ -65,10 +65,10 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_get_message() {
         $message = 'This is a test notice';
-        $notice = AdPlugg_Notice::create('test_notice', $message);
+        $notice = AdPlugg_Notice::create( 'test_notice', $message );
         
         //Assert that the message is returned as expected.
-        $this->assertEquals($message, $notice->get_message());
+        $this->assertEquals( $message, $notice->get_message() );
     }
     
     /**
@@ -76,10 +76,10 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_get_type() {
         $type = 'error';
-        $notice = AdPlugg_Notice::create('test_notice', 'This is a test notice', $type);
+        $notice = AdPlugg_Notice::create( 'test_notice', 'This is a test notice', $type );
         
         //Assert that the type is returned as expected.
-        $this->assertEquals($type, $notice->get_type());
+        $this->assertEquals( $type, $notice->get_type() );
     }
     
     /**
@@ -87,10 +87,10 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_is_dismissible() {
         $dismissible = true;
-        $notice = AdPlugg_Notice::create('test_notice', 'This is a test notice', 'updated', $dismissible);
+        $notice = AdPlugg_Notice::create( 'test_notice', 'This is a test notice', 'updated', $dismissible );
         
         //Assert that dismissible is returned as expected.
-        $this->assertEquals($dismissible, $notice->is_dismissible());
+        $this->assertEquals( $dismissible, $notice->is_dismissible() );
     }
     
     /**
@@ -117,10 +117,11 @@ class NoticeTest extends WP_UnitTestCase {
                                     $message, 
                                     $type, 
                                     $dismissible,
-                                    $remind_when);
+                                    $remind_when
+                                );
         
         //Assert that the array is returned as expected.
-        $this->assertEquals($expected_array, $notice->to_array());
+        $this->assertEquals( $expected_array, $notice->to_array() );
     }
     
     /**
@@ -129,7 +130,7 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_is_dismissed_returns_false_when_not_dismissed() {
         $notice_key = 'test_notice';
-        $notice = AdPlugg_Notice::create($notice_key, 'This is a test notice');
+        $notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
         
         //Assert that dismissible is returned as expected.
         $this->assertFalse($notice->is_dismissed());
@@ -141,15 +142,15 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_is_dismissed_returns_true_when_dismissed_permanently() {
         $notice_key = 'test_notice';
-        $notice = AdPlugg_Notice::create($notice_key, 'This is a test notice');
+        $notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
         
         //Add the dismissal to the database
-        $dismissals = get_option(ADPLUGG_NOTICES_DISMISSED_NAME, array());
+        $dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
         $dismissals[$notice_key] = null;
-        update_option(ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals);
+        update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
         
         //Assert that dismissible is returned as expected.
-        $this->assertTrue($notice->is_dismissed());
+        $this->assertTrue( $notice->is_dismissed() );
     }
     
     /**
@@ -158,15 +159,15 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_is_dismissed_returns_true_when_remind_on_in_future() {
         $notice_key = 'test_notice';
-        $notice = AdPlugg_Notice::create($notice_key, 'This is a test notice');
+        $notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
         
         //Add the dismissal to the database
-        $dismissals = get_option(ADPLUGG_NOTICES_DISMISSED_NAME, array());
-        $dismissals[$notice_key] = strtotime('tomorrow');
-        update_option(ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals);
+        $dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
+        $dismissals[$notice_key] = strtotime( 'tomorrow' );
+        update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
         
         //Assert that is_dismissed returns true as expected.
-        $this->assertTrue($notice->is_dismissed());
+        $this->assertTrue( $notice->is_dismissed() );
     }
     
     /**
@@ -175,15 +176,15 @@ class NoticeTest extends WP_UnitTestCase {
      */    
     public function test_is_dismissed_returns_false_when_remind_on_in_past() {
         $notice_key = 'test_notice';
-        $notice = AdPlugg_Notice::create($notice_key, 'This is a test notice');
+        $notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
         
         //Add the dismissal to the database
-        $dismissals = get_option(ADPLUGG_NOTICES_DISMISSED_NAME, array());
-        $dismissals[$notice_key] = time(strtotime('yesterday'));
-        update_option(ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals);
+        $dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
+        $dismissals[$notice_key] = time( strtotime( 'yesterday' ) );
+        update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
         
         //Assert that is_dismissed is returned as expected.
-        $this->assertFalse($notice->is_dismissed());
+        $this->assertFalse( $notice->is_dismissed() );
     }
     
 }
