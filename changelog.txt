@@ -1,3 +1,7 @@
+= 1.3.18 =
+
+* Updated the readme.txt file to reflect that the plugin is tested and working with up to WP 4.6.
+
 = 1.3.17 =
 
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v3.0.1 of the FBIA plugin.
