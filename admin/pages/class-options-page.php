@@ -142,9 +142,9 @@ class AdPlugg_Options_Page {
     /**
      * Function to validate the submitted AdPlugg options field values. 
      * 
-     * This function overrites the old values instead of completely replacing them so
-     * that we don't overwrite values that weren't submitted (such as the 
-     * version).
+     * This function overwrites the old values instead of completely replacing 
+     * them so that we don't overwrite values that weren't submitted (such as 
+     * the version).
      * @param array $input The submitted values
      * @return array Returns the new options to be stored in the database.
      */
