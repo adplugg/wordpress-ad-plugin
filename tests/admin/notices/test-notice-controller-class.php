@@ -1,6 +1,6 @@
 <?php
 
-require_once(ADPLUGG_PATH . 'admin/notices/class-notice-controller.php');
+require_once( ADPLUGG_PATH . 'admin/notices/class-notice-controller.php' );
 
 /**
  * The NoticeControllerTest class includes tests for testing the various methods
@@ -20,13 +20,13 @@ class NoticeControllerTest extends WP_UnitTestCase {
         global $wp_filter;
         
         //Assert that the admin notices function is registered.
-        $function_names = get_function_names($wp_filter['admin_notices']);
-        //var_dump($function_names);
-        $this->assertContains('admin_notices', $function_names);
+        $function_names = get_function_names( $wp_filter['admin_notices'] );
+        //var_dump( $function_names );
+        $this->assertContains( 'admin_notices', $function_names );
         
         //Assert that the admin notices function is registered.
-        $function_names = get_function_names($wp_filter['wp_ajax_adplugg_set_notice_pref']);
-        $this->assertContains('set_notice_pref_callback', $function_names); 
+        $function_names = get_function_names( $wp_filter['wp_ajax_adplugg_set_notice_pref'] );
+        $this->assertContains( 'set_notice_pref_callback', $function_names ); 
     }
     
      /**
@@ -42,7 +42,7 @@ class NoticeControllerTest extends WP_UnitTestCase {
         $outbound = ob_get_contents();
         ob_end_clean();
         
-        $this->assertContains("AdPlugg", $outbound);
+        $this->assertContains( 'AdPlugg', $outbound );
     }
     
     /**
@@ -59,10 +59,10 @@ class NoticeControllerTest extends WP_UnitTestCase {
         $adplugg_notice_controller = new AdPlugg_Notice_Controller();
         
         //Assert that the expected output string is returned.
-        $this->expectOutputString($expected);
+        $this->expectOutputString( $expected );
         try {
             $adplugg_notice_controller->set_notice_pref_callback();
-        } catch(WPDieException $ex) {
+        } catch( WPDieException $ex ) {
             //
         }
     }
