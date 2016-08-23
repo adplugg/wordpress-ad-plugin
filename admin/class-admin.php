@@ -22,12 +22,12 @@ class AdPlugg_Admin {
     }
     
     /**
-     * Add settings link on plugin page
+     * Add settings link on plugin page listing.
      * @param array $links An array of existing links for the plugin
      * @return array The new array of links
      */
     function adplugg_settings_link( $links ) { 
-        $settings_link = '<a href="options-general.php?page=adplugg">Settings</a>'; 
+        $settings_link = '<a href="admin.php?page=adplugg">Settings</a>'; 
         array_unshift( $links, $settings_link ); 
         return $links;
     }
