@@ -83,9 +83,9 @@ if( is_admin() ) {
     
     //Plugin setup and registrations
     $adplugg_admin = new AdPlugg_Admin();
-    register_activation_hook( __FILE__, array( 'AdPlugg_Admin', 'adplugg_activation' ));
-    register_deactivation_hook( __FILE__, array( 'AdPlugg_Admin', 'adplugg_deactivation' ));
-    register_uninstall_hook( __FILE__, array( 'AdPlugg_Admin', 'adplugg_uninstall' ));
+    register_activation_hook( __FILE__, array( 'AdPlugg_Admin', 'activate' ));
+    register_deactivation_hook( __FILE__, array( 'AdPlugg_Admin', 'deactivate' ));
+    register_uninstall_hook( __FILE__, array( 'AdPlugg_Admin', 'uninstall' ));
     
     //Set up the options page 
     $adplugg_options_page = new AdPlugg_Options_Page();

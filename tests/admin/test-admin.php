@@ -26,7 +26,7 @@ class AdminTest extends WP_UnitTestCase {
         $function_names = get_function_names(
                               $wp_filter['plugin_action_links_' . ADPLUGG_BASENAME]
                           );
-        $this->assertContains( 'adplugg_settings_link', $function_names );
+        $this->assertContains( 'add_settings_link_to_plugin_listing', $function_names );
         
         //Assert that the admin_footer_text filter is registered
         $function_names = get_function_names( $wp_filter['admin_footer_text'] );
@@ -34,7 +34,7 @@ class AdminTest extends WP_UnitTestCase {
         
         //Assert that the init function is registered.
         $function_names = get_function_names( $wp_filter['admin_init'] );
-        $this->assertContains( 'adplugg_admin_init', $function_names );
+        $this->assertContains( 'admin_init', $function_names );
         
         //Assert that the adplugg_rated function is registered.
         $function_names = get_function_names( $wp_filter['wp_ajax_adplugg_rated'] );
@@ -42,20 +42,20 @@ class AdminTest extends WP_UnitTestCase {
     }
     
     /**
-     * Test the adplugg_settings_link function.
+     * Test the add_settings_link_to_plugin_listing function.
      */    
-    public function test_adplugg_settings_link() {
+    public function test_add_settings_link_to_plugin_listing() {
         $links = array();
         $adplugg_admin = new AdPlugg_Admin();
-        $links = $adplugg_admin->adplugg_settings_link($links);
+        $links = $adplugg_admin->add_settings_link_to_plugin_listing($links);
         
         $this->assertEquals(count($links), 1);
     }
     
     /**
-     * Test the adplugg_admin_init function.
+     * Test the admin_init function.
      */    
-    public function test_adplugg_admin_init() {
+    public function test_admin_init() {
         $adplugg_admin = new AdPlugg_Admin();
         
         //Set the version to something old/incorrect
@@ -64,7 +64,7 @@ class AdminTest extends WP_UnitTestCase {
         update_option(ADPLUGG_OPTIONS_NAME, $options);
         
         //Run the function.
-        $adplugg_admin->adplugg_admin_init();
+        $adplugg_admin->admin_init();
         
         //Assert that the version was updated
         $new_options = get_option(ADPLUGG_OPTIONS_NAME, array());
@@ -167,14 +167,14 @@ class AdminTest extends WP_UnitTestCase {
         $adplugg_admin = new AdPlugg_Admin();
         
         //init the plugin so that we can then uninstall it
-        $adplugg_admin->adplugg_admin_init();
+        $adplugg_admin->admin_init();
         
         //assert that there are options
         $options = get_option(ADPLUGG_OPTIONS_NAME, array());
         $this->assertNotEmpty($options);
         
         //uninstall the plugin
-        $adplugg_admin->adplugg_uninstall();
+        $adplugg_admin->uninstall();
         
         //assert that the options are now empty
         $options_new = get_option(ADPLUGG_OPTIONS_NAME, array());

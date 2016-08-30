@@ -14,10 +14,10 @@ class AdPlugg_Admin {
      * Constructor, constructs the class and registers filters and actions.
      */
     function __construct() {
-        add_filter( 'plugin_action_links_' . ADPLUGG_BASENAME, array( &$this, 'adplugg_settings_link' ) );
+        add_filter( 'plugin_action_links_' . ADPLUGG_BASENAME, array( &$this, 'add_settings_link_to_plugin_listing' ) );
         add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 1 );
         
-        add_action( 'admin_init', array( &$this, 'adplugg_admin_init' ) );
+        add_action( 'admin_init', array( &$this, 'admin_init' ) );
         add_action( 'wp_ajax_adplugg_rated', array( &$this, 'rated_callback' ) );
     }
     
@@ -26,7 +26,7 @@ class AdPlugg_Admin {
      * @param array $links An array of existing links for the plugin
      * @return array The new array of links
      */
-    function adplugg_settings_link( $links ) { 
+    function add_settings_link_to_plugin_listing( $links ) { 
         $settings_link = '<a href="admin.php?page=adplugg">Settings</a>'; 
         array_unshift( $links, $settings_link ); 
         return $links;
@@ -35,7 +35,7 @@ class AdPlugg_Admin {
     /**
      * Init the adplugg admin
      */
-    function adplugg_admin_init() {
+    function admin_init() {
         $options = get_option( ADPLUGG_OPTIONS_NAME, array() );
         $data_version = ( array_key_exists( 'version', $options ) ) ? $options['version'] : null;
         if ( $data_version != ADPLUGG_VERSION ) {
@@ -99,21 +99,21 @@ class AdPlugg_Admin {
     /**
      * Called when the plugin is activated.
      */
-    static function adplugg_activation() {
+    static function activate() {
         //
     }
 
     /**
      * Called when the plugin is deactivated.
      */
-    static function adplugg_deactivation() {
+    static function deactivate() {
         //
     }
     
     /**
      * Called when plugin is uninstalled.
      */
-    static function adplugg_uninstall() {
+    static function uninstall() {
         delete_option( ADPLUGG_OPTIONS_NAME );
         delete_option( ADPLUGG_FACEBOOK_OPTIONS_NAME );
         delete_option( ADPLUGG_NOTICES_NAME );
