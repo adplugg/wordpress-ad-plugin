@@ -105,7 +105,7 @@ class AdPlugg_Notice {
         $html = '';
     
         if( ! $this->is_dismissed() ) {
-            $html .= '<div id="' . $this->get_notice_key() . '" class="' . $this->get_type() . ' adplugg-notice">';
+            $html .= '<div id="' . $this->get_notice_key() . '" class="' . $this->get_type() . ' notice notice-' . $this->get_type() . ' adplugg-notice">';
             $html .=     '<p>' .
                            '<strong>AdPlugg:</strong> ' .
                            $this->get_message() . 
