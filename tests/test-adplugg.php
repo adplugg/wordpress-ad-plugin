@@ -14,6 +14,7 @@ class AdPluggTest extends WP_UnitTestCase {
      */    
     function testConstants() {
         $this->assertNotEmpty(ADPLUGG_PATH);
+        $this->assertNotEmpty(ADPLUGG_INCLUDES);
         $this->assertNotEmpty(ADPLUGG_BASENAME);
         $this->assertNotEmpty(ADPLUGG_ADJSSERVER);
         $this->assertNotEmpty(ADPLUGG_ADHTMLSERVER);

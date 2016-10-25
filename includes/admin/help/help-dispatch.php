@@ -6,9 +6,9 @@
  * @since 1.1.29
  */
 
-require_once( ADPLUGG_PATH . 'admin/help/options-page-help.php' );
-require_once( ADPLUGG_PATH . 'admin/help/facebook-options-page-help.php' );
-require_once( ADPLUGG_PATH . 'admin/help/widgets-page-help.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/help/options-page-help.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/help/facebook-options-page-help.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/help/widgets-page-help.php' );
     
 /**
  * Add help for the AdPlugg plugin to the WordPress admin help system.

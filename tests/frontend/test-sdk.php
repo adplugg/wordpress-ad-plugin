@@ -1,6 +1,6 @@
 <?php
 
-require_once(ADPLUGG_PATH . 'frontend/sdk.php');
+require_once(ADPLUGG_INCLUDES . 'frontend/sdk.php');
 
 /**
  * The SdkTest class includes tests for testing the functions in the

@@ -33,6 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //Define constants
 define( 'ADPLUGG_PATH', plugin_dir_path( __FILE__ ) );
+define( 'ADPLUGG_INCLUDES', ADPLUGG_PATH . 'includes/' );
 define( 'ADPLUGG_BASENAME', plugin_basename(__FILE__) );
 define( 'ADPLUGG_URL', plugins_url( '/', __FILE__ ) );
 
@@ -55,10 +56,10 @@ define( 'ADPLUGG_RATED_NAME', 'adplugg_rated' );
 define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 
 //Includes
-require_once( ADPLUGG_PATH . 'functions.php' );
-require_once( ADPLUGG_PATH . 'class-facebook.php' );
+require_once( ADPLUGG_INCLUDES . 'functions.php' );
+require_once( ADPLUGG_INCLUDES . 'class-facebook.php' );
 require_once( ADPLUGG_PATH . 'tests/qunit.php' );
-require_once( ADPLUGG_PATH . 'widgets/AdPlugg_Widget.php' );
+require_once( ADPLUGG_INCLUDES . 'widgets/AdPlugg_Widget.php' );
 
 //Register the AdPlugg Widget
 add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlugg_Widget");' ) );
@@ -69,14 +70,14 @@ AdPlugg_Facebook::get_instance();
 if( is_admin() ) {
     //---- ADMIN ----//
     //Includes
-    require_once( ADPLUGG_PATH . 'admin/notices/class-notice.php' );
-    require_once( ADPLUGG_PATH . 'admin/notices/class-notice-controller.php' );
-    require_once( ADPLUGG_PATH . 'admin/notices/notice-functions.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/notices/class-notice.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/notices/class-notice-controller.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php' );
     
-    require_once( ADPLUGG_PATH . 'admin/class-admin.php' );
-    require_once( ADPLUGG_PATH . 'admin/pages/class-options-page.php' );
-    require_once( ADPLUGG_PATH . 'admin/pages/class-facebook-options-page.php' );
-    require_once( ADPLUGG_PATH . 'admin/help/help-dispatch.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/class-admin.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-options-page.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-facebook-options-page.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
     
     //Set up the notifications system.
     $adplugg_notice_controller = new AdPlugg_Notice_Controller();
@@ -102,15 +103,15 @@ if( is_admin() ) {
 } else {
     //---- FRONT END ----//
     //Add the SDK
-    require_once( ADPLUGG_PATH . 'frontend/sdk.php' );
+    require_once( ADPLUGG_INCLUDES . 'frontend/sdk.php' );
     add_action( 'wp_footer', 'adplugg_add_sdk' );
     
     //Feeds
-    require_once( ADPLUGG_PATH . 'frontend/class-feed.php' );
+    require_once( ADPLUGG_INCLUDES . 'frontend/class-feed.php' );
     AdPlugg_Feed::get_instance();
     
     //Facebook Instant Articles
-    require_once( ADPLUGG_PATH . 'frontend/class-facebook-instant-articles.php' );
+    require_once( ADPLUGG_INCLUDES . 'frontend/class-facebook-instant-articles.php' );
     AdPlugg_Facebook_Instant_Articles::get_instance();
 
 }

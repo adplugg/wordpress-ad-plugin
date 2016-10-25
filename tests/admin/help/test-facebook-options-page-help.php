@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_PATH . 'admin/help/options-page-help.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/help/options-page-help.php' );
 
 /**
  * The FacebookOptionsPageHelpTest class includes tests for testing the 

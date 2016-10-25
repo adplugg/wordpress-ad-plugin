@@ -1,6 +1,6 @@
 <?php
 
-require_once(ADPLUGG_PATH . 'widgets/AdPlugg_Widget.php');
+require_once(ADPLUGG_INCLUDES . 'widgets/AdPlugg_Widget.php');
 
 /**
  * The AdPlugg_Widget_Test class includes tests for testing the AdPlugg_Widget

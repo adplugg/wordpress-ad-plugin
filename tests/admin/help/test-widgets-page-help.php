@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_PATH . 'admin/help/widgets-page-help.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/help/widgets-page-help.php' );
 
 /**
  * The WidgetsPageHelpTest class includes tests for testing the functions in the

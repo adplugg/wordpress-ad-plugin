@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_PATH . '/admin/pages/class-facebook-options-page.php' );
+require_once( ADPLUGG_INCLUDES . '/admin/pages/class-facebook-options-page.php' );
 
 /**
  * The AdPluggFacebookOptionsPageTest class includes tests for testing the 

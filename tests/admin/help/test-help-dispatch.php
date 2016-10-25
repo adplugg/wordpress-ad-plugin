@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_PATH . 'admin/help/help-dispatch.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
 
 /**
  * The HelpDispatchTest class includes tests for testing the functions in the

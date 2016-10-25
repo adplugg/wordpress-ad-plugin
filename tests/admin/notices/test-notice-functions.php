@@ -1,7 +1,7 @@
 <?php
 
-require_once( ADPLUGG_PATH . 'admin/notices/class-notice.php' );
-require_once( ADPLUGG_PATH . 'admin/notices/notice-functions.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/notices/class-notice.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php' );
 
 /**
  * The NoticeFunctionsTest class includes tests for testing the notice
