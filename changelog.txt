@@ -1,3 +1,7 @@
+= 1.4.1 =
+
+* Updated test-options-page.php for WP coding standards.
+
 = 1.4.0 =
 
 * Major refactoring - moved all includes to a new includes directory.
