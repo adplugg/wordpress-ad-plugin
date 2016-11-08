@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_INCLUDES . 'admin/notices/class-notice.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
 require_once( ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php' );
 
 /**

@@ -57,9 +57,9 @@ define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 
 //Includes
 require_once( ADPLUGG_INCLUDES . 'functions.php' );
-require_once( ADPLUGG_INCLUDES . 'class-facebook.php' );
+require_once( ADPLUGG_INCLUDES . 'class-adplugg-facebook.php' );
 require_once( ADPLUGG_PATH . 'tests/qunit.php' );
-require_once( ADPLUGG_INCLUDES . 'widgets/AdPlugg_Widget.php' );
+require_once( ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php' );
 
 //Register the AdPlugg Widget
 add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlugg_Widget");' ) );
@@ -70,13 +70,13 @@ AdPlugg_Facebook::get_instance();
 if( is_admin() ) {
     //---- ADMIN ----//
     //Includes
-    require_once( ADPLUGG_INCLUDES . 'admin/notices/class-notice.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/notices/class-notice-controller.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php' );
     require_once( ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php' );
     
-    require_once( ADPLUGG_INCLUDES . 'admin/class-admin.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-options-page.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-facebook-options-page.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
     require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
     
     //Set up the notifications system.
@@ -107,11 +107,11 @@ if( is_admin() ) {
     add_action( 'wp_footer', 'adplugg_add_sdk' );
     
     //Feeds
-    require_once( ADPLUGG_INCLUDES . 'frontend/class-feed.php' );
+    require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php' );
     AdPlugg_Feed::get_instance();
     
     //Facebook Instant Articles
-    require_once( ADPLUGG_INCLUDES . 'frontend/class-facebook-instant-articles.php' );
+    require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-facebook-instant-articles.php' );
     AdPlugg_Facebook_Instant_Articles::get_instance();
 
 }

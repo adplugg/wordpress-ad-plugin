@@ -1,9 +1,9 @@
 <?php
 
-require_once(ADPLUGG_INCLUDES . 'admin/notices/class-notice.php');
+require_once(ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php');
+require_once(ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php');
 require_once(ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php');
-require_once(ADPLUGG_INCLUDES . 'admin/notices/class-notice-controller.php');
-require_once(ADPLUGG_INCLUDES . 'admin/class-admin.php');
+require_once(ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php');
 
 
 /**

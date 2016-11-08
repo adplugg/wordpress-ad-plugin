@@ -1,6 +1,6 @@
 <?php
 
-require_once(ADPLUGG_INCLUDES . 'frontend/class-feed.php');
+require_once(ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php');
 
 /**
  * The FeedTest class includes tests for testing the AdPlugg_Feed class.

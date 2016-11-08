@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_INCLUDES . 'admin/pages/class-options-page.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
 
 /**
  * The OptionsPageTest class includes tests for testing the AdPlugg_Options_Page

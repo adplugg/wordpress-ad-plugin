@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_INCLUDES . 'admin/notices/class-notice-controller.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php' );
 
 /**
  * The NoticeControllerTest class includes tests for testing the various methods
