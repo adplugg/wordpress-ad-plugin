@@ -1,3 +1,7 @@
+= 1.4.2 =
+
+* Renamed class files to accurately reflect the full name of the contained class as per WP coding standards.
+
 = 1.4.1 =
 
 * Updated test-options-page.php for WP coding standards.
