@@ -3,13 +3,13 @@
 require_once(ADPLUGG_INCLUDES . 'frontend/sdk.php');
 
 /**
- * The SdkTest class includes tests for testing the functions in the
+ * The Test_Sdk class includes tests for testing the functions in the
  * frontend/sdk.php file.
  *
  * @package AdPlugg
  * @since 1.1.16
  */
-class SdkTest extends WP_UnitTestCase {
+class Test_Sdk extends WP_UnitTestCase {
     
     /**
      * Test that the adplugg_add_sdk function doesn't output anything if the

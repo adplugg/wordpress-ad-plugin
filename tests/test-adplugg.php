@@ -1,13 +1,13 @@
 <?php
 
 /**
- * The AdPluggTest class includes tests for testing the main AdPlugg_Admin
- * class (in the class-adplugg-admin.php file).
+ * The Test_AdPlugg class includes tests for testing the code in the main
+ * adplugg.php file.
  *
  * @package AdPlugg
  * @since 1.1.16
  */
-class AdPluggTest extends WP_UnitTestCase {
+class Test_AdPlugg extends WP_UnitTestCase {
 
     /**
      * Assert that the expected constants are declared and accessible.

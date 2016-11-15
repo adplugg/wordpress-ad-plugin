@@ -1,13 +1,13 @@
 <?php
 
 /**
- * The AdPluggFacebookTest class includes tests for testing the AdPlugg_Facebook
- * class.
+ * The Test_AdPlugg_Facebook class includes tests for testing the 
+ * AdPlugg_Facebook class.
  *
  * @package AdPlugg
  * @since 1.3.0
  */
-class AdPluggFacebookTest extends WP_UnitTestCase {
+class Test_AdPlugg_Facebook extends WP_UnitTestCase {
 
     /**
      * Test the is_ia_automatic_placement_enabled() function.

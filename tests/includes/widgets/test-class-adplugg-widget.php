@@ -3,13 +3,13 @@
 require_once(ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php');
 
 /**
- * The AdPlugg_Widget_Test class includes tests for testing the AdPlugg_Widget
+ * The Test_AdPlugg_Widget class includes tests for testing the AdPlugg_Widget
  * class.
  *
  * @package AdPlugg
  * @since 1.1.16
  */
-class AdPlugg_Widget_Test extends WP_UnitTestCase {
+class Test_AdPlugg_Widget extends WP_UnitTestCase {
     
     /**
      * Test the constructor.

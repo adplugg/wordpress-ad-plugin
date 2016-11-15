@@ -7,12 +7,12 @@ require_once(ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php');
 
 
 /**
- * The AdminTest class includes tests for testing the AdPlugg_Admin class.
+ * The Test_AdPlugg_Admin class includes tests for testing the AdPlugg_Admin class.
  *
  * @package AdPlugg
  * @since 1.1.16
  */
-class AdminTest extends WP_UnitTestCase {
+class Test_AdPlugg_Admin extends WP_UnitTestCase {
     
     /**
      * Test the constructor

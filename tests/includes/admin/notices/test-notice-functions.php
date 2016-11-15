@@ -4,13 +4,13 @@ require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
 require_once( ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php' );
 
 /**
- * The NoticeFunctionsTest class includes tests for testing the notice
+ * The Test_Notice_Functions class includes tests for testing the notice
  * functions.
  *
  * @package AdPlugg
  * @since 1.2.0
  */
-class NoticeFunctionsTest extends WP_UnitTestCase {
+class Test_Notice_Functions extends WP_UnitTestCase {
     
     /**
      * Test the adplugg_notice_add_to_queue function.

@@ -3,13 +3,13 @@
 require_once(ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php');
 
 /**
- * The NoticeTest class includes tests for testing the AdPlugg_Notice
+ * The Test_AdPlugg_Notice class includes tests for testing the AdPlugg_Notice
  * class
  *
  * @package AdPlugg
  * @since 1.2.0
  */
-class NoticeTest extends WP_UnitTestCase {
+class Test_AdPlugg_Notice extends WP_UnitTestCase {
     
     /**
      * Test the constructor

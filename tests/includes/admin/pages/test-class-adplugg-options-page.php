@@ -3,13 +3,13 @@
 require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
 
 /**
- * The OptionsPageTest class includes tests for testing the AdPlugg_Options_Page
+ * The Test_Options_Page class includes tests for testing the AdPlugg_Options_Page
  * class
  *
  * @package AdPlugg
  * @since 1.1.16
  */
-class OptionsPageTest extends WP_UnitTestCase {
+class Test_Options_Page extends WP_UnitTestCase {
     
     /**
      * Test the constructor

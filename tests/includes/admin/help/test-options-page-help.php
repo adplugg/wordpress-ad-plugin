@@ -3,13 +3,13 @@
 require_once(ADPLUGG_INCLUDES . 'admin/help/options-page-help.php');
 
 /**
- * The OptionsPageHelpTest class includes tests for testing the functions in the
+ * The Test_Options_Page_Help class includes tests for testing the functions in the
  * options-page-help.php file.
  *
  * @package AdPlugg
  * @since 1.1.16
  */
-class OptionsPageHelpTest extends WP_UnitTestCase {
+class Test_Options_Page_Help extends WP_UnitTestCase {
     
     /**
      * Test the adplugg_options_page_help function.

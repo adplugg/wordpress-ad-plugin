@@ -3,12 +3,13 @@
 require_once(ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php');
 
 /**
- * The FeedTest class includes tests for testing the AdPlugg_Feed class.
+ * The Test_AdPlugg_Feed class includes tests for testing the AdPlugg_Feed 
+ * class.
  *
  * @package AdPlugg
  * @since 1.2.48
  */
-class FeedTest extends WP_UnitTestCase {
+class Test_AdPlugg_Feed extends WP_UnitTestCase {
     
     /**
      * Test the get_instance function.

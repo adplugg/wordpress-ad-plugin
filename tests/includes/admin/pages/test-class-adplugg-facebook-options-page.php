@@ -3,13 +3,13 @@
 require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
 
 /**
- * The AdPluggFacebookOptionsPageTest class includes tests for testing the 
+ * The Test_AdPlugg_Facebook_Options_Page class includes tests for testing the 
  * AdPlugg_Facebook_Options_Page class.
  *
  * @package AdPlugg
  * @since 1.3.0
  */
-class AdPluggFacebookOptionsPageTest extends WP_UnitTestCase {
+class Test_AdPlugg_Facebook_Options_Page extends WP_UnitTestCase {
     
     /**
      * Test the constructor

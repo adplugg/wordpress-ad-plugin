@@ -3,13 +3,13 @@
 require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
 
 /**
- * The HelpDispatchTest class includes tests for testing the functions in the
+ * The Test_Help_Dispatch class includes tests for testing the functions in the
  * help-dispatch.php file.
  *
  * @package AdPlugg
  * @since 1.1.29
  */
-class HelpDispatchTest extends WP_UnitTestCase {
+class Test_Help_Dispatch extends WP_UnitTestCase {
     
     /**
      * Test that the adplugg_help_dispatch function properly dispatches help for

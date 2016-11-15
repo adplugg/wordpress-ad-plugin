@@ -1,12 +1,12 @@
 <?php
 
 /**
- * The FunctionsTest class includes tests for the functions in functions.php
+ * The Functions_Test class includes tests for the functions in functions.php
  *
  * @package AdPlugg
  * @since 1.1.16
  */
-class FunctionsTest extends WP_UnitTestCase {
+class Test_Functions extends WP_UnitTestCase {
 
     /**
      * Assert that adplugg_is_access_code_installed() correctly returns whether

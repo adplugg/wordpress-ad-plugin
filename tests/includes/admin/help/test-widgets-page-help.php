@@ -3,13 +3,13 @@
 require_once( ADPLUGG_INCLUDES . 'admin/help/widgets-page-help.php' );
 
 /**
- * The WidgetsPageHelpTest class includes tests for testing the functions in the
+ * The Test_Widgets_Page_Help class includes tests for testing the functions in the
  * widgets-page-help.php file.
  *
  * @package AdPlugg
  * @since 1.1.29
  */
-class WidgetsPageHelpTest extends WP_UnitTestCase {
+class Test_Widgets_Page_Help extends WP_UnitTestCase {
     
     /**
      * Test the adplugg_widgets_page_help function.
