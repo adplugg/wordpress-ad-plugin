@@ -1,3 +1,7 @@
+= 1.4.3 =
+
+* Standardized the file and class names in the test suite.
+
 = 1.4.2 =
 
 * Renamed class files to accurately reflect the full name of the contained class as per WP coding standards.
