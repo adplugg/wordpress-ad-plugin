@@ -1,3 +1,7 @@
+= 1.4.4 =
+
+* Updated deprecated constructor (as of php 7) in the AdPlugg_Widget class.
+
 = 1.4.3 =
 
 * Standardized the file and class names in the test suite.
