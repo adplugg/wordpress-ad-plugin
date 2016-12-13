@@ -49,11 +49,11 @@ class AdPlugg_Admin {
         }
         
         //Add the AdPlugg admin stylesheet to the WP admin head
-        wp_register_style( 'adPluggAdminStylesheet', plugins_url( '../assets/css/admin/admin.css', __FILE__ ) );
+        wp_register_style( 'adPluggAdminStylesheet', plugins_url( '../../assets/css/admin/admin.css', __FILE__ ) );
         wp_enqueue_style( 'adPluggAdminStylesheet' );
         
         //Add the AdPlugg admin JavaScript page to the WP admin head
-        wp_register_script( 'adPluggAdminJavaScriptPage', plugins_url( '../assets/js/admin/admin.js', __FILE__ ) );
+        wp_register_script( 'adPluggAdminJavaScriptPage', plugins_url( '../../assets/js/admin/admin.js', __FILE__ ) );
         wp_enqueue_script( 'adPluggAdminJavaScriptPage' );
     }
     
@@ -68,14 +68,14 @@ class AdPlugg_Admin {
         $screen_id = ( ! empty( $screen ) ? $screen->id : null );
 
         // only do on the adplugg settings page and if the user has already added an access code.
-        if ( ( $screen_id == 'settings_page_adplugg' ) && ( adplugg_is_access_code_installed() ) ) {
+        if ( ( $screen_id == 'toplevel_page_adplugg' ) && ( adplugg_is_access_code_installed() ) ) {
             //if not already clicked/rated
             if ( ! get_option( ADPLUGG_RATED_NAME ) ) {
                 
                 //NOTE: the click action for the link is defined in admin.js
                 $footer_text = 'If you like <strong>AdPlugg</strong>, please leave us a ' .
                                 '<a ' .
-                                  'href="https://wordpress.org/support/view/plugin-reviews/adplugg?filter=5#postform" ' .
+                                  'href="https://wordpress.org/support/plugin/adplugg/reviews/?filter=5#postform" ' .
                                   'target="_blank" class="adplugg-rating-link" data-rated="Thanks :)">' . 
                                     '&#9733;&#9733;&#9733;&#9733;&#9733;' . 
                                 '</a> rating. A huge thank you in advance from the AdPlugg Team!';
