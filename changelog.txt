@@ -1,3 +1,10 @@
+= 1.4.7 =
+
+* Fixed bug with the path to the admin assets (css, js).
+* Updated/fixed the link for writing a review.
+* Removed some JavaScript under development that was erroneously released.
+* Updated the admin tests to use the new top level AdPlugg menu.
+
 = 1.4.6 =
 
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v3.2.2 of the FBIA plugin.
