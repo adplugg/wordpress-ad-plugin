@@ -98,7 +98,7 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         update_option(ADPLUGG_OPTIONS_NAME, $options);
         
         //Set the current screen to our settings page.
-        $current_screen = WP_Screen::get( 'settings_page_adplugg' );
+        $current_screen = WP_Screen::get( 'toplevel_page_adplugg' );
         
         //Get the footer text
         $footer_text = apply_filters( 'admin_footer_text', 'foo');
@@ -125,7 +125,7 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         update_option( ADPLUGG_RATED_NAME, 1 );
         
         //Set the current screen to our settings page.
-        $current_screen = WP_Screen::get( 'settings_page_adplugg' );
+        $current_screen = WP_Screen::get( 'toplevel_page_adplugg' );
         
         //Get the footer text
         $footer_text = apply_filters( 'admin_footer_text', 'foo');
