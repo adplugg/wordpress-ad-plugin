@@ -75,7 +75,7 @@ class AdPlugg_Admin {
                 //NOTE: the click action for the link is defined in admin.js
                 $footer_text = 'If you like <strong>AdPlugg</strong>, please leave us a ' .
                                 '<a ' .
-                                  'href="https://wordpress.org/support/plugin/adplugg/reviews/?filter=5#postform" ' .
+                                  'href="https://wordpress.org/support/plugin/adplugg/reviews/?filter=5#new-post" ' .
                                   'target="_blank" class="adplugg-rating-link" data-rated="Thanks :)">' . 
                                     '&#9733;&#9733;&#9733;&#9733;&#9733;' . 
                                 '</a> rating. A huge thank you in advance from the AdPlugg Team!';
