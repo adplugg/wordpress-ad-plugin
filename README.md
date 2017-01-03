@@ -7,7 +7,7 @@ Welcome to the AdPlugg WordPress Ad Plugin Github repository
 ---------------------------------------------------------
 
 While the documentation for the AdPlugg [WordPress Ad Plugin](http://www.adplugg.com/apusers/download/wordpress-ad-plugin)
-can be found on adplugg.com, here you can browse the source of the plugin as
+can be found on [adplugg.com](http://www.adplugg.com), here you can browse the source of the plugin as
 well as find, discuss and submit issues.
 
 Installation
@@ -18,9 +18,6 @@ If you want to run the Git version though, you have two options:
 
 * You can clone the GitHub repository: https://github.com/adplugg/wordpress-ad-plugin.git
 * Download it directly as a ZIP file: https://github.com/adplugg/wordpress-ad-plugin/archive/master.zip
-
-This will download the latest development version of AdPlugg WordPress Ad Plugin.
-While this version is usually stable, it is not recommended for use in a production environment.
 
 Bugs
 ----
