@@ -13,7 +13,7 @@ ads on your WordPress site.
 
 == Description ==
 The AdPlugg WordPress Ad Plugin works in conjunction with the <strong>FREE</strong> 
-[adplugg.com](http://www.adplugg.com) ad service.
+[adplugg.com](https://www.adplugg.com) ad service.
 
 = Plugin Features =
 The AdPlugg WordPress Ad Plugin includes the following awesome features:
@@ -57,7 +57,7 @@ The PRO AdPlugg Ad Service adds the following additional features:
 
 == Frequently Asked Questions ==
 
-For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.com](http://www.adplugg.com/support/question-answer).
+For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.com](https://www.adplugg.com/support/question-answer).
 
 == Screenshots ==
 

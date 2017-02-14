@@ -89,7 +89,7 @@ class AdPlugg_Options_Page {
         <p>
             To use AdPlugg, you will need an AdPlugg Access Code.  To get
             your AdPlugg Access Code, log in or register (it's free) at 
-            <a href="http://www.adplugg.com" target="_blank" title="adplugg.com">
+            <a href="https://www.adplugg.com" target="_blank" title="adplugg.com">
                 adplugg.com</a>.
         </p>
     <?php 

@@ -49,7 +49,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     <ol>
         <li>Install the plugin.</li>
         <li>Activate the plugin.</li>
-        <li>Create an account at <a href="http://www.adplugg.com" target="_blank" title="adplugg.com">adplugg.com</a> and add at least one ad.</li>
+        <li>Create an account at <a href="https://www.adplugg.com" target="_blank" title="adplugg.com">adplugg.com</a> and add at least one ad.</li>
         <li>Get your AdPlugg Access Code and add it to the Access Code field on this page.</li>
         <li>Go to the <a href="' . admin_url( 'widgets.php' ) . '" title="Widgets configuration page">Widgets configuration page</a> and drag the AdPlugg Ad Widget into
             a Widget Area.
@@ -62,7 +62,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
         <li>
             Optionally add a Zone machine name into the widget to tie the
             widget to a Zone.  Zones can be set up from your account
-            at <a href="http://www.adplugg.com" target="_blank" title="adplugg.com">adplugg.com</a>.  Zones make
+            at <a href="https://www.adplugg.com" target="_blank" title="adplugg.com">adplugg.com</a>.  Zones make
             it so that you can load different ads in different areas of the
             page.
         </li>
@@ -74,7 +74,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     $use_content = '
     <h2>Using AdPlugg</h2>
     <p>Once you have AdPlugg set up and working, most things that can be done
-    from <a href="http://www.adplugg.com" target="_blank" title="adplugg.com">adplugg.com</a>. This includes:</p>
+    from <a href="https://www.adplugg.com" target="_blank" title="adplugg.com">adplugg.com</a>. This includes:</p>
     <ul>
       <li>Creating, modifying and deleting ads</li>
       <li>Activating and deactivating ads</li>
@@ -89,7 +89,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     <h2>Ad Tags/Shortcodes</h2>
     <p>Once you have AdPlugg intalled, you can add AdPlugg Ad Tags to your site
     and they will be filled with any ads that you target to them from your
-    account at <a href="http://www.adplugg.com" target="_blank" 
+    account at <a href="https://www.adplugg.com" target="_blank" 
     title="adplugg.com">adplugg.com</a>
     </p>
     <p>You can add AdPlugg Ad Tags can to Posts, Pages, theme files, etc.</p>
@@ -101,7 +101,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     to use Ad Tags instead of shortcodes as they are more powerfull, more 
     flexible, and more familiar to most users.  You can read more about Ad Tags
     <a href=""title="Ad Tags" 
-    href="http://www.adplugg.com/support/help/ad-tags">here</a>.
+    href="https://www.adplugg.com/support/help/ad-tags">here</a>.
     </p>';
 
     $troubleshooting_content = '
@@ -109,13 +109,13 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     <p>If ads aren\'t displaying on your site, please check the following:</p>
     <ul>
       <li>Is The AdPlugg plugin installed and activated?</li>
-      <li>Have you created an AdPlugg account at <a href="http://www.adplugg.com" title="adplugg.com">www.adplugg.com</a>?</li>
+      <li>Have you created an AdPlugg account at <a href="https://www.adplugg.com" title="adplugg.com">www.adplugg.com</a>?</li>
       <li>Do you have at least one active ad in your AdPlugg account?</li>
       <li>Have you added the AdPlugg Ad Widget to a Widget Area? You can do this from the 
       <a href="' . admin_url('widgets.php') . '" title="Widgets configuration page">Widgets configuration page</a>.</li>
     </ul>
     <p>
-    Please <a href="http://www.adplugg.com/contact" target="_blank" title="contact us">contact us</a> for additional support.
+    Please <a href="https://www.adplugg.com/contact" target="_blank" title="contact us">contact us</a> for additional support.
     </p>
     ';
     
@@ -144,7 +144,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     <h5>More Questions and Answers</h5>
     <p>
         Not seeing the question/answer that you are looking for? Please see our
-        <a href="http://www.adplugg.com/support/question-answer" 
+        <a href="https://www.adplugg.com/support/question-answer" 
         target="_blank" title="Question and Answer Forum">Question/Answer forum
         </a> for much more.
     </p>
@@ -152,9 +152,9 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
 
     $sidebar_content = '
     <h5>For more Information:</strong></h5>
-    <a href="http://www.adplugg.com/support/help" target="_blank" title="AdPlugg Help Center">AdPlugg Help Center</a><br/>
-    <a href="http://www.adplugg.com/support/cookbook" target="_blank" title="AdPlugg Cookbook">AdPlugg Cookbook</a><br/>
-    <a href="http://www.adplugg.com/contact" target="_blank" title="Contact AdPlugg">Contact AdPlugg</a><br/>
+    <a href="https://www.adplugg.com/support/help" target="_blank" title="AdPlugg Help Center">AdPlugg Help Center</a><br/>
+    <a href="https://www.adplugg.com/support/cookbook" target="_blank" title="AdPlugg Cookbook">AdPlugg Cookbook</a><br/>
+    <a href="https://www.adplugg.com/contact" target="_blank" title="Contact AdPlugg">Contact AdPlugg</a><br/>
     ';
 
     //overview tab
