@@ -1,3 +1,8 @@
+= 1.4.16 =
+
+* Updated the readme.txt file to reflect that the plugin is tested and working with up to v3.3.3 of the FBIA plugin.
+* Updated the install-wp-tests.sh script to fix test errors.
+
 = 1.4.15 =
 
 * Updated all links to adplugg.com to use https.
