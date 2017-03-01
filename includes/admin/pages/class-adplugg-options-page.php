@@ -17,7 +17,7 @@ class AdPlugg_Options_Page {
         add_action( 'admin_init', array( &$this, 'admin_init' ) );
     }
     
-        /**
+    /**
      * Function to add the options page to the settings menu.
      */
     function add_to_menu() {

@@ -1,9 +1,9 @@
 <?php
 
-require_once(ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php');
-require_once(ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php');
-require_once(ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php');
-require_once(ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php');
+require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php' );
+require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
 
 
 /**
@@ -49,7 +49,7 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         $adplugg_admin = new AdPlugg_Admin();
         $links = $adplugg_admin->add_settings_link_to_plugin_listing($links);
         
-        $this->assertEquals(count($links), 1);
+        $this->assertEquals( count( $links ), 1 );
     }
     
     /**
@@ -59,16 +59,16 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         $adplugg_admin = new AdPlugg_Admin();
         
         //Set the version to something old/incorrect
-        $options = get_option(ADPLUGG_OPTIONS_NAME, array());
+        $options = get_option( ADPLUGG_OPTIONS_NAME, array() );
         $options['version'] = 'old_version';
-        update_option(ADPLUGG_OPTIONS_NAME, $options);
+        update_option( ADPLUGG_OPTIONS_NAME, $options );
         
         //Run the function.
         $adplugg_admin->admin_init();
         
         //Assert that the version was updated
-        $new_options = get_option(ADPLUGG_OPTIONS_NAME, array());
-        $this->assertEquals($new_options['version'], ADPLUGG_VERSION);
+        $new_options = get_option( ADPLUGG_OPTIONS_NAME, array() );
+        $this->assertEquals( $new_options['version'], ADPLUGG_VERSION );
         
         //Assert that a notice of the upgrade was registered.
         $adplugg_notice_controller = new AdPlugg_Notice_Controller();
@@ -76,11 +76,11 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         $adplugg_notice_controller->admin_notices();
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains("Upgraded version from", $outbound);
+        $this->assertContains( 'Upgraded version from', $outbound );
         
         //Assert that the admin stylesheet is registered
         global $wp_styles;
-        $this->assertContains('adPluggAdminStylesheet', serialize($wp_styles));
+        $this->assertContains( 'adPluggAdminStylesheet', serialize( $wp_styles ) );
     }
     
     /**
@@ -95,13 +95,13 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         
         //Install an access_code
         $options['access_code'] = 'test';
-        update_option(ADPLUGG_OPTIONS_NAME, $options);
+        update_option( ADPLUGG_OPTIONS_NAME, $options );
         
         //Set the current screen to our settings page.
         $current_screen = WP_Screen::get( 'toplevel_page_adplugg' );
         
         //Get the footer text
-        $footer_text = apply_filters( 'admin_footer_text', 'foo');
+        $footer_text = apply_filters( 'admin_footer_text', 'foo' );
         
         //Assert that our 'rate us' text is in the footer text
         $this->assertContains( 'If you like', $footer_text );
@@ -149,7 +149,7 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         //Call the function
         try {
             $adplugg_admin->rated_callback();
-        } catch(WPDieException $ex) {
+        } catch( WPDieException $ex ) {
             //
         }
         
@@ -170,15 +170,15 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         $adplugg_admin->admin_init();
         
         //assert that there are options
-        $options = get_option(ADPLUGG_OPTIONS_NAME, array());
-        $this->assertNotEmpty($options);
+        $options = get_option( ADPLUGG_OPTIONS_NAME, array() );
+        $this->assertNotEmpty( $options );
         
         //uninstall the plugin
         $adplugg_admin->uninstall();
         
         //assert that the options are now empty
-        $options_new = get_option(ADPLUGG_OPTIONS_NAME, array());
-        $this->assertEmpty($options_new);
+        $options_new = get_option( ADPLUGG_OPTIONS_NAME, array() );
+        $this->assertEmpty( $options_new );
     }
     
 }
