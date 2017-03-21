@@ -14,6 +14,8 @@ function adplugg_add_sdk() {
     //Load the sdk (if there is an access_code)
     if ( ! empty( $access_code ) ) {
  ?>
+
+<!-- Ads managed and served by AdPlugg - AdPlugg WordPress Ad Plugin v<?php echo ADPLUGG_VERSION; ?> - https://www.adplugg.com -->
 <script data-cfasync="false">
     (function(ac) {
       var d = document, s = 'script', id = 'adplugg-adjs';
@@ -24,6 +26,8 @@ function adplugg_add_sdk() {
       fjs.parentNode.insertBefore(js, fjs);
     }('<?php echo $access_code; ?>'));
 </script>
+<!-- / AdPlugg -->
+    
 <?php
         //Optionally load the QUnit tests.
         if ( ( defined( 'ADPLUGG_LOAD_QUNIT' ) ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
