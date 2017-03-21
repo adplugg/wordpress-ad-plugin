@@ -19,7 +19,7 @@ function adplugg_add_sdk() {
       var d = document, s = 'script', id = 'adplugg-adjs';
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
+      js = d.createElement(s); js.id = id; js.async = 1;
       js.src = '//<?php echo ADPLUGG_ADJSSERVER; ?>/serve/' + ac + '/js/1.1/ad.js';
       fjs.parentNode.insertBefore(js, fjs);
     }('<?php echo $access_code; ?>'));
