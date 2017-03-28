@@ -92,7 +92,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     account at <a href="https://www.adplugg.com" target="_blank" 
     title="adplugg.com">adplugg.com</a>
     </p>
-    <p>You can add AdPlugg Ad Tags can to Posts, Pages, theme files, etc.</p>
+    <p>You can add AdPlugg Ad Tags to Posts, Pages, theme files, etc.</p>
     <p>The AdPlugg Widget simply adds an Ad Tag to your Widget Area.  You could
     insert the same Ad Tag by other means if you wanted (by using a text widget 
     for example).
@@ -100,8 +100,8 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     <p>Though they work in a similar fashion to Shortcodes, AdPlugg has chosen 
     to use Ad Tags instead of shortcodes as they are more powerfull, more 
     flexible, and more familiar to most users.  You can read more about Ad Tags
-    <a href=""title="Ad Tags" 
-    href="https://www.adplugg.com/support/help/ad-tags">here</a>.
+    <a href="https://www.adplugg.com/support/help/ad-tags" 
+    title="Ad Tags" target="_blank">here</a>.
     </p>';
 
     $troubleshooting_content = '
