@@ -1,3 +1,7 @@
+= 1.5.1 =
+
+* Fixed some typos/issues with the options page help.
+
 = 1.5.0 =
 
 * Moved the SDK to the top of the head section for faster loading.
