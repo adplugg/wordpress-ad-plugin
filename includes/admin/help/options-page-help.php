@@ -90,7 +90,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
     <p>Once you have AdPlugg intalled, you can add AdPlugg Ad Tags to your site
     and they will be filled with any ads that you target to them from your
     account at <a href="https://www.adplugg.com" target="_blank" 
-    title="adplugg.com">adplugg.com</a>
+    title="adplugg.com">adplugg.com</a>.
     </p>
     <p>You can add AdPlugg Ad Tags to Posts, Pages, theme files, etc.</p>
     <p>The AdPlugg Widget simply adds an Ad Tag to your Widget Area.  You could
