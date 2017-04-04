@@ -105,15 +105,15 @@ class AdPlugg_Notice {
         $html = '';
     
         if( ! $this->is_dismissed() ) {
-            $html .= '<div id="' . $this->get_notice_key() . '" class="' . $this->get_type() . ' notice notice-' . $this->get_type() . ' adplugg-notice">';
+            $html .= '<div id="' . $this->get_notice_key() . '" class="' . $this->get_type() . ' notice notice-' . $this->get_type() . ' is-dismissible adplugg-notice">';
             $html .=     '<p>' .
                            '<strong>AdPlugg:</strong> ' .
                            $this->get_message() . 
                        '</p>';
             if( $this->is_dismissible() ) {
                 $html .= '<p>' .
-                            '<button type="button" onclick="adpluggPostNoticePref(this, \'' . $this->get_notice_key() . '\', \'+30 days\');">Remind Me Later</button>' .
-                            '<button type="button" onclick="adpluggPostNoticePref(this, \'' . $this->get_notice_key() . '\', null);">Don\'t Remind Me Again</button>' .
+                            '<button type="button" class="adplugg-notice-button" onclick="adpluggPostNoticePref(this, \'' . $this->get_notice_key() . '\', \'+30 days\');">Remind Me Later</button>' .
+                            '<button type="button" class="adplugg-notice-button" onclick="adpluggPostNoticePref(this, \'' . $this->get_notice_key() . '\', null);">Don\'t Remind Me Again</button>' .
                         '</p>';
             }
             $html .= '</div>';
