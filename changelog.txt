@@ -1,3 +1,7 @@
+= 1.5.3 =
+
+* Updated test-sdk.php for WP coding standards.
+
 = 1.5.2 =
 
 * Notices are now dismissible (using built in WP is-dismissible functionality).
