@@ -80,7 +80,11 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
         
         //Assert that the admin stylesheet is registered
         global $wp_styles;
-        $this->assertContains( 'adPluggAdminStylesheet', serialize( $wp_styles ) );
+        $this->assertContains( 'adplugg-admin', serialize( $wp_styles ) );
+        
+        //Assert that the admin script is registered
+        global $wp_scripts;
+        $this->assertContains( 'adplugg-admin', serialize( $wp_scripts ) );
     }
     
     /**
