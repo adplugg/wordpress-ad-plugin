@@ -1,3 +1,7 @@
+= 1.5.4 =
+
+* Updated the names of our enqueued script and stylesheet to 'adplugg-admin'.
+
 = 1.5.3 =
 
 * Updated test-sdk.php for WP coding standards.
