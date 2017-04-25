@@ -1,3 +1,7 @@
+= 1.5.5 =
+
+* Updated the readme.txt file to reflect that the plugin is fully tested and working with WP 4.7.4.
+
 = 1.5.4 =
 
 * Updated the names of our enqueued script and stylesheet to 'adplugg-admin'.
