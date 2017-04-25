@@ -4,7 +4,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: advertising, ad manager, admanager, ads, ad, ad management, ad rotator, admin, banner, widget, banner management, banner manager, ad server, adserver, images, image, sidebar, plugin, post, google, adsense
 Requires at least: 3.3
-Tested up to: 4.7.3
+Tested up to: 4.7.4
 FBIA tested up to: 3.3.3
 Stable tag: 1.5.4
 
