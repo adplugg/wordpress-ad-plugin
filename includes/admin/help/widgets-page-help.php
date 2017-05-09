@@ -31,11 +31,14 @@ function adplugg_widgets_page_help( $contextual_help, $screen_id, $screen ) {
         "Sponsors" display above your ads. Don\'t want a title? Just leave this
         field blank.
       </li>
-      <li><strong>Zone:</strong> If you\'ve added zones to your adplugg.com
-        configuration, you can use this field to tie a zone to the widget. Enter
-        the zone\'s machine name into this field. Once the widget is tied to a
-        zone, you can control what displays in the widget by modifying your zone
-        settings and zone targeting at adplugg.com.
+      <li><strong>Zone:</strong> If you\'ve added zones to your <a 
+        href="https://www.adplugg.com" target="_blank" title="adplugg.com">
+        adplugg.com</a> configuration, you can use this field to tie a zone to
+        the widget. Enter the zone\'s machine name into this field. Once the
+        widget is tied to a zone, you can control what displays in the widget
+        by modifying your zone settings and zone targeting at <a 
+        href="https://www.adplugg.com" target="_blank" title="adplugg.com">
+        adplugg.com</a>.
       </li>
     </ul>';
     
