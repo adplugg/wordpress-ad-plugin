@@ -1,6 +1,6 @@
 <?php
 
-require_once(ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php');
+require_once( ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php' );
 
 /**
  * The Test_AdPlugg_Widget class includes tests for testing the AdPlugg_Widget
@@ -18,7 +18,7 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         $adplugg_widget = new AdPlugg_Widget();
         
         //Assert that the widget is constructed
-        $this->assertEquals('AdPlugg_Widget', get_class($adplugg_widget));    
+        $this->assertEquals( 'AdPlugg_Widget', get_class( $adplugg_widget ) );    
     }
     
     /**
@@ -28,7 +28,7 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         $widgets = array_keys( $GLOBALS['wp_widget_factory']->widgets );
         
         //Assert that the widget is registered
-        $this->assertTrue(in_array("AdPlugg_Widget", $widgets));       
+        $this->assertTrue( in_array( 'AdPlugg_Widget', $widgets ) );       
     }
     
     /**
@@ -40,10 +40,10 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         //Assert that the widget form is output.
         ob_start();
         $instance = null;
-        $adplugg_widget->form($instance);
+        $adplugg_widget->form( $instance );
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains('adplugg-widget-fieldset', $outbound);
+        $this->assertContains( 'adplugg-widget-fieldset', $outbound );
     }
     
     /**
@@ -77,22 +77,22 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         $new_instance['default'] = $new_default;
         
         //Run the function.
-        $ret_instance = $adplugg_widget->update($new_instance, $old_instance);
+        $ret_instance = $adplugg_widget->update( $new_instance, $old_instance );
         
         //Assert that the ret_instance title is the new title
-        $this->assertEquals($ret_instance['title'], $new_title);
+        $this->assertEquals( $ret_instance['title'], $new_title );
         
         //Assert that the ret_instance zone is the new zone
-        $this->assertEquals($ret_instance['zone'], $new_zone);
+        $this->assertEquals( $ret_instance['zone'], $new_zone );
         
         //Assert that the ret_instance width is the new width
-        $this->assertEquals($ret_instance['width'], $new_width);
+        $this->assertEquals( $ret_instance['width'], $new_width );
         
         //Assert that the ret_instance height is the new height
-        $this->assertEquals($ret_instance['height'], $new_height);
+        $this->assertEquals( $ret_instance['height'], $new_height );
         
         //Assert that the ret_instance default is the new default
-        $this->assertEquals($ret_instance['default'], $new_default);
+        $this->assertEquals( $ret_instance['default'], $new_default );
     }
     
     /**
@@ -126,22 +126,22 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         $new_instance['default'] = $new_default;
         
         //Run the function.
-        $ret_instance = $adplugg_widget->update($new_instance, $old_instance);
+        $ret_instance = $adplugg_widget->update( $new_instance, $old_instance );
         
         //Assert that the validation passed and the title was set as expected
-        $this->assertEquals($new_title, $ret_instance['title']);
+        $this->assertEquals( $new_title, $ret_instance['title'] );
         
         //Assert that the validation passed and the zone was set as expected
-        $this->assertEquals($new_zone, $ret_instance['zone']);
+        $this->assertEquals( $new_zone, $ret_instance['zone'] );
         
         //Assert that the validation passed and the width was set as expected
-        $this->assertEquals($new_width, $ret_instance['width']);
+        $this->assertEquals( $new_width, $ret_instance['width'] );
         
         //Assert that the validation passed and the height was set as expected
-        $this->assertEquals($new_height, $ret_instance['height']);
+        $this->assertEquals( $new_height, $ret_instance['height'] );
         
         //Assert that the validation passed and the default was set as expected
-        $this->assertEquals($new_default, $ret_instance['default']);
+        $this->assertEquals( $new_default, $ret_instance['default'] );
     }
     
     /**
@@ -175,25 +175,25 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         $new_instance['default'] = $new_default;
         
         //Run the function.
-        $ret_instance = $adplugg_widget->update($new_instance, $old_instance);
+        $ret_instance = $adplugg_widget->update( $new_instance, $old_instance );
         
         //Assert that the malicious code was removed
         $illegal_regex = "/\<script\>/";
         //echo $ret_instance['title'];
         //echo $ret_instance['zone'];
-        $this->assertEquals(0, preg_match($illegal_regex, $ret_instance['title']));
+        $this->assertEquals( 0, preg_match( $illegal_regex, $ret_instance['title'] ) );
         
         //Assert that the ret_instance zone does not include illegal characters
-        $this->assertEquals(0, preg_match($illegal_regex, $ret_instance['zone']));
+        $this->assertEquals( 0, preg_match( $illegal_regex, $ret_instance['zone'] ) );
         
         //Assert that the ret_instance width does not include illegal characters
-        $this->assertEquals(0, preg_match($illegal_regex, $ret_instance['width']));
+        $this->assertEquals( 0, preg_match( $illegal_regex, $ret_instance['width'] ) );
         
         //Assert that the ret_instance height does not include illegal characters
-        $this->assertEquals(0, preg_match($illegal_regex, $ret_instance['height']));
+        $this->assertEquals( 0, preg_match( $illegal_regex, $ret_instance['height'] ) );
         
         //Assert that the ret_instance default does not include illegal characters
-        $this->assertEquals(0, preg_match($illegal_regex, $ret_instance['default']));
+        $this->assertEquals( 0, preg_match( $illegal_regex, $ret_instance['default'] ) );
     }
     
     /**
@@ -209,10 +209,10 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         
         //Assert that the widget form is output.
         ob_start();
-        $adplugg_widget->widget($args, $instance);
+        $adplugg_widget->widget( $args, $instance );
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains('adplugg-tag', $outbound);
+        $this->assertContains( 'adplugg-tag', $outbound );
     }
     
     /**
@@ -229,10 +229,10 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         
         //Assert that the widget form is output with zone info.
         ob_start();
-        $adplugg_widget->widget($args, $instance);
+        $adplugg_widget->widget( $args, $instance );
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains('data-adplugg-zone="test_zone"', $outbound);
+        $this->assertContains( 'data-adplugg-zone="test_zone"', $outbound );
     }
     
     /**
@@ -251,10 +251,10 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         
         //Assert that the widget form is output with a title.
         ob_start();
-        $adplugg_widget->widget($args, $instance);
+        $adplugg_widget->widget( $args, $instance );
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains('test_title', $outbound);
+        $this->assertContains( 'test_title', $outbound );
     }
     
     /**
@@ -279,15 +279,15 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         
         //Assert that the widget form is output with a title.
         ob_start();
-        $adplugg_widget->widget($args, $instance);
+        $adplugg_widget->widget( $args, $instance );
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains('test_zone', $outbound);
-        $this->assertContains("100", $outbound);
-        $this->assertContains("200", $outbound);
-        $this->assertContains('op-ad-default', $outbound);
-        $this->assertContains('www.example.com', $outbound);
-        $this->assertContains('/blog/hello-world/', urldecode( $outbound ) );
+        $this->assertContains( 'test_zone', $outbound );
+        $this->assertContains( '100', $outbound );
+        $this->assertContains( '200', $outbound );
+        $this->assertContains( 'op-ad-default', $outbound );
+        $this->assertContains( 'www.example.com', $outbound );
+        $this->assertContains( '/blog/hello-world/', urldecode( $outbound ) );
     }
     
     /**
@@ -312,12 +312,12 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         
         //Assert that the widget form is output with a title.
         ob_start();
-        $adplugg_widget->widget($args, $instance);
+        $adplugg_widget->widget( $args, $instance );
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains("300", $outbound);
-        $this->assertContains("250", $outbound);
-        $this->assertNotContains('op-ad-default', $outbound);
+        $this->assertContains( '300', $outbound );
+        $this->assertContains( '250', $outbound );
+        $this->assertNotContains( 'op-ad-default', $outbound );
     }
     
 }
