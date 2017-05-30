@@ -1,3 +1,7 @@
+= 1.5.9 =
+
+* Updated test-class-adplugg-widget.php for WP coding standards.
+
 = 1.5.8 =
 
 * Updated the readme.txt file to reflect that the plugin is fully tested and working with WP 4.7.5.
