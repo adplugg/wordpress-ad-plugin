@@ -103,8 +103,8 @@ if( is_admin() ) {
 } else {
     //---- FRONT END ----//
     //Add the SDK
-    require_once( ADPLUGG_INCLUDES . 'frontend/sdk.php' );
-    add_action( 'wp_head', 'adplugg_add_sdk', 0 );
+    require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-sdk.php' );
+    AdPlugg_Sdk::get_instance();
     
     //Feeds
     require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php' );
