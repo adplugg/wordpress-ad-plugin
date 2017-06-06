@@ -1,3 +1,7 @@
+= 1.5.10 =
+
+* Made the adplugg sdk functions into a class.
+
 = 1.5.9 =
 
 * Updated test-class-adplugg-widget.php for WP coding standards.
