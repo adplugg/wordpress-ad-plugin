@@ -48,7 +48,7 @@ class AdPlugg_Options_Page {
             <br/>
             <ul>
                 <?php if ( adplugg_is_access_code_installed() ) { ?>
-                    <li>Manage my ads at <a href="https://www.adplugg.com/apusers/login" target="_blank" title="Manage my ads at adplugg.com">adplugg.com</a>.</li>
+                    <li>Manage my ads at <a href="https://www.adplugg.com/apusers/login?utm_source=wpplugin&utm_campaign=opts-l1" target="_blank" title="Manage my ads at adplugg.com">adplugg.com</a>.</li>
                     <li>Place the AdPlugg Widget on my site from the <a href="<?php echo admin_url( 'widgets.php' ); ?>" title="Go to the Widgets Configuration Page.">WordPress Widgets Configuration Page</a>.</li>
                 <?php } //end if ?>
             </ul>
@@ -89,7 +89,7 @@ class AdPlugg_Options_Page {
         <p>
             To use AdPlugg, you will need an AdPlugg Access Code.  To get
             your AdPlugg Access Code, log in or register (it's free) at 
-            <a href="https://www.adplugg.com" target="_blank" title="adplugg.com">
+            <a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=opts-l2" target="_blank" title="adplugg.com">
                 adplugg.com</a>.
         </p>
     <?php 
@@ -106,7 +106,7 @@ class AdPlugg_Options_Page {
         <p class="description">
             You must enter a valid AdPlugg Access Code here. If you need an
             Access Code, you can create one
-            <a href="https://www.adplugg.com/apusers/signup" target="_blank" title="AdPlugg Signup">here</a>.
+            <a href="https://www.adplugg.com/apusers/signup?utm_source=wpplugin&utm_campaign=opts-l2" target="_blank" title="AdPlugg Signup">here</a>.
             <?php if ( ! adplugg_is_access_code_installed() ) { ?>
                 <br/>
                 <a href="#" onclick="

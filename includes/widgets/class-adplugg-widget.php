@@ -45,7 +45,7 @@ class AdPlugg_Widget extends WP_Widget {
         //Render the form
         ?>
             <p>
-                <a href="https://www.adplugg.com" target="_blank" title="Configure at adplugg.com">Configure at adplugg.com</a>
+                <a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=widget-l1" target="_blank" title="Configure at adplugg.com">Configure at adplugg.com</a>
                 |
                 <a href="#" onclick="jQuery( '#contextual-help-link' ).trigger('click'); return false;" title="Help">Help</a>
             </p>

@@ -13,7 +13,7 @@ ads on your WordPress site.
 
 == Description ==
 The AdPlugg WordPress Ad Plugin works in conjunction with the <strong>FREE</strong> 
-[adplugg.com](https://www.adplugg.com) ad service.
+[adplugg.com](https://www.adplugg.com?utm_source=wpo-listing&utm_campaign=desc-l1) ad service.
 
 = Plugin Features =
 The AdPlugg WordPress Ad Plugin includes the following awesome features:
@@ -24,7 +24,7 @@ The AdPlugg WordPress Ad Plugin includes the following awesome features:
 * Support for Facebook Instant Articles allowing you to include ads in your FBIA feed.
 * Works with AdPlugg's Free and Pro versions.
 
-<strong>PS: You'll need a free [adplugg.com Access Code](https://www.adplugg.com/apusers/signup) in order to use the plugin.</strong>
+<strong>PS: You'll need a free [adplugg.com Access Code](https://www.adplugg.com/apusers/signup?utm_source=wpo-listing&utm_campaign=feat-l1) in order to use the plugin.</strong>
 
 = AdPlugg Service Features =
 
@@ -50,14 +50,14 @@ The PRO AdPlugg Ad Service adds the following additional features:
 
 1. Upload the AdPlugg WordPress Ad Plugin to your blog.
 2. Activate it.
-3. Enter your [adplugg.com Acccess Code](https://www.adplugg.com/apusers/signup).
+3. Enter your [adplugg.com Acccess Code](https://www.adplugg.com/apusers/signup?utm_source=wpo-listing&utm_campaign=inst-l1).
 4. Drag the AdPlugg Ad Widget to the Widget Area where you want your ads to display.
 5. Optionally add the Zone machine name into the widget. This will make it so that the AdPlugg server only loads ads designated for the zone into the widget.
 6. Optionally Enable Facebook Instant Articles integration and drag AdPlugg widgets into your FBIA header.
 
 == Frequently Asked Questions ==
 
-For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.com](https://www.adplugg.com/support/question-answer).
+For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.com](https://www.adplugg.com/support/question-answer?utm_source=wpo-listing&utm_campaign=faq-l1).
 
 == Screenshots ==
 

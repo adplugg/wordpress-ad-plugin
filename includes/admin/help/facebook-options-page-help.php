@@ -24,7 +24,7 @@ function adplugg_facebook_options_page_help(
          <h2>Facebook Settings Help</h2>
          <p>
             These settings allow you to include AdPlugg ads in your 
-            <a href="https://www.adplugg.com/blog/facebook-instant-articles"
+            <a href="https://www.adplugg.com/blog/facebook-instant-articles?utm_source=wpplugin&utm_campaign=fbhelp-l1"
             target="_blank"> Facebook Instant Articles</a> header.  Ads included
             in the header will be automatically placed by Facebook throughout the
             content of the article.
@@ -80,9 +80,9 @@ function adplugg_facebook_options_page_help(
 
     $sidebar_content = '
     <h5>For more Information:</strong></h5>
-    <a href="https://www.adplugg.com/support/help" target="_blank" title="AdPlugg Help Center">AdPlugg Help Center</a><br/>
-    <a href="https://www.adplugg.com/support/cookbook" target="_blank" title="AdPlugg Cookbook">AdPlugg Cookbook</a><br/>
-    <a href="https://www.adplugg.com/contact" target="_blank" title="Contact AdPlugg">Contact AdPlugg</a><br/>
+    <a href="https://www.adplugg.com/support/help?utm_source=wpplugin&utm_campaign=fbhelp-l2" target="_blank" title="AdPlugg Help Center">AdPlugg Help Center</a><br/>
+    <a href="https://www.adplugg.com/support/cookbook?utm_source=wpplugin&utm_campaign=fbhelp-l3" target="_blank" title="AdPlugg Cookbook">AdPlugg Cookbook</a><br/>
+    <a href="https://www.adplugg.com/contact?utm_source=wpplugin&utm_campaign=fbhelp-l4" target="_blank" title="Contact AdPlugg">Contact AdPlugg</a><br/>
     <br/>
     ';
 
