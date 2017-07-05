@@ -2,14 +2,14 @@
 Contributors: adplugg
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: advertising, ad manager, admanager, ads, ad, ad management, ad rotator, admin, banner, widget, banner management, banner manager, ad server, adserver, images, image, sidebar, plugin, post, google, adsense
+Tags: ads, advertising, banners, ad rotator, ad server, ad manager, adsense
 Requires at least: 3.3
 Tested up to: 4.8.0
 FBIA tested up to: 4.0.2
 Stable tag: 1.5.13
 
-The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to display
-ads on your WordPress site.
+Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server 
+allow you to easily manage, schedule, rotate and track your ads.
 
 == Description ==
 The AdPlugg WordPress Ad Plugin works in conjunction with the <strong>FREE</strong> 
