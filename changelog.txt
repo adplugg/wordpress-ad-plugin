@@ -1,3 +1,9 @@
+= 1.5.14 =
+
+* Updated the readme.txt file to reflect that the plugin is tested and working with up to v4.0.2 of the FBIA plugin.
+* Updated the tags and description in the readme.txt file.
+* Updated the readme.txt file to include info regarding the new Open Graph targeting functionality.
+
 = 1.5.13 =
 
 * Updated test-functions.php for WP coding standards.
