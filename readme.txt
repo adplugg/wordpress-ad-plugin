@@ -44,6 +44,7 @@ The PRO AdPlugg Ad Service adds the following additional features:
 * Downloadable PDF, Excel and CSV Reports
 * Unlimited Scaling
 * Additional ad formats including Custom/HTML5, Flash, JavaScript, bar, dialog, interstitial, slide-in, text, and more.
+* Additional targeting options (such as targeting ads by on-page meta tags).
 * Ability to serve ad tags from third party systems such as Google AdSense.
 
 == Installation ==
