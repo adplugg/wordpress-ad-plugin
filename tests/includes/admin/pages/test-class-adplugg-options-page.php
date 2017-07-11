@@ -13,11 +13,13 @@ class Test_Options_Page extends WP_UnitTestCase {
     
     /**
      * Test the constructor
+     * 
+     * @global $wp_filter
      */    
     public function test_constructor() {
-        $adplugg_options_page = new AdPlugg_Options_Page();
-        
         global $wp_filter;
+        
+        $adplugg_options_page = new AdPlugg_Options_Page();
         
         //Assert that the init function is registered.
         $function_names = get_function_names( $wp_filter['admin_menu'] );
@@ -37,9 +39,9 @@ class Test_Options_Page extends WP_UnitTestCase {
         //Assert that the options page was rendered
         ob_start();
         $adplugg_options_page->render_page();
-        $outbound = ob_get_contents();
+        $output = ob_get_contents();
         ob_end_clean();
-        $this->assertContains( 'AdPlugg General Settings', $outbound );
+        $this->assertContains( 'AdPlugg General Settings', $output );
     }
     
     /**
@@ -68,9 +70,9 @@ class Test_Options_Page extends WP_UnitTestCase {
         //Assert that the access section was rendered
         ob_start();
         $adplugg_options_page->render_access_section_text();
-        $outbound = ob_get_contents();
+        $output = ob_get_contents();
         ob_end_clean();
-        $this->assertContains( 'To use AdPlugg', $outbound );
+        $this->assertContains( 'To use AdPlugg', $output );
     }
     
     /**
@@ -82,16 +84,47 @@ class Test_Options_Page extends WP_UnitTestCase {
         //Assert that the access section was rendered
         ob_start();
         $adplugg_options_page->render_access_code();
-        $outbound = ob_get_contents();
+        $output = ob_get_contents();
         ob_end_clean();
-        $this->assertContains( 'AdPlugg Access Code', $outbound );
+        $this->assertContains( 'AdPlugg Access Code', $output );
     }
     
     /**
      * Test the admin_init function.
      */    
-    public function admin_init() {
-        //TODO
+    public function test_admin_init() {
+        global $wp_filter;
+        global $wp_settings_sections;
+        global $wp_settings_fields;
+        
+        $adplugg_options_page = new AdPlugg_Options_Page();
+        
+        //Run the function
+        $adplugg_options_page->admin_init();
+        
+        //---------------------------------------------------//
+        //Get the output from rendering the main form
+        ob_start();
+        settings_fields( 'adplugg_options', 'access_code' );
+        $output = ob_get_contents();
+        ob_end_clean();
+        
+        //Assert that the adplugg_options hidden field is registered/rendered
+        $this->assertContains( "value='adplugg_options'", $output );
+        
+        //Assert that the _secret_wpnonce field is registered/rendered.
+        $this->assertContains( '<input type="hidden" id="_wpnonce" name="_wpnonce"', $output );
+        
+        //Assert that the _wp_http_referer field is registered/rendered.
+        $this->assertContains( '<input type="hidden" name="_wp_http_referer"', $output );
+        
+        
+        //---------------------------------------------------//
+        //assert that the adplugg_options_access_section section is registered
+        $this->assertArrayHasKey( 'adplugg_options_access_section', $wp_settings_sections['adplugg'] );
+        
+        //assert that the access_code field is registered
+        $this->assertArrayHasKey( 'access_code', $wp_settings_fields['adplugg']['adplugg_options_access_section'] );
     }
     
     /**
