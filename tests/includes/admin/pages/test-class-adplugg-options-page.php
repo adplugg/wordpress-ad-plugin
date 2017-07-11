@@ -151,16 +151,23 @@ class Test_Options_Page extends WP_UnitTestCase {
     /**
      * Test the validate function doesn't throw any errors when
      * the input is valid.
+     * 
+     * @global $wp_settings_errors
      */
     public function test_validate_valid() {
-        //Clear out any previous settings errors.
         global $wp_settings_errors;
+        
+        //set up the test data
+        $access_code = 'A0000';
+        
+        //Clear out any previous settings errors.
         $wp_settings_errors = null;
+        
         
         $adplugg_options_page = new AdPlugg_Options_Page();
         
         $input = array();
-        $input['access_code'] = 'A0000';
+        $input['access_code'] = $access_code;
         
         //Run the function.
         $new_options = $adplugg_options_page->validate( $input );
@@ -178,7 +185,7 @@ class Test_Options_Page extends WP_UnitTestCase {
         $this->assertEquals( 'updated', $settings_errors[0]['type'] );
         
         //Assert that the settings were stored.
-        $this->assertFalse( empty( $new_options['access_code'] ) );
+        $this->assertEquals( $access_code, $new_options['access_code'] );
     }
 }
 
