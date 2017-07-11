@@ -1,3 +1,8 @@
+= 1.5.15 =
+
+* Updated the options page tests to add testing that ensures that the access code is stored correctly.
+* Added unit testing for the AdPlugg_Options_Page->admin_init() method.
+
 = 1.5.14 =
 
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v4.0.2 of the FBIA plugin.
