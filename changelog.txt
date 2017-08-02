@@ -1,3 +1,8 @@
+= 1.5.17 =
+
+* Updated the readme.txt file to reflect that the plugin is tested and working with up to v4.0.4 of the FBIA plugin.
+* Updated tests/functions.php for WP coding standards.
+
 = 1.5.16 =
 
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v4.0.3 of the FBIA plugin.
