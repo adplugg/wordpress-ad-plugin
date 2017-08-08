@@ -1,3 +1,7 @@
+= 1.5.18 =
+
+* Updated the readme.txt file to reflect that the plugin is fully tested and working with WP 4.8.1.
+
 = 1.5.17 =
 
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v4.0.4 of the FBIA plugin.
