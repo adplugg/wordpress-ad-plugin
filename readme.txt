@@ -6,7 +6,7 @@ Tags: ads, advertising, banners, ad rotator, ad server, ad manager, adsense
 Requires at least: 3.3
 Tested up to: 4.8.1
 FBIA tested up to: 4.0.4
-Stable tag: 1.5.18
+Stable tag: 1.6.0
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server 
 allow you to easily manage, schedule, rotate and track your ads.
@@ -66,37 +66,33 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 
 == Changelog ==
 
-= 1.5.18 =
+= 1.6.0 =
+* Updated the endpoint for FBIA ads to www.adplugg.io (with temporary allowance for staying on www.adplugg.com).
 
+= 1.5.18 =
 * Updated the readme.txt file to reflect that the plugin is fully tested and working with WP 4.8.1.
 
 = 1.5.17 =
-
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v4.0.4 of the FBIA plugin.
 * Updated tests/functions.php for WP coding standards.
 
 = 1.5.16 =
-
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v4.0.3 of the FBIA plugin.
 * Updated bootstrap.php for WP coding standards.
 
 = 1.5.15 =
-
 * Updated the options page tests to add testing that ensures that the access code is stored correctly.
 * Added unit testing for the AdPlugg_Options_Page->admin_init() method.
 
 = 1.5.14 =
-
 * Updated the readme.txt file to reflect that the plugin is tested and working with up to v4.0.2 of the FBIA plugin.
 * Updated the tags and description in the readme.txt file.
 * Updated the readme.txt file to include info regarding the new Open Graph targeting functionality.
 
 = 1.5.13 =
-
 * Updated test-functions.php for WP coding standards.
 
 = 1.5.12 =
-
 * Updated the copyright date.
 * Updated link params.
 
