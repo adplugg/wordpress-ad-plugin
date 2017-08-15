@@ -43,7 +43,7 @@ if( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
 }
 
 if( ! defined( 'ADPLUGG_ADJSSERVER' ) ) { define( 'ADPLUGG_ADJSSERVER', 'www.adplugg.com/apusers' ); }
-if( ! defined( 'ADPLUGG_ADHTMLSERVER' ) ) { define( 'ADPLUGG_ADHTMLSERVER', 'www.adplugg.com' ); }
+if( ! defined( 'ADPLUGG_ADHTMLSERVER' ) ) { define( 'ADPLUGG_ADHTMLSERVER', 'www.adplugg.io' ); }
 if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.5.18' ); }
 
 //Persisted options

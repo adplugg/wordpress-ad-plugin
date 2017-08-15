@@ -13,7 +13,10 @@ use Facebook\InstantArticles\Elements\Ad;
 
 class AdPlugg_Facebook_Instant_Articles {
     
-    // singleton instance
+    /**
+     * Singleton instance.
+     * @var AdPlugg_Facebook_Instant_Articles
+     */
     static $instance;
     
     private $instant_article;
@@ -126,7 +129,15 @@ class AdPlugg_Facebook_Instant_Articles {
                     $host = urlencode( parse_url( $post_url, PHP_URL_HOST ) );
                     $path = urlencode( parse_url( $post_url, PHP_URL_PATH ) );
                     $zone_param = ( isset( $zone ) ) ? '&zn=' . urlencode( $zone ) : '';
-                    $iframe_src = 'https://' . ADPLUGG_ADHTMLSERVER . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
+                    
+                    $adplugg_adhtmlserver = ADPLUGG_ADHTMLSERVER;
+                    //Temporarily allow serving from www.adplugg.com. Here to
+                    //facilitate a judicious rollout of the new adplugg.io endpoint.
+                    if( AdPlugg_Facebook::temp_use_legacy_adplugg_com_endpoint() ) {
+                        $adplugg_adhtmlserver = 'www.adplugg.com';
+                    }
+                    
+                    $iframe_src = 'https://' . $adplugg_adhtmlserver . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
                     $ad = Ad::create()
                             ->enableDefaultForReuse()
                             ->withWidth( $width )

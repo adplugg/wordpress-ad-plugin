@@ -43,6 +43,20 @@ class AdPlugg_Admin {
             update_option( ADPLUGG_OPTIONS_NAME, $options );
             if ( ! is_null( $data_version ) ) {  //skip if not an upgrade
                 //do any necessary version data upgrades here
+                
+                //FBIA ad endpoint change (prior to 1.6.0 we were using www.adplugg.com
+                //in 1.6.0 we changed to www.adplugg.io but had a period where accounts
+                //could temporarily stay on www.adplugg.com.)
+                if( version_compare( $data_version, '1.6.0', '<' ) ) {
+                    if( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) {
+                        $fb_options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME );
+                        $fb_options['temp_allow_legacy_adplugg_com_endpoint'] = 1;
+                        $fb_options['temp_use_legacy_adplugg_com_endpoint'] = 1;
+                        update_option( ADPLUGG_FACEBOOK_OPTIONS_NAME, $fb_options );
+                    }
+                }
+                
+                
                 $upgrade_notice = AdPlugg_Notice::create( 'notify_upgrade', 'Upgraded version from ' . $data_version . ' to ' . ADPLUGG_VERSION . '.' );
                 adplugg_notice_add_to_queue( $upgrade_notice );
             }

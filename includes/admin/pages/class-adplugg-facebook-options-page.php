@@ -8,7 +8,10 @@
  */
 class AdPlugg_Facebook_Options_Page {
     
-    // class instance
+    /**
+     * Class instance.
+     * @var AdPlugg_Facebook_Options_Page
+     */
     static $instance;
     
     /**
@@ -79,6 +82,19 @@ class AdPlugg_Facebook_Options_Page {
             'adplugg_facebook_instant_articles_settings', 
             'adplugg_facebook_instant_articles_section'
         );
+        
+        //this is a temp field to facilitate a judicious rollout of the new 
+        //adplugg.io endpoint its use may have been allowed on upgrade. If it 
+        //was, show the field.
+        if( AdPlugg_Facebook::temp_allow_legacy_adplugg_com_endpoint() ) {
+            add_settings_field(
+                'temp_use_legacy_adplugg_com_endpoint',
+                'Legacy Endpoint',
+                array( &$this, 'render_temp_use_legacy_adplugg_com_endpoint_field' ),
+                'adplugg_facebook_instant_articles_settings', 
+                'adplugg_facebook_instant_articles_section'
+            );
+        }
     }
 
     /**
@@ -145,14 +161,38 @@ class AdPlugg_Facebook_Options_Page {
      */
     function render_ia_enable_automatic_placement_field() {
         $options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME, array() );
-        $enable_automatic_placement = ( array_key_exists( 'ia_enable_automatic_placement', $options ) ) ? $options['ia_enable_automatic_placement'] : 0;
+        $checked = ( array_key_exists( 'ia_enable_automatic_placement', $options ) ) ? $options['ia_enable_automatic_placement'] : 0;
      ?>
         <label for="adplugg_facebook_ia_enable_automatic_placement">
-            <input type="checkbox" id="adplugg_facebook_ia_enable_automatic_placement" name="adplugg_facebook_options[ia_enable_automatic_placement]" value="1" <?php echo checked( 1, $enable_automatic_placement, false ) ?> />
+            <input type="checkbox" id="adplugg_facebook_ia_enable_automatic_placement" name="adplugg_facebook_options[ia_enable_automatic_placement]" value="1" <?php echo checked( 1, $checked, false ) ?> />
             Enable automatic placement of ads within your posts.
         </label>
     <?php
-    }
+    } //end function
+    
+    /**
+     * Function to render the temp_use_legacy_adplugg_com_endpoint field and
+     * description.
+     * 
+     * This is a temp field to facilitate a judicious rollout of the new 
+     * adplugg.io endpoint.
+     * 
+     * It is only added to the form in certain situations (see the admin_init
+     * function above).
+     * 
+     */
+    function render_temp_use_legacy_adplugg_com_endpoint_field() {
+        $options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME, array() );
+        $checked = ( array_key_exists( 'temp_use_legacy_adplugg_com_endpoint', $options ) ) ? $options['temp_use_legacy_adplugg_com_endpoint'] : 0;
+     ?>
+        <label for="adplugg_facebook_temp_use_legacy_adplugg_com_endpoint">
+            <input type="checkbox" id="adplugg_facebook_ia_enable_automatic_placement" name="adplugg_facebook_options[temp_use_legacy_adplugg_com_endpoint]" value="1" <?php echo checked( 1, $checked, false ) ?> />
+            (LEGACY) Use "www.adplugg.com" endpoint for ad serving.
+        </label>
+        <br/>
+        <small>Note: The new endpoint is at "www.adplugg.io".</small>
+    <?php
+    } //end function
 
     /**
      * Function to validate the submitted AdPlugg Facebook options field values. 
@@ -167,15 +207,34 @@ class AdPlugg_Facebook_Options_Page {
         $old_options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME );
         $new_options = $old_options;  //start with the old options.
         
+        $has_errors = false;
         $msg_type = null;
         $msg_message = null;
         
-        //process the new values
+        //--- process the new values ----
+        
+        //ia_enable_automatic_placement
         $new_options['ia_enable_automatic_placement'] = intval( $input['ia_enable_automatic_placement'] );
         if( ! preg_match('/^[01]$/', $new_options['ia_enable_automatic_placement'] ) ) {
-            $msg_type = 'error';
+            $has_errors = true;
             $msg_message = 'Invalid Enable Automatic Placement option.';
             $new_options['ia_enable_automatic_placement'] = 0;
+        }
+        
+        //temp_use_legacy_adplugg_com_endpoint
+        //this is a temp field to facilitate a judicious rollout of the new adplugg.io endpoint
+        if( AdPlugg_Facebook::temp_allow_legacy_adplugg_com_endpoint() ) {
+            $new_options['temp_use_legacy_adplugg_com_endpoint'] = intval( $input['temp_use_legacy_adplugg_com_endpoint'] );
+            if( ! preg_match('/^[01]$/', $new_options['temp_use_legacy_adplugg_com_endpoint'] ) ) {
+                $has_errors = true;
+                $msg_message = 'Invalid Use Legacy Endpoint option.';
+                $new_options['temp_use_legacy_adplugg_com_endpoint'] = 0;
+            }
+        }
+        
+        //--- add a message ---//
+        if( $has_errors ) {
+            $msg_type = 'error';
         } else {
             $msg_type = 'updated';
             $msg_message = 'Settings saved.';

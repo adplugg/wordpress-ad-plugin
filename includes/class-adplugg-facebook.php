@@ -10,7 +10,10 @@
  */
 class AdPlugg_Facebook {
     
-    // class instance
+    /**
+     * Singleton instance.
+     * @var AdPlugg_Facebook 
+     */
     static $instance;
     
     /**
@@ -35,8 +38,9 @@ class AdPlugg_Facebook {
     }
     
     /**
-     * Function that looks to see if an adplugg access code has been installed.
-     * @return boolean Returns true if an facebook instant articles automatic ad
+     * Function that looks to see if Facebook Instant Articles automatic ad
+     * placement is enabled.
+     * @return boolean Returns true if an Facebook Instant Articles automatic ad
      * placement is enabled, otherwise returns false.
      */
     static function is_ia_automatic_placement_enabled() {
@@ -44,6 +48,38 @@ class AdPlugg_Facebook {
         $enabled = false;
         if( ! empty( $options['ia_enable_automatic_placement'] ) ) {
             $enabled = ($options['ia_enable_automatic_placement'] == 1) ? true : false;
+        }
+
+        return $enabled;
+    }
+    
+    /**
+     * Function that looks to see if the temporary Use Legacy adplugg.com 
+     * Endpoint setting is turned on.
+     * @return boolean Returns true if the temporary Use Legacy adplugg.com 
+     * Endpoint setting is turned on, otherwise returns false.
+     */
+    static function temp_use_legacy_adplugg_com_endpoint() {
+        $options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME, array() );
+        $enabled = false;
+        if( ! empty( $options['temp_use_legacy_adplugg_com_endpoint'] ) ) {
+            $enabled = ($options['temp_use_legacy_adplugg_com_endpoint'] == 1) ? true : false;
+        }
+
+        return $enabled;
+    }
+    
+    /**
+     * Function that looks to see if the temporary Allow Legacy adplugg.com 
+     * Endpoint setting is turned on.
+     * @return boolean Returns true if the temporary Allow Legacy adplugg.com 
+     * Endpoint setting is turned on, otherwise returns false.
+     */
+    static function temp_allow_legacy_adplugg_com_endpoint() {
+        $options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME, array() );
+        $enabled = false;
+        if( ! empty( $options['temp_allow_legacy_adplugg_com_endpoint'] ) ) {
+            $enabled = ($options['temp_allow_legacy_adplugg_com_endpoint'] == 1) ? true : false;
         }
 
         return $enabled;
