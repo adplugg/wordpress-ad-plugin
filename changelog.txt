@@ -1,3 +1,7 @@
+= 1.6.1 =
+
+* Updated tests/test-adplugg.php for WP coding standards.
+
 = 1.6.0 =
 
 * Updated the endpoint for FBIA ads to www.adplugg.io (with temporary allowance for staying on www.adplugg.com).
