@@ -1,3 +1,7 @@
+= 1.6.2 =
+
+* Added 'Requires PHP: 5.3' tag to the readme.txt file.
+
 = 1.6.1 =
 
 * Updated tests/test-adplugg.php for WP coding standards.
