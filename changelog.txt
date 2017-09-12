@@ -1,3 +1,7 @@
+= 1.6.3 =
+
+* Renamed some test files to match our file naming conventions.
+
 = 1.6.2 =
 
 * Added 'Requires PHP: 5.3' tag to the readme.txt file.
