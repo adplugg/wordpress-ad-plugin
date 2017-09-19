@@ -1,3 +1,7 @@
+= 1.6.4 =
+
+* Explicitly declared visibility for all methods in the AdPlugg_Notice_Controller class.
+
 = 1.6.3 =
 
 * Renamed some test files to match our file naming conventions.
