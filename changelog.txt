@@ -1,3 +1,7 @@
+= 1.6.5 =
+
+* Updated the readme.txt file to reflect that the plugin is fully tested and working with WP 4.8.2.
+
 = 1.6.4 =
 
 * Explicitly declared visibility for all methods in the AdPlugg_Notice_Controller class.
