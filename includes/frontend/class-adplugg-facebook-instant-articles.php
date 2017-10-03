@@ -1,5 +1,7 @@
 <?php
 
+use Facebook\InstantArticles\Elements\Ad;
+
 /**
  * AdPlugg Facebook Instant Articles class.
  * The AdPlugg Facebook Instant Articles class has functions for working with
@@ -8,9 +10,6 @@
  * @package AdPlugg
  * @since 1.3.0
  */
-
-use Facebook\InstantArticles\Elements\Ad;
-
 class AdPlugg_Facebook_Instant_Articles {
     
     /**
@@ -63,6 +62,7 @@ class AdPlugg_Facebook_Instant_Articles {
      * (fb-instant-articles <0.3)
      * 
      * @param Instant_Articles_Post  $ia_post  The current article object.
+     * @todo Add unit tests
      */
     public function header_injector( $ia_post ) {
         $GLOBALS['adplugg_fbia_canonical_url'] = $ia_post->get_canonical_url();
@@ -85,6 +85,7 @@ class AdPlugg_Facebook_Instant_Articles {
      *  The current Instant Article.
      * @return Facebook\InstantArticles\Elements\InstantArticle Returns the 
      * Instant Article.
+     * @todo Add unit tests
      */
     public function set_instant_article( $instant_article ) {
         $this->instant_article = $instant_article;
@@ -94,6 +95,7 @@ class AdPlugg_Facebook_Instant_Articles {
     
     /**
      * Inserts ads to the Instant Article header.
+     * @todo Add unit tests
      */
     public function insert_ads( $post ) {
         global $wp_registered_widgets;
