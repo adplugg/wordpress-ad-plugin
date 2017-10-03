@@ -1,6 +1,6 @@
 = 1.6.6 =
 
-* Added unit testing for the AdPlugg_Facebook_Instant_Articles method.
+* Added unit testing for the AdPlugg_Facebook_Instant_Articles class.
 
 = 1.6.5 =
 

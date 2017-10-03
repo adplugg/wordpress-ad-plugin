@@ -68,7 +68,7 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 == Changelog ==
 
 = 1.6.6 =
-* Added unit testing for the AdPlugg_Facebook_Instant_Articles method.
+* Added unit testing for the AdPlugg_Facebook_Instant_Articles class.
 
 = 1.6.5 =
 * Updated the readme.txt file to reflect that the plugin is fully tested and working with WP 4.8.2.
