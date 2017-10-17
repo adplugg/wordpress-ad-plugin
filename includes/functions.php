@@ -22,7 +22,7 @@ function adplugg_is_access_code_installed() {
 
 /**
  * Function that gets the active access_code
- * @return string Returns the active access code.
+ * @return string|null Returns the active access code.
  */
 function adplugg_get_active_access_code() {
     $access_code = null;

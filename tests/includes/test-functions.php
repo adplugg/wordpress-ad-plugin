@@ -10,7 +10,8 @@ class Test_Functions extends WP_UnitTestCase {
 
     /**
      * Assert that adplugg_is_access_code_installed() correctly returns whether
-     * or not an AdPlugg access code has been installed.
+     * or not an AdPlugg access code has been installed. Tests both the false
+     * and true scenarios.
      */    
     function test_adplugg_is_access_code_installed() {
         //Clear out any options
@@ -29,10 +30,10 @@ class Test_Functions extends WP_UnitTestCase {
     }
     
     /**
-     * Assert that adplugg_get_active_access_code() returns the expected access
+     * Assert that adplugg_get_active_access_code() returns a stored access
      * code.
      */    
-    function test_adplugg_get_active_access_code() {
+    function test_adplugg_get_active_access_code_returns_stored_access_code() {
         //Install the access_code
         $options = array();
         update_option( ADPLUGG_OPTIONS_NAME, $options );
@@ -45,6 +46,23 @@ class Test_Functions extends WP_UnitTestCase {
             $this->assertContains( ADPLUGG_OVERRIDE_ACCESS_CODE, $access_code );
         } else {
             $this->assertEquals( 'test', $access_code );
+        }
+    }
+    
+    /**
+     * Assert that adplugg_get_active_access_code() returns null when no access
+     * code is found.
+     */    
+    function test_adplugg_get_active_access_code_returns_null_when_no_access_code_stored() {
+        //Delete the adplugg options data (including the access code).
+        delete_option( ADPLUGG_OPTIONS_NAME );
+        
+        $access_code = adplugg_get_active_access_code();
+
+        if( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
+            $this->assertContains( ADPLUGG_OVERRIDE_ACCESS_CODE, $access_code );
+        } else {
+            $this->assertNull( $access_code );
         }
     }
     
