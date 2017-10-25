@@ -99,9 +99,9 @@ class AdPlugg_Notice {
     }
     
     /**
-     * Get's the html for the notice.
+     * Gets the html for the notice.
      */
-    function get_rendered() {
+    public function get_rendered() {
         $html = '';
     
         if( ! $this->is_dismissed() ) {
@@ -125,7 +125,7 @@ class AdPlugg_Notice {
     /**
      * Renders the html for the notice.
      */
-    function render() {
+    public function render() {
         echo $this->get_rendered();
     }
     
