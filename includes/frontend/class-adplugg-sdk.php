@@ -27,7 +27,7 @@ class AdPlugg_Sdk {
      * Function that adds/renders the AdPlugg SDK to the head of the page.
      */
     public function render_sdk() {
-        $access_code = adplugg_get_active_access_code();
+        $access_code = AdPlugg_Options::get_active_access_code();
 
         //Load the sdk (if there is an access_code)
         if ( ! empty( $access_code ) ) {

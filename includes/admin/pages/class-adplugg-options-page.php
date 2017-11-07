@@ -47,14 +47,14 @@ class AdPlugg_Options_Page {
             </form>
             <br/>
             <ul>
-                <?php if ( adplugg_is_access_code_installed() ) { ?>
+                <?php if ( AdPlugg_Options::is_access_code_installed() ) { ?>
                     <li>Manage my ads at <a href="https://www.adplugg.com/apusers/login?utm_source=wpplugin&utm_campaign=opts-l1" target="_blank" title="Manage my ads at adplugg.com">adplugg.com</a>.</li>
                     <li>Place the AdPlugg Widget on my site from the <a href="<?php echo admin_url( 'widgets.php' ); ?>" title="Go to the Widgets Configuration Page.">WordPress Widgets Configuration Page</a>.</li>
                 <?php } //end if ?>
             </ul>
             <hr/>
             <h3>Help</h3>
-            <?php if ( ! adplugg_is_access_code_installed() ) { ?>
+            <?php if ( ! AdPlugg_Options::is_access_code_installed() ) { ?>
                 <div class="adplugg-videos">
                     <div class="adplugg-video-tile">
                         <figure>
@@ -107,7 +107,7 @@ class AdPlugg_Options_Page {
             You must enter a valid AdPlugg Access Code here. If you need an
             Access Code, you can create one
             <a href="https://www.adplugg.com/apusers/signup?utm_source=wpplugin&utm_campaign=opts-l2" target="_blank" title="AdPlugg Signup">here</a>.
-            <?php if ( ! adplugg_is_access_code_installed() ) { ?>
+            <?php if ( ! AdPlugg_Options::is_access_code_installed() ) { ?>
                 <br/>
                 <a href="#" onclick="
                     jQuery( '#contextual-help-link' ).trigger( 'click' );

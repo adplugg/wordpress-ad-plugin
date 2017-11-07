@@ -82,7 +82,7 @@ class AdPlugg_Admin {
         $screen_id = ( ! empty( $screen ) ? $screen->id : null );
 
         // only do on the adplugg settings page and if the user has already added an access code.
-        if ( ( $screen_id == 'toplevel_page_adplugg' ) && ( adplugg_is_access_code_installed() ) ) {
+        if ( ( $screen_id == 'toplevel_page_adplugg' ) && ( AdPlugg_Options::is_access_code_installed() ) ) {
             //if not already clicked/rated
             if ( ! get_option( ADPLUGG_RATED_NAME ) ) {
                 

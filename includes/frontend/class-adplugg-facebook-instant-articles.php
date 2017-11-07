@@ -139,7 +139,7 @@ class AdPlugg_Facebook_Instant_Articles {
                         $adplugg_adhtmlserver = 'www.adplugg.com';
                     }
                     
-                    $iframe_src = 'https://' . $adplugg_adhtmlserver . '/serve/' . adplugg_get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
+                    $iframe_src = 'https://' . $adplugg_adhtmlserver . '/serve/' . AdPlugg_Options::get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
                     $ad = Ad::create()
                             ->enableDefaultForReuse()
                             ->withWidth( $width )

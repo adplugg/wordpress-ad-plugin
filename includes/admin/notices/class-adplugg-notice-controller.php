@@ -32,7 +32,7 @@ class AdPlugg_Notice_Controller {
         $notices = adplugg_notice_pull_all_queued();
         
         // Add any new notices based on the current state of the plugin, etc.
-        if( ! adplugg_is_access_code_installed() ) {
+        if( ! AdPlugg_Options::is_access_code_installed() ) {
             if( $screen_id != 'toplevel_page_adplugg' ) {
                 $notices[] = AdPlugg_Notice::create( 'nag_configure', 'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a title="Configure the AdPlugg Plugin!" href="' . admin_url('admin.php?page=adplugg') . '">configure</a> it!', 'updated', true, '+30 days' );
             }

@@ -56,6 +56,7 @@ define( 'ADPLUGG_RATED_NAME', 'adplugg_rated' );
 define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 
 //Includes
+require_once( ADPLUGG_INCLUDES . 'class-adplugg-options.php' );
 require_once( ADPLUGG_INCLUDES . 'functions.php' );
 require_once( ADPLUGG_INCLUDES . 'class-adplugg-facebook.php' );
 require_once( ADPLUGG_PATH . 'tests/qunit.php' );
