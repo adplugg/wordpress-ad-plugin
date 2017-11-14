@@ -1,3 +1,7 @@
+= 1.6.11 =
+
+* Refactored global notice functions into the notice controller.
+
 = 1.6.10 =
 
 * Added a new AdPlugg_Options class for better OOP design.
