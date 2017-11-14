@@ -29,7 +29,7 @@ class AdPlugg_Notice_Controller {
         $screen_id = ( ! empty( $screen ) ? $screen->id : null );
         
         // Start the notices array off with any that are queued.
-        $notices = adplugg_notice_pull_all_queued();
+        $notices = self::pull_all_queued();
         
         // Add any new notices based on the current state of the plugin, etc.
         if( ! AdPlugg_Options::is_access_code_installed() ) {
@@ -81,6 +81,36 @@ class AdPlugg_Notice_Controller {
         //return the json
         echo json_encode( $ret );
 	wp_die(); //terminate immediately and return a proper response
+    }
+    
+    /**
+     * Adds a notice to the database for display on the next refresh
+     * @param AdPlugg_Notice $notice The notice that you want to queue.
+     */
+    public static function add_to_queue( AdPlugg_Notice $notice ) {
+        $notices = get_option( ADPLUGG_NOTICES_NAME );
+        $notices[ $notice->get_notice_key() ] = $notice->to_array();
+        update_option( ADPLUGG_NOTICES_NAME, $notices );
+    }
+
+    /**
+     * Returns an array containing any queued notices. If there are no queued notices
+     * the function returns an empty array. After pulling the queued notices, they
+     * are deleted.
+     * @return array An array of queued AdPlugg_Notices or else an empty array.
+     */
+    public static function pull_all_queued() {
+        $notices = array();
+        $queued_notices = get_option( ADPLUGG_NOTICES_NAME );
+
+        if ( $queued_notices ) {
+            foreach ( $queued_notices as $notice ) {
+                $notices[] = AdPlugg_Notice::recreate( $notice );
+            }
+            delete_option( ADPLUGG_NOTICES_NAME );
+        }
+
+        return $notices;
     }
 
 }

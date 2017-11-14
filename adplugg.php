@@ -73,7 +73,6 @@ if( is_admin() ) {
     //Includes
     require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
     require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php' );
     
     require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
     require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );

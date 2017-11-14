@@ -2,9 +2,7 @@
 
 require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
 require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php' );
-require_once( ADPLUGG_INCLUDES . 'admin/notices/notice-functions.php' );
 require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
-
 
 /**
  * The Test_AdPlugg_Admin class includes tests for testing the AdPlugg_Admin class.

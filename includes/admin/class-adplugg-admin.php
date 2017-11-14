@@ -58,7 +58,7 @@ class AdPlugg_Admin {
                 
                 
                 $upgrade_notice = AdPlugg_Notice::create( 'notify_upgrade', 'Upgraded version from ' . $data_version . ' to ' . ADPLUGG_VERSION . '.' );
-                adplugg_notice_add_to_queue( $upgrade_notice );
+                AdPlugg_Notice_Controller::add_to_queue( $upgrade_notice );
             }
         }
         
