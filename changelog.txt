@@ -1,3 +1,7 @@
+= 1.6.12 =
+
+* Updated the readme.txt file to reflect that the plugin is fully tested and working with WP 4.9.0.
+
 = 1.6.11 =
 
 * Refactored global notice functions into the notice controller.
