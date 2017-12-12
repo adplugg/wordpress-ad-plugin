@@ -34,14 +34,36 @@ class AdPlugg_Notice_Controller {
         // Add any new notices based on the current state of the plugin, etc.
         if( ! AdPlugg_Options::is_access_code_installed() ) {
             if( $screen_id != 'toplevel_page_adplugg' ) {
-                $notices[] = AdPlugg_Notice::create( 'nag_configure', 'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a title="Configure the AdPlugg Plugin!" href="' . admin_url('admin.php?page=adplugg') . '">configure</a> it!', 'updated', true, '+30 days' );
+                $notices[] = AdPlugg_Notice::create( 
+                                'nag_configure',  //id
+                                'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a title="Configure the AdPlugg Plugin!" href="' . admin_url('admin.php?page=adplugg') . '">configure</a> it!',
+                                'updated', //type (for styling)
+                                true, //dismissible
+                                '+30 days', //remind when
+                                'Configure AdPlugg!', // CTA text
+                                admin_url('admin.php?page=adplugg') // CTA url
+                            );
             }
         } else {
             if( ! adplugg_is_widget_active() ) {
                 if( $screen_id == 'widgets' ) {
-                    $notices[] = AdPlugg_Notice::create( 'nag_widget_1', 'Drag the AdPlugg Widget into a Widget Area to display ads on your site.', 'updated', true, '+30 days' );
+                    $notices[] = AdPlugg_Notice::create( 
+                                    'nag_widget_1', //id
+                                    'Drag the AdPlugg Widget into a Widget Area to display ads on your site.', 
+                                    'updated', //type (for styling)
+                                    true, //dismissible
+                                    '+30 days' //remind when
+                                );
                 } else {
-                    $notices[] = AdPlugg_Notice::create( 'nag_widget_2', 'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area. Go to <a href="' . admin_url('widgets.php') . '">Widget Configuration</a>.', 'updated', true, '+30 days' );
+                    $notices[] = AdPlugg_Notice::create( 
+                                    'nag_widget_2', //id
+                                    'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area.',
+                                    'updated', //type (for styling)
+                                    true, //dismissible
+                                    '+30 days', //remind when
+                                    'Go to Widget Configuration', // CTA text
+                                    admin_url('widgets.php') // CTA url
+                                );
                 }
             }
         }

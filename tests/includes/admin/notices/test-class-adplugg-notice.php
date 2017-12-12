@@ -103,13 +103,17 @@ class Test_AdPlugg_Notice extends WP_UnitTestCase {
         $type = 'updated';
         $dismissible = true;
         $remind_when = '+30 days';
+        $cta_text = 'Some CTA Text';
+        $cta_url = 'http://www.example.com';
         
         $expected_array = array(
             'notice_key' => $notice_key,
             'message' => $message,
             'type' => $type,
             'dismissible' => $dismissible,
-            'remind_when' => $remind_when
+            'remind_when' => $remind_when,
+            'cta_text' => $cta_text,
+            'cta_url' => $cta_url,
         );
 
         $notice = AdPlugg_Notice::create(
@@ -117,7 +121,9 @@ class Test_AdPlugg_Notice extends WP_UnitTestCase {
                                     $message, 
                                     $type, 
                                     $dismissible,
-                                    $remind_when
+                                    $remind_when,
+                                    $cta_text,
+                                    $cta_url
                                 );
         
         //Assert that the array is returned as expected.

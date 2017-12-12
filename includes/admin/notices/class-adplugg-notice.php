@@ -8,13 +8,13 @@
  */
 class AdPlugg_Notice {
     
-    /* 
+    /** 
      * The notice_key is a key such as "nag_widget".
      * @var $notice_key string 
      */
     private $notice_key;
     
-    /* 
+    /** 
      * The message that you want to display to the user.
      * @var $message string 
      */
@@ -27,17 +27,30 @@ class AdPlugg_Notice {
      */
     private $type;
     
-    /* 
+    /** 
      * Whether or not the message is dismissible.
      * @var $notice_key boolean
      */
     private $dismissible;
     
-    /* 
+    /** 
      * A string (such as '+30 days') for use in php's strtotime function.
      * @var $remind_when string
      */
     private $remind_when;
+    
+    /**
+     * A string (such as 'Configure Now') for use in a CTA button to be included
+     * in the Notice.
+     * @var $cta_text string
+     */
+    private $cta_text;
+    
+    /**
+     * The url for the CTA button.
+     * @var $cta_url string
+     */
+    private $cta_url;
     
     /**
      * Constructor.
@@ -57,6 +70,10 @@ class AdPlugg_Notice {
      * dismissible.
      * @param string $remind_when A string (such as '+30 days') for use in php's
      * strtotime function.
+     * @param string|null $cta_text (optional) A string (such as 'Configure 
+     * Now') for use in a CTA button to be included in the Notice. Leave off or
+     * null for no CTA button.
+     * @param string|null $cta_url (optional) The url for the CTA button.
      * @return \self Works like a constructor.
      */
     public static function create(
@@ -64,7 +81,10 @@ class AdPlugg_Notice {
                                 $message, 
                                 $type = 'updated', 
                                 $dismissible = false,
-                                $remind_when = null ) 
+                                $remind_when = null,
+                                $cta_text = null,
+                                $cta_url = null
+                            ) 
     {
         $instance = new self();
         
@@ -73,6 +93,8 @@ class AdPlugg_Notice {
         $instance->type = $type;
         $instance->dismissible = $dismissible;
         $instance->remind_when = $remind_when;
+        $instance->cta_text = $cta_text;
+        $instance->cta_url = $cta_url;
         
         return $instance;
     }
@@ -94,28 +116,44 @@ class AdPlugg_Notice {
         if ( isset($array['remind_when'] ) ) {
             $instance->remind_when = $array['remind_when'];
         }
+        if ( isset($array['cta_text'] ) ) {
+            $instance->cta_text = $array['cta_text'];
+        }
+        if ( isset($array['cta_url'] ) ) {
+            $instance->cta_url = $array['cta_url'];
+        }
         
         return $instance;
     }
     
     /**
      * Gets the html for the notice.
+     * @return string Returns a string of html for rendering the notice.
      */
     public function get_rendered() {
         $html = '';
     
         if( ! $this->is_dismissed() ) {
-            $html .= '<div id="' . $this->get_notice_key() . '" class="' . $this->get_type() . ' notice notice-' . $this->get_type() . ' is-dismissible adplugg-notice">';
+            $buttons = '';
+            $html .= '<div id="' . $this->notice_key . '" class="' . $this->type . ' notice notice-' . $this->type . ' is-dismissible adplugg-notice">';
             $html .=     '<p>' .
                            '<strong>AdPlugg:</strong> ' .
-                           $this->get_message() . 
+                           $this->message . 
                        '</p>';
-            if( $this->is_dismissible() ) {
-                $html .= '<p>' .
-                            '<button type="button" class="adplugg-notice-button" onclick="adpluggPostNoticePref(this, \'' . $this->get_notice_key() . '\', \'+30 days\');">Remind Me Later</button>' .
-                            '<button type="button" class="adplugg-notice-button" onclick="adpluggPostNoticePref(this, \'' . $this->get_notice_key() . '\', null);">Don\'t Remind Me Again</button>' .
-                        '</p>';
+            if( $this->dismissible ) {
+                $buttons = 
+                            '<button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'' . $this->notice_key . '\', \'+30 days\');">Remind Me Later</button>' .
+                            '<button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'' . $this->notice_key . '\', null);">Don\'t Remind Me Again</button>'
+                         ;
             }
+            if( $this->cta_text !== null ) {
+                $buttons .= '<button type="button" class="button button-primary button-small" onclick="window.location.href=\'' . $this->cta_url . '\'; return true;">' . $this->cta_text . '</button>';
+            }
+            
+            if( ! empty( $buttons ) ) {
+                $html .= '<p class="adplugg-notice-buttons">' . $buttons . '</p>';
+            }
+            
             $html .= '</div>';
         }
         
@@ -171,7 +209,9 @@ class AdPlugg_Notice {
             'message' => $this->message,
             'type' => $this->type,
             'dismissible' => $this->dismissible,
-            'remind_when' => $this->remind_when
+            'remind_when' => $this->remind_when,
+            'cta_text' => $this->cta_text,
+            'cta_url' => $this->cta_url,
         );
         
         return $data_array;

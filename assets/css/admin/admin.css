@@ -22,19 +22,21 @@ fieldset.adplugg-widget-fieldset input[type='checkbox'] {
 
 
 /* Notices */
-.adplugg-notice .adplugg-notice-button {
-    background-color: #fafafa;
-    color: #666;
-    border-radius: 2px;
-    margin-right: 8px;
-    padding: 2px 8px;
-    border: solid 1px #f1f1f1;
-    box-shadow: none;
+.adplugg-subtle-button {
+    background-color: #fafafa !important;
+    color: #666 !important;
+    border: solid 1px #f1f1f1 !important;
+    box-shadow: none !important;
+    height: 26px !important;
 }
-.adplugg-notice .adplugg-notice-button:hover {
-    background-color: #e0e0e0;
-    color: #555;
-    cursor: pointer;
+.adplugg-subtle-button:hover {
+    background-color: #e0e0e0 !important;
+    color: #555 !important;
+    border-color: #ccc !important;
+    cursor: pointer !important;
+}
+p.adplugg-notice-buttons button {
+    margin-right: 0.5em !important;
 }
 
 /* Video Tiles */

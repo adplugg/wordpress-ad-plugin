@@ -86,13 +86,17 @@ class AdPlugg_Options_Page {
             AdPlugg is an online service for managing and serving ads to your
             website.
         </p>
-        <p>
-            To use AdPlugg, you will need an AdPlugg Access Code.  To get
-            your AdPlugg Access Code, log in or register (it's free) at 
-            <a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=opts-l2" target="_blank" title="adplugg.com">
-                adplugg.com</a>.
-        </p>
-    <?php 
+        <?php if ( ! AdPlugg_Options::is_access_code_installed() ) { ?>
+            <p>
+                To use AdPlugg, you will need an AdPlugg Access Code. Your AdPlugg
+                Access Code ties your WordPress site to your AdPlugg account (and
+                hosted AdPlugg ad server). To get your AdPlugg Access Code, log in
+                or register (it's free) at 
+                <a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=opts-l2" target="_blank" title="adplugg.com">
+                    adplugg.com</a>.
+            </p>
+        <?php 
+        }
     }
 
     /**
