@@ -32,7 +32,7 @@ class Test_AdPlugg_Notice extends WP_UnitTestCase {
     }
     
     /**
-     * Test the recreate function
+     * Test the recreate function.
      */    
     public function test_recreate() {
         $notice_key = 'test_notice';
@@ -47,6 +47,101 @@ class Test_AdPlugg_Notice extends WP_UnitTestCase {
         
         //Assert that the notice_key is as expected.
         $this->assertEquals( $notice_key, $notice->get_notice_key() );
+    }
+    
+    /**
+     * Test the get_rendered function with a simple notice (a notices with no
+     * buttons).
+     */    
+    public function test_get_rendered_with_simple_notice() {
+        //create the test notice
+        $notice_key = 'test_notice';
+        $notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
+        
+        //what are we expecting
+        $expected_html = '<div id="test_notice" class="updated notice notice-updated is-dismissible adplugg-notice"><p><strong>AdPlugg:</strong> This is a test notice</p></div>';
+        
+        //call the function
+        $html = $notice->get_rendered();
+        
+        //Assert that the html is rendered as expected.
+        $this->assertEquals( $expected_html, $html );
+    }
+    
+    /**
+     * Test the get_rendered function with a dismissible notice.
+     */    
+    public function test_get_rendered_with_dismissible_notice() {
+        //create the test notice
+        $notice_key = 'test_notice';
+        $dismissible = true;
+        $notice = AdPlugg_Notice::create( 
+                                    $notice_key, 
+                                    'This is a test notice', 
+                                    'updated', 
+                                    $dismissible 
+                                );
+        
+        //what are we expecting
+        $expected_html = '<div id="test_notice" class="updated notice notice-updated is-dismissible adplugg-notice"><p><strong>AdPlugg:</strong> This is a test notice</p><p class="adplugg-notice-buttons"><button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'test_notice\', \'+30 days\');">Remind Me Later</button><button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'test_notice\', null);">Don\'t Remind Me Again</button></p></div>';
+        
+        //call the function
+        $html = $notice->get_rendered();
+        
+        //Assert that the html is rendered as expected.
+        $this->assertEquals( $expected_html, $html );
+    }
+    
+    /**
+     * Test the get_rendered function with a cta notice.
+     */    
+    public function test_get_rendered_with_cta_notice() {
+        //create the test notice
+        $notice_key = 'test_notice';
+        $dismissible = false;
+        $cta_text = 'Click Me';
+        $cta_url = 'http://www.example.com';
+        $notice = AdPlugg_Notice::create( 
+                                    $notice_key, 
+                                    'This is a test notice', 
+                                    'updated', 
+                                    $dismissible,
+                                    null, //remind when
+                                    $cta_text,
+                                    $cta_url
+                                );
+        
+        //what are we expecting
+        $expected_html = '<div id="test_notice" class="updated notice notice-updated is-dismissible adplugg-notice"><p><strong>AdPlugg:</strong> This is a test notice</p><p class="adplugg-notice-buttons"><button type="button" class="button button-primary button-small" onclick="window.location.href=\'http://www.example.com\'; return true;">Click Me</button></p></div>';
+        
+        //call the function
+        $html = $notice->get_rendered();
+        
+        //Assert that the html is rendered as expected.
+        
+        $this->assertEquals( $expected_html, $html );
+    }
+    
+    /**
+     * Test the render function - render calls get_rendered and then echos the
+     * html.
+     */    
+    public function test_render() {
+        //create the test notice
+        $notice_key = 'test_notice';
+        $notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
+        
+        //what are we expecting
+        $expected_html = '<div id="test_notice" class="updated notice notice-updated is-dismissible adplugg-notice"><p><strong>AdPlugg:</strong> This is a test notice</p></div>';
+        
+        //call the function
+        ob_start();
+        $notice->render();
+        $html = ob_get_contents();
+        ob_end_clean();
+        
+        //Assert that the html is rendered as expected.        
+        $this->assertEquals( $expected_html, $html );
     }
     
     /**
