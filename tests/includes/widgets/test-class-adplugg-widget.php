@@ -259,7 +259,7 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
     
     /**
      * Test the widget function outputs the expected Facebook Instant Articles
-     * output.
+     * output when all values on the widget are set.
      */    
     public function test_widget_render_for_instant_articles_with_all_values() {
         //Set up the variables.
@@ -277,11 +277,19 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         $instance['default'] = 1;
         $GLOBALS['adplugg_fbia_canonical_url'] = 'http://www.example.com/blog/hello-world/';
         
-        //Assert that the widget form is output with a title.
+        //Install an access code
+        $options = array();
+        update_option( ADPLUGG_OPTIONS_NAME, $options );
+        $options['access_code'] = 'test';
+        update_option( ADPLUGG_OPTIONS_NAME, $options );
+        
+        //Assert that the widget form is output with the expected values from
+        //the widget settings.
         ob_start();
         $adplugg_widget->widget( $args, $instance );
         $outbound = ob_get_contents();
         ob_end_clean();
+        $this->assertContains( 'op-ad', $outbound );
         $this->assertContains( 'test_zone', $outbound );
         $this->assertContains( '100', $outbound );
         $this->assertContains( '200', $outbound );
@@ -292,9 +300,46 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
     
     /**
      * Test the widget function outputs the expected Facebook Instant Articles
-     * output.
+     * output when the widget settings aren't filled out.
      */    
     public function test_widget_render_for_instant_articles_with_no_values() {
+        //Set up the variables.
+        $adplugg_widget = new AdPlugg_Widget();
+        $args = array();
+        $args['before_widget'] = '';
+        $args['after_widget'] = '';
+        $args['before_title'] = '';
+        $args['after_title'] = '';
+        $args['id'] = 'facebook_ia_header_ads';
+        $instance = array();
+        $instance['zone'] = null;
+        $instance['width'] = null;
+        $instance['height'] = null;
+        $instance['default'] = 0;
+        $GLOBALS['adplugg_fbia_canonical_url'] = 'http://www.example.com/blog/hello-world';
+        
+        //Install an access code
+        $options = array();
+        update_option( ADPLUGG_OPTIONS_NAME, $options );
+        $options['access_code'] = 'test';
+        update_option( ADPLUGG_OPTIONS_NAME, $options );
+        
+        //Assert that the widget form is output with a title.
+        ob_start();
+        $adplugg_widget->widget( $args, $instance );
+        $outbound = ob_get_contents();
+        ob_end_clean();
+        $this->assertContains( 'op-ad', $outbound );
+        $this->assertContains( '300', $outbound );
+        $this->assertContains( '250', $outbound );
+        $this->assertNotContains( 'op-ad-default', $outbound );
+    }
+    
+    /**
+     * Test the widget function is rendered without AdPlugg ads if no access
+     * code is entered.
+     */    
+    public function test_widget_render_for_instant_articles_with_no_access_code() {
         //Set up the variables.
         $adplugg_widget = new AdPlugg_Widget();
         $args = array();
@@ -315,9 +360,7 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
         $adplugg_widget->widget( $args, $instance );
         $outbound = ob_get_contents();
         ob_end_clean();
-        $this->assertContains( '300', $outbound );
-        $this->assertContains( '250', $outbound );
-        $this->assertNotContains( 'op-ad-default', $outbound );
+        $this->assertNotContains( 'op-ad', $outbound );
     }
     
 }

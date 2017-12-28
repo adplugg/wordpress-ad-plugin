@@ -61,7 +61,7 @@ class AdPlugg_Facebook_Instant_Articles {
      * 
      * (fb-instant-articles <0.3)
      * 
-     * @param Instant_Articles_Post  $ia_post  The current article object.
+     * @param Instant_Articles_Post $ia_post The current article object.
      * @todo Add unit tests
      */
     public function header_injector( $ia_post ) {
@@ -94,7 +94,7 @@ class AdPlugg_Facebook_Instant_Articles {
     }
     
     /**
-     * Inserts ads to the Instant Article header.
+     * Inserts ads into the Instant Article header.
      * @todo Add unit tests
      */
     public function insert_ads( $post ) {
@@ -106,6 +106,7 @@ class AdPlugg_Facebook_Instant_Articles {
         $source_of_ad = isset( $settings_ads['ad_source'] ) ? $settings_ads['ad_source'] : 'none';
         
         if ( 
+             ( AdPlugg_Options::is_access_code_installed() ) &&
              ( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) && 
              ( is_active_sidebar( 'facebook_ia_header_ads' ) ) &&
              ( $source_of_ad == 'adplugg' )

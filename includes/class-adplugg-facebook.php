@@ -2,8 +2,8 @@
 
 /**
  * AdPlugg Facebook class.
- * The AdPlugg Facebook class controls admin function for AdPlugg's Facebook
- * intragration.  This class is used by both the frontend and the admin.
+ * The AdPlugg Facebook class controls AdPlugg's Facebook intragration. This
+ * class is used by both the frontend and the admin.
  *
  * @package AdPlugg
  * @since 1.3.0
