@@ -1,3 +1,7 @@
+= 1.6.17 =
+
+* Added unit testing for the AdPlugg_Facebook_Instant_Articles->header_injector method.
+
 = 1.6.16 =
 
 * Now checks to make sure an access code is entered before trying to serve ads into Facebook Instant Articles.
