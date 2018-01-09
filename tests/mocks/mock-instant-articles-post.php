@@ -13,7 +13,13 @@ class Instant_Articles_Post {
      *
      * @var $_post
      */
-    protected $_post = null;
+    protected $_post;
+    
+    /**
+     * The header
+     * @var Header
+     */
+    protected $header;
 
     /**
      * Set up data and build the content.
@@ -22,6 +28,7 @@ class Instant_Articles_Post {
      */
     public function __construct( $post ) {
         $this->_post = $post;
+        $this->header = new Header();
     }
     
     /**
@@ -35,6 +42,14 @@ class Instant_Articles_Post {
     }
     
     /**
+     * Gets the header
+     * @return Header Returns the header.
+     */
+    public function getHeader() {
+        return $this->header;
+    }
+    
+    /**
      * Hook the is_active_sidebar filter to always return true.
      * 
      * @wp-hook is_active_sidebar
@@ -42,6 +57,22 @@ class Instant_Articles_Post {
      */
    static function fake_is_active_sidebar() {
         return true;
+   }
+   
+   /**
+    * Hook the sidebars_widgets filter.
+    * 
+    * @wp-hook sidebars_widgets
+    * @return Returns true.
+    */
+   static function fake_wp_get_sidebars_widgets() {
+       $ret = array(
+                    'facebook_ia_header_ads' => array(
+                        'adplugg'
+                    )
+                );
+       
+       return $ret;
    }
     
 }
