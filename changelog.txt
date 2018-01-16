@@ -1,3 +1,7 @@
+= 1.6.19 =
+
+* Updated all indentation to use tabs instead of spaces to match the WordPress Coding Standards.
+
 = 1.6.18 =
 
 * Added unit testing for the AdPlugg_Facebook_Instant_Articles->insert_ads method.
