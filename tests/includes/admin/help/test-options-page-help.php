@@ -10,23 +10,23 @@ require_once(ADPLUGG_INCLUDES . 'admin/help/options-page-help.php');
  * @since 1.1.16
  */
 class Test_Options_Page_Help extends WP_UnitTestCase {
-    
-    /**
-     * Test the adplugg_options_page_help function.
-     */
-    public function test_adplugg_options_page_help() {
-        //set up the variables
-        $contextual_help = '';
-        $adplugg_hook = 'mock-hook';
-        $screen_id = $adplugg_hook;
-        $screen = WP_Screen::get( $adplugg_hook );
-        
-        //run the function
-        adplugg_options_page_help( $contextual_help, $screen_id, $screen );
-        
-        //Asset that the AdPlugg help is now in the screen.
-        $this->assertContains( 'AdPlugg Plugin Help', serialize( $screen ) );
-    }
-    
+	
+	/**
+	 * Test the adplugg_options_page_help function.
+	 */
+	public function test_adplugg_options_page_help() {
+		//set up the variables
+		$contextual_help = '';
+		$adplugg_hook = 'mock-hook';
+		$screen_id = $adplugg_hook;
+		$screen = WP_Screen::get( $adplugg_hook );
+		
+		//run the function
+		adplugg_options_page_help( $contextual_help, $screen_id, $screen );
+		
+		//Asset that the AdPlugg help is now in the screen.
+		$this->assertContains( 'AdPlugg Plugin Help', serialize( $screen ) );
+	}
+	
 }
 

@@ -16,11 +16,11 @@ WP_TESTS_DIR=${WP_TESTS_DIR-/tmp/wordpress-tests-lib}
 WP_CORE_DIR=${WP_CORE_DIR-/tmp/wordpress/}
 
 download() {
-    if [ `which curl` ]; then
-        curl -s "$1" > "$2";
-    elif [ `which wget` ]; then
-        wget -nv -O "$2" "$1"
-    fi
+	if [ `which curl` ]; then
+		curl -s "$1" > "$2";
+	elif [ `which wget` ]; then
+		wget -nv -O "$2" "$1"
+	fi
 }
 
 if [[ $WP_VERSION =~ [0-9]+\.[0-9]+(\.[0-9]+)? ]]; then
@@ -55,13 +55,13 @@ install_wp() {
 		unzip -q /tmp/wordpress-nightly/wordpress-nightly.zip -d /tmp/wordpress-nightly/
 		mv /tmp/wordpress-nightly/wordpress/* $WP_CORE_DIR
 	else
-                if [ $WP_VERSION == 'latest' ]; then
-                        local ARCHIVE_NAME='latest'
-                else
-                        local ARCHIVE_NAME="wordpress-$WP_VERSION"
-                fi
-                download https://wordpress.org/${ARCHIVE_NAME}.tar.gz  /tmp/wordpress.tar.gz
-                tar --strip-components=1 -zxmf /tmp/wordpress.tar.gz -C $WP_CORE_DIR
+		if [ $WP_VERSION == 'latest' ]; then
+			local ARCHIVE_NAME='latest'
+		else
+			local ARCHIVE_NAME="wordpress-$WP_VERSION"
+		fi
+		download https://wordpress.org/${ARCHIVE_NAME}.tar.gz  /tmp/wordpress.tar.gz
+		tar --strip-components=1 -zxmf /tmp/wordpress.tar.gz -C $WP_CORE_DIR
 	fi
 
 	download https://raw.github.com/markoheijnen/wp-mysqli/master/db.php $WP_CORE_DIR/wp-content/db.php

@@ -11,42 +11,42 @@
  * @param string $test_suite (optional) The test suite that you want to load.
  */
 function adplugg_load_qunit($test_suite) {
-    $supported_screens = array("settings_page_adplugg", "widgets");
-    
-    if($test_suite == null) {
-        $screen = get_current_screen();
-        $screen_id = (!empty($screen) ? $screen->id : null);
-        if(in_array($screen_id, $supported_screens)) {
-            $test_suite = $screen_id;
-        }
-    }
-    
-    if($test_suite != null) {
-        ?>
-            <link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.15.0.css">
+	$supported_screens = array("settings_page_adplugg", "widgets");
+	
+	if($test_suite == null) {
+		$screen = get_current_screen();
+		$screen_id = (!empty($screen) ? $screen->id : null);
+		if(in_array($screen_id, $supported_screens)) {
+			$test_suite = $screen_id;
+		}
+	}
+	
+	if($test_suite != null) {
+		?>
+			<link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.15.0.css">
 
-            <div id="qunit"></div>
-            <div id="qunit-fixture"></div>
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-            <script src="//code.jquery.com/qunit/qunit-1.15.0.js"></script>
-            <script src="<?php echo plugins_url('qunit-test-' . $test_suite . '.js', __FILE__); ?>"></script>
-            
-            <?php if(is_admin()) { ?>
-                <style>
-                    #wpfooter {position: relative;}
-                    #qunit {margin-left: 160px;}
-                </style>
-            <?php } else { ?>
-                <style>
-                    #qunit {
-                        position:fixed;
-                        bottom:0px;
-                        width: 100%;
-                    };
-                </style>
-            <?php } ?>
-            
-        <?php
-    }
+			<div id="qunit"></div>
+			<div id="qunit-fixture"></div>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+			<script src="//code.jquery.com/qunit/qunit-1.15.0.js"></script>
+			<script src="<?php echo plugins_url('qunit-test-' . $test_suite . '.js', __FILE__); ?>"></script>
+			
+			<?php if(is_admin()) { ?>
+				<style>
+					#wpfooter {position: relative;}
+					#qunit {margin-left: 160px;}
+				</style>
+			<?php } else { ?>
+				<style>
+					#qunit {
+						position:fixed;
+						bottom:0px;
+						width: 100%;
+					};
+				</style>
+			<?php } ?>
+			
+		<?php
+	}
 }
 

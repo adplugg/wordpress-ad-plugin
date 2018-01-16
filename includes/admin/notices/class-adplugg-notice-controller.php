@@ -9,132 +9,130 @@
  * @since 1.2
  */
 class AdPlugg_Notice_Controller {
-    
-    /**
-     * Constructor, constructs the AdPlugg_Notice_Controller and registers
-     * actions.
-     */
-    public function __construct() {
-        add_action( 'admin_notices', array( &$this, 'admin_notices' ) );
-        add_action( 'wp_ajax_adplugg_set_notice_pref', array( &$this, 'set_notice_pref_callback' ) );
-    }
+	
+	/**
+	 * Constructor, constructs the AdPlugg_Notice_Controller and registers
+	 * actions.
+	 */
+	public function __construct() {
+		add_action( 'admin_notices', array( &$this, 'admin_notices' ) );
+		add_action( 'wp_ajax_adplugg_set_notice_pref', array( &$this, 'set_notice_pref_callback' ) );
+	}
 
-    /**
-     * Add Notices in the administrator. Adds both notices from the db and
-     * notices based on the current state of the plugin (see code).
-     */
-    public function admin_notices() {
-        
-        $screen = get_current_screen();
-        $screen_id = ( ! empty( $screen ) ? $screen->id : null );
-        
-        // Start the notices array off with any that are queued.
-        $notices = self::pull_all_queued();
-        
-        // Add any new notices based on the current state of the plugin, etc.
-        if( ! AdPlugg_Options::is_access_code_installed() ) {
-            if( $screen_id != 'toplevel_page_adplugg' ) {
-                $notices[] = AdPlugg_Notice::create( 
-                                'nag_configure',  //id
-                                'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a title="Configure the AdPlugg Plugin!" href="' . admin_url('admin.php?page=adplugg') . '">configure</a> it!',
-                                'updated', //type (for styling)
-                                true, //dismissible
-                                '+30 days', //remind when
-                                'Configure AdPlugg!', // CTA text
-                                admin_url('admin.php?page=adplugg') // CTA url
-                            );
-            }
-        } else {
-            if( ! adplugg_is_widget_active() ) {
-                if( $screen_id == 'widgets' ) {
-                    $notices[] = AdPlugg_Notice::create( 
-                                    'nag_widget_1', //id
-                                    'Drag the AdPlugg Widget into a Widget Area to display ads on your site.', 
-                                    'updated', //type (for styling)
-                                    true, //dismissible
-                                    '+30 days' //remind when
-                                );
-                } else {
-                    $notices[] = AdPlugg_Notice::create( 
-                                    'nag_widget_2', //id
-                                    'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area.',
-                                    'updated', //type (for styling)
-                                    true, //dismissible
-                                    '+30 days', //remind when
-                                    'Go to Widget Configuration', // CTA text
-                                    admin_url('widgets.php') // CTA url
-                                );
-                }
-            }
-        }
-        
-        //print the notices
-        $out = '';
-        foreach( $notices as $notice ) {
-            $out .= $notice->get_rendered();
-        }
-        echo $out;
-    }
-    
-    /**
-     * Called via ajax to dismiss a notice. Registered in the constructor above.
-     */
-    public function set_notice_pref_callback() {
-        //Get the variables from the post request
-        $notice_key = $_POST['notice_key'];
-        $remind_when = $_POST['remind_when'];
+	/**
+	 * Add Notices in the administrator. Adds both notices from the db and
+	 * notices based on the current state of the plugin (see code).
+	 */
+	public function admin_notices() {
+		
+		$screen = get_current_screen();
+		$screen_id = ( ! empty( $screen ) ? $screen->id : null );
+		
+		// Start the notices array off with any that are queued.
+		$notices = self::pull_all_queued();
+		
+		// Add any new notices based on the current state of the plugin, etc.
+		if( ! AdPlugg_Options::is_access_code_installed() ) {
+			if( $screen_id != 'toplevel_page_adplugg' ) {
+				$notices[] = AdPlugg_Notice::create( 
+								'nag_configure',  //id
+								'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a title="Configure the AdPlugg Plugin!" href="' . admin_url('admin.php?page=adplugg') . '">configure</a> it!',
+								'updated', //type (for styling)
+								true, //dismissible
+								'+30 days', //remind when
+								'Configure AdPlugg!', // CTA text
+								admin_url('admin.php?page=adplugg') // CTA url
+							);
+			}
+		} else {
+			if( ! adplugg_is_widget_active() ) {
+				if( $screen_id == 'widgets' ) {
+					$notices[] = AdPlugg_Notice::create( 
+									'nag_widget_1', //id
+									'Drag the AdPlugg Widget into a Widget Area to display ads on your site.', 
+									'updated', //type (for styling)
+									true, //dismissible
+									'+30 days' //remind when
+								);
+				} else {
+					$notices[] = AdPlugg_Notice::create( 
+									'nag_widget_2', //id
+									'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area.',
+									'updated', //type (for styling)
+									true, //dismissible
+									'+30 days', //remind when
+									'Go to Widget Configuration', // CTA text
+									admin_url('widgets.php') // CTA url
+								);
+				}
+			}
+		}
+		
+		//print the notices
+		$out = '';
+		foreach( $notices as $notice ) {
+			$out .= $notice->get_rendered();
+		}
+		echo $out;
+	}
+	
+	/**
+	 * Called via ajax to dismiss a notice. Registered in the constructor above.
+	 */
+	public function set_notice_pref_callback() {
+		//Get the variables from the post request
+		$notice_key = $_POST['notice_key'];
+		$remind_when = $_POST['remind_when'];
 
-        //Determine when to remind on
-        $remind_on = null;
-        if( $remind_when != null ) {
-            $remind_on = strtotime( $remind_when );
-        }
-        
-        //Add the dismissal to the database
-        $dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
-        $dismissals[$notice_key] = $remind_on;
-        update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
-        
-        //Build the return array
-        $ret = array();
-        $ret['notice_key'] = $notice_key;
-        $ret['status'] = 'success';
-        
-        //return the json
-        echo json_encode( $ret );
+		//Determine when to remind on
+		$remind_on = null;
+		if( $remind_when != null ) {
+			$remind_on = strtotime( $remind_when );
+		}
+		
+		//Add the dismissal to the database
+		$dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
+		$dismissals[$notice_key] = $remind_on;
+		update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
+		
+		//Build the return array
+		$ret = array();
+		$ret['notice_key'] = $notice_key;
+		$ret['status'] = 'success';
+		
+		//return the json
+		echo json_encode( $ret );
 	wp_die(); //terminate immediately and return a proper response
-    }
-    
-    /**
-     * Adds a notice to the database for display on the next refresh
-     * @param AdPlugg_Notice $notice The notice that you want to queue.
-     */
-    public static function add_to_queue( AdPlugg_Notice $notice ) {
-        $notices = get_option( ADPLUGG_NOTICES_NAME );
-        $notices[ $notice->get_notice_key() ] = $notice->to_array();
-        update_option( ADPLUGG_NOTICES_NAME, $notices );
-    }
+	}
+	
+	/**
+	 * Adds a notice to the database for display on the next refresh
+	 * @param AdPlugg_Notice $notice The notice that you want to queue.
+	 */
+	public static function add_to_queue( AdPlugg_Notice $notice ) {
+		$notices = get_option( ADPLUGG_NOTICES_NAME );
+		$notices[ $notice->get_notice_key() ] = $notice->to_array();
+		update_option( ADPLUGG_NOTICES_NAME, $notices );
+	}
 
-    /**
-     * Returns an array containing any queued notices. If there are no queued notices
-     * the function returns an empty array. After pulling the queued notices, they
-     * are deleted.
-     * @return array An array of queued AdPlugg_Notices or else an empty array.
-     */
-    public static function pull_all_queued() {
-        $notices = array();
-        $queued_notices = get_option( ADPLUGG_NOTICES_NAME );
+	/**
+	 * Returns an array containing any queued notices. If there are no queued notices
+	 * the function returns an empty array. After pulling the queued notices, they
+	 * are deleted.
+	 * @return array An array of queued AdPlugg_Notices or else an empty array.
+	 */
+	public static function pull_all_queued() {
+		$notices = array();
+		$queued_notices = get_option( ADPLUGG_NOTICES_NAME );
 
-        if ( $queued_notices ) {
-            foreach ( $queued_notices as $notice ) {
-                $notices[] = AdPlugg_Notice::recreate( $notice );
-            }
-            delete_option( ADPLUGG_NOTICES_NAME );
-        }
+		if ( $queued_notices ) {
+			foreach ( $queued_notices as $notice ) {
+				$notices[] = AdPlugg_Notice::recreate( $notice );
+			}
+			delete_option( ADPLUGG_NOTICES_NAME );
+		}
 
-        return $notices;
-    }
+		return $notices;
+	}
 
 }
-
-

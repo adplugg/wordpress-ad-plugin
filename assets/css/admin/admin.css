@@ -6,49 +6,49 @@
 
 /* Widget */
 fieldset.adplugg-widget-fieldset {
-    padding: 4px 6px 6px 6px;
-    border: solid 1px #e5e5e5;
-    margin: 1em 0 1em 0;
+	padding: 4px 6px 6px 6px;
+	border: solid 1px #e5e5e5;
+	margin: 1em 0 1em 0;
 }
 fieldset.adplugg-widget-fieldset legend {
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
 }
 
 fieldset.adplugg-widget-fieldset input[type='checkbox'] {
-    -webkit-appearance: button;
+	-webkit-appearance: button;
 }
 
 
 /* Notices */
 .adplugg-subtle-button {
-    background-color: #fafafa !important;
-    color: #666 !important;
-    border: solid 1px #f1f1f1 !important;
-    box-shadow: none !important;
-    height: 26px !important;
+	background-color: #fafafa !important;
+	color: #666 !important;
+	border: solid 1px #f1f1f1 !important;
+	box-shadow: none !important;
+	height: 26px !important;
 }
 .adplugg-subtle-button:hover {
-    background-color: #e0e0e0 !important;
-    color: #555 !important;
-    border-color: #ccc !important;
-    cursor: pointer !important;
+	background-color: #e0e0e0 !important;
+	color: #555 !important;
+	border-color: #ccc !important;
+	cursor: pointer !important;
 }
 p.adplugg-notice-buttons button {
-    margin-right: 0.5em !important;
+	margin-right: 0.5em !important;
 }
 
 /* Video Tiles */
 .adplugg-videos {
-    margin: 0 0 1em 3em;
-    overflow: hidden;
+	margin: 0 0 1em 3em;
+	overflow: hidden;
 }
 .adplugg-video-tile {
-    width: 180px;
-    float: left;
-    margin: 0 1em 1em 0;
-    text-align: center;
+	width: 180px;
+	float: left;
+	margin: 0 1em 1em 0;
+	text-align: center;
 }
 .adplugg-video-tile figurecaption{ font-weight: bold;}
 .adplugg-video-tile h2 {height: 2em;}

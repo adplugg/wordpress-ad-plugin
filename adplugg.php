@@ -3,7 +3,7 @@
 /*
 Plugin Name: AdPlugg
 Plugin URI: https://www.adplugg.com
-Description: The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to easily insert ads on your WordPress blog. To get started: 1) Click the "Activate" link to the left of this description, 2) <a href="https://www.adplugg.com/apusers/signup?utm_source=wpplugin&utm_medium=referral&utm_campaign=plugins-page-l1">Sign up for a free AdPlugg account</a> and create an ad, 3) Go to the AdPlugg configuration page, and save your AdPlugg Access Code, and 4) Go to Appearance > Widgets and drag the AdPlugg Widget into your Widget Area.  Get more help at <a href="https://www.adplugg.com/support?utm_source=wpplugin&utm_campaign=plugins-page-l2">www.adplugg.com/support</a>.
+Description: The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to easily insert ads on your WordPress blog. To get started: 1) Click the "Activate" link to the left of this description, 2) <a href="https://www.adplugg.com/apusers/signup?utm_source=wpplugin&utm_medium=referral&utm_campaign=plugins-page-l1">Sign up for a free AdPlugg account</a> and create an ad, 3) Go to the AdPlugg configuration page, and save your AdPlugg Access Code, and 4) Go to Appearance > Widgets and drag the AdPlugg Widget into your Widget Area. Get more help at <a href="https://www.adplugg.com/support?utm_source=wpplugin&utm_campaign=plugins-page-l2">www.adplugg.com/support</a>.
 Version: 1.6.18
 Author: AdPlugg
 Author URI: www.adplugg.com
@@ -19,11 +19,11 @@ the Free Software Foundation, either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 /**
@@ -39,7 +39,7 @@ define( 'ADPLUGG_URL', plugins_url( '/', __FILE__ ) );
 
 //Include the optional config.php file
 if( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
-    include_once( ADPLUGG_PATH . 'config.php' );
+	include_once( ADPLUGG_PATH . 'config.php' );
 }
 
 if( ! defined( 'ADPLUGG_ADJSSERVER' ) ) { define( 'ADPLUGG_ADJSSERVER', 'www.adplugg.com/apusers' ); }
@@ -69,49 +69,49 @@ add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlug
 AdPlugg_Facebook::get_instance();
 
 if( is_admin() ) {
-    //---- ADMIN ----//
-    //Includes
-    require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php' );
-    
-    require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
-    
-    //Set up the notifications system.
-    $adplugg_notice_controller = new AdPlugg_Notice_Controller();
-    
-    //Plugin setup and registrations
-    $adplugg_admin = new AdPlugg_Admin();
-    register_activation_hook( __FILE__, array( 'AdPlugg_Admin', 'activate' ));
-    register_deactivation_hook( __FILE__, array( 'AdPlugg_Admin', 'deactivate' ));
-    register_uninstall_hook( __FILE__, array( 'AdPlugg_Admin', 'uninstall' ));
-    
-    //Set up the options page 
-    $adplugg_options_page = new AdPlugg_Options_Page();
-    add_filter( 'contextual_help', 'adplugg_help_dispatch', 10, 3 );
-    
-    //Facebook integration
-    AdPlugg_Facebook_Options_Page::get_instance();
-    
-    //Load qunit
-    if( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
-        add_action( 'admin_footer', 'adplugg_load_qunit' );
-    }
+	//---- ADMIN ----//
+	//Includes
+	require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php' );
+	
+	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
+	
+	//Set up the notifications system.
+	$adplugg_notice_controller = new AdPlugg_Notice_Controller();
+	
+	//Plugin setup and registrations
+	$adplugg_admin = new AdPlugg_Admin();
+	register_activation_hook( __FILE__, array( 'AdPlugg_Admin', 'activate' ));
+	register_deactivation_hook( __FILE__, array( 'AdPlugg_Admin', 'deactivate' ));
+	register_uninstall_hook( __FILE__, array( 'AdPlugg_Admin', 'uninstall' ));
+	
+	//Set up the options page 
+	$adplugg_options_page = new AdPlugg_Options_Page();
+	add_filter( 'contextual_help', 'adplugg_help_dispatch', 10, 3 );
+	
+	//Facebook integration
+	AdPlugg_Facebook_Options_Page::get_instance();
+	
+	//Load qunit
+	if( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
+		add_action( 'admin_footer', 'adplugg_load_qunit' );
+	}
 
 } else {
-    //---- FRONT END ----//
-    //Add the SDK
-    require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-sdk.php' );
-    AdPlugg_Sdk::get_instance();
-    
-    //Feeds
-    require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php' );
-    AdPlugg_Feed::get_instance();
-    
-    //Facebook Instant Articles
-    require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-facebook-instant-articles.php' );
-    AdPlugg_Facebook_Instant_Articles::get_instance();
+	//---- FRONT END ----//
+	//Add the SDK
+	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-sdk.php' );
+	AdPlugg_Sdk::get_instance();
+	
+	//Feeds
+	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php' );
+	AdPlugg_Feed::get_instance();
+	
+	//Facebook Instant Articles
+	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-facebook-instant-articles.php' );
+	AdPlugg_Facebook_Instant_Articles::get_instance();
 
 }

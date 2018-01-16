@@ -10,22 +10,22 @@ require_once( ADPLUGG_INCLUDES . 'admin/help/widgets-page-help.php' );
  * @since 1.1.29
  */
 class Test_Widgets_Page_Help extends WP_UnitTestCase {
-    
-    /**
-     * Test the adplugg_widgets_page_help function.
-     */
-    public function test_adplugg_widgets_page_help() {
-        //set up the variables
-        $contextual_help = '';
-        $screen_id = 'widgets';
-        $screen = WP_Screen::get( $screen_id );
-        
-        //run the function
-        adplugg_widgets_page_help( $contextual_help, $screen_id, $screen );
-        
-        //Asset that the AdPlugg help is now in the screen.
-        $this->assertContains( 'AdPlugg Widget Help', serialize( $screen ) );
-    }
-    
+	
+	/**
+	 * Test the adplugg_widgets_page_help function.
+	 */
+	public function test_adplugg_widgets_page_help() {
+		//set up the variables
+		$contextual_help = '';
+		$screen_id = 'widgets';
+		$screen = WP_Screen::get( $screen_id );
+		
+		//run the function
+		adplugg_widgets_page_help( $contextual_help, $screen_id, $screen );
+		
+		//Asset that the AdPlugg help is now in the screen.
+		$this->assertContains( 'AdPlugg Widget Help', serialize( $screen ) );
+	}
+	
 }
 
