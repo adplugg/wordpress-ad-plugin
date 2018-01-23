@@ -1,3 +1,7 @@
+= 1.6.20 =
+
+* Updated the readme.txt to reflect that the plugin has been tested with up to WP 4.9.2.
+
 = 1.6.19 =
 
 * Updated all indentation to use tabs instead of spaces to match the WordPress Coding Standards.
