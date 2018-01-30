@@ -79,8 +79,8 @@ if( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
 	
-	//Set up the notifications system.
-	$adplugg_notice_controller = new AdPlugg_Notice_Controller();
+	//Initialize notifications system.
+	AdPlugg_Notice_Controller::get_instance();
 	
 	//Plugin setup and registrations
 	$adplugg_admin = new AdPlugg_Admin();

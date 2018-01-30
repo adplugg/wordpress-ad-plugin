@@ -74,7 +74,11 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 		$notice_key = 'test_notice';
 		$notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
 		
-		AdPlugg_Notice_Controller::add_to_queue( $notice );
+		//get the notice controller.
+		$adplugg_notice_controller = AdPlugg_Notice_Controller::get_instance();
+		
+		//call the method
+		$adplugg_notice_controller->add_to_queue( $notice );
 		
 		$notices = get_option( ADPLUGG_NOTICES_NAME );
 		
@@ -94,7 +98,11 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 		$stored_notices[$notice->get_notice_key()] = $notice->to_array();
 		update_option( ADPLUGG_NOTICES_NAME, $stored_notices );
 		
-		$notices = AdPlugg_Notice_Controller::pull_all_queued();
+		//get the notice controller.
+		$adplugg_notice_controller = AdPlugg_Notice_Controller::get_instance();
+		
+		//call the method.
+		$notices = $adplugg_notice_controller->pull_all_queued();
 		
 		/* @var $notice1 AdPlugg_Notice */
 		$notice1 = $notices[0];

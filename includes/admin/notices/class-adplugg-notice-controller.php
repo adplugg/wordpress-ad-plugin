@@ -2,6 +2,7 @@
 
 /**
  * AdPlugg Notices class.
+ * 
  * The AdPlugg Notices Controller class sets up and controls the AdPlugg 
  * notices.
  *
@@ -9,6 +10,12 @@
  * @since 1.2
  */
 class AdPlugg_Notice_Controller {
+	
+	/**
+	 * Class instance.
+	 * @var AdPlugg_Facebook_Options_Page
+	 */
+	static $instance;
 	
 	/**
 	 * Constructor, constructs the AdPlugg_Notice_Controller and registers
@@ -29,7 +36,7 @@ class AdPlugg_Notice_Controller {
 		$screen_id = ( ! empty( $screen ) ? $screen->id : null );
 		
 		// Start the notices array off with any that are queued.
-		$notices = self::pull_all_queued();
+		$notices = $this->pull_all_queued();
 		
 		// Add any new notices based on the current state of the plugin, etc.
 		if( ! AdPlugg_Options::is_access_code_installed() ) {
@@ -102,14 +109,14 @@ class AdPlugg_Notice_Controller {
 		
 		//return the json
 		echo json_encode( $ret );
-	wp_die(); //terminate immediately and return a proper response
+		wp_die(); //terminate immediately and return a proper response
 	}
 	
 	/**
 	 * Adds a notice to the database for display on the next refresh
 	 * @param AdPlugg_Notice $notice The notice that you want to queue.
 	 */
-	public static function add_to_queue( AdPlugg_Notice $notice ) {
+	public function add_to_queue( AdPlugg_Notice $notice ) {
 		$notices = get_option( ADPLUGG_NOTICES_NAME );
 		$notices[ $notice->get_notice_key() ] = $notice->to_array();
 		update_option( ADPLUGG_NOTICES_NAME, $notices );
@@ -121,7 +128,7 @@ class AdPlugg_Notice_Controller {
 	 * are deleted.
 	 * @return array An array of queued AdPlugg_Notices or else an empty array.
 	 */
-	public static function pull_all_queued() {
+	public function pull_all_queued() {
 		$notices = array();
 		$queued_notices = get_option( ADPLUGG_NOTICES_NAME );
 
@@ -133,6 +140,17 @@ class AdPlugg_Notice_Controller {
 		}
 
 		return $notices;
+	}
+	
+	/*
+	 * Singleton instance 
+	 */
+	public static function get_instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
 	}
 
 }
