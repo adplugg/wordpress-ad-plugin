@@ -1,3 +1,7 @@
+= 1.6.21 =
+
+* Made the notice controller into a singleton.
+
 = 1.6.20 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WP 4.9.2.
