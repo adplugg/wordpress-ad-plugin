@@ -30,7 +30,7 @@ function adplugg_help_dispatch( $contextual_help, $screen_id, $screen ) {
 		case $adplugg_hook . '_page_adplugg_facebook_settings':
 			$contextual_help = adplugg_facebook_options_page_help( $contextual_help, $screen_id, $screen );
 			break;
-        case $adplugg_hook . '_page_adplugg_amp_settings':
+		case $adplugg_hook . '_page_adplugg_amp_settings':
 			$contextual_help = adplugg_amp_options_page_help( $contextual_help, $screen_id, $screen );
 			break;
 		case 'widgets':

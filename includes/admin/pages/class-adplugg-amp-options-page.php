@@ -111,7 +111,7 @@ class AdPlugg_Amp_Options_Page {
 	?>
 		<p>
 			To have AdPlugg ads automatically inserted into your AMP pages, do
-            the following:
+			the following:
 		</p>
 		<ol>
 			<li>
@@ -127,7 +127,7 @@ class AdPlugg_Amp_Options_Page {
 				Go to the <a href="<?php echo admin_url( 'widgets.php' ); ?>" 
 				title="Widgets configuration page">Widgets Configuration Page</a>
 				and drag the AdPlugg Widget into the Widget Area entitled 
-                "AMP Ads" (note you can add multiple widgets if desired).
+				"AMP Ads" (note you can add multiple widgets if desired).
 			</li>
 		</ol>
 		<p>
@@ -198,8 +198,8 @@ class AdPlugg_Amp_Options_Page {
 	
 	/**
 	 * Gets the singleton instance.
-     * @return \AdPlugg_Amp_Options_Page Returns the singleton instance of this
-     * class.
+	 * @return \AdPlugg_Amp_Options_Page Returns the singleton instance of this
+	 * class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {

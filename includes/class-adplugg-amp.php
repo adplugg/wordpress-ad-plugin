@@ -39,7 +39,7 @@ class AdPlugg_Amp {
 	/**
 	 * Function that looks to see if AMP automatic ad placement is enabled.
 	 * @return boolean Returns true if an AMP automatic ad placement is enabled,
-     *  otherwise returns false.
+	 * otherwise returns false.
 	 */
 	public static function is_amp_automatic_placement_enabled() {
 		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
@@ -53,7 +53,7 @@ class AdPlugg_Amp {
 	
 	/**
 	 * Gets the singleton instance.
-     * @return \AdPlugg_Amp Returns the singleton instance of this class.
+	 * @return \AdPlugg_Amp Returns the singleton instance of this class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {

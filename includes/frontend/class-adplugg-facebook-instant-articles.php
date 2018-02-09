@@ -82,7 +82,7 @@ class AdPlugg_Facebook_Instant_Articles {
 	 * Store the instant article so that we can access it in the insert_ads
 	 * function below.
 	 * @param Facebook\InstantArticles\Elements\InstantArticle $instant_article
-	 *  The current Instant Article.
+	 * The current Instant Article.
 	 * @return Facebook\InstantArticles\Elements\InstantArticle Returns the 
 	 * Instant Article.
 	 * @todo Add unit tests

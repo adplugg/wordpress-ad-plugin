@@ -80,7 +80,7 @@ if( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
-    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
 	
 	//Initialize notifications system.
@@ -98,9 +98,9 @@ if( is_admin() ) {
 	
 	//Facebook integration
 	AdPlugg_Facebook_Options_Page::get_instance();
-    
-    //AMP integration
-    AdPlugg_Amp_Options_Page::get_instance();
+	
+	//AMP integration
+	AdPlugg_Amp_Options_Page::get_instance();
 	
 	//Load qunit
 	if( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
@@ -120,5 +120,5 @@ if( is_admin() ) {
 	//Facebook Instant Articles
 	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-facebook-instant-articles.php' );
 	AdPlugg_Facebook_Instant_Articles::get_instance();
-
+	
 }

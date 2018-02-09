@@ -48,9 +48,9 @@ function adplugg_amp_options_page_help(
 		<p>
 			You may find it useful to create Zones that are specific to your AMP
 			pages (for instance "AMP Zone 1"). You would then target the Ads
-            that you
-            want to appear in your AMP ages to the AMP specific Zone. You could
-            target the ads directly or via a Placement.
+			that you
+			want to appear in your AMP ages to the AMP specific Zone. You could
+			target the ads directly or via a Placement.
 		</p>';
 	
 	$widgets_content = '
@@ -65,21 +65,21 @@ function adplugg_amp_options_page_help(
 		</p>
 		<p>
 			The code from any Widgets in the AMP Ads Widget Area will be
-            automatically distributed thoughout the post\'s content.
+			automatically distributed thoughout the post\'s content.
 		</p>
-        <h4>Default Ad/Widget</h4>
+		<h4>Default Ad/Widget</h4>
 		<p>
 			The Widget marked as the "default" will be flagged as the default ad
 			for your AMP pages. This ad will be used for any remaining slots
-            after all ads have been used.
+			after all ads have been used.
 		</p>
-        <p>
-            If you have your ads set to rotate you can use this as the only
-            ad/widget and it will be automatically inserted throughout your
-            page.
-        <p>
+		<p>
+			If you have your ads set to rotate you can use this as the only
+			ad/widget and it will be automatically inserted throughout your
+			page.
+		<p>
 			If you don\'t choose a "default" ad/widget, each widget will be
-            placed once and then the plugin will stop inserting ads.
+			placed once and then the plugin will stop inserting ads.
 		</p>
 		
 		';
