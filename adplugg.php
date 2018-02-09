@@ -60,6 +60,7 @@ define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 require_once( ADPLUGG_INCLUDES . 'class-adplugg-options.php' );
 require_once( ADPLUGG_INCLUDES . 'functions.php' );
 require_once( ADPLUGG_INCLUDES . 'class-adplugg-facebook.php' );
+require_once( ADPLUGG_INCLUDES . 'class-adplugg-amp.php' );
 require_once( ADPLUGG_PATH . 'tests/qunit.php' );
 require_once( ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php' );
 
@@ -68,6 +69,7 @@ add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlug
 
 //Inits
 AdPlugg_Facebook::get_instance();
+AdPlugg_Amp::get_instance();
 
 if( is_admin() ) {
 	//---- ADMIN ----//
