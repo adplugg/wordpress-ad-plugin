@@ -60,7 +60,7 @@ define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 require_once( ADPLUGG_INCLUDES . 'class-adplugg-options.php' );
 require_once( ADPLUGG_INCLUDES . 'functions.php' );
 require_once( ADPLUGG_INCLUDES . 'class-adplugg-facebook.php' );
-require_once( ADPLUGG_INCLUDES . 'class-adplugg-amp.php' );
+require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp.php' );
 require_once( ADPLUGG_PATH . 'tests/qunit.php' );
 require_once( ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php' );
 
