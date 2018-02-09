@@ -49,6 +49,7 @@ if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.6.22' ); }
 //Persisted options
 define( 'ADPLUGG_OPTIONS_NAME', 'adplugg_options' );
 define( 'ADPLUGG_FACEBOOK_OPTIONS_NAME', 'adplugg_facebook_options' );
+define( 'ADPLUGG_AMP_OPTIONS_NAME', 'adplugg_amp_options' );
 define( 'ADPLUGG_NOTICES_NAME', 'adplugg_notices' );
 define( 'ADPLUGG_NOTICES_DISMISSED_NAME', 'adplugg_notices_dismissed' );
 define( 'ADPLUGG_RATED_NAME', 'adplugg_rated' );
@@ -77,6 +78,7 @@ if( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
+    require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
 	
 	//Initialize notifications system.
@@ -94,6 +96,9 @@ if( is_admin() ) {
 	
 	//Facebook integration
 	AdPlugg_Facebook_Options_Page::get_instance();
+    
+    //AMP integration
+    AdPlugg_Amp_Options_Page::get_instance();
 	
 	//Load qunit
 	if( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {

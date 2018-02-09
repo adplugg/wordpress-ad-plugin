@@ -21,6 +21,7 @@ class Test_AdPlugg extends WP_UnitTestCase {
 		$this->assertNotEmpty( ADPLUGG_VERSION) ;
 		$this->assertNotEmpty( ADPLUGG_OPTIONS_NAME );
 		$this->assertNotEmpty( ADPLUGG_FACEBOOK_OPTIONS_NAME );
+        $this->assertNotEmpty( ADPLUGG_AMP_OPTIONS_NAME );
 		$this->assertNotEmpty( ADPLUGG_NOTICES_NAME );
 		$this->assertNotEmpty( ADPLUGG_WIDGET_OPTIONS_NAME );
 	}
