@@ -4,7 +4,7 @@
  * @since 1.1
  */
 
-/* Widget */
+/* ================= Widget ================= */
 fieldset.adplugg-widget-fieldset {
 	padding: 4px 6px 6px 6px;
 	border: solid 1px #e5e5e5;
@@ -19,9 +19,38 @@ fieldset.adplugg-widget-fieldset legend {
 fieldset.adplugg-widget-fieldset input[type='checkbox'] {
 	-webkit-appearance: button;
 }
+/* Hide the "Settings" legend and show the "Optional Settings" legend by default */
+legend.adplugg-widget-legend {display: none;}
+
+/* hide special use fields by default */
+.adplugg-widget-field-width {display: none;}
+.adplugg-widget-field-height {display: none;}
+.adplugg-widget-field-default {display: none;}
+
+/* ===== FBIA ===== */
+
+/* show the "Settings" legend instead of the "Optional Settings" legend */
+#facebook_ia_header_ads legend.adplugg-widget-optional-legend {display: none;}
+#facebook_ia_header_ads legend.adplugg-widget-legend {display: block;}
+
+/* show special use fields */
+#facebook_ia_header_ads .adplugg-widget-field-width {display: block;}
+#facebook_ia_header_ads .adplugg-widget-field-height {display: block;}
+#facebook_ia_header_ads .adplugg-widget-field-default {display: block;}
+
+/* ===== AMP ===== */
+
+/* show the "Settings" legend instead of the "Optional Settings" legend */
+#amp_ads legend.adplugg-widget-optional-legend {display: none;}
+#amp_ads legend.adplugg-widget-legend {display: block;}
+
+/* show special use fields */
+#amp_ads .adplugg-widget-field-width {display: initial;}
+#amp_ads .adplugg-widget-field-height {display: initial;}
+#amp_ads .adplugg-widget-field-default {display: initial;}
 
 
-/* Notices */
+/* ================= Notices ================= */
 .adplugg-subtle-button {
 	background-color: #fafafa !important;
 	color: #666 !important;
@@ -39,7 +68,7 @@ p.adplugg-notice-buttons button {
 	margin-right: 0.5em !important;
 }
 
-/* Video Tiles */
+/* ================= Video Tiles ================= */
 .adplugg-videos {
 	margin: 0 0 1em 3em;
 	overflow: hidden;
@@ -53,10 +82,3 @@ p.adplugg-notice-buttons button {
 .adplugg-video-tile figurecaption{ font-weight: bold;}
 .adplugg-video-tile h2 {height: 2em;}
 .adplugg-video-tile figure { margin: 0;}
-
-/* FBIA */
-.adplugg-fbia-only {display: none;}
-#facebook_ia_header_ads .adplugg-fbia-only {display: initial}
-legend.adplugg_widget_legend {display: none;}
-#facebook_ia_header_ads legend.adplugg_widget_optional_legend {display: none;}
-#facebook_ia_header_ads legend.adplugg_widget_legend {display: block;}
