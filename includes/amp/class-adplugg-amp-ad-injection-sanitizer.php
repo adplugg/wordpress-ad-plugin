@@ -12,7 +12,7 @@
  */
 class AdPlugg_Amp_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	
-	/** @var \AdPlugg_Amp_Ad_Collection */
+	/** @var \AdPlugg_Ad_Collection */
 	private $ads;
 	
 	/**
@@ -38,15 +38,15 @@ class AdPlugg_Amp_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 			$ad = $this->ads->get( 0 );
 
 			/* @var $ad_node \DOMElement */
-			$ad_node = $ad->toDOMElement( $this->dom );
+			$amp_ad = $ad->toAmpAd( $this->dom );
 
 			// If we have a lot of paragraphs, insert before the 4th one.
 			// Otherwise, add it to the end.
 			$p_nodes = $body->getElementsByTagName( 'p' );
 			if ( $p_nodes->length > 6 ) {
-				$p_nodes->item( 4 )->parentNode->insertBefore( $ad_node, $p_nodes->item( 4 ));
+				$p_nodes->item( 4 )->parentNode->insertBefore( $amp_ad, $p_nodes->item( 4 ));
 			} else {
-				$body->appendChild( $ad_node );
+				$body->appendChild( $amp_ad );
 			}
 		}
 	}

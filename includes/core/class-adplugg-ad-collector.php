@@ -1,39 +1,40 @@
 <?php
 
 /**
- * AdPlugg_Amp_Ad_Collector class. The AdPlugg_Amp_Ad_Collector class includes
- * methods that can build a AdPlugg_Amp_Ad_Collection by searching through
- * the enabled widgets.
+ * AdPlugg_Ad_Collector class. The AdPlugg_Ad_Collector class includes methods
+ * that can build a AdPlugg_Ad_Collection by searching through the enabled
+ * widgets.
  *
  * @package AdPlugg
  * @since 1.7.0
  * @todo Add unit testing
  */
-class AdPlugg_Amp_Ad_Collector {
+class AdPlugg_Ad_Collector {
 	
 	/**
 	 * Singleton instance.
-	 * @var AdPlugg_Amp_Ad_Collector
+	 * @var AdPlugg_Ad_Collector
 	 */
 	private static $instance;
 	
 	/**
-	 * Looks in the Amp Widget Area and gets all ads. Returns the ads as an
-	 * array of AdPlugg_Amp_Ad
-	 * @global $wp_registered_widgets
-	 * @return AdPlugg_Amp_Ad_Collection Returns a collection of the Ads that
+	 * Looks in the passed Widget Area and gets all ads. Returns the ads as an
+	 * AdPlugg_Ad_Collection.
+	 * @param string $widget_area_id The id of the widget area (ex: "amp_ads") 
+	 * @return AdPlugg_Ad_Collection Returns a collection of the Ads that
 	 * were found.
+	 * @global $wp_registered_widgets
 	 * @todo Add unit tests
 	 */
-	public function get_ads() {
+	public function get_ads( $widget_area_id ) {
 		global $wp_registered_widgets;
 		
-		$ads = new \AdPlugg_Amp_Ad_Collection();
+		$ads = new \AdPlugg_Ad_Collection();
 			
 		$sidebars_widgets = wp_get_sidebars_widgets();
 		
-		if( array_key_exists( 'amp_ads', $sidebars_widgets ) ) {
-			foreach ( (array) $sidebars_widgets['amp_ads'] as $id ) {
+		if( array_key_exists( $widget_area_id, $sidebars_widgets ) ) {
+			foreach ( (array) $sidebars_widgets[$widget_area_id] as $id ) {
 				$widget = $wp_registered_widgets[$id]['callback']['0'];
 				$params = $wp_registered_widgets[$id]['params']['0'];
 				if( get_class( $widget) == 'AdPlugg_Widget' ) {
@@ -47,7 +48,7 @@ class AdPlugg_Amp_Ad_Collector {
 					$default = ( isset( $instance['default'] ) && $instance['default'] == 1 ) ? 1 : 0;
 					$zone = ( isset( $instance['zone'] ) ) ? $instance['zone'] : null;
 
-					$ad = AdPlugg_Amp_Ad::create()
+					$ad = AdPlugg_Ad::create()
 								->withWidth( $width )
 								->withHeight( $height );
 
@@ -62,16 +63,16 @@ class AdPlugg_Amp_Ad_Collector {
 					$ads->add($ad);
 				} //end if AdPlugg_Widget
 
-			} //end foreach widget in amp_ads widget area
+			} //end foreach widget in the widget area
 			
-		} //end if amp_ads widget area exists
+		} //end if widget area exists
 			
 		return $ads;
 	} //end get ads
 	
 	/**
 	 * Singleton instance.
-	 * @return \AdPlugg_Amp_Ad_Collector Returns the AdPlugg_Amp_Ad_Collector
+	 * @return \AdPlugg_Ad_Collector Returns the AdPlugg_Ad_Collector
 	 * singleton.
 	 */
 	public static function get_instance() {

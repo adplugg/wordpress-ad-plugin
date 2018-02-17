@@ -16,23 +16,23 @@ class AdPlugg_Amp {
 	 */
 	private static $instance;
 	
-	/** @var \AdPlugg_Amp_Ad_Collection */
+	/** @var \AdPlugg_Ad_Collection */
 	private $ads;
 	
 	/**
 	 * Constructor. Constructs the class and registers filters and actions.
-	 * @param \AdPlugg_Amp_Ad_Collection $ads (optional) Optionally pass an ad
-	 * collection to use on the AMP pages. If none is passed the collector will try to
-	 * collect some.
+	 * @param \AdPlugg_Ad_Collection $ads (optional) Optionally pass an ad
+	 * collection to use on the AMP pages. If none is passed the collector will
+	 * try to collect some.
 	 */
-	public function __construct( \AdPlugg_Amp_Ad_Collection $ads = null ) {
+	public function __construct( \AdPlugg_Ad_Collection $ads = null ) {
 		add_action( 'widgets_init', array( &$this, 'amp_ads_widget_area_init' ), 10, 0 );
 		add_filter( 'amp_content_sanitizers', array( &$this, 'add_ad_sanitizer' ), 10, 2 );
 		
 		if( $ads !== null ) {
 			$this->ads = $ads;
 		} else {
-			$this->ads = AdPlugg_Amp_Ad_Collector::get_instance()->get_ads();
+			$this->ads = AdPlugg_Ad_Collector::get_instance()->get_ads( 'amp_ads', 'AdPlugg_Amp_Ad' );
 		}
 	}
 	

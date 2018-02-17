@@ -30,11 +30,11 @@ class Test_AdPlugg_Amp_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 		$dom->loadHTML( $source );
 		
 		//set up a mock ad collection
-		$ad = AdPlugg_Amp_Ad::create()
+		$ad = AdPlugg_Ad::create()
 							->withWidth( 300 )
 							->withHeight( 250 )
 							->withZone( 'testzone' );
-		$ads = new \AdPlugg_Amp_Ad_Collection();
+		$ads = new \AdPlugg_Ad_Collection();
 		$ads->add( $ad );
 		
 		//instantiate the class

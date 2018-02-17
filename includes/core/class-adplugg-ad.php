@@ -1,13 +1,13 @@
 <?php
 
 /**
- * AdPlugg_Amp_Ad class. The AdPlugg_Amp_Ad class represents an AdPlugg AMP ad.
+ * AdPlugg_Ad class. The AdPlugg_Ad class represents an AdPlugg ad.
  *
  * @package AdPlugg
  * @since 1.7.0
  * @todo Add unit testing
  */
-class AdPlugg_Amp_Ad {
+class AdPlugg_Ad {
 	
 	/**
      * @var int The width of the ad. Default 300px.
@@ -44,7 +44,7 @@ class AdPlugg_Amp_Ad {
     }
 
 	/**
-	 * Creates a new AdPlugg_Amp_Ad.
+	 * Creates a new AdPlugg_Ad.
 	 * @return \self
 	 */
     public static function create() {
@@ -128,13 +128,13 @@ class AdPlugg_Amp_Ad {
     }
 
     /**
-     * Structure and create the full ad in a DOMElement.
+     * Structure and create the ad in an amp-ad DOMElement.
      *
      * @param \DOMDocument $document The document where this element will be
 	 * appended (optional).
      * @return \DOMElement The built amp-ad tag as a DOMElement.
      */
-    public function toDOMElement( $document = null ) {
+    public function toAmpAd( $document = null ) {
         if ( ! $document ) {
             $document = new \DOMDocument();
         }

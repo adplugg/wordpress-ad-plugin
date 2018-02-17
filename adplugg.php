@@ -62,10 +62,10 @@ require_once( ADPLUGG_INCLUDES . 'functions.php' );
 require_once( ADPLUGG_INCLUDES . 'class-adplugg-facebook.php' );
 require_once( ADPLUGG_PATH . 'tests/qunit.php' );
 
+require_once( ADPLUGG_INCLUDES . 'core/class-adplugg-ad.php' );
+require_once( ADPLUGG_INCLUDES . 'core/class-adplugg-ad-collection.php' );
+require_once( ADPLUGG_INCLUDES . 'core/class-adplugg-ad-collector.php' );
 require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp.php' );
-require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp-ad.php' );
-require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp-ad-collection.php' );
-require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp-ad-collector.php' );
 
 require_once( ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php' );
 
@@ -75,7 +75,7 @@ add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlug
 //Inits
 AdPlugg_Facebook::get_instance();
 AdPlugg_Amp::get_instance();
-AdPlugg_Amp_Ad_collector::get_instance();
+AdPlugg_Ad_collector::get_instance();
 
 if( is_admin() ) {
 	//---- ADMIN ----//
