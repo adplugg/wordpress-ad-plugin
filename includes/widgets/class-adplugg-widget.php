@@ -1,9 +1,4 @@
 <?php
-/**
- * Class to create the adplugg widget
- * @package AdPlugg
- * @since 1.0
- */
 
 /**
  * Class to create the adplugg widget

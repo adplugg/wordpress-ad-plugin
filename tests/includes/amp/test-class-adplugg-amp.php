@@ -1,5 +1,7 @@
 <?php
 
+require_once( ADPLUGG_PATH . 'tests/mocks/mock-amp-base-sanitizer.php' );
+
 /**
  * The Test_AdPlugg_Amp class includes tests for testing the AdPlugg_Amp class.
  *
@@ -8,6 +10,24 @@
  */
 class Test_AdPlugg_Amp extends WP_UnitTestCase {
 
+	/**
+	 * Test the constructor
+	 * @global $wp_filter
+	 */	
+	public function test_constructor() {
+		global $wp_filter;
+		
+		$adplugg_amp = new AdPlugg_Amp( new \AdPlugg_Amp_Ad_Collection() );
+		
+		//Assert that the init function is registered.
+		$function_names = get_function_names( $wp_filter['widgets_init'] );
+		$this->assertContains( 'amp_ads_widget_area_init', $function_names );
+				
+		//Assert that the init function is registered.
+		$function_names = get_function_names( $wp_filter['amp_content_sanitizers'] );
+		$this->assertContains( 'add_ad_sanitizer', $function_names );
+	}
+	
 	/**
 	 * Test the amp_ads_widget_area_init() function.
 	 */	
@@ -24,11 +44,33 @@ class Test_AdPlugg_Amp extends WP_UnitTestCase {
 		$adplugg_amp = AdPlugg_Amp::get_instance();
 		
 		//call the function
-		$filtered_content = $adplugg_amp->amp_ads_widget_area_init();
+		$adplugg_amp->amp_ads_widget_area_init();
 		
 		//assert that the sidebar is now registed
 		$this->assertTrue( array_key_exists( 'amp_ads', $GLOBALS['wp_registered_sidebars'] ) );
 		
+	}
+	
+	/**
+	 * Test the add_ad_sanitizer() function.
+	 */	
+	function test_add_ad_sanitizer() {
+		//Enable automatic placement
+		$options['amp_enable_automatic_placement'] = 1;
+		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
+		
+		//mock some test data
+		$sanitizer_classes = array();
+		$post = array();
+		
+		//get the singleton instance
+		$adplugg_amp = new AdPlugg_Amp( new \AdPlugg_Amp_Ad_Collection() );
+		
+		//call the function
+		$sanitizer_classes = $adplugg_amp->add_ad_sanitizer( $sanitizer_classes, $post );
+		
+		//Assert that our sanitizer was added
+		$this->assertArrayHasKey( 'AdPlugg_Amp_Ad_Injection_Sanitizer', $sanitizer_classes );
 	}
 	
 	/**
