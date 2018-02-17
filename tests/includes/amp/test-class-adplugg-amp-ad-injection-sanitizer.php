@@ -5,13 +5,13 @@ require_once( ADPLUGG_PATH . 'tests/mocks/mock-amp-base-sanitizer.php' );
 require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp-ad-injection-sanitizer.php' );
 
 /**
- * The Test_AdPlugg_Amp_Ad_Injection_Sanitizer class includes tests for testing
- * the AdPlugg_Amp_Ad_Injection_Sanitizer class.
+ * The Test_AdPlugg_AMP_Ad_Injection_Sanitizer class includes tests for testing
+ * the AdPlugg_AMP_Ad_Injection_Sanitizer class.
  *
  * @package AdPlugg
  * @since 1.7.0
  */
-class Test_AdPlugg_Amp_Ad_Injection_Sanitizer extends WP_UnitTestCase {
+class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 
 	
 	/**
@@ -38,7 +38,7 @@ class Test_AdPlugg_Amp_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 		$ads->add( $ad );
 		
 		//instantiate the class
-		$sanitizer = new AdPlugg_Amp_Ad_Injection_Sanitizer( 
+		$sanitizer = new AdPlugg_AMP_Ad_Injection_Sanitizer( 
 							$dom,
 							array( 'ads' => $ads )
 						);

@@ -1,7 +1,7 @@
 <?php
 	
 /**
- * The AdPlugg_Amp_Ad_Injection_Sanitizer class is used to inject AdPlugg ads
+ * The AdPlugg_AMP_Ad_Injection_Sanitizer class is used to inject AdPlugg ads
  * into AMP pages.
  * 
  * Note: this is 'included' in an amp plugin hook so that we know that the
@@ -10,7 +10,7 @@
  * @package AdPlugg
  * @since 1.7.0
  */
-class AdPlugg_Amp_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
+class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	
 	/** @var \AdPlugg_Ad_Collection */
 	private $ads;
@@ -34,11 +34,11 @@ class AdPlugg_Amp_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 		$body = $this->root_element;
 		
 		if( $this->ads->size() > 0 ) {
-			/* @var $ad \AdPlugg_Amp_Ad */
+			/* @var $ad \AdPlugg_AMP_Ad */
 			$ad = $this->ads->get( 0 );
 
 			/* @var $ad_node \DOMElement */
-			$amp_ad = $ad->toAmpAd( $this->dom );
+			$amp_ad = $ad->toAMPAd( $this->dom );
 
 			// If we have a lot of paragraphs, insert before the 4th one.
 			// Otherwise, add it to the end.

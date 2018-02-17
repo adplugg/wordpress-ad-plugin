@@ -134,7 +134,7 @@ class AdPlugg_Ad {
 	 * appended (optional).
      * @return \DOMElement The built amp-ad tag as a DOMElement.
      */
-    public function toAmpAd( $document = null ) {
+    public function toAMPAd( $document = null ) {
         if ( ! $document ) {
             $document = new \DOMDocument();
         }

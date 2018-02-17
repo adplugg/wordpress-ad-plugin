@@ -6,11 +6,11 @@
  * @package AdPlugg
  * @since 1.7.0
  */
-class AdPlugg_Amp_Options_Page {
+class AdPlugg_AMP_Options_Page {
 	
 	/**
 	 * Class instance.
-	 * @var AdPlugg_Amp_Options_Page
+	 * @var AdPlugg_AMP_Options_Page
 	 */
 	private static $instance;
 	
@@ -187,7 +187,7 @@ class AdPlugg_Amp_Options_Page {
 		}
 		
 		add_settings_error(
-			'AdPluggAmpOptionsSaveMessage',
+			'AdPluggAMPOptionsSaveMessage',
 			esc_attr('settings_updated'),
 			$msg_message,
 			$msg_type
@@ -198,7 +198,7 @@ class AdPlugg_Amp_Options_Page {
 	
 	/**
 	 * Gets the singleton instance.
-	 * @return \AdPlugg_Amp_Options_Page Returns the singleton instance of this
+	 * @return \AdPlugg_AMP_Options_Page Returns the singleton instance of this
 	 * class.
 	 */
 	public static function get_instance() {

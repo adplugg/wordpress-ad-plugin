@@ -1,18 +1,18 @@
 <?php
 
 /**
- * AdPlugg_Amp class.
- * The AdPlugg_Amp class controls AdPlugg's AMP integration. This class is used
+ * AdPlugg_AMP class.
+ * The AdPlugg_AMP class controls AdPlugg's AMP integration. This class is used
  * by both the frontend and the admin.
  *
  * @package AdPlugg
  * @since 1.7.0
  */
-class AdPlugg_Amp {
+class AdPlugg_AMP {
 	
 	/**
 	 * Singleton instance.
-	 * @var AdPlugg_Amp 
+	 * @var AdPlugg_AMP
 	 */
 	private static $instance;
 	
@@ -32,7 +32,7 @@ class AdPlugg_Amp {
 		if( $ads !== null ) {
 			$this->ads = $ads;
 		} else {
-			$this->ads = AdPlugg_Ad_Collector::get_instance()->get_ads( 'amp_ads', 'AdPlugg_Amp_Ad' );
+			$this->ads = AdPlugg_Ad_Collector::get_instance()->get_ads( 'amp_ads', 'AdPlugg_AMP_Ad' );
 		}
 	}
 	
@@ -64,7 +64,7 @@ class AdPlugg_Amp {
 			// Note: we require this here because it extends a class from the AMP plugin
 			require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp-ad-injection-sanitizer.php' );
 			// Note: the array can be used to pass args to your sanitizer and accessed within the class via `$this->args`
-			$sanitizer_classes[ 'AdPlugg_Amp_Ad_Injection_Sanitizer' ] = array('ads' => $this->ads); 
+			$sanitizer_classes[ 'AdPlugg_AMP_Ad_Injection_Sanitizer' ] = array('ads' => $this->ads); 
 		}
 		
 		return $sanitizer_classes;
@@ -87,7 +87,7 @@ class AdPlugg_Amp {
 	
 	/**
 	 * Gets the singleton instance.
-	 * @return \AdPlugg_Amp Returns the singleton instance of this class.
+	 * @return \AdPlugg_AMP Returns the singleton instance of this class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {

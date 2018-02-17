@@ -3,19 +3,19 @@
 require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
 
 /**
- * The Test_AdPlugg_Amp_Options_Page class includes tests for testing the 
- * AdPlugg_Amp_Options_Page class.
+ * The Test_AdPlugg_AMP_Options_Page class includes tests for testing the 
+ * AdPlugg_AMP_Options_Page class.
  *
  * @package AdPlugg
  * @since 1.7.0
  */
-class Test_AdPlugg_Amp_Options_Page extends WP_UnitTestCase {
+class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 	
 	/**
 	 * Test the constructor
 	 */	
 	public function test_constructor() {
-		$adplugg_amp_options_page = new AdPlugg_Amp_Options_Page();
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		global $wp_filter;
 		
@@ -34,7 +34,7 @@ class Test_AdPlugg_Amp_Options_Page extends WP_UnitTestCase {
 	public function test_admin_init() {
 		global $wp_filter;
 		
-		$adplugg_amp_options_page = new AdPlugg_Amp_Options_Page();
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		//Run the function
 		$adplugg_amp_options_page->admin_init();
@@ -57,7 +57,7 @@ class Test_AdPlugg_Amp_Options_Page extends WP_UnitTestCase {
 		//Assert that the menu page doesn't yet exist
 		$this->assertEquals( '', menu_page_url( $page_hook, false ) );
 		
-		$adplugg_amp_options_page = new AdPlugg_Amp_Options_Page();
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		$adplugg_amp_options_page->add_page_to_menu();
 		
 		//Assert that the menu page was added
@@ -69,7 +69,7 @@ class Test_AdPlugg_Amp_Options_Page extends WP_UnitTestCase {
 	 * Test the render_page function.
 	 */	
 	public function test_render_page() {
-		$adplugg_amp_options_page = new AdPlugg_Amp_Options_Page();
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		//Assert that the options page was rendered
 		ob_start();
@@ -86,7 +86,7 @@ class Test_AdPlugg_Amp_Options_Page extends WP_UnitTestCase {
 	public function test_adplugg_amp_settings_section() {
 		global $wp_filter;
 		
-		$adplugg_amp_options_page = new AdPlugg_Amp_Options_Page();
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		//Run the function
 		$adplugg_amp_options_page->admin_init();
@@ -113,7 +113,7 @@ class Test_AdPlugg_Amp_Options_Page extends WP_UnitTestCase {
 		global $wp_settings_errors;
 		$wp_settings_errors = null;
 		
-		$adplugg_amp_options_page = new AdPlugg_Amp_Options_Page();
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		$input = array();
 		$input['amp_enable_automatic_placement'] = $enable_input;
@@ -148,7 +148,7 @@ class Test_AdPlugg_Amp_Options_Page extends WP_UnitTestCase {
 		global $wp_settings_errors;
 		$wp_settings_errors = null;
 		
-		$adplugg_amp_options_page = new AdPlugg_Amp_Options_Page();
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		$input = array();
 		$input['amp_enable_automatic_placement'] = $enable_input; //invalid
@@ -178,7 +178,7 @@ class Test_AdPlugg_Amp_Options_Page extends WP_UnitTestCase {
 		global $wp_settings_errors;
 		$wp_settings_errors = null;
 		
-		$adplugg_amp_options_page = new AdPlugg_Amp_Options_Page();
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		$input = array();
 		$input['amp_enable_automatic_placement'] = $enable_input; //invalid

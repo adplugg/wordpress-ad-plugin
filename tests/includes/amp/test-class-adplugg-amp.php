@@ -3,12 +3,12 @@
 require_once( ADPLUGG_PATH . 'tests/mocks/mock-amp-base-sanitizer.php' );
 
 /**
- * The Test_AdPlugg_Amp class includes tests for testing the AdPlugg_Amp class.
+ * The Test_AdPlugg_AMP class includes tests for testing the AdPlugg_AMP class.
  *
  * @package AdPlugg
  * @since 1.7.0
  */
-class Test_AdPlugg_Amp extends WP_UnitTestCase {
+class Test_AdPlugg_AMP extends WP_UnitTestCase {
 
 	/**
 	 * Test the constructor
@@ -17,7 +17,7 @@ class Test_AdPlugg_Amp extends WP_UnitTestCase {
 	public function test_constructor() {
 		global $wp_filter;
 		
-		$adplugg_amp = new AdPlugg_Amp( new \AdPlugg_Ad_Collection() );
+		$adplugg_amp = new AdPlugg_AMP( new \AdPlugg_Ad_Collection() );
 		
 		//Assert that the init function is registered.
 		$function_names = get_function_names( $wp_filter['widgets_init'] );
@@ -41,7 +41,7 @@ class Test_AdPlugg_Amp extends WP_UnitTestCase {
 		$this->assertFalse( array_key_exists( 'amp_ads', $GLOBALS['wp_registered_sidebars'] ) );
 		
 		//get the singleton instance
-		$adplugg_amp = AdPlugg_Amp::get_instance();
+		$adplugg_amp = AdPlugg_AMP::get_instance();
 		
 		//call the function
 		$adplugg_amp->amp_ads_widget_area_init();
@@ -64,13 +64,13 @@ class Test_AdPlugg_Amp extends WP_UnitTestCase {
 		$post = array();
 		
 		//get the singleton instance
-		$adplugg_amp = new AdPlugg_Amp( new \AdPlugg_Ad_Collection() );
+		$adplugg_amp = new AdPlugg_AMP( new \AdPlugg_Ad_Collection() );
 		
 		//call the function
 		$sanitizer_classes = $adplugg_amp->add_ad_sanitizer( $sanitizer_classes, $post );
 		
 		//Assert that our sanitizer was added
-		$this->assertArrayHasKey( 'AdPlugg_Amp_Ad_Injection_Sanitizer', $sanitizer_classes );
+		$this->assertArrayHasKey( 'AdPlugg_AMP_Ad_Injection_Sanitizer', $sanitizer_classes );
 	}
 	
 	/**
@@ -82,14 +82,14 @@ class Test_AdPlugg_Amp extends WP_UnitTestCase {
 		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
 		
 		//Assert function correctly determines automatic placement is not enabled
-		$this->assertFalse( AdPlugg_Amp::is_amp_automatic_placement_enabled() );
+		$this->assertFalse( AdPlugg_AMP::is_amp_automatic_placement_enabled() );
 
 		//Enable automatic placement
 		$options['amp_enable_automatic_placement'] = 1;
 		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
 
 		//Assert function correctly determines automatic placement enabled
-		$this->assertTrue( AdPlugg_Amp::is_amp_automatic_placement_enabled() );
+		$this->assertTrue( AdPlugg_AMP::is_amp_automatic_placement_enabled() );
 	}
 	
 }

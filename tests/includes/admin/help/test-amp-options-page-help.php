@@ -3,13 +3,13 @@
 require_once( ADPLUGG_INCLUDES . 'admin/help/amp-options-page-help.php' );
 
 /**
- * The Test_Amp_Options_Page_Help class includes tests for testing the 
+ * The Test_AMP_Options_Page_Help class includes tests for testing the 
  * functions in the amp-options-page-help.php file.
  *
  * @package AdPlugg
  * @since 1.7.0
  */
-class Test_Amp_Options_Page_Help extends WP_UnitTestCase {
+class Test_AMP_Options_Page_Help extends WP_UnitTestCase {
 	
 	/**
 	 * Test the adplugg_amp_options_page_help function.

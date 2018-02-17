@@ -74,7 +74,7 @@ add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlug
 
 //Inits
 AdPlugg_Facebook::get_instance();
-AdPlugg_Amp::get_instance();
+AdPlugg_AMP::get_instance();
 AdPlugg_Ad_collector::get_instance();
 
 if( is_admin() ) {
@@ -106,7 +106,7 @@ if( is_admin() ) {
 	AdPlugg_Facebook_Options_Page::get_instance();
 	
 	//AMP integration
-	AdPlugg_Amp_Options_Page::get_instance();
+	AdPlugg_AMP_Options_Page::get_instance();
 	
 	//Load qunit
 	if( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
