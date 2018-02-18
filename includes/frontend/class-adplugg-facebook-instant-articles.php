@@ -98,7 +98,6 @@ class AdPlugg_Facebook_Instant_Articles {
 	 * @todo Add unit tests
 	 */
 	public function insert_ads( $post ) {
-		global $wp_registered_widgets;
 		
 		$header = $this->instant_article->getHeader();
 		
@@ -118,7 +117,7 @@ class AdPlugg_Facebook_Instant_Articles {
 			/* @var $ad_tag \AdPlugg_Ad_Tag */
 			foreach( $ad_tags->to_array() as $ad_tag ) {
 				
-				// ------Compute iframe src ------ //
+				// ------ Compute iframe src ------ //
 				$post_url = $post->get_canonical_url();
 				$host = urlencode( parse_url( $post_url, PHP_URL_HOST ) );
 				$path = urlencode( parse_url( $post_url, PHP_URL_PATH ) );
@@ -146,8 +145,10 @@ class AdPlugg_Facebook_Instant_Articles {
 		
 	}
 	
-	/*
-	 * Get the singleton instance 
+	/**
+	 * Get the singleton instance.
+	 * @return \AdPlugg_Facebook_Instant_Articles Returns the singleton instance
+	 * of this class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
