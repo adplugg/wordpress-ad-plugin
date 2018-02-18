@@ -82,6 +82,13 @@ class AdPlugg_AMP_Options_Page {
 			'adplugg_amp_settings', 
 			'adplugg_amp_section'
 		);
+		add_settings_field(
+			'amp_ad_density',
+			'Ad Density',
+			array( &$this, 'render_amp_ad_density_field' ),
+			'adplugg_amp_settings',
+			'adplugg_amp_section'
+		);
 		
 	}
 
@@ -150,7 +157,25 @@ class AdPlugg_AMP_Options_Page {
 			Enable automatic placement of ads within your AMP pages.
 		</label>
 	<?php
-	} //end function
+	}
+	
+	/**
+	 * Function to render the ad density field and description.
+	 */
+	public function render_amp_ad_density_field() {
+		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
+		$ad_density = ( array_key_exists( 'amp_ad_density', $options ) ) ? $options['amp_ad_density'] : 250;
+	?>
+		<select name="adplugg_amp_options[amp_ad_density]" id="adplugg_amp_ad_density">
+			<option label="High - Every 250 words (default)" value="250" <?php echo ( $ad_density == 250 ) ? 'selected' : ''?>>High - Every 250 words (default)</option>
+			<option label="Medium - Every 350 words" value="350" <?php echo ( $ad_density == 350 ) ? 'selected' : ''?>>Medium - Every 350 words</option>
+			<option label="Low - Every 500 words" value="500" <?php echo ( $ad_density == 500 ) ? 'selected' : ''?>>Low - Every 500 words</option>
+		</select>
+		<p>
+			The ad density is how many words appear in between ads.
+		</p>
+	<?php
+	}
 
 	/**
 	 * Function to validate the submitted AdPlugg AMP options field values. 
@@ -176,6 +201,14 @@ class AdPlugg_AMP_Options_Page {
 			$has_errors = true;
 			$msg_message = 'Invalid Enable Automatic Placement option.';
 			$new_options['amp_enable_automatic_placement'] = 0;
+		}
+		
+		//amp_ad_density
+		$new_options['amp_ad_density'] = intval( $input['amp_ad_density'] );
+		if( ! preg_match('/^[\d]{3}$/', $new_options['amp_ad_density'] ) ) {
+			$has_errors = true;
+			$msg_message = 'Invalid Ad Density option.';
+			$new_options['amp_ad_density'] = 250;
 		}
 		
 		//--- add a message ---//
