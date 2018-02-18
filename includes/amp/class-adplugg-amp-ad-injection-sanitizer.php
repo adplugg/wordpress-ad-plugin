@@ -12,6 +12,8 @@
  */
 class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	
+	private $DEBUG = false;
+	
 	/** @var \AdPlugg_Ad_Tag_Collection */
 	private $ad_tags;
 	
@@ -28,26 +30,73 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	
 	/**
 	 * Sanitize the content (inject ads, etc).
+	 * @todo Improve the unit testing on this function
 	 */
 	public function sanitize() {
 		
+		/* @var $body \DOMElement */
 		$body = $this->root_element;
 		
 		if( $this->ad_tags->size() > 0 ) {
 			/* @var $ad_tag \AdPlugg_Ad_Tag */
 			$ad_tag = $this->ad_tags->get( 0 );
 
-			/* @var $ad_node \DOMElement */
-			$amp_ad = $ad_tag->to_amp_ad( $this->dom );
-
-			// If we have a lot of paragraphs, insert before the 4th one.
-			// Otherwise, add it to the end.
+			/* @var $p_nodes \DOMNodeList */
 			$p_nodes = $body->getElementsByTagName( 'p' );
-			if ( $p_nodes->length > 6 ) {
-				$p_nodes->item( 4 )->parentNode->insertBefore( $amp_ad, $p_nodes->item( 4 ));
-			} else {
-				$body->appendChild( $amp_ad );
+			
+			$curr_word_count = 0;
+			$ad_density = 250;
+			$p_nodes_len = $p_nodes->length;
+			
+			//loop through all p tags
+			for( $i = 0; $i < $p_nodes_len; $i++ ) {
+				/* @var $p_node \DOMElement */
+				$p_node = $p_nodes->item( $i );
+				$content = $p_node->nodeValue;
+				$p_word_count = str_word_count( strip_tags( $content ) );
+				$curr_word_count += $p_word_count;
+				
+				//see if the slot is permitted by our ad density rules
+				if( $curr_word_count >= $ad_density ) {
+					//insert an ad
+					
+					//create the amp_ad
+					$amp_ad = $ad_tag->to_amp_ad( $this->dom );
+					
+					//create a debug_node
+					if( $this->DEBUG ) {
+						// Add a placeholder to show while loading
+						$fallback_node = AMP_DOM_Utils::create_node( $this->dom, 'amp-img', array(
+							'placeholder' => '',
+							'layout' => 'fill',
+							'src' => 'https://placehold.it/' . $ad_tag->get_width() . 'x' . $ad_tag->get_height(),
+						) );
+						$amp_ad->appendChild( $fallback_node );
+						$debug_node = $this->dom->createElement( 'h4', $i . ':' . $curr_word_count );
+					}
+					
+					//if there is a following paragraph, insert before it,
+					//otherwise append to the body
+					if( ( $i + 1 ) < $p_nodes_len ) {
+						$p_node_plus_one = $p_nodes->item( $i + 1 );
+						$p_node_plus_one->parentNode->insertBefore( $amp_ad,  $p_node_plus_one );
+						
+						if( $this->DEBUG ) {
+							$p_node_plus_one->parentNode->insertBefore( $debug_node,  $p_node_plus_one );
+						}
+					} else {
+						$body->appendChild( $amp_ad );
+						
+						if( $this->DEBUG ) {
+							$body->appendChild( $debug_node );
+						}
+					}
+					
+					//reset the curr_word_count
+					$curr_word_count = 0;
+				}
 			}
 		}
 	}
+	
 }
