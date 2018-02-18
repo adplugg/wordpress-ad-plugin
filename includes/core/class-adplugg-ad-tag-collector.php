@@ -49,15 +49,15 @@ class AdPlugg_Ad_Tag_Collector {
 					$zone = ( isset( $instance['zone'] ) ) ? $instance['zone'] : null;
 
 					$ad_tag = AdPlugg_Ad_Tag::create()
-								->withWidth( $width )
-								->withHeight( $height );
+								->with_width( $width )
+								->with_height( $height );
 
 					if( $default ) {
-						$ad_tag->enableDefaultForReuse();
+						$ad_tag->enable_default_for_reuse();
 					}
 
 					if( $zone != null ) {
-						$ad_tag->withZone( $zone );
+						$ad_tag->with_zone( $zone );
 					}
 
 					$ad_tags->add( $ad_tag );

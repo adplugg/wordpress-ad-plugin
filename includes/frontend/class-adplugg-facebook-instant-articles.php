@@ -23,7 +23,7 @@ class AdPlugg_Facebook_Instant_Articles {
 	/**
 	 * Constructor, constructs the class and registers filters and actions.
 	 * 
-	 * This is private, call get_instance instead to get the singleton instnace.
+	 * This is private, call get_instance instead to get the singleton instance.
 	 */
 	private function __construct() { 
 		//fb-instant-articles <0.3
@@ -112,49 +112,35 @@ class AdPlugg_Facebook_Instant_Articles {
 			 ( $source_of_ad == 'adplugg' )
 			)
 		{
+			$ad_tags = AdPlugg_Ad_Tag_Collector::get_instance()
+								->get_ad_tags( 'facebook_ia_header_ads' );
 			
-			$sidebars_widgets = wp_get_sidebars_widgets();
-			foreach ( (array) $sidebars_widgets['facebook_ia_header_ads'] as $id ) {
-				$widget = $wp_registered_widgets[$id]['callback']['0'];
-				$params = $wp_registered_widgets[$id]['params']['0'];
-				if( get_class( $widget) == 'AdPlugg_Widget' ) {
-					$option_name = $widget->option_name;
-					$number = $params['number'];
-					$all_options = get_option( $option_name, array() );
-					$instance = $all_options[$number];
-					
-					$width = ( isset($instance['width']) ) ? intval( $instance['width'] ) : 300;
-					$height = ( isset($instance['height']) ) ? intval( $instance['height'] ) : 250;
-					$default = ( isset( $instance['default'] ) && $instance['default'] == 1 ) ? 1 : 0;
-					$zone = ( isset( $instance['zone'] ) ) ? $instance['zone'] : null;
-					
-					$post_url = $post->get_canonical_url();
-					$host = urlencode( parse_url( $post_url, PHP_URL_HOST ) );
-					$path = urlencode( parse_url( $post_url, PHP_URL_PATH ) );
-					$zone_param = ( isset( $zone ) ) ? '&zn=' . urlencode( $zone ) : '';
-					
-					$adplugg_adhtmlserver = ADPLUGG_ADHTMLSERVER;
-					//Temporarily allow serving from www.adplugg.com. Here to
-					//facilitate a judicious rollout of the new adplugg.io endpoint.
-					if( AdPlugg_Facebook::temp_use_legacy_adplugg_com_endpoint() ) {
-						$adplugg_adhtmlserver = 'www.adplugg.com';
-					}
-					
-					$iframe_src = 'https://' . $adplugg_adhtmlserver . '/serve/' . AdPlugg_Options::get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
-					$ad = Ad::create()
-							->enableDefaultForReuse()
-							->withWidth( $width )
-							->withHeight( $height )
-							->withSource( $iframe_src );
-					
-					if( $default ) {
-						$ad->enableDefaultForReuse();
-					}
-					
-					$header->addAd( $ad );
-				} //end if AdPlugg_Widget
+			/* @var $ad_tag \AdPlugg_Ad_Tag */
+			foreach( $ad_tags->to_array() as $ad_tag ) {
 				
-			} //end foreach widget
+				// ------Compute iframe src ------ //
+				$post_url = $post->get_canonical_url();
+				$host = urlencode( parse_url( $post_url, PHP_URL_HOST ) );
+				$path = urlencode( parse_url( $post_url, PHP_URL_PATH ) );
+				$zone_param = ( $ad_tag->get_zone() != null ) ? '&zn=' . urlencode( $ad_tag->get_zone() ) : '';
+
+				$adplugg_adhtmlserver = ADPLUGG_ADHTMLSERVER;
+				//Temporarily allow serving from www.adplugg.com. Here to
+				//facilitate a judicious rollout of the new adplugg.io endpoint.
+				if( AdPlugg_Facebook::temp_use_legacy_adplugg_com_endpoint() ) {
+					$adplugg_adhtmlserver = 'www.adplugg.com';
+				}
+				$iframe_src = 'https://' . $adplugg_adhtmlserver . '/serve/' . AdPlugg_Options::get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
+				// ------------------------------- //
+				
+				$ad = Ad::create()
+						->enableDefaultForReuse()
+						->withWidth( $ad_tag->get_width() )
+						->withHeight( $ad_tag->get_height() )
+						->withSource( $iframe_src );
+				
+				$header->addAd( $ad );
+			} //end foreach ad_tag
 			
 		} //end if enabled
 		

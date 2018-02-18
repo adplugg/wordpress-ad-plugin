@@ -46,5 +46,13 @@ class AdPlugg_Ad_Tag_Collection {
 		return count( $this->ad_tags );
 	}
 	
+	/**
+	 * Get the ad tag collection as an array.
+	 * @return array Returns the ad tag collection as an array.
+	 */
+	public function to_array() {
+		return $this->ad_tags;
+	}
+	
 }
 

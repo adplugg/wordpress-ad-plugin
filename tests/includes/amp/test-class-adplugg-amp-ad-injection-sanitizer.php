@@ -31,9 +31,9 @@ class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 		
 		//set up a mock ad collection
 		$ad_tag = AdPlugg_Ad_Tag::create()
-							->withWidth( 300 )
-							->withHeight( 250 )
-							->withZone( 'testzone' );
+							->with_width( 300 )
+							->with_height( 250 )
+							->with_zone( 'testzone' );
 		$ad_tags = new \AdPlugg_Ad_Tag_Collection();
 		$ad_tags->add( $ad_tag );
 		

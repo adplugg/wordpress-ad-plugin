@@ -10,17 +10,17 @@
 class AdPlugg_Ad_Tag {
 	
 	/**
-     * @var int The width of the ad. Default 300px.
+     * @var int The width of the ad tag.
      */
     private $width;
 	
 	/**
-     * @var int The height of the ad. Default 250px.
+     * @var int The height of the ad tag.
      */
     private $height;
 	
 	/**
-     * @var string (optional) The zone for the ad.
+     * @var string (optional) The zone for the ad tag.
      */
     private $zone;
 	
@@ -28,7 +28,7 @@ class AdPlugg_Ad_Tag {
      * @var boolean Ad will be reused if additional placement slots are 
 	 * available. False by default.
      */
-    private $isDefaultForReuse = false;
+    private $is_default_for_reuse = false;
    
 
 	/**
@@ -40,7 +40,7 @@ class AdPlugg_Ad_Tag {
 		//set the defaults
 		$this->width = 300;
 		$this->height = 250;
-		$this->isDefaultForReuse = false;
+		$this->is_default_for_reuse = false;
     }
 
 	/**
@@ -52,83 +52,83 @@ class AdPlugg_Ad_Tag {
     }
 	
 	/**
-     * Sets the width of your ad.
+     * Sets the width of your ad tag.
      *
-     * @param int $width The width of your ad.
+     * @param int $width The width of your ad tag.
      *
      * @return $this
      */
-    public function withWidth( $width ) {
+    public function with_width( $width ) {
         $this->width = $width;
 
         return $this;
     }
 
     /**
-     * Sets the height of your ad.
+     * Sets the height of your ad tag.
      *
-     * @param int $height The height of your ad.
+     * @param int $height The height of your ad tag.
      *
      * @return $this
      */
-    public function withHeight( $height ) {
+    public function with_height( $height ) {
         $this->height = $height;
 
         return $this;
     }
 	
 	/**
-     * Sets the zone for the ad.
+     * Sets the zone for the ad tag.
      *
-     * @param string $zone The zone for the ad.
+     * @param string $zone The zone for the ad tag.
      * @return $this
      */
-    public function withZone( $zone ) {
+    public function with_zone( $zone ) {
         $this->zone = $zone;
 
         return $this;
     }
 	
 	/**
-     * Gets the width of your ad.
+     * Gets the width of your ad tag.
      *
-     * @return int The width of your ad.
+     * @return int The width of your ad tag.
      */
-    public function getWidth()
+    public function get_width()
     {
         return $this->width;
     }
 
     /**
-     * Gets the height of your ad.
+     * Gets the height of your ad tag.
      *
-     * @return int The height of your ad.
+     * @return int The height of your ad tag.
      */
-    public function getHeight()
+    public function get_height()
     {
         return $this->height;
     }
 	
 	/**
-     * Gets the zone for the ad.
+     * Gets the zone for the ad tag.
      *
-     * @return string The zone for the ad.
+     * @return string The zone for the ad tag.
      */
-    public function getZone()
+    public function get_zone()
     {
         return $this->zone;
     }
 	
 	/**
-     * @return bool True if ad has been set to reusable.
+     * @return bool True if ad tag has been set to reusable.
      */
-    public function getIsDefaultForReuse()
+    public function get_is_default_for_reuse()
     {
-        return $this->isDefaultForReuse;
+        return $this->is_default_for_reuse;
     }
 
     /**
-     * Structure and create the ad in an amp-ad DOMElement.
+     * Structure and create the ad tag in an amp-ad DOMElement.
      *
      * @param \DOMDocument $document The document where this element will be
 	 * appended (optional).

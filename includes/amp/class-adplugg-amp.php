@@ -33,7 +33,7 @@ class AdPlugg_AMP {
 			$this->ad_tags = $ad_tags;
 		} else {
 			$this->ad_tags = AdPlugg_Ad_Tag_Collector::get_instance()
-								->get_ad_tags( 'amp_ads', 'AdPlugg_AMP_Ad' );
+								->get_ad_tags( 'amp_ads' );
 		}
 	}
 	
