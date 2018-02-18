@@ -108,6 +108,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 	public function test_validate_valid_enable_input() {
 		//Set the enabple input that we will test with
 		$enable_input = 1;
+		$ad_density = 250;
 		
 		//Clear out any previous settings errors.
 		global $wp_settings_errors;
@@ -117,6 +118,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		
 		$input = array();
 		$input['amp_enable_automatic_placement'] = $enable_input;
+		$input['amp_ad_density'] = $ad_density;
 		
 		//Run the function.
 		$new_options = $adplugg_amp_options_page->validate( $input );
@@ -134,6 +136,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		
 		//Assert that the settings were stored.
 		$this->assertFalse( empty( $new_options['amp_enable_automatic_placement'] ) );
+		$this->assertFalse( empty( $new_options['amp_ad_density'] ) );
 	}
 	
 	/**
@@ -142,7 +145,8 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 	 */
 	public function test_validate_invalid_enable_input() {
 		//Set the enable input that we will test with
-		$enable_input = '2';
+		$enable_input = '2'; //this is invalid
+		$ad_density = 250;
 		
 		//Clear out any previous settings errors.
 		global $wp_settings_errors;
@@ -151,7 +155,8 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		$input = array();
-		$input['amp_enable_automatic_placement'] = $enable_input; //invalid
+		$input['amp_enable_automatic_placement'] = $enable_input;
+		$input['amp_ad_density'] = $ad_density;
 		
 		//Run the function.
 		$new_options = $adplugg_amp_options_page->validate( $input );
@@ -172,7 +177,8 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 	 */
 	public function test_validate_enable_input_attack() {
 		//Set the enable input that we will test with
-		$enable_input = '<injection>';
+		$enable_input = '<injection>'; //invalid
+		$ad_density = 250;
 		
 		//Clear out any previous settings errors.
 		global $wp_settings_errors;
@@ -181,7 +187,8 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
 		$input = array();
-		$input['amp_enable_automatic_placement'] = $enable_input; //invalid
+		$input['amp_enable_automatic_placement'] = $enable_input;
+		$input['amp_ad_density'] = $ad_density;
 		
 		//Run the function.
 		$new_options = $adplugg_amp_options_page->validate( $input );
