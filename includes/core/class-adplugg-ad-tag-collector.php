@@ -1,35 +1,35 @@
 <?php
 
 /**
- * AdPlugg_Ad_Collector class. The AdPlugg_Ad_Collector class includes methods
- * that can build a AdPlugg_Ad_Collection by searching through the enabled
- * widgets.
+ * AdPlugg_Ad_Tag_Collector class. The AdPlugg_Ad_Tag_Collector class includes 
+ * methods that can build a AdPlugg_Ad_Tag_Collection by searching through the
+ * enabled widgets.
  *
  * @package AdPlugg
  * @since 1.7.0
  * @todo Add unit testing
  */
-class AdPlugg_Ad_Collector {
+class AdPlugg_Ad_Tag_Collector {
 	
 	/**
 	 * Singleton instance.
-	 * @var AdPlugg_Ad_Collector
+	 * @var AdPlugg_Ad_Tag_Collector
 	 */
 	private static $instance;
 	
 	/**
-	 * Looks in the passed Widget Area and gets all ads. Returns the ads as an
-	 * AdPlugg_Ad_Collection.
+	 * Looks in the passed Widget Area and gets all ad tags. Returns the ad tags
+	 * as an AdPlugg_Ad_Tag_Collection.
 	 * @param string $widget_area_id The id of the widget area (ex: "amp_ads") 
-	 * @return AdPlugg_Ad_Collection Returns a collection of the Ads that
-	 * were found.
+	 * @return AdPlugg_Ad_Tag_Collection Returns a collection of the Ad Tags 
+	 * that were found.
 	 * @global $wp_registered_widgets
 	 * @todo Add unit tests
 	 */
-	public function get_ads( $widget_area_id ) {
+	public function get_ad_tags( $widget_area_id ) {
 		global $wp_registered_widgets;
 		
-		$ads = new \AdPlugg_Ad_Collection();
+		$ad_tags = new \AdPlugg_Ad_Tag_Collection();
 			
 		$sidebars_widgets = wp_get_sidebars_widgets();
 		
@@ -48,31 +48,31 @@ class AdPlugg_Ad_Collector {
 					$default = ( isset( $instance['default'] ) && $instance['default'] == 1 ) ? 1 : 0;
 					$zone = ( isset( $instance['zone'] ) ) ? $instance['zone'] : null;
 
-					$ad = AdPlugg_Ad::create()
+					$ad_tag = AdPlugg_Ad_Tag::create()
 								->withWidth( $width )
 								->withHeight( $height );
 
 					if( $default ) {
-						$ad->enableDefaultForReuse();
+						$ad_tag->enableDefaultForReuse();
 					}
 
 					if( $zone != null ) {
-						$ad->withZone( $zone );
+						$ad_tag->withZone( $zone );
 					}
 
-					$ads->add($ad);
+					$ad_tags->add( $ad_tag );
 				} //end if AdPlugg_Widget
 
 			} //end foreach widget in the widget area
 			
 		} //end if widget area exists
 			
-		return $ads;
-	} //end get ads
+		return $ad_tags;
+	} //end get ad_tags
 	
 	/**
 	 * Singleton instance.
-	 * @return \AdPlugg_Ad_Collector Returns the AdPlugg_Ad_Collector
+	 * @return \AdPlugg_Ad_Tag_Collector Returns the AdPlugg_Ad_Tag_Collector
 	 * singleton.
 	 */
 	public static function get_instance() {

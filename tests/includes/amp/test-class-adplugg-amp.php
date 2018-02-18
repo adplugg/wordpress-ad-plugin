@@ -17,7 +17,7 @@ class Test_AdPlugg_AMP extends WP_UnitTestCase {
 	public function test_constructor() {
 		global $wp_filter;
 		
-		$adplugg_amp = new AdPlugg_AMP( new \AdPlugg_Ad_Collection() );
+		$adplugg_amp = new AdPlugg_AMP( new \AdPlugg_Ad_Tag_Collection() );
 		
 		//Assert that the init function is registered.
 		$function_names = get_function_names( $wp_filter['widgets_init'] );
@@ -64,7 +64,7 @@ class Test_AdPlugg_AMP extends WP_UnitTestCase {
 		$post = array();
 		
 		//get the singleton instance
-		$adplugg_amp = new AdPlugg_AMP( new \AdPlugg_Ad_Collection() );
+		$adplugg_amp = new AdPlugg_AMP( new \AdPlugg_Ad_Tag_Collection() );
 		
 		//call the function
 		$sanitizer_classes = $adplugg_amp->add_ad_sanitizer( $sanitizer_classes, $post );

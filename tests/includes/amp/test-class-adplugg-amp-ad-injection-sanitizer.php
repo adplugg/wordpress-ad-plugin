@@ -30,17 +30,17 @@ class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 		$dom->loadHTML( $source );
 		
 		//set up a mock ad collection
-		$ad = AdPlugg_Ad::create()
+		$ad_tag = AdPlugg_Ad_Tag::create()
 							->withWidth( 300 )
 							->withHeight( 250 )
 							->withZone( 'testzone' );
-		$ads = new \AdPlugg_Ad_Collection();
-		$ads->add( $ad );
+		$ad_tags = new \AdPlugg_Ad_Tag_Collection();
+		$ad_tags->add( $ad_tag );
 		
 		//instantiate the class
 		$sanitizer = new AdPlugg_AMP_Ad_Injection_Sanitizer( 
 							$dom,
-							array( 'ads' => $ads )
+							array( 'ad_tags' => $ad_tags )
 						);
 		
 		//call the function
@@ -56,25 +56,25 @@ class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 		/* @var $body \DomNode */
 		$body = $html->childNodes[1];
 		
-		/* @var $ad \DomNode */
-		$ad = $body->childNodes[1];
+		/* @var $amp_ad \DomNode */
+		$amp_ad = $body->childNodes[1];
 		
-		//var_dump($ad);
+		//var_dump($ad_tag);
 		
 		// ===================================== //
 		
 		//assert that an ad was inserted
-		$this->assertEquals( 'amp-ad', $ad->nodeName );
+		$this->assertEquals( 'amp-ad', $amp_ad->nodeName );
 		
-		//get the ad attributes
-		/* @var $ad_attributes \DOMNamedNodeMap */
-		$ad_attributes = $ad->attributes;
-		$ad_attributes->getNamedItem($content);
+		//get the amp ad attributes
+		/* @var $amp_ad_attributes \DOMNamedNodeMap */
+		$amp_ad_attributes = $amp_ad->attributes;
+		$amp_ad_attributes->getNamedItem( $content );
 		
 		//assert that the ad has the expected attributes
-		$this->assertEquals( 'adplugg', $ad_attributes->getNamedItem( 'type' )->textContent );
-		$this->assertEquals( '300', $ad_attributes->getNamedItem( 'width' )->textContent );
-		$this->assertEquals( '250', $ad_attributes->getNamedItem( 'height' )->textContent );
+		$this->assertEquals( 'adplugg', $amp_ad_attributes->getNamedItem( 'type' )->textContent );
+		$this->assertEquals( '300', $amp_ad_attributes->getNamedItem( 'width' )->textContent );
+		$this->assertEquals( '250', $amp_ad_attributes->getNamedItem( 'height' )->textContent );
 		//TODO: get these working
 		//$this->assertEquals( 'some_access_code', $ad_attributes->getNamedItem( 'data-access-code' )->textContent );
 		//$this->assertEquals( 'some_zone', $ad_attributes->getNamedItem( 'data-zone' )->textContent );

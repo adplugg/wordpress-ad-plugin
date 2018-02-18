@@ -16,23 +16,24 @@ class AdPlugg_AMP {
 	 */
 	private static $instance;
 	
-	/** @var \AdPlugg_Ad_Collection */
-	private $ads;
+	/** @var \AdPlugg_Ad_Tag_Collection */
+	private $ad_tags;
 	
 	/**
 	 * Constructor. Constructs the class and registers filters and actions.
-	 * @param \AdPlugg_Ad_Collection $ads (optional) Optionally pass an ad
+	 * @param \AdPlugg_Ad_Tag_Collection $ads (optional) Optionally pass an ad
 	 * collection to use on the AMP pages. If none is passed the collector will
 	 * try to collect some.
 	 */
-	public function __construct( \AdPlugg_Ad_Collection $ads = null ) {
+	public function __construct( \AdPlugg_Ad_Tag_Collection $ad_tags = null ) {
 		add_action( 'widgets_init', array( &$this, 'amp_ads_widget_area_init' ), 10, 0 );
 		add_filter( 'amp_content_sanitizers', array( &$this, 'add_ad_sanitizer' ), 10, 2 );
 		
-		if( $ads !== null ) {
-			$this->ads = $ads;
+		if( $ad_tags !== null ) {
+			$this->ad_tags = $ad_tags;
 		} else {
-			$this->ads = AdPlugg_Ad_Collector::get_instance()->get_ads( 'amp_ads', 'AdPlugg_AMP_Ad' );
+			$this->ad_tags = AdPlugg_Ad_Tag_Collector::get_instance()
+								->get_ad_tags( 'amp_ads', 'AdPlugg_AMP_Ad' );
 		}
 	}
 	
@@ -64,7 +65,7 @@ class AdPlugg_AMP {
 			// Note: we require this here because it extends a class from the AMP plugin
 			require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp-ad-injection-sanitizer.php' );
 			// Note: the array can be used to pass args to your sanitizer and accessed within the class via `$this->args`
-			$sanitizer_classes[ 'AdPlugg_AMP_Ad_Injection_Sanitizer' ] = array('ads' => $this->ads); 
+			$sanitizer_classes[ 'AdPlugg_AMP_Ad_Injection_Sanitizer' ] = array('ads' => $this->ad_tags); 
 		}
 		
 		return $sanitizer_classes;

@@ -12,8 +12,8 @@
  */
 class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	
-	/** @var \AdPlugg_Ad_Collection */
-	private $ads;
+	/** @var \AdPlugg_Ad_Tag_Collection */
+	private $ad_tags;
 	
 	/**
 	 * Constructor.
@@ -21,7 +21,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	 * @param array $args An array of additional arguments.
 	 */
 	public function __construct($dom, $args = array()) {
-		$this->ads = $args['ads'];
+		$this->ad_tags = $args['ad_tags'];
 		
 		parent::__construct($dom, $args);
 	}
@@ -33,12 +33,12 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 		
 		$body = $this->root_element;
 		
-		if( $this->ads->size() > 0 ) {
-			/* @var $ad \AdPlugg_AMP_Ad */
-			$ad = $this->ads->get( 0 );
+		if( $this->ad_tags->size() > 0 ) {
+			/* @var $ad_tag \AdPlugg_Ad_Tag */
+			$ad_tag = $this->ad_tags->get( 0 );
 
 			/* @var $ad_node \DOMElement */
-			$amp_ad = $ad->toAMPAd( $this->dom );
+			$amp_ad = $ad_tag->to_amp_ad( $this->dom );
 
 			// If we have a lot of paragraphs, insert before the 4th one.
 			// Otherwise, add it to the end.
