@@ -45,7 +45,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 			$p_nodes = $body->getElementsByTagName( 'p' );
 			
 			$curr_word_count = 0;
-			$ad_density = 250;
+			$ad_density = AdPlugg_AMP::get_ad_density();
 			$p_nodes_len = $p_nodes->length;
 			
 			//loop through all p tags
@@ -66,11 +66,10 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 					//create a debug_node
 					if( $this->DEBUG ) {
 						// Add a placeholder to show while loading
-						$fallback_node = AMP_DOM_Utils::create_node( $this->dom, 'amp-img', array(
-							'placeholder' => '',
-							'layout' => 'fill',
-							'src' => 'https://placehold.it/' . $ad_tag->get_width() . 'x' . $ad_tag->get_height(),
-						) );
+						$fallback_node = $this->dom->createElement( 'amp-img' );
+						$fallback_node->setAttribute( 'placeholder', '' );
+						$fallback_node->setAttribute( 'layout', 'fill' );
+						$fallback_node->setAttribute( 'src', 'https://placehold.it/' . $ad_tag->get_width() . 'x' . $ad_tag->get_height() );
 						$amp_ad->appendChild( $fallback_node );
 						$debug_node = $this->dom->createElement( 'h4', $i . ':' . $curr_word_count );
 					}

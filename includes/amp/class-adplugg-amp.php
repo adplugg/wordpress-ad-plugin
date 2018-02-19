@@ -90,6 +90,21 @@ class AdPlugg_AMP {
 	}
 	
 	/**
+	 * Function that gets the ad density setting value.
+	 * @return integer Returns the ad density setting value.
+	 * @todo Add unit testing
+	 */
+	public static function get_ad_density() {
+		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
+		$ad_density = 250;
+		if( ! empty( $options['amp_ad_density'] ) ) {
+			$ad_density = $options['amp_ad_density'];
+		}
+
+		return $ad_density;
+	}
+	
+	/**
 	 * Gets the singleton instance.
 	 * @return \AdPlugg_AMP Returns the singleton instance of this class.
 	 */

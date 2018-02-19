@@ -19,7 +19,8 @@ class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 	 */	
 	function test_sanitize() {
 		//set up a mock DOM to sanitize
-		$content = '<p>Hello World!</p>';
+		$content = '<p>' . str_repeat( 'Lorem ipsum dolor sit amet', 100 ) . '</p>' .
+					'<p>' . str_repeat( 'Lorem ipsum dolor sit amet', 100 ) . '</p>' ;
 		$source = sprintf(
 			'<html><head><meta http-equiv="content-type" content="text/html; charset=%s"></head><body>%s</body></html>',
 			get_bloginfo( 'charset' ),
