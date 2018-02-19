@@ -94,8 +94,7 @@ class AdPlugg_Ad_Tag {
      *
      * @return int The width of your ad tag.
      */
-    public function get_width()
-    {
+    public function get_width() {
         return $this->width;
     }
 
@@ -104,8 +103,7 @@ class AdPlugg_Ad_Tag {
      *
      * @return int The height of your ad tag.
      */
-    public function get_height()
-    {
+    public function get_height() {
         return $this->height;
     }
 	
@@ -114,16 +112,32 @@ class AdPlugg_Ad_Tag {
      *
      * @return string The zone for the ad tag.
      */
-    public function get_zone()
-    {
+    public function get_zone() {
         return $this->zone;
     }
 	
 	/**
-     * @return bool True if ad tag has been set to reusable.
+	 * Enable is_default_for_reuse.
+     * @return $this
      */
-    public function get_is_default_for_reuse()
-    {
+    public function enable_default_for_reuse() {
+        $this->is_default_for_reuse = true;
+    }
+	
+	/**
+	 * Disable is_default_for_reuse.
+     * @return $this
+     */
+    public function disable_default_for_reuse() {
+        $this->is_default_for_reuse = false;
+    }
+	
+	/**
+	 * Get whether or not this ad tag has been set to be the default for reuse.
+     * @return bool True if ad tag has been set to default. Otherwise, returns
+	 * false.
+     */
+    public function is_default_for_reuse() {
         return $this->is_default_for_reuse;
     }
 

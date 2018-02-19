@@ -38,9 +38,9 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 		$body = $this->root_element;
 		
 		if( $this->ad_tags->size() > 0 ) {
-			/* @var $ad_tag \AdPlugg_Ad_Tag */
-			$ad_tag = $this->ad_tags->get( 0 );
 
+			$this->ad_tags->reset();
+			
 			/* @var $p_nodes \DOMNodeList */
 			$p_nodes = $body->getElementsByTagName( 'p' );
 			
@@ -61,6 +61,8 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 					//insert an ad
 					
 					//create the amp_ad
+					/* @var $ad_tag \AdPlugg_Ad_Tag */
+					$ad_tag = $this->ad_tags->next();
 					$amp_ad = $ad_tag->to_amp_ad( $this->dom );
 					
 					//create a debug_node
