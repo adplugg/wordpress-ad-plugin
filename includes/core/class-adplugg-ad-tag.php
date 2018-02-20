@@ -122,6 +122,8 @@ class AdPlugg_Ad_Tag {
      */
     public function enable_default_for_reuse() {
         $this->is_default_for_reuse = true;
+		
+		return $this;
     }
 	
 	/**
@@ -130,6 +132,8 @@ class AdPlugg_Ad_Tag {
      */
     public function disable_default_for_reuse() {
         $this->is_default_for_reuse = false;
+		
+		return $this;
     }
 	
 	/**
