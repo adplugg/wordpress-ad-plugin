@@ -23,7 +23,11 @@ class Test_AdPlugg_AMP extends WP_UnitTestCase {
 		$function_names = get_function_names( $wp_filter['widgets_init'] );
 		$this->assertContains( 'amp_ads_widget_area_init', $function_names );
 				
-		//Assert that the init function is registered.
+		//Assert that the add_additional_css_styles function is registered.
+		$function_names = get_function_names( $wp_filter['amp_post_template_css'] );
+		$this->assertContains( 'add_additional_css_styles', $function_names );
+		
+		//Assert that the add_ad_sanitizer function is registered.
 		$function_names = get_function_names( $wp_filter['amp_content_sanitizers'] );
 		$this->assertContains( 'add_ad_sanitizer', $function_names );
 	}
@@ -52,7 +56,7 @@ class Test_AdPlugg_AMP extends WP_UnitTestCase {
 	}
 	
 	/**
-	 * Test the add_ad_sanitizer() function.
+	 * Test the add_ad_sanitizer function.
 	 */	
 	function test_add_ad_sanitizer() {
 		//Enable automatic placement
@@ -63,7 +67,7 @@ class Test_AdPlugg_AMP extends WP_UnitTestCase {
 		$sanitizer_classes = array();
 		$post = array();
 		
-		//get the singleton instance
+		//Instantiate the SUT class
 		$adplugg_amp = new AdPlugg_AMP( new \AdPlugg_Ad_Tag_Collection() );
 		
 		//call the function
@@ -74,7 +78,36 @@ class Test_AdPlugg_AMP extends WP_UnitTestCase {
 	}
 	
 	/**
-	 * Test the is_amp_automatic_placement_enabled() function.
+	 * Test the add_additional_css_styles function.
+	 */	
+	function test_add_additional_css_styles() {
+		//Clear out any options
+		$options = array();
+		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
+
+		//Enable automatic placement
+		$options['amp_enable_automatic_placement'] = 1;
+		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
+		
+		//Enable centering
+		$options['amp_enable_centering'] = 1;
+		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
+		
+		//Instantiate the SUT class
+		$adplugg_amp = new AdPlugg_AMP( new \AdPlugg_Ad_Tag_Collection() );
+		
+		//call the function and capture the output
+		ob_start();
+		$adplugg_amp->add_additional_css_styles( new stdClass() );
+		$output = ob_get_contents();
+		ob_end_clean();
+
+		//Assert function output the expected css
+		$this->assertContains( 'amp-ad[type="adplugg"]', $output );
+	}
+	
+	/**
+	 * Test the is_amp_automatic_placement_enabled function.
 	 */	
 	function test_is_amp_automatic_placement_enabled() {
 		//Clear out any options
@@ -90,6 +123,44 @@ class Test_AdPlugg_AMP extends WP_UnitTestCase {
 
 		//Assert function correctly determines automatic placement enabled
 		$this->assertTrue( AdPlugg_AMP::is_amp_automatic_placement_enabled() );
+	}
+	
+	/**
+	 * Test the get_ad_density function.
+	 */	
+	function test_get_ad_density() {
+		//Clear out any options
+		$options = array();
+		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
+		
+		//Assert function correctly defaults to 250
+		$this->assertEquals( 250, AdPlugg_AMP::get_ad_density() );
+
+		//Set the ad density to 350
+		$options['amp_ad_density'] = 350;
+		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
+
+		//Assert function correctly returns the set ad density
+		$this->assertEquals( 350, AdPlugg_AMP::get_ad_density() );
+	}
+	
+	/**
+	 * Test the is_centering_enabled function.
+	 */	
+	function test_is_centering_enabled() {
+		//Clear out any options
+		$options = array();
+		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
+		
+		//Assert function correctly determines centering is not enabled
+		$this->assertFalse( AdPlugg_AMP::is_centering_enabled() );
+
+		//Enable automatic placement
+		$options['amp_enable_centering'] = 1;
+		update_option( ADPLUGG_AMP_OPTIONS_NAME, $options );
+
+		//Assert function correctly determines that centering is enabled
+		$this->assertTrue( AdPlugg_AMP::is_centering_enabled() );
 	}
 	
 }

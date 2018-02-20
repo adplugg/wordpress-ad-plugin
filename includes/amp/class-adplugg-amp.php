@@ -111,7 +111,6 @@ class AdPlugg_AMP {
 	/**
 	 * Function that gets the ad density setting value.
 	 * @return integer Returns the ad density setting value.
-	 * @todo Add unit testing
 	 */
 	public static function get_ad_density() {
 		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
