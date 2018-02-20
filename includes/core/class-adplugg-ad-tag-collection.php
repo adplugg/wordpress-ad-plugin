@@ -73,20 +73,15 @@ class AdPlugg_Ad_Tag_Collection {
 	
 	/**
 	 * Returns the next ad tag in the collection. If there are no more ad tags,
-	 * returns the default. If there is no default, it keeps returning the last
-	 * ad tag.
+	 * it returns the default. If there are no more ad tags and no default, it
+	 * returns null.
 	 * @return \AdPlugg_Ad_Tag
 	 */
 	public function next() {
 		$ret = null;
 		
-		//start with the current ad_tag
-		if( $this->current_index > -1 ) {
-			$ret = $this->ad_tags[ $this->current_index ];
-		}
-		
-		//if there is a next one, increment and return the next one.
-		if( $this->current_index < ( count( $this->ad_tags ) -2 ) ) {
+		//if there is a next, increment and return the next one.
+		if( $this->current_index <= ( count( $this->ad_tags ) -2 ) ) {
 			$this->current_index++;
 			$ret = $this->ad_tags[ $this->current_index ];
 		} else {

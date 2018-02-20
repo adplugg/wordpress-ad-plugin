@@ -19,8 +19,8 @@ class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 	 */	
 	function test_sanitize() {
 		//set up a mock DOM to sanitize
-		$content = '<p>' . str_repeat( 'Lorem ipsum dolor sit amet', 100 ) . '</p>' .
-					'<p>' . str_repeat( 'Lorem ipsum dolor sit amet', 100 ) . '</p>' ;
+		$content = '<p>' . str_repeat( 'Lorem ', 251 ) . '</p>' .
+					'<p>' . str_repeat( 'Lorem ', 100 ) . '</p>' ;
 		$source = sprintf(
 			'<html><head><meta http-equiv="content-type" content="text/html; charset=%s"></head><body>%s</body></html>',
 			get_bloginfo( 'charset' ),
@@ -34,7 +34,7 @@ class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 		$ad_tag = AdPlugg_Ad_Tag::create()
 							->with_width( 300 )
 							->with_height( 250 )
-							->with_zone( 'testzone' );
+							->with_zone( 'test_zone' );
 		$ad_tags = new \AdPlugg_Ad_Tag_Collection();
 		$ad_tags->add( $ad_tag );
 		

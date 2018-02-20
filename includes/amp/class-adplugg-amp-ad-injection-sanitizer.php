@@ -12,7 +12,7 @@
  */
 class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	
-	private $DEBUG = false;
+	private $DEBUG = true;
 	
 	/** @var \AdPlugg_Ad_Tag_Collection */
 	private $ad_tags;
@@ -48,8 +48,12 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 			$ad_density = AdPlugg_AMP::get_ad_density();
 			$p_nodes_len = $p_nodes->length;
 			
+			/* @var $ad_tag \AdPlugg_Ad_Tag */
+			$ad_tag = $this->ad_tags->next();
+			
+			$i = 0;
 			//loop through all p tags
-			for( $i = 0; $i < $p_nodes_len; $i++ ) {
+			while( ( $i < $p_nodes_len ) && ( $ad_tag !== null ) ) {
 				/* @var $p_node \DOMElement */
 				$p_node = $p_nodes->item( $i );
 				$content = $p_node->nodeValue;
@@ -61,8 +65,6 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 					//insert an ad
 					
 					//create the amp_ad
-					/* @var $ad_tag \AdPlugg_Ad_Tag */
-					$ad_tag = $this->ad_tags->next();
 					$amp_ad = $ad_tag->to_amp_ad( $this->dom );
 					
 					//create a debug_node
@@ -93,10 +95,13 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 						}
 					}
 					
-					//reset the curr_word_count
+					//reset the curr_word_count and move to the next ad tag
 					$curr_word_count = 0;
+					$ad_tag = $this->ad_tags->next();
 				}
-			}
+				
+				$i++;
+			} //end while
 		}
 	}
 	
