@@ -6,7 +6,6 @@
  *
  * @package AdPlugg
  * @since 1.7.0
- * @todo Add unit testing
  */
 class AdPlugg_Ad_Tag_Collection {
 	

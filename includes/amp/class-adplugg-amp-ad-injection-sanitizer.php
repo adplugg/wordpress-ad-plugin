@@ -30,7 +30,6 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	
 	/**
 	 * Sanitize the content (inject ads, etc).
-	 * @todo Improve the unit testing on this function
 	 */
 	public function sanitize() {
 		

@@ -7,7 +7,6 @@
  *
  * @package AdPlugg
  * @since 1.7.0
- * @todo Add unit testing
  */
 class AdPlugg_Ad_Tag_Collector {
 	
@@ -24,7 +23,6 @@ class AdPlugg_Ad_Tag_Collector {
 	 * @return AdPlugg_Ad_Tag_Collection Returns a collection of the Ad Tags 
 	 * that were found.
 	 * @global $wp_registered_widgets
-	 * @todo Add unit tests
 	 */
 	public function get_ad_tags( $widget_area_id ) {
 		global $wp_registered_widgets;
