@@ -23,27 +23,13 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		$function_names = get_function_names( $wp_filter['admin_menu'] );
 		$this->assertContains( 'add_page_to_menu', $function_names );
 				
-		//Assert that the init function is registered.
+		//Assert that the admin_init function is registered.
 		$function_names = get_function_names( $wp_filter['admin_init'] );
 		$this->assertContains( 'admin_init', $function_names );
-	}
-	
-	/**
-	 * Test the admin_init function.
-	 */	
-	public function test_admin_init() {
-		global $wp_filter;
 		
-		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
-		
-		//Run the function
-		$adplugg_amp_options_page->admin_init();
-		
-		//Assert that the expected settings fields were registered and rendered
-		ob_start();
-		settings_fields( 'adplugg_amp_options' );
-		$outbound = ob_get_contents();
-		ob_end_clean();
+		//Assert that the admin_notices function is registered.
+		$function_names = get_function_names( $wp_filter['admin_notices'] );
+		$this->assertContains( 'admin_notices', $function_names );
 	}
 	
 	/**
@@ -66,17 +52,63 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 	}
 	
 	/**
+	 * Test the admin_notices function.
+	 * @global $current_screen
+	 */	
+	public function test_admin_notices() {
+		global $current_screen;
+		
+		//Set the current screen to our AMP settings page.
+		$current_screen = WP_Screen::get( 'adplugg_page_adplugg_amp_settings' );
+		
+		//instantiate the SUT class
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
+		
+		//Run the function and capture the output
+		ob_start();
+		$adplugg_amp_options_page->admin_notices();
+		$output = ob_get_contents();
+		ob_end_clean();
+		
+		//assert that the a amp_not_found notice was outputted
+		$this->assertContains( 'notify_amp_not_found', $output );
+	}
+	
+	/**
+	 * Test the admin_init function.
+	 */	
+	public function test_admin_init() {
+		global $wp_filter;
+		
+		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
+		
+		//Run the function
+		$adplugg_amp_options_page->admin_init();
+		
+		//Capture the output from the adplugg_amp_options
+		ob_start();
+		settings_fields( 'adplugg_amp_options' );
+		$output = ob_get_contents();
+		ob_end_clean();
+		
+		//Assert that the expected settings fields were registered and rendered
+		$this->assertContains( 'adplugg_amp_options', $output );
+	}
+	
+	/**
 	 * Test the render_page function.
 	 */	
 	public function test_render_page() {
 		$adplugg_amp_options_page = new AdPlugg_AMP_Options_Page();
 		
-		//Assert that the options page was rendered
+		//call the function and capture the output
 		ob_start();
 		$adplugg_amp_options_page->render_page();
-		$outbound = ob_get_contents();
+		$output = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'AMP Settings - AdPlugg', $outbound );
+		
+		//Assert that the options page was rendered
+		$this->assertContains( 'AMP Settings - AdPlugg', $output );
 	}
 	
 	/**
