@@ -12,7 +12,7 @@
  */
 class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	
-	private $DEBUG = true;
+	private $DEBUG = false;
 	
 	/** @var \AdPlugg_Ad_Tag_Collection */
 	private $ad_tags;

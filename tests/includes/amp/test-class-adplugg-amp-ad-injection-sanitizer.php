@@ -66,20 +66,6 @@ class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 		
 		//assert that an ad was inserted
 		$this->assertEquals( 'amp-ad', $amp_ad->nodeName );
-		
-		//get the amp ad attributes
-		/* @var $amp_ad_attributes \DOMNamedNodeMap */
-		$amp_ad_attributes = $amp_ad->attributes;
-		$amp_ad_attributes->getNamedItem( $content );
-		
-		//assert that the ad has the expected attributes
-		$this->assertEquals( 'adplugg', $amp_ad_attributes->getNamedItem( 'type' )->textContent );
-		$this->assertEquals( '300', $amp_ad_attributes->getNamedItem( 'width' )->textContent );
-		$this->assertEquals( '250', $amp_ad_attributes->getNamedItem( 'height' )->textContent );
-		//TODO: get these working
-		//$this->assertEquals( 'some_access_code', $ad_attributes->getNamedItem( 'data-access-code' )->textContent );
-		//$this->assertEquals( 'some_zone', $ad_attributes->getNamedItem( 'data-zone' )->textContent );
-		
 	}
 	
 }
