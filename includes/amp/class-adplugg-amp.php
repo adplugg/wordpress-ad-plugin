@@ -21,12 +21,13 @@ class AdPlugg_AMP {
 	
 	/**
 	 * Constructor. Constructs the class and registers filters and actions.
-	 * @param \AdPlugg_Ad_Tag_Collection $ad_tagss (optional) Optionally pass an
+	 * @param \AdPlugg_Ad_Tag_Collection $ad_tags (optional) Optionally pass an
 	 * ad tag collection to use on the AMP pages. This is mostly done for unit
 	 * testing.
 	 */
 	public function __construct( \AdPlugg_Ad_Tag_Collection $ad_tags = null ) {
 		add_action( 'widgets_init', array( &$this, 'amp_ads_widget_area_init' ), 10, 0 );
+		add_action( 'amp_post_template_css', array( &$this, 'add_additional_css_styles' ), 10, 1 );
 		add_filter( 'amp_content_sanitizers', array( &$this, 'add_ad_sanitizer' ), 10, 2 );
 		
 		$this->ad_tags = $ad_tags;
@@ -75,6 +76,24 @@ class AdPlugg_AMP {
 	}
 	
 	/**
+	 * Add our additional css styles.
+	 * @param AMP_Post_Template $amp_template
+	 */
+	public function add_additional_css_styles( $amp_template ) {
+		if(
+			self::is_amp_automatic_placement_enabled() &&
+			self::is_centering_enabled()
+		) {
+			?>
+				amp-ad[type="adplugg"] {
+					display:block;
+					margin: 0 auto;
+				}
+			<?php
+		}
+	}
+	
+	/**
 	 * Function that looks to see if AMP automatic ad placement is enabled.
 	 * @return boolean Returns true if an AMP automatic ad placement is enabled,
 	 * otherwise returns false.
@@ -102,6 +121,21 @@ class AdPlugg_AMP {
 		}
 
 		return $ad_density;
+	}
+	
+	/**
+	 * Function that looks to see if AMP centering option is enabled.
+	 * @return boolean Returns true if the centering option is enabled,
+	 * otherwise returns false.
+	 */
+	public static function is_centering_enabled() {
+		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
+		$enabled = false;
+		if( ! empty( $options['amp_enable_centering'] ) ) {
+			$enabled = ($options['amp_enable_centering'] == 1) ? true : false;
+		}
+
+		return $enabled;
 	}
 	
 	/**

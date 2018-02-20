@@ -80,7 +80,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 	}
 	
 	/**
-	 * Test the adplugg_amp_settings_section is rendered and
+	 * Test the adplugg_amp_general_settings_section is rendered and
 	 * includes the expected fields.
 	 */	
 	public function test_adplugg_amp_settings_section() {
@@ -93,7 +93,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		
 		//Assert that the expected settings fields were registered and rendered
 		ob_start();
-		do_settings_sections( 'adplugg_amp_settings' );
+		do_settings_sections( 'adplugg_amp_general_settings' );
 		$outbound = ob_get_contents();
 		ob_end_clean();
 		
@@ -109,6 +109,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		//Set the enabple input that we will test with
 		$enable_input = 1;
 		$ad_density = 250;
+		$enable_centering = 1;
 		
 		//Clear out any previous settings errors.
 		global $wp_settings_errors;
@@ -119,6 +120,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		$input = array();
 		$input['amp_enable_automatic_placement'] = $enable_input;
 		$input['amp_ad_density'] = $ad_density;
+		$input['amp_enable_centering'] = $enable_centering;
 		
 		//Run the function.
 		$new_options = $adplugg_amp_options_page->validate( $input );
@@ -147,6 +149,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		//Set the enable input that we will test with
 		$enable_input = '2'; //this is invalid
 		$ad_density = 250;
+		$enable_centering = 0;
 		
 		//Clear out any previous settings errors.
 		global $wp_settings_errors;
@@ -157,6 +160,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		$input = array();
 		$input['amp_enable_automatic_placement'] = $enable_input;
 		$input['amp_ad_density'] = $ad_density;
+		$input['amp_enable_centering'] = $enable_centering;
 		
 		//Run the function.
 		$new_options = $adplugg_amp_options_page->validate( $input );
@@ -179,6 +183,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		//Set the enable input that we will test with
 		$enable_input = '<injection>'; //invalid
 		$ad_density = 250;
+		$enable_centering = 0;
 		
 		//Clear out any previous settings errors.
 		global $wp_settings_errors;
@@ -189,6 +194,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		$input = array();
 		$input['amp_enable_automatic_placement'] = $enable_input;
 		$input['amp_ad_density'] = $ad_density;
+		$input['amp_enable_centering'] = $enable_centering;
 		
 		//Run the function.
 		$new_options = $adplugg_amp_options_page->validate( $input );

@@ -69,25 +69,41 @@ class AdPlugg_AMP_Options_Page {
 			
 		register_setting( 'adplugg_amp_options', ADPLUGG_AMP_OPTIONS_NAME, array( &$this, 'validate' ) );
 		
+		// ------------- GENERAL AMP SETTINGS ------------ //
 		add_settings_section(
-			'adplugg_amp_section',
-			'AMP',
-			array( &$this,'render_amp_section_text' ),
-			'adplugg_amp_settings'
+			'adplugg_amp_general_section',
+			'General Settings',
+			array( &$this,'render_amp_general_section_text' ),
+			'adplugg_amp_general_settings'
 		);
 		add_settings_field(
 			'amp_enable_automatic_placement',
 			'Automatic Placement',
 			array( &$this, 'render_amp_enable_automatic_placement_field' ),
-			'adplugg_amp_settings', 
-			'adplugg_amp_section'
+			'adplugg_amp_general_settings', 
+			'adplugg_amp_general_section'
 		);
 		add_settings_field(
 			'amp_ad_density',
 			'Ad Density',
 			array( &$this, 'render_amp_ad_density_field' ),
-			'adplugg_amp_settings',
-			'adplugg_amp_section'
+			'adplugg_amp_general_settings',
+			'adplugg_amp_general_section'
+		);
+		
+		// ------------- AMP STYLE SETTINGS ------------ //
+		add_settings_section(
+			'adplugg_amp_style_section',
+			'Style Settings',
+			array( &$this,'render_amp_style_section_text' ),
+			'adplugg_amp_style_settings'
+		);
+		add_settings_field(
+			'amp_style_enable_centering',
+			'Center',
+			array( &$this, 'render_amp_enable_centering_field' ),
+			'adplugg_amp_style_settings', 
+			'adplugg_amp_style_section'
 		);
 		
 	}
@@ -98,11 +114,40 @@ class AdPlugg_AMP_Options_Page {
 	public function render_page() {
 	?>
 		<div class="wrap">
-			<div id="icon-options-general" class="icon32"><br /></div><h2>AMP Settings - AdPlugg</h2>
+			<div id="icon-options-general" class="icon32"><br /></div>
+			<h2>AMP Settings - AdPlugg</h2>
+			<h2>Help</h2>
+			<p>
+				To have AdPlugg ads automatically inserted into your AMP pages, do
+				the following:
+			</p>
+			<ol>
+				<li>
+					Ensure that you have the 
+					<a href="https://wordpress.org/plugins/amp/" 
+						title="Get the AMP plugin" target="_blank">
+						AMP</a> plugin installed.
+				</li>
+				<li>
+					Enable automatic placement by clicking the checkbox below.
+				</li>
+				<li>
+					Go to the <a href="<?php echo admin_url( 'widgets.php' ); ?>" 
+					title="Widgets configuration page">Widgets Configuration Page</a>
+					and drag the AdPlugg Widget into the Widget Area entitled 
+					"AMP Ads" (note you can add multiple widgets if desired).
+				</li>
+			</ol>
+			<p>
+				See the <a href="#" 
+					onclick="jQuery( '#contextual-help-link' ).trigger( 'click' ); return false;" title="Get help using this plugin.">help</a>
+					above for more info.
+			</p>
 			<?php settings_errors(); ?>
 			<form action="options.php" method="post">
 				<?php settings_fields( 'adplugg_amp_options' ); ?>
-				<?php do_settings_sections( 'adplugg_amp_settings' ); ?>
+				<?php do_settings_sections( 'adplugg_amp_general_settings' ); ?>
+				<?php do_settings_sections( 'adplugg_amp_style_settings' ); ?>
 				<p class="submit">
 					<input type="submit" name="Submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
 				</p>
@@ -112,38 +157,11 @@ class AdPlugg_AMP_Options_Page {
 	}
 	
 	/**
-	 * Function to render the text for the amp section.
-	 */
-	public function render_amp_section_text() {
-	?>
-		<p>
-			To have AdPlugg ads automatically inserted into your AMP pages, do
-			the following:
-		</p>
-		<ol>
-			<li>
-				Ensure that you have the 
-				<a href="https://wordpress.org/plugins/amp/" 
-					title="Get the AMP plugin" target="_blank">
-					AMP</a> plugin installed.
-			</li>
-			<li>
-				Enable automatic placement by clicking the checkbox below.
-			</li>
-			<li>
-				Go to the <a href="<?php echo admin_url( 'widgets.php' ); ?>" 
-				title="Widgets configuration page">Widgets Configuration Page</a>
-				and drag the AdPlugg Widget into the Widget Area entitled 
-				"AMP Ads" (note you can add multiple widgets if desired).
-			</li>
-		</ol>
-		<p>
-			See the <a href="#" 
-				onclick="jQuery( '#contextual-help-link' ).trigger( 'click' ); return false;" title="Get help using this plugin.">help</a>
-				above for more info.
-		</p>
-	<?php
-	}
+     * Function to render the text for the general settings section.
+     */
+    public function render_amp_general_section_text() {
+		//do nothing (for now)
+    }
 	
 	/**
 	 * Function to render the automatic placement field and description.
@@ -154,7 +172,7 @@ class AdPlugg_AMP_Options_Page {
 	 ?>
 		<label for="adplugg_amp_enable_automatic_placement">
 			<input type="checkbox" id="adplugg_amp_enable_automatic_placement" name="adplugg_amp_options[amp_enable_automatic_placement]" value="1" <?php echo checked( 1, $checked, false ) ?> />
-			Enable automatic placement of ads within your AMP pages.
+			Enable automatic placement of ads within my AMP pages.
 		</label>
 	<?php
 	}
@@ -176,6 +194,33 @@ class AdPlugg_AMP_Options_Page {
 		</p>
 	<?php
 	}
+	
+	/**
+     * Function to render the text for the style settings section.
+     */
+    public function render_amp_style_section_text() {
+    ?>
+        <p>
+            These settings control how your ads will display on the AMP pages.
+        </p>
+    <?php
+    }
+	
+	/**
+	 * Function to render the enable centering field and description.
+	 */
+	public function render_amp_enable_centering_field() {
+		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
+		$checked = ( array_key_exists( 'amp_enable_centering', $options ) ) ? $options['amp_enable_centering'] : 0;
+	 ?>
+		<label for="adplugg_amp_enable_centering">
+			<input type="checkbox" id="adplugg_amp_enable_centering" name="adplugg_amp_options[amp_enable_centering]" value="1" <?php echo checked( 1, $checked, false ) ?> />
+			Center the ads within my AMP pages.
+		</label>
+	<?php
+	}
+	
+	
 
 	/**
 	 * Function to validate the submitted AdPlugg AMP options field values. 
@@ -209,6 +254,14 @@ class AdPlugg_AMP_Options_Page {
 			$has_errors = true;
 			$msg_message = 'Invalid Ad Density option.';
 			$new_options['amp_ad_density'] = 250;
+		}
+		
+		//amp_center
+		$new_options['amp_enable_centering'] = intval( $input['amp_enable_centering'] );
+		if( ! preg_match('/^[01]$/', $new_options['amp_enable_centering'] ) ) {
+			$has_errors = true;
+			$msg_message = 'Invalid input for Center field.';
+			$new_options['amp_enable_centering'] = 0;
 		}
 		
 		//--- add a message ---//
