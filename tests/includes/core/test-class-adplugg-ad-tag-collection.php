@@ -13,10 +13,10 @@ class Test_AdPlugg_Ad_Tag_Collection extends WP_UnitTestCase {
 	 * Test the constructor.
 	 */	
 	public function test_constructor() {
-		$ad_tag_collection = new AdPlugg_Ad_Tag_Collection();
+		$ad_tags = new AdPlugg_Ad_Tag_Collection();
 		
 		//Assert that the AdPlugg_Ad_Tag_Collection was created as expected.
-		$this->assertEquals( 'AdPlugg_Ad_Tag_Collection', get_class( $ad_tag_collection ) );
+		$this->assertEquals( 'AdPlugg_Ad_Tag_Collection', get_class( $ad_tags ) );
 	}
 	
 	/**
@@ -27,13 +27,13 @@ class Test_AdPlugg_Ad_Tag_Collection extends WP_UnitTestCase {
 		$ad_tag = AdPlugg_Ad_Tag::create();
 
 		//Instantiate the class
-		$ad_tag_collection = new AdPlugg_Ad_Tag_Collection();
+		$ad_tags = new AdPlugg_Ad_Tag_Collection();
 		
 		//call the method
-		$ad_tag_collection->add( $ad_tag );
+		$ad_tags->add( $ad_tag );
 		
 		//Assert that the AdPlugg_Ad_Tag was added as expected
-		$this->assertEquals( 'AdPlugg_Ad_Tag', get_class( $ad_tag_collection->get( 0 ) ) );
+		$this->assertEquals( 'AdPlugg_Ad_Tag', get_class( $ad_tags->get( 0 ) ) );
 	}
 	
 	/**
@@ -42,14 +42,14 @@ class Test_AdPlugg_Ad_Tag_Collection extends WP_UnitTestCase {
 	public function test_get() {
 
 		//Instantiate the class
-		$ad_tag_collection = new AdPlugg_Ad_Tag_Collection();
+		$ad_tags = new AdPlugg_Ad_Tag_Collection();
 		
 		//Add an ad tag to the collection
-		$ad_tag_collection->add( AdPlugg_Ad_Tag::create() );
+		$ad_tags->add( AdPlugg_Ad_Tag::create() );
 		
 		//call the method
 		/* @var $ad_tag \AdPlugg_Ad_Tag */
-		$ad_tag = $ad_tag_collection->get( 0 );
+		$ad_tag = $ad_tags->get( 0 );
 		
 		//Assert that the AdPlugg_Ad_Tag was returned as expected
 		$this->assertEquals( 'AdPlugg_Ad_Tag', get_class( $ad_tag ) );
@@ -61,13 +61,13 @@ class Test_AdPlugg_Ad_Tag_Collection extends WP_UnitTestCase {
 	public function test_size() {
 
 		//Instantiate the class
-		$ad_tag_collection = new AdPlugg_Ad_Tag_Collection();
+		$ad_tags = new AdPlugg_Ad_Tag_Collection();
 		
 		//Add an ad tag to the collection
-		$ad_tag_collection->add( AdPlugg_Ad_Tag::create() );
+		$ad_tags->add( AdPlugg_Ad_Tag::create() );
 		
 		//Call the method
-		$size = $ad_tag_collection->size();
+		$size = $ad_tags->size();
 		
 		//Assert that the AdPlugg_Ad_Tag was returned as expected
 		$this->assertEquals( 1, $size );
@@ -79,21 +79,21 @@ class Test_AdPlugg_Ad_Tag_Collection extends WP_UnitTestCase {
 	public function test_next_with_no_default() {
 
 		//Instantiate the class
-		$ad_tag_collection = new AdPlugg_Ad_Tag_Collection();
+		$ad_tags = new AdPlugg_Ad_Tag_Collection();
 		
 		//Add an ad tag to the collection
-		$ad_tag_collection->add( AdPlugg_Ad_Tag::create() );
+		$ad_tags->add( AdPlugg_Ad_Tag::create() );
 		
 		//Call the method
 		/* @var $ad_tag \AdPlugg_Ad_Tag */
-		$ad_tag = $ad_tag_collection->next();
+		$ad_tag = $ad_tags->next();
 		
 		//Assert that the AdPlugg_Ad_Tag was returned as expected
 		$this->assertEquals( 'AdPlugg_Ad_Tag', get_class( $ad_tag ) );
 		
 		//Call the method again
 		/* @var $ad_tag \AdPlugg_Ad_Tag */
-		$ad_tag = $ad_tag_collection->next();
+		$ad_tag = $ad_tags->next();
 		
 		//Assert that null was returned as expected
 		$this->assertNull( $ad_tag );
@@ -105,17 +105,17 @@ class Test_AdPlugg_Ad_Tag_Collection extends WP_UnitTestCase {
 	public function test_next_default() {
 
 		//Instantiate the class
-		$ad_tag_collection = new AdPlugg_Ad_Tag_Collection();
+		$ad_tags = new AdPlugg_Ad_Tag_Collection();
 		
 		//Add a regular ad tag to the collection
-		$ad_tag_collection->add( AdPlugg_Ad_Tag::create() );
+		$ad_tags->add( AdPlugg_Ad_Tag::create() );
 		
 		//Add a default ad tag to the collection
-		$ad_tag_collection->add( AdPlugg_Ad_Tag::create()->enable_default_for_reuse() );
+		$ad_tags->add( AdPlugg_Ad_Tag::create()->enable_default_for_reuse() );
 		
 		//Call the method
 		/* @var $ad_tag \AdPlugg_Ad_Tag */
-		$ad_tag = $ad_tag_collection->next();
+		$ad_tag = $ad_tags->next();
 		
 		//Assert that the AdPlugg_Ad_Tag was returned as expected
 		$this->assertEquals( 'AdPlugg_Ad_Tag', get_class( $ad_tag ) );
@@ -123,7 +123,7 @@ class Test_AdPlugg_Ad_Tag_Collection extends WP_UnitTestCase {
 		
 		//Call the method again
 		/* @var $ad_tag \AdPlugg_Ad_Tag */
-		$ad_tag = $ad_tag_collection->next();
+		$ad_tag = $ad_tags->next();
 		
 		//Assert that default AdPlugg_Ad_Tag was returned as expected
 		$this->assertEquals( 'AdPlugg_Ad_Tag', get_class( $ad_tag ) );
@@ -136,13 +136,13 @@ class Test_AdPlugg_Ad_Tag_Collection extends WP_UnitTestCase {
 	public function test_to_array() {
 
 		//Instantiate the class
-		$ad_tag_collection = new AdPlugg_Ad_Tag_Collection();
+		$ad_tags = new AdPlugg_Ad_Tag_Collection();
 		
 		//Add an ad tag to the collection
-		$ad_tag_collection->add( AdPlugg_Ad_Tag::create() );
+		$ad_tags->add( AdPlugg_Ad_Tag::create() );
 		
 		//Call the method
-		$ad_tag_array = $ad_tag_collection->to_array();
+		$ad_tag_array = $ad_tags->to_array();
 		
 		//Assert that an array was returned as expected
 		$this->assertTrue( is_array( $ad_tag_array ) );

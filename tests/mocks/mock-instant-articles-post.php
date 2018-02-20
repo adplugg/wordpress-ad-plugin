@@ -60,11 +60,11 @@ class Instant_Articles_Post {
 	}
 	
 	/**
-	* Hook the sidebars_widgets filter.
-	* 
-	* @wp-hook sidebars_widgets
-	* @return Returns true.
-	*/
+	 * Hook the sidebars_widgets filter.
+	 * 
+	 * @wp-hook sidebars_widgets
+	 * @return Returns true.
+	 */
 	static function fake_wp_get_sidebars_widgets() {
 		$ret = array(
 					'facebook_ia_header_ads' => array(
