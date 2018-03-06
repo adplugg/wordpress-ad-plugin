@@ -1,3 +1,7 @@
+= 1.7.0 =
+
+* AMP (Accelerated Mobile Pages) support added.
+
 = 1.6.24 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to v4.0.6 of the FBIA plugin.
