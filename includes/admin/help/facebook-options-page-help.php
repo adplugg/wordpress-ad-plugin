@@ -65,10 +65,10 @@ function adplugg_facebook_options_page_help(
 			whether or not you want the Zone to be the "default" ad. 
 		</p>
 		<p>
-			The code from any Widgets in the Facebook Instant Articles Auto Ads
-			Widget Area will be automatically included in the header of each
-			post in your Instant Articles feed. Facebook will
-			then automatically distribute them thoughout the article\'s content.
+			The code from any Widgets in the Facebook Instant Articles Widget
+			Area will be automatically included in the header of each post in
+			your Instant Articles feed. Facebook will then automatically
+			distribute them thoughout the article\'s content.
 		</p>
 		<p>
 			The Widget marked as the default will be flagged as the default ad
