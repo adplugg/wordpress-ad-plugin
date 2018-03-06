@@ -34,7 +34,13 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	public function sanitize() {
 		
 		/* @var $body \DOMElement */
-		$body = $this->root_element;
+		if( isset( $this->root_element ) ) { // AMP Plugin > v0.7
+			/* @var $body \DOMElement */
+			$body = $this->root_element;
+		} else { // AMP Plugin < v0.7
+			/* @var $body \DOMElement */
+			$body = $this->get_body_node();
+		}
 		
 		if( $this->ad_tags->size() > 0 ) {
 
