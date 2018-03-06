@@ -101,7 +101,7 @@ class AdPlugg_Facebook {
 		);
 	}
 	
-	/*
+	/**
 	 * Singleton instance 
 	 */
 	public static function get_instance() {

@@ -4,7 +4,7 @@
 Plugin Name: AdPlugg
 Plugin URI: https://www.adplugg.com
 Description: The AdPlugg WordPress Ad Plugin is a simple plugin that allows you to easily insert ads on your WordPress blog. To get started: 1) Click the "Activate" link to the left of this description, 2) <a href="https://www.adplugg.com/apusers/signup?utm_source=wpplugin&utm_medium=referral&utm_campaign=plugins-page-l1">Sign up for a free AdPlugg account</a> and create an ad, 3) Go to the AdPlugg configuration page, and save your AdPlugg Access Code, and 4) Go to Appearance > Widgets and drag the AdPlugg Widget into your Widget Area. Get more help at <a href="https://www.adplugg.com/support?utm_source=wpplugin&utm_campaign=plugins-page-l2">www.adplugg.com/support</a>.
-Version: 1.6.24
+Version: 1.7.0
 Author: AdPlugg
 Author URI: www.adplugg.com
 License: GPL v3
@@ -44,11 +44,12 @@ if( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
 
 if( ! defined( 'ADPLUGG_ADJSSERVER' ) ) { define( 'ADPLUGG_ADJSSERVER', 'www.adplugg.com/apusers' ); }
 if( ! defined( 'ADPLUGG_ADHTMLSERVER' ) ) { define( 'ADPLUGG_ADHTMLSERVER', 'www.adplugg.io' ); }
-if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.6.24' ); }
+if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.7.0' ); }
 
 //Persisted options
 define( 'ADPLUGG_OPTIONS_NAME', 'adplugg_options' );
 define( 'ADPLUGG_FACEBOOK_OPTIONS_NAME', 'adplugg_facebook_options' );
+define( 'ADPLUGG_AMP_OPTIONS_NAME', 'adplugg_amp_options' );
 define( 'ADPLUGG_NOTICES_NAME', 'adplugg_notices' );
 define( 'ADPLUGG_NOTICES_DISMISSED_NAME', 'adplugg_notices_dismissed' );
 define( 'ADPLUGG_RATED_NAME', 'adplugg_rated' );
@@ -60,6 +61,12 @@ require_once( ADPLUGG_INCLUDES . 'class-adplugg-options.php' );
 require_once( ADPLUGG_INCLUDES . 'functions.php' );
 require_once( ADPLUGG_INCLUDES . 'class-adplugg-facebook.php' );
 require_once( ADPLUGG_PATH . 'tests/qunit.php' );
+
+require_once( ADPLUGG_INCLUDES . 'core/class-adplugg-ad-tag.php' );
+require_once( ADPLUGG_INCLUDES . 'core/class-adplugg-ad-tag-collection.php' );
+require_once( ADPLUGG_INCLUDES . 'core/class-adplugg-ad-tag-collector.php' );
+require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp.php' );
+
 require_once( ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php' );
 
 //Register the AdPlugg Widget
@@ -67,6 +74,8 @@ add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlug
 
 //Inits
 AdPlugg_Facebook::get_instance();
+AdPlugg_AMP::get_instance();
+AdPlugg_Ad_Tag_Collector::get_instance();
 
 if( is_admin() ) {
 	//---- ADMIN ----//
@@ -77,6 +86,7 @@ if( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
 	
 	//Initialize notifications system.
@@ -94,6 +104,9 @@ if( is_admin() ) {
 	
 	//Facebook integration
 	AdPlugg_Facebook_Options_Page::get_instance();
+	
+	//AMP integration
+	AdPlugg_AMP_Options_Page::get_instance();
 	
 	//Load qunit
 	if( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
@@ -113,5 +126,5 @@ if( is_admin() ) {
 	//Facebook Instant Articles
 	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-facebook-instant-articles.php' );
 	AdPlugg_Facebook_Instant_Articles::get_instance();
-
+	
 }

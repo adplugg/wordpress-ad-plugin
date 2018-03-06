@@ -1,9 +1,4 @@
 <?php
-/**
- * Class to create the adplugg widget
- * @package AdPlugg
- * @since 1.0
- */
 
 /**
  * Class to create the adplugg widget
@@ -15,7 +10,7 @@ class AdPlugg_Widget extends WP_Widget {
 	/**
 	 * Constructor.
 	 */
-	function __construct() {
+	public function __construct() {
 		$widget_options = array( 'classname' => 'adplugg', 'description' => 'A widget for displaying ads.' );
 		parent::__construct( 'adplugg', $name = 'AdPlugg', $widget_options );
 	}
@@ -24,10 +19,10 @@ class AdPlugg_Widget extends WP_Widget {
 	 * Widget form creation. Displays the form in the widget admin.
 	 * @param array $instance Current settings
 	 */
-	function form( $instance ) {
+	public function form( $instance ) {
 		
 		// Check values
-	$title = ( ( $instance ) && ( isset( $instance['title'] ) ) ) 
+		$title = ( ( $instance ) && ( isset( $instance['title'] ) ) ) 
 					? $instance['title'] : '';
 		$zone = ( ( $instance ) && ( isset( $instance['zone'] ) ) ) 
 					? $instance['zone'] : '';
@@ -43,6 +38,8 @@ class AdPlugg_Widget extends WP_Widget {
 		$widget_title = ( $zone != '' ) ? $zone : '';
 		
 		//Render the form
+		//Note: we always render all fields but sometimes hide certain fields
+		//via css (admin.css) if they aren't relevant to the widget area.
 		?>
 			<p>
 				<a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=widget-l1" target="_blank" title="Configure at adplugg.com">Configure at adplugg.com</a>
@@ -50,38 +47,48 @@ class AdPlugg_Widget extends WP_Widget {
 				<a href="#" onclick="jQuery( '#contextual-help-link' ).trigger('click'); return false;" title="Help">Help</a>
 			</p>
 			<fieldset class="adplugg-widget-fieldset">
-				<legend class="adplugg_widget_optional_legend">Optional Settings</legend>
-				<legend class="adplugg_widget_legend">Settings</legend>
+				<legend class="adplugg-widget-optional-legend">Optional Settings</legend>
+				<legend class="adplugg-widget-legend">Settings</legend>
 				<?php // ------ title ------ ?>
-				<label for="<?php echo $this->get_field_id( 'title' ) ?>'">Title:</label>
-				<input type="hidden" id="widget-title" value="<?php echo $widget_title; ?>">
-				<?php echo '<input class="widefat" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" type="text" value="' . $title . '" />'; ?>
-				<small>Enter a title for the widget.</small><br/>
+				<div class="adplugg-widget-field-title">
+					<label for="<?php echo $this->get_field_id( 'title' ) ?>'">Title:</label>
+					<input type="hidden" id="widget-title" value="<?php echo $widget_title; ?>">
+					<?php echo '<input class="widefat" id="' . $this->get_field_id( 'title' ) . '" name="' . $this->get_field_name( 'title' ) . '" type="text" value="' . $title . '" />'; ?>
+					<small>Enter a title for the widget.</small><br/>
+				</div>
 				<?php // ------ zone ------ ?>
-				<label for="<?php echo $this->get_field_id( 'zone' ); ?>">Zone:</label>
-				<?php echo '<input class="widefat" id="' . $this->get_field_id( 'zone' ) . '" name="' . $this->get_field_name( 'zone' ) . '" type="text" value="' . $zone . '" />'; ?>
-				<small>Enter the zone machine name.</small><br/>
+				<div class="adplugg-widget-field-zone">
+					<label for="<?php echo $this->get_field_id( 'zone' ); ?>">Zone:</label>
+					<?php echo '<input class="widefat" id="' . $this->get_field_id( 'zone' ) . '" name="' . $this->get_field_name( 'zone' ) . '" type="text" value="' . $zone . '" />'; ?>
+					<small>Enter the zone machine name.</small><br/>
+				</div>
 				<?php // ------ width ------ ?>
-				<label class="adplugg-fbia-only" for="<?php echo $this->get_field_id( 'width' ); ?>">Width:</label>
-				<?php echo '<input class="widefat adplugg-fbia-only" id="' . $this->get_field_id( 'width' ) . '" name="' . $this->get_field_name( 'width' ) . '" type="text" value="' . $width . '" />'; ?>
-				<small class="adplugg-fbia-only">Enter the width.</small><br class="adplugg-fbia-only"/>
+				<div class="adplugg-widget-field-width">
+					<label for="<?php echo $this->get_field_id( 'width' ); ?>">Width:</label>
+					<?php echo '<input class="widefat" id="' . $this->get_field_id( 'width' ) . '" name="' . $this->get_field_name( 'width' ) . '" type="text" value="' . $width . '" />'; ?>
+					<small>Enter the width.</small><br/>
+				</div>
 				<?php // ------ height ------ ?>
-				<label class="adplugg-fbia-only" for="<?php echo $this->get_field_id( 'height' ); ?>">Height:</label>
-				<?php echo '<input class="widefat adplugg-fbia-only" id="' . $this->get_field_id( 'height' ) . '" name="' . $this->get_field_name( 'height' ) . '" type="text" value="' . $height . '" />'; ?>
-				<small class="adplugg-fbia-only">Enter the height.</small><br class="adplugg-fbia-only"/>
+				<div class="adplugg-widget-field-height">
+					<label for="<?php echo $this->get_field_id( 'height' ); ?>">Height:</label>
+					<?php echo '<input class="widefat" id="' . $this->get_field_id( 'height' ) . '" name="' . $this->get_field_name( 'height' ) . '" type="text" value="' . $height . '" />'; ?>
+					<small>Enter the height.</small><br/>
+				</div>
 				<?php // ------ default ------ ?>
-				<label class="adplugg-fbia-only" for="<?php echo $this->get_field_id( 'default' ); ?>">
-					<?php echo '<input class="adplugg-fbia-only" type="checkbox" id="' . $this->get_field_id( 'default' ) . '" name="' . $this->get_field_name( 'default' ) . '" value="1" ' . checked( 1, $default, false ) . '" />'; ?>
-					Default
-				</label><br class="adplugg-fbia-only"/>
-				<small class="adplugg-fbia-only">Check to make this zone the default.</small><br class="adplugg-fbia-only"/>
+				<div class="adplugg-widget-field-default">
+					<label for="<?php echo $this->get_field_id( 'default' ); ?>">
+						<?php echo '<input type="checkbox" id="' . $this->get_field_id( 'default' ) . '" name="' . $this->get_field_name( 'default' ) . '" value="1" ' . checked( 1, $default, false ) . '" />'; ?>
+						Default
+					</label><br/>
+					<small>Check to make this zone the default.</small><br/>
+				</div>	
 		<?php
 	}
 
 	/**
 	 * Widget update. Called when widget admin form is submitted.
 	 */
-	function update( $new_instance, $old_instance ) {
+	public function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['zone'] = sanitize_key( $new_instance['zone'] );
@@ -95,7 +102,7 @@ class AdPlugg_Widget extends WP_Widget {
 	/**
 	 * Widget frontend display
 	 */
-	function widget( $args, $instance ) {
+	public function widget( $args, $instance ) {
 		
 		extract($args);
 		
@@ -140,4 +147,5 @@ class AdPlugg_Widget extends WP_Widget {
 		}
 		
 	}
+	
 }

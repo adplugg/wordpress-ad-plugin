@@ -27,7 +27,7 @@ function adplugg_widgets_page_help( $contextual_help, $screen_id, $screen ) {
 	<ul>
 		<li><strong>Title:</strong> Though it may depend on your theme, the
 			text that you enter into the Title field typically displays just
-			above the widget.  For example, you could enter "Sponsors" to have
+			above the widget. For example, you could enter "Sponsors" to have
 			the word "Sponsors" display above your ads. Don\'t want a title?
 			Just leave this field blank.
 		</li>
