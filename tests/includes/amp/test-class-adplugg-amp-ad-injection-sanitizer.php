@@ -52,13 +52,13 @@ class Test_AdPlugg_AMP_Ad_Injection_Sanitizer extends WP_UnitTestCase {
 		// ========== traverse the dom ========== //
 		
 		/* @var $html \DomNode */
-		$html = $dom->childNodes[1];
+		$html = $dom->childNodes->item(1);
 		
 		/* @var $body \DomNode */
-		$body = $html->childNodes[1];
+		$body = $html->childNodes->item(1);
 		
 		/* @var $amp_ad \DomNode */
-		$amp_ad = $body->childNodes[1];
+		$amp_ad = $body->childNodes->item(1);
 		
 		//var_dump($ad_tag);
 		
