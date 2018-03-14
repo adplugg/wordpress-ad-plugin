@@ -123,8 +123,10 @@ if( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php' );
 	AdPlugg_Feed::get_instance();
 	
-	//Facebook Instant Articles
-	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-facebook-instant-articles.php' );
-	AdPlugg_Facebook_Instant_Articles::get_instance();
+	//Facebook Instant Articles (only works on PHP 5.3.0 or higher)
+	if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
+		require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-facebook-instant-articles.php' );
+		AdPlugg_Facebook_Instant_Articles::get_instance();
+	}
 	
 }

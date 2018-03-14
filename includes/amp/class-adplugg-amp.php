@@ -21,11 +21,11 @@ class AdPlugg_AMP {
 	
 	/**
 	 * Constructor. Constructs the class and registers filters and actions.
-	 * @param \AdPlugg_Ad_Tag_Collection $ad_tags (optional) Optionally pass an
+	 * @param AdPlugg_Ad_Tag_Collection $ad_tags (optional) Optionally pass an
 	 * ad tag collection to use on the AMP pages. This is mostly done for unit
 	 * testing.
 	 */
-	public function __construct( \AdPlugg_Ad_Tag_Collection $ad_tags = null ) {
+	public function __construct( AdPlugg_Ad_Tag_Collection $ad_tags = null ) {
 		add_action( 'widgets_init', array( &$this, 'amp_ads_widget_area_init' ), 10, 0 );
 		add_action( 'amp_post_template_css', array( &$this, 'add_additional_css_styles' ), 10, 1 );
 		add_filter( 'amp_content_sanitizers', array( &$this, 'add_ad_sanitizer' ), 10, 2 );

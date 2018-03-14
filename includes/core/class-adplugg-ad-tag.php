@@ -153,7 +153,7 @@ class AdPlugg_Ad_Tag {
      */
     public function to_amp_ad( $document = null ) {
         if ( ! $document ) {
-            $document = new \DOMDocument();
+            $document = new DOMDocument();
         }
 
 		//create the amp-ad element

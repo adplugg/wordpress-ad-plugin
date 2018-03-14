@@ -27,7 +27,7 @@ class AdPlugg_Ad_Tag_Collector {
 	public function get_ad_tags( $widget_area_id ) {
 		global $wp_registered_widgets;
 		
-		$ad_tags = new \AdPlugg_Ad_Tag_Collection();
+		$ad_tags = new AdPlugg_Ad_Tag_Collection();
 			
 		$sidebars_widgets = wp_get_sidebars_widgets();
 		

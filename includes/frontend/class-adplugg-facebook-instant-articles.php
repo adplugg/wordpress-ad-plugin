@@ -18,6 +18,7 @@ class AdPlugg_Facebook_Instant_Articles {
 	 */
 	static $instance;
 	
+	/** @var Facebook\InstantArticles\Elements\InstantArticle */
 	private $instant_article;
 	
 	/**
@@ -98,7 +99,7 @@ class AdPlugg_Facebook_Instant_Articles {
 	 * @todo Add unit tests
 	 */
 	public function insert_ads( $post ) {
-		
+		/** @var $header Facebook\InstantArticles\Elements\Header */
 		$header = $this->instant_article->getHeader();
 		
 		$settings_ads = Instant_Articles_Option_Ads::get_option_decoded();
