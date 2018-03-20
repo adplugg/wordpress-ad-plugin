@@ -56,6 +56,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 			/* @var $ad_tag \AdPlugg_Ad_Tag */
 			$ad_tag = $this->ad_tags->next();
 			
+			$num_ads_inserted = 0;
 			$i = 0;
 			//loop through all p tags
 			while( ( $i < $p_nodes_len ) && ( $ad_tag !== null ) ) {
@@ -69,19 +70,9 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 				if( $curr_word_count >= $ad_density ) {
 					//insert an ad
 					
-					//create the amp_ad
-					$amp_ad = $ad_tag->to_amp_ad( $this->dom );
-					
-					//create a debug_node
-					if( $this->DEBUG ) {
-						// Add a placeholder to show while loading
-						$fallback_node = $this->dom->createElement( 'amp-img' );
-						$fallback_node->setAttribute( 'placeholder', '' );
-						$fallback_node->setAttribute( 'layout', 'fill' );
-						$fallback_node->setAttribute( 'src', 'https://placehold.it/' . $ad_tag->get_width() . 'x' . $ad_tag->get_height() );
-						$amp_ad->appendChild( $fallback_node );
-						$debug_node = $this->dom->createElement( 'h4', $i . ':' . $curr_word_count );
-					}
+					// Create the amp-ad tag
+					/* @var $amp_ad \DOMElement */
+					$amp_ad = $this->create_amp_ad( $ad_tag );
 					
 					//if there is a following paragraph, insert before it,
 					//otherwise append to the body
@@ -90,12 +81,14 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 						$p_node_plus_one->parentNode->insertBefore( $amp_ad,  $p_node_plus_one );
 						
 						if( $this->DEBUG ) {
+							$debug_node = $this->dom->createElement( 'h4', $i . ':' . $curr_word_count );
 							$p_node_plus_one->parentNode->insertBefore( $debug_node,  $p_node_plus_one );
 						}
 					} else {
 						$body->appendChild( $amp_ad );
 						
 						if( $this->DEBUG ) {
+							$debug_node = $this->dom->createElement( 'h4', $i . ':' . $curr_word_count );
 							$body->appendChild( $debug_node );
 						}
 					}
@@ -103,11 +96,59 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 					//reset the curr_word_count and move to the next ad tag
 					$curr_word_count = 0;
 					$ad_tag = $this->ad_tags->next();
-				}
+					$num_ads_inserted++;
+				} // end insert
 				
 				$i++;
-			} //end while
+			} //end while more p tags
+			
+			// Low word count insert
+			// If no ads have been inserted at this point (this would be due to
+			// low word count), just add one to the bottom of the post.
+			if ( ( $num_ads_inserted == 0 ) && ( $p_nodes_len > 0 ) ) {
+				$this->ad_tags->reset();
+				
+				/* @var $ad_tag \AdPlugg_Ad_Tag */
+				$ad_tag = $this->ad_tags->next();
+				
+				if( $ad_tag !== null ) {
+				
+					/* @var $amp_ad \DOMElement */
+					$amp_ad = $this->create_amp_ad( $ad_tag );
+				
+					$body->appendChild( $amp_ad );
+				}
+			} // end low word count insert
+			
+		} // end if ad tags
+	}
+	
+	/**
+	 * Creates an amp-ad
+	 * @param AdPlugg_Ad_Tag $ad_tag The AdPlugg_Ad_Tag to use to create the
+	 * amp_ad.
+	 * @return DOMElement Returns an amp-ad DOMElement.
+	 */
+	private function create_amp_ad( $ad_tag) {
+		//create the amp_ad
+		
+		/* @var $amp_ad DOMElement */
+		$amp_ad = $ad_tag->to_amp_ad( $this->dom );
+		
+		//create a debug_node
+		if( $this->DEBUG ) {
+			// Add a placeholder to show while loading
+			$fallback_node = $this->dom->createElement( 'amp-img' );
+			$fallback_node->setAttribute( 'placeholder', '' );
+			$fallback_node->setAttribute( 'layout', 'fill' );
+			$fallback_node->setAttribute( 
+								'src', 
+								'https://placehold.it/' . $ad_tag->get_width() . 'x' . $ad_tag->get_height() 
+							);
+			$amp_ad->appendChild( $fallback_node );
 		}
+		
+		return $amp_ad;
 	}
 	
 }
