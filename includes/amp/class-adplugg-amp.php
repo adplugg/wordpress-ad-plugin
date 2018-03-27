@@ -80,16 +80,22 @@ class AdPlugg_AMP {
 	 * @param AMP_Post_Template $amp_template
 	 */
 	public function add_additional_css_styles( $amp_template ) {
-		if(
-			self::is_amp_automatic_placement_enabled() &&
-			self::is_centering_enabled()
-		) {
+		if( self::is_amp_automatic_placement_enabled() ) {
+			
+			if( self::is_centering_enabled() ) {
 			?>
-				amp-ad[type="adplugg"] {
-					display:block;
-					margin: 0 auto;
-				}
+amp-ad[type="adplugg"] {
+	display:block;
+	margin: 0 auto 1em auto;
+}
 			<?php
+			} else { //centering not enabled
+			?>
+amp-ad[type="adplugg"] {
+	margin-bottom: 0.5em;
+}			
+			<?php
+			}
 		}
 	}
 	
