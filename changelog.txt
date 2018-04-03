@@ -1,3 +1,7 @@
+= 1.8.3 =
+
+* Fixed an issue with the option validation.
+
 = 1.8.2 =
 
 * AMP ad bottom margin now properly matches its top margin.
