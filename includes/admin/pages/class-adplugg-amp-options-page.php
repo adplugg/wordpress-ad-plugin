@@ -241,7 +241,7 @@ class AdPlugg_AMP_Options_Page {
 		//--- process the new values ----
 		
 		//amp_enable_automatic_placement
-		$new_options['amp_enable_automatic_placement'] = intval( $input['amp_enable_automatic_placement'] );
+		$new_options['amp_enable_automatic_placement'] = ( isset( $input['amp_enable_automatic_placement'] ) ) ? intval( $input['amp_enable_automatic_placement'] ) : 0;
 		if( ! preg_match('/^[01]$/', $new_options['amp_enable_automatic_placement'] ) ) {
 			$has_errors = true;
 			$msg_message = 'Invalid Enable Automatic Placement option.';
@@ -257,7 +257,7 @@ class AdPlugg_AMP_Options_Page {
 		}
 		
 		//amp_center
-		$new_options['amp_enable_centering'] = intval( $input['amp_enable_centering'] );
+		$new_options['amp_enable_centering'] = ( isset( $input['amp_enable_centering'] ) ) ? intval( $input['amp_enable_centering'] ) : 0;
 		if( ! preg_match('/^[01]$/', $new_options['amp_enable_centering'] ) ) {
 			$has_errors = true;
 			$msg_message = 'Invalid input for Center field.';
@@ -267,17 +267,14 @@ class AdPlugg_AMP_Options_Page {
 		//--- add a message ---//
 		if( $has_errors ) {
 			$msg_type = 'error';
-		} else {
-			$msg_type = 'updated';
-			$msg_message = 'Settings saved.';
-		}
 		
-		add_settings_error(
-			'AdPluggAMPOptionsSaveMessage',
-			esc_attr('settings_updated'),
-			$msg_message,
-			$msg_type
-		);
+			add_settings_error(
+				'AdPluggAMPOptionsSaveMessage',
+				esc_attr('settings_updated'),
+				$msg_message,
+				$msg_type
+			);
+		}
 		
 		return $new_options;
 	}
