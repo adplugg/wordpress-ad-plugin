@@ -156,26 +156,27 @@ class AdPlugg_Options_Page {
 		$old_options = get_option( ADPLUGG_OPTIONS_NAME );
 		$new_options = $old_options;  //start with the old options.
 		
+		$has_errors = false;
 		$msg_type = null;
 		$msg_message = null;
 		
 		//process the new values
 		$new_options['access_code'] = trim( $input['access_code'] );
 		if ( ! preg_match( '/^[a-z0-9]*$/i', $new_options['access_code'] ) ) {
-			$msg_type = 'error';
+			$has_errors = true;
 			$msg_message = 'Please enter a valid Access Code.';
 			$new_options['access_code'] = '';
-		} else {
-			$msg_type = 'updated';
-			$msg_message = 'Settings saved.';
 		}
 		
-		add_settings_error(
-			'AdPluggOptionsSaveMessage',
-			esc_attr('settings_updated'),
-			$msg_message,
-			$msg_type
-		);
+		if( $has_errors ) {
+			$msg_type = 'error';
+			add_settings_error(
+				'AdPluggOptionsSaveMessage',
+				esc_attr('settings_updated'),
+				$msg_message,
+				$msg_type
+			);
+		}
 		
 		return $new_options;
 	}
