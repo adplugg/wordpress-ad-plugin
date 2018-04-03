@@ -207,15 +207,9 @@ class Test_Options_Page extends WP_UnitTestCase {
 		
 		//Get the messages
 		$settings_errors = get_settings_errors();
-		$type = $settings_errors[0]['type'];
 		
 		//Assert that no errors were thrown.
-		foreach( $settings_errors as $key => $details ) {
-			$this->assertNotEquals( 'error', $details['type'] );
-		}
-		
-		//Assert that the settings were saved.
-		$this->assertEquals( 'updated', $settings_errors[0]['type'] );
+		$this->assertEmpty( $settings_errors );
 		
 		//Assert that the settings were stored.
 		$this->assertEquals( $access_code, $new_options['access_code'] );

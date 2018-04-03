@@ -161,12 +161,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		$settings_errors = get_settings_errors();
 		
 		//Assert that no errors were thrown.
-		foreach ( $settings_errors as $key => $details ) {
-			$this->assertNotEquals( 'error', $details['type'] );
-		}
-		
-		//Assert that the settings were saved.
-		$this->assertEquals( 'updated', $settings_errors[0]['type'] );
+		$this->assertEmpty( $settings_errors );
 		
 		//Assert that the settings were stored.
 		$this->assertFalse( empty( $new_options['amp_enable_automatic_placement'] ) );
