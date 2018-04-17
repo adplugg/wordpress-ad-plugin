@@ -165,7 +165,7 @@ class AdPlugg_Facebook_Options_Page {
 	 ?>
 		<label for="adplugg_facebook_ia_enable_automatic_placement">
 			<input type="checkbox" id="adplugg_facebook_ia_enable_automatic_placement" name="adplugg_facebook_options[ia_enable_automatic_placement]" value="1" <?php echo checked( 1, $checked, false ) ?> />
-			Enable automatic placement of ads within your posts.
+			Enable automatic placement of ads within my posts.
 		</label>
 	<?php
 	} //end function
