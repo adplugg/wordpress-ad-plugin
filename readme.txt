@@ -39,7 +39,7 @@ The FREE AdPlugg Ad Service includes the following amazing features:
 * Zones - Break your site up into different zones such as the top bar or side bar.
 * Placements - Group your ads into placements to simplify management and tracking.
 * Easy Setup - Easily create and setup your ads.
-* Timed Rotate - (NEW) Set your ads to rotate after a set interval.
+* Timed Rotate - Set your ads to rotate after a set interval.
 
 The PRO AdPlugg Ad Service adds the following additional features:
 
