@@ -7,7 +7,7 @@ Requires at least: 3.3
 Tested up to: 4.9.5
 Requires PHP: 5.2.4
 FBIA tested up to: 4.0.6
-Stable tag: 1.8.4
+Stable tag: 1.8.5
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server 
 allow you to easily manage, schedule, rotate and track your ads.
@@ -67,6 +67,10 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 1. The AdPlugg WordPress Ad Plugin makes it easy to place ads on your WordPress site.
 
 == Changelog ==
+
+= 1.8.5 =
+* Updated the label text on the FBIA automatic placement option to be more clear and consistent.
+* Updated the readme.txt to remove "New" from the timed rotate feature.
 
 = 1.8.4 =
 * Updated the readme to reflect that the plugin has been test up to WordPress 4.9.5.
