@@ -10,7 +10,7 @@
 class Test_AdPlugg_Facebook extends WP_UnitTestCase {
 
 	/**
-	 * Test the is_ia_automatic_placement_enabled() function.
+	 * Test the facebook_instant_articles_header_widget_area_init() function.
 	 */	
 	function test_facebook_instant_articles_header_widget_area_init() {
 		
