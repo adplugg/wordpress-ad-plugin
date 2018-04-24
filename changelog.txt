@@ -1,3 +1,7 @@
+= 1.8.6 =
+
+* Updated the incorrect PHPDoc on some of the FBIA related methods.
+
 = 1.8.5 =
 
 * Updated the label text on the FBIA automatic placement option to be more clear and consistent.
