@@ -117,7 +117,7 @@ class AdPlugg_Facebook_Options_Page {
 	}
 	
 	/**
-	 * Function to render the text for the access section.
+	 * Function to render the text for the instant articles section.
 	 */
 	function render_facebook_instant_articles_section_text() {
 	?>
