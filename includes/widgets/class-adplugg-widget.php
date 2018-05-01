@@ -117,8 +117,8 @@ class AdPlugg_Widget extends WP_Widget {
 		$default = ( isset( $instance['default'] ) && $instance['default'] == 1 ) ? 1 : 0;
 		
 		//------ Render the Widget ------//
-		if( ( isset( $args['id'] ) ) && ( $args['id'] == 'facebook_ia_header_ads' ) ) {
-			if( AdPlugg_Options::is_access_code_installed() ) {
+		if ( ( isset( $args['id'] ) ) && ( $args['id'] == 'facebook_ia_header_ads' ) ) {
+			if ( AdPlugg_Options::is_access_code_installed() ) {
 				// ------------- FACEBOOK INSTANT ARTICLES FEED ----------//
 				//configure variables
 				$post_url = $GLOBALS['adplugg_fbia_canonical_url'];

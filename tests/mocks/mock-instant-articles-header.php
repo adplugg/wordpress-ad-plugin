@@ -25,7 +25,7 @@ class Header {
 	 * @param Ad $ad
 	 */
 	public function addAd( $ad ) {
-		if( $this->ads == null ) {
+		if ( $this->ads == null ) {
 			$this->ads = array();
 		}
 		

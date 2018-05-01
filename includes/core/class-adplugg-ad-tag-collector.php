@@ -31,11 +31,11 @@ class AdPlugg_Ad_Tag_Collector {
 			
 		$sidebars_widgets = wp_get_sidebars_widgets();
 		
-		if( array_key_exists( $widget_area_id, $sidebars_widgets ) ) {
+		if ( array_key_exists( $widget_area_id, $sidebars_widgets ) ) {
 			foreach ( (array) $sidebars_widgets[$widget_area_id] as $id ) {
 				$widget = $wp_registered_widgets[$id]['callback']['0'];
 				$params = $wp_registered_widgets[$id]['params']['0'];
-				if( get_class( $widget) == 'AdPlugg_Widget' ) {
+				if ( get_class( $widget) == 'AdPlugg_Widget' ) {
 					$option_name = $widget->option_name;
 					$number = $params['number'];
 					$all_options = get_option( $option_name, array() );
@@ -50,11 +50,11 @@ class AdPlugg_Ad_Tag_Collector {
 								->with_width( $width )
 								->with_height( $height );
 
-					if( $default ) {
+					if ( $default ) {
 						$ad_tag->enable_default_for_reuse();
 					}
 
-					if( $zone != null ) {
+					if ( $zone != null ) {
 						$ad_tag->with_zone( $zone );
 					}
 

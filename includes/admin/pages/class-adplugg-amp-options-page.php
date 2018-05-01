@@ -48,7 +48,7 @@ class AdPlugg_AMP_Options_Page {
 		$screen = get_current_screen();
 		$screen_id = ( ! empty( $screen ) ? $screen->id : null );
 
-		if( $screen_id == 'adplugg_page_adplugg_amp_settings' ) {
+		if ( $screen_id == 'adplugg_page_adplugg_amp_settings' ) {
 			//Show notice if amp plugin isn't found.
 			if ( ! defined( 'AMP__VERSION' ) ) {
 				$amp_not_found_notice = 
@@ -242,7 +242,7 @@ class AdPlugg_AMP_Options_Page {
 		
 		//amp_enable_automatic_placement
 		$new_options['amp_enable_automatic_placement'] = ( isset( $input['amp_enable_automatic_placement'] ) ) ? intval( $input['amp_enable_automatic_placement'] ) : 0;
-		if( ! preg_match('/^[01]$/', $new_options['amp_enable_automatic_placement'] ) ) {
+		if ( ! preg_match('/^[01]$/', $new_options['amp_enable_automatic_placement'] ) ) {
 			$has_errors = true;
 			$msg_message = 'Invalid Enable Automatic Placement option.';
 			$new_options['amp_enable_automatic_placement'] = 0;
@@ -250,7 +250,7 @@ class AdPlugg_AMP_Options_Page {
 		
 		//amp_ad_density
 		$new_options['amp_ad_density'] = intval( $input['amp_ad_density'] );
-		if( ! preg_match('/^[\d]{3}$/', $new_options['amp_ad_density'] ) ) {
+		if ( ! preg_match('/^[\d]{3}$/', $new_options['amp_ad_density'] ) ) {
 			$has_errors = true;
 			$msg_message = 'Invalid Ad Density option.';
 			$new_options['amp_ad_density'] = 250;
@@ -258,14 +258,14 @@ class AdPlugg_AMP_Options_Page {
 		
 		//amp_center
 		$new_options['amp_enable_centering'] = ( isset( $input['amp_enable_centering'] ) ) ? intval( $input['amp_enable_centering'] ) : 0;
-		if( ! preg_match('/^[01]$/', $new_options['amp_enable_centering'] ) ) {
+		if ( ! preg_match('/^[01]$/', $new_options['amp_enable_centering'] ) ) {
 			$has_errors = true;
 			$msg_message = 'Invalid input for Center field.';
 			$new_options['amp_enable_centering'] = 0;
 		}
 		
 		//--- add a message ---//
-		if( $has_errors ) {
+		if ( $has_errors ) {
 			$msg_type = 'error';
 		
 			add_settings_error(

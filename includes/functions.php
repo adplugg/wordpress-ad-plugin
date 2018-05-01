@@ -16,7 +16,7 @@ function adplugg_is_widget_active() {
 	/* is_active_widget doesn't work if the plugin is deactivated and then reactivated.
 	 * if the widget is active it will have more than one option, so this works.
 	 */
-	if( ( ! is_null( $widget_options ) ) && ( sizeof( $widget_options ) > 1 ) ) {
+	if ( ( ! is_null( $widget_options ) ) && ( sizeof( $widget_options ) > 1 ) ) {
 		return true;
 	} else {
 		return false;

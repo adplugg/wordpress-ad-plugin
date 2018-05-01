@@ -19,7 +19,7 @@ abstract class AdPlugg_Options {
 	public static function is_access_code_installed() {
 		$options = get_option( ADPLUGG_OPTIONS_NAME, array() );
 
-		if( ! empty( $options['access_code'] ) ) {
+		if ( ! empty( $options['access_code'] ) ) {
 			return true;
 		} else {
 			return false;
@@ -33,10 +33,10 @@ abstract class AdPlugg_Options {
 	public static function get_active_access_code() {
 		$access_code = null;
 		$options = get_option( ADPLUGG_OPTIONS_NAME, array() );
-		if( ! empty( $options['access_code'] ) ) {
+		if ( ! empty( $options['access_code'] ) ) {
 			$access_code = $options['access_code'];
 		}
-		if( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
+		if ( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
 			$access_code = ADPLUGG_OVERRIDE_ACCESS_CODE;
 		}
 

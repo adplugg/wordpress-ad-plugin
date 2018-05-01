@@ -168,7 +168,7 @@ class AdPlugg_Options_Page {
 			$new_options['access_code'] = '';
 		}
 		
-		if( $has_errors ) {
+		if ( $has_errors ) {
 			$msg_type = 'error';
 			add_settings_error(
 				'AdPluggOptionsSaveMessage',

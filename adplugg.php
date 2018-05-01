@@ -38,13 +38,13 @@ define( 'ADPLUGG_BASENAME', plugin_basename(__FILE__) );
 define( 'ADPLUGG_URL', plugins_url( '/', __FILE__ ) );
 
 //Include the optional config.php file
-if( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
+if ( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
 	include_once( ADPLUGG_PATH . 'config.php' );
 }
 
-if( ! defined( 'ADPLUGG_ADJSSERVER' ) ) { define( 'ADPLUGG_ADJSSERVER', 'www.adplugg.com/apusers' ); }
-if( ! defined( 'ADPLUGG_ADHTMLSERVER' ) ) { define( 'ADPLUGG_ADHTMLSERVER', 'www.adplugg.io' ); }
-if( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.8.6' ); }
+if ( ! defined( 'ADPLUGG_ADJSSERVER' ) ) { define( 'ADPLUGG_ADJSSERVER', 'www.adplugg.com/apusers' ); }
+if ( ! defined( 'ADPLUGG_ADHTMLSERVER' ) ) { define( 'ADPLUGG_ADHTMLSERVER', 'www.adplugg.io' ); }
+if ( ! defined( 'ADPLUGG_VERSION' ) ) { define( 'ADPLUGG_VERSION', '1.8.6' ); }
 
 //Persisted options
 define( 'ADPLUGG_OPTIONS_NAME', 'adplugg_options' );
@@ -77,7 +77,7 @@ AdPlugg_Facebook::get_instance();
 AdPlugg_AMP::get_instance();
 AdPlugg_Ad_Tag_Collector::get_instance();
 
-if( is_admin() ) {
+if ( is_admin() ) {
 	//---- ADMIN ----//
 	//Includes
 	require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
@@ -109,7 +109,7 @@ if( is_admin() ) {
 	AdPlugg_AMP_Options_Page::get_instance();
 	
 	//Load qunit
-	if( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
+	if ( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
 		add_action( 'admin_footer', 'adplugg_load_qunit' );
 	}
 

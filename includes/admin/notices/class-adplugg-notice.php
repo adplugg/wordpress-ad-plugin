@@ -133,24 +133,24 @@ class AdPlugg_Notice {
 	public function get_rendered() {
 		$html = '';
 	
-		if( ! $this->is_dismissed() ) {
+		if ( ! $this->is_dismissed() ) {
 			$buttons = '';
 			$html .= '<div id="' . $this->notice_key . '" class="' . $this->type . ' notice notice-' . $this->type . ' is-dismissible adplugg-notice">';
 			$html .=	 '<p>' .
 							'<strong>AdPlugg:</strong> ' .
 							$this->message . 
 						'</p>';
-			if( $this->dismissible ) {
+			if ( $this->dismissible ) {
 				$buttons = 
 							'<button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'' . $this->notice_key . '\', \'+30 days\');">Remind Me Later</button>' .
 							'<button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'' . $this->notice_key . '\', null);">Don\'t Remind Me Again</button>'
 						 ;
 			}
-			if( $this->cta_text !== null ) {
+			if ( $this->cta_text !== null ) {
 				$buttons .= '<button type="button" class="button button-primary button-small" onclick="window.location.href=\'' . $this->cta_url . '\'; return true;">' . $this->cta_text . '</button>';
 			}
 			
-			if( ! empty( $buttons ) ) {
+			if ( ! empty( $buttons ) ) {
 				$html .= '<p class="adplugg-notice-buttons">' . $buttons . '</p>';
 			}
 			

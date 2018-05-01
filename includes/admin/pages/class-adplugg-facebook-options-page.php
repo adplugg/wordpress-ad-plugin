@@ -48,7 +48,7 @@ class AdPlugg_Facebook_Options_Page {
 		$screen = get_current_screen();
 		$screen_id = ( ! empty( $screen ) ? $screen->id : null );
 
-		if( $screen_id == 'adplugg_page_adplugg_facebook_settings' ) {
+		if ( $screen_id == 'adplugg_page_adplugg_facebook_settings' ) {
 			//Show notice if fb-instant-articles plugin isn't found.
 			if ( ! defined( 'INSTANT_ARTICLES_SLUG' ) ) {
 				$fb_instant_articles_not_found_notice = 
@@ -86,7 +86,7 @@ class AdPlugg_Facebook_Options_Page {
 		//this is a temp field to facilitate a judicious rollout of the new 
 		//adplugg.io endpoint its use may have been allowed on upgrade. If it 
 		//was, show the field.
-		if( AdPlugg_Facebook::temp_allow_legacy_adplugg_com_endpoint() ) {
+		if ( AdPlugg_Facebook::temp_allow_legacy_adplugg_com_endpoint() ) {
 			add_settings_field(
 				'temp_use_legacy_adplugg_com_endpoint',
 				'Legacy Endpoint',
@@ -215,7 +215,7 @@ class AdPlugg_Facebook_Options_Page {
 		
 		//ia_enable_automatic_placement
 		$new_options['ia_enable_automatic_placement'] = ( isset( $input['ia_enable_automatic_placement'] ) ) ? intval( $input['ia_enable_automatic_placement'] ) : 0;
-		if( ! preg_match('/^[01]$/', $new_options['ia_enable_automatic_placement'] ) ) {
+		if ( ! preg_match('/^[01]$/', $new_options['ia_enable_automatic_placement'] ) ) {
 			$has_errors = true;
 			$msg_message = 'Invalid Enable Automatic Placement option.';
 			$new_options['ia_enable_automatic_placement'] = 0;
@@ -223,9 +223,9 @@ class AdPlugg_Facebook_Options_Page {
 		
 		//temp_use_legacy_adplugg_com_endpoint
 		//this is a temp field to facilitate a judicious rollout of the new adplugg.io endpoint
-		if( AdPlugg_Facebook::temp_allow_legacy_adplugg_com_endpoint() ) {
+		if ( AdPlugg_Facebook::temp_allow_legacy_adplugg_com_endpoint() ) {
 			$new_options['temp_use_legacy_adplugg_com_endpoint'] = ( isset( $input['temp_use_legacy_adplugg_com_endpoint'] ) ) ? intval( $input['temp_use_legacy_adplugg_com_endpoint'] ) : 0;
-			if( ! preg_match('/^[01]$/', $new_options['temp_use_legacy_adplugg_com_endpoint'] ) ) {
+			if ( ! preg_match('/^[01]$/', $new_options['temp_use_legacy_adplugg_com_endpoint'] ) ) {
 				$has_errors = true;
 				$msg_message = 'Invalid Use Legacy Endpoint option.';
 				$new_options['temp_use_legacy_adplugg_com_endpoint'] = 0;
@@ -233,7 +233,7 @@ class AdPlugg_Facebook_Options_Page {
 		}
 		
 		//--- add a message ---//
-		if( $has_errors ) {
+		if ( $has_errors ) {
 			$msg_type = 'error';
 		
 			add_settings_error(

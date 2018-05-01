@@ -45,7 +45,7 @@ class AdPlugg_Facebook_Instant_Articles {
 	 * @param Instant_Articles_Post $ia_post The current article object.
 	 */
 	public function head_injector( $ia_post ) {
-		if(AdPlugg_Facebook::is_ia_automatic_placement_enabled()) {
+		if ( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) {
 			//enable automatic placement
 			?>
 
@@ -127,7 +127,7 @@ class AdPlugg_Facebook_Instant_Articles {
 				$adplugg_adhtmlserver = ADPLUGG_ADHTMLSERVER;
 				//Temporarily allow serving from www.adplugg.com. Here to
 				//facilitate a judicious rollout of the new adplugg.io endpoint.
-				if( AdPlugg_Facebook::temp_use_legacy_adplugg_com_endpoint() ) {
+				if ( AdPlugg_Facebook::temp_use_legacy_adplugg_com_endpoint() ) {
 					$adplugg_adhtmlserver = 'www.adplugg.com';
 				}
 				$iframe_src = 'https://' . $adplugg_adhtmlserver . '/serve/' . AdPlugg_Options::get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;

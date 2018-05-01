@@ -41,7 +41,7 @@ class Test_AdPlugg_Sdk extends WP_UnitTestCase {
 		$outbound = ob_get_contents();
 		ob_end_clean();
 		
-		if( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
+		if ( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
 			$this->assertContains( ADPLUGG_OVERRIDE_ACCESS_CODE, $outbound );
 		} else {
 			$this->assertEquals( '', $outbound );
@@ -81,7 +81,7 @@ class Test_AdPlugg_Sdk extends WP_UnitTestCase {
 		$sdk = AdPlugg_Sdk::get_instance();
 		
 		//Set the ADPLUGG_LOAD_QUNIT constant
-		if( ! defined( 'ADPLUGG_LOAD_QUNIT' ) ) {
+		if ( ! defined( 'ADPLUGG_LOAD_QUNIT' ) ) {
 			define( 'ADPLUGG_LOAD_QUNIT', true ); 
 		}
 		

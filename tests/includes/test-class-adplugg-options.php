@@ -43,7 +43,7 @@ class AdPlugg_Options_Test extends WP_UnitTestCase {
 		//call the function
 		$access_code = AdPlugg_Options::get_active_access_code();
 
-		if( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
+		if ( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
 			$this->assertContains( ADPLUGG_OVERRIDE_ACCESS_CODE, $access_code );
 		} else {
 			$this->assertEquals( 'test', $access_code );
@@ -60,7 +60,7 @@ class AdPlugg_Options_Test extends WP_UnitTestCase {
 		
 		$access_code = AdPlugg_Options::get_active_access_code();
 
-		if( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
+		if ( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
 			$this->assertContains( ADPLUGG_OVERRIDE_ACCESS_CODE, $access_code );
 		} else {
 			$this->assertNull( $access_code );

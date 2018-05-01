@@ -34,7 +34,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 	public function sanitize() {
 		
 		/* @var $body \DOMElement */
-		if( isset( $this->root_element ) ) { // AMP Plugin > v0.7
+		if ( isset( $this->root_element ) ) { // AMP Plugin > v0.7
 			/* @var $body \DOMElement */
 			$body = $this->root_element;
 		} else { // AMP Plugin < v0.7
@@ -42,7 +42,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 			$body = $this->get_body_node();
 		}
 		
-		if( $this->ad_tags->size() > 0 ) {
+		if ( $this->ad_tags->size() > 0 ) {
 
 			$this->ad_tags->reset();
 			
@@ -67,7 +67,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 				$curr_word_count += $p_word_count;
 				
 				//see if the slot is permitted by our ad density rules
-				if( $curr_word_count >= $ad_density ) {
+				if ( $curr_word_count >= $ad_density ) {
 					//insert an ad
 					
 					// Create the amp-ad tag
@@ -76,18 +76,18 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 					
 					//if there is a following paragraph, insert before it,
 					//otherwise append to the body
-					if( ( $i + 1 ) < $p_nodes_len ) {
+					if ( ( $i + 1 ) < $p_nodes_len ) {
 						$p_node_plus_one = $p_nodes->item( $i + 1 );
 						$p_node_plus_one->parentNode->insertBefore( $amp_ad,  $p_node_plus_one );
 						
-						if( $this->DEBUG ) {
+						if ( $this->DEBUG ) {
 							$debug_node = $this->dom->createElement( 'h4', $i . ':' . $curr_word_count );
 							$p_node_plus_one->parentNode->insertBefore( $debug_node,  $p_node_plus_one );
 						}
 					} else {
 						$body->appendChild( $amp_ad );
 						
-						if( $this->DEBUG ) {
+						if ( $this->DEBUG ) {
 							$debug_node = $this->dom->createElement( 'h4', $i . ':' . $curr_word_count );
 							$body->appendChild( $debug_node );
 						}
@@ -111,7 +111,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 				/* @var $ad_tag \AdPlugg_Ad_Tag */
 				$ad_tag = $this->ad_tags->next();
 				
-				if( $ad_tag !== null ) {
+				if ( $ad_tag !== null ) {
 				
 					/* @var $amp_ad \DOMElement */
 					$amp_ad = $this->create_amp_ad( $ad_tag );
@@ -136,7 +136,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 		$amp_ad = $ad_tag->to_amp_ad( $this->dom );
 		
 		//create a debug_node
-		if( $this->DEBUG ) {
+		if ( $this->DEBUG ) {
 			// Add a placeholder to show while loading
 			$fallback_node = $this->dom->createElement( 'amp-img' );
 			$fallback_node->setAttribute( 'placeholder', '' );

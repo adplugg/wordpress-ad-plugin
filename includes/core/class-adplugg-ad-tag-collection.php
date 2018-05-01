@@ -40,7 +40,7 @@ class AdPlugg_Ad_Tag_Collection {
 	public function add( AdPlugg_Ad_Tag $ad_tag ) {
 		array_push( $this->ad_tags, $ad_tag );
 		
-		if( $ad_tag->is_default_for_reuse() ) {
+		if ( $ad_tag->is_default_for_reuse() ) {
 			$this->default = $ad_tag;
 		}
 	}
@@ -80,13 +80,13 @@ class AdPlugg_Ad_Tag_Collection {
 		$ret = null;
 		
 		//if there is a next, increment and return the next one.
-		if( $this->current_index <= ( count( $this->ad_tags ) -2 ) ) {
+		if ( $this->current_index <= ( count( $this->ad_tags ) -2 ) ) {
 			$this->current_index++;
 			$ret = $this->ad_tags[ $this->current_index ];
 		} else {
 			
 			//if there is not a next but there is a default, return the default.
-			if( $this->default !== null ) {
+			if ( $this->default !== null ) {
 				$ret = $this->default;
 			}
 			

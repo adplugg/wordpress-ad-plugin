@@ -39,8 +39,8 @@ class AdPlugg_Notice_Controller {
 		$notices = $this->pull_all_queued();
 		
 		// Add any new notices based on the current state of the plugin, etc.
-		if( ! AdPlugg_Options::is_access_code_installed() ) {
-			if( $screen_id != 'toplevel_page_adplugg' ) {
+		if ( ! AdPlugg_Options::is_access_code_installed() ) {
+			if ( $screen_id != 'toplevel_page_adplugg' ) {
 				$notices[] = AdPlugg_Notice::create( 
 								'nag_configure',  //id
 								'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a title="Configure the AdPlugg Plugin!" href="' . admin_url('admin.php?page=adplugg') . '">configure</a> it!',
@@ -52,8 +52,8 @@ class AdPlugg_Notice_Controller {
 							);
 			}
 		} else {
-			if( ! adplugg_is_widget_active() ) {
-				if( $screen_id == 'widgets' ) {
+			if ( ! adplugg_is_widget_active() ) {
+				if ( $screen_id == 'widgets' ) {
 					$notices[] = AdPlugg_Notice::create( 
 									'nag_widget_1', //id
 									'Drag the AdPlugg Widget into a Widget Area to display ads on your site.', 
@@ -93,7 +93,7 @@ class AdPlugg_Notice_Controller {
 
 		//Determine when to remind on
 		$remind_on = null;
-		if( $remind_when != null ) {
+		if ( $remind_when != null ) {
 			$remind_on = strtotime( $remind_when );
 		}
 		

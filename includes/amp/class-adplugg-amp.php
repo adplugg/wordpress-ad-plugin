@@ -37,7 +37,7 @@ class AdPlugg_AMP {
 	 * Add the AMP Ads Widget Area.
 	 */
 	public function amp_ads_widget_area_init() {
-		if(self::is_amp_automatic_placement_enabled()) {
+		if ( self::is_amp_automatic_placement_enabled() ) {
 			register_sidebar( array(
 					'name'			=> 'AMP Ads',
 					'id'			=> 'amp_ads',
@@ -57,13 +57,13 @@ class AdPlugg_AMP {
 	 * CLASS_NAME => ARGUMENTS
 	 */
 	public function add_ad_sanitizer( $sanitizer_classes, $post ) {
-		if(self::is_amp_automatic_placement_enabled()) {
+		if ( self::is_amp_automatic_placement_enabled() ) {
 			// Note: we require this here because it extends a class from the AMP plugin
 			require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp-ad-injection-sanitizer.php' );
 			
 			//if the ad_tags haven't been set, call the collector and get them
 			//from the widget area
-			if( $this->ad_tags == null ) {
+			if ( $this->ad_tags == null ) {
 				$this->ad_tags = AdPlugg_Ad_Tag_Collector::get_instance()
 									->get_ad_tags( 'amp_ads' );
 			}
@@ -80,9 +80,9 @@ class AdPlugg_AMP {
 	 * @param AMP_Post_Template $amp_template
 	 */
 	public function add_additional_css_styles( $amp_template ) {
-		if( self::is_amp_automatic_placement_enabled() ) {
+		if ( self::is_amp_automatic_placement_enabled() ) {
 			
-			if( self::is_centering_enabled() ) {
+			if ( self::is_centering_enabled() ) {
 			?>
 amp-ad[type="adplugg"] {
 	display:block;
@@ -107,7 +107,7 @@ amp-ad[type="adplugg"] {
 	public static function is_amp_automatic_placement_enabled() {
 		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
 		$enabled = false;
-		if( ! empty( $options['amp_enable_automatic_placement'] ) ) {
+		if ( ! empty( $options['amp_enable_automatic_placement'] ) ) {
 			$enabled = ($options['amp_enable_automatic_placement'] == 1) ? true : false;
 		}
 
@@ -121,7 +121,7 @@ amp-ad[type="adplugg"] {
 	public static function get_ad_density() {
 		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
 		$ad_density = 250;
-		if( ! empty( $options['amp_ad_density'] ) ) {
+		if ( ! empty( $options['amp_ad_density'] ) ) {
 			$ad_density = $options['amp_ad_density'];
 		}
 
@@ -136,7 +136,7 @@ amp-ad[type="adplugg"] {
 	public static function is_centering_enabled() {
 		$options = get_option( ADPLUGG_AMP_OPTIONS_NAME, array() );
 		$enabled = false;
-		if( ! empty( $options['amp_enable_centering'] ) ) {
+		if ( ! empty( $options['amp_enable_centering'] ) ) {
 			$enabled = ($options['amp_enable_centering'] == 1) ? true : false;
 		}
 

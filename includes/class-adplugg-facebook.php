@@ -28,7 +28,7 @@ class AdPlugg_Facebook {
 	 * Add the Facebook Instant Articles Header widget area.
 	 */
 	function facebook_instant_articles_header_widget_area_init() {
-		if(self::is_ia_automatic_placement_enabled()) {
+		if ( self::is_ia_automatic_placement_enabled() ) {
 			register_sidebar( array(
 					'name'			=> 'Facebook Instant Articles Ads',
 					'id'			=> 'facebook_ia_header_ads',
@@ -46,7 +46,7 @@ class AdPlugg_Facebook {
 	static function is_ia_automatic_placement_enabled() {
 		$options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME, array() );
 		$enabled = false;
-		if( ! empty( $options['ia_enable_automatic_placement'] ) ) {
+		if ( ! empty( $options['ia_enable_automatic_placement'] ) ) {
 			$enabled = ($options['ia_enable_automatic_placement'] == 1) ? true : false;
 		}
 
@@ -62,7 +62,7 @@ class AdPlugg_Facebook {
 	static function temp_use_legacy_adplugg_com_endpoint() {
 		$options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME, array() );
 		$enabled = false;
-		if( ! empty( $options['temp_use_legacy_adplugg_com_endpoint'] ) ) {
+		if ( ! empty( $options['temp_use_legacy_adplugg_com_endpoint'] ) ) {
 			$enabled = ($options['temp_use_legacy_adplugg_com_endpoint'] == 1) ? true : false;
 		}
 
@@ -78,7 +78,7 @@ class AdPlugg_Facebook {
 	static function temp_allow_legacy_adplugg_com_endpoint() {
 		$options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME, array() );
 		$enabled = false;
-		if( ! empty( $options['temp_allow_legacy_adplugg_com_endpoint'] ) ) {
+		if ( ! empty( $options['temp_allow_legacy_adplugg_com_endpoint'] ) ) {
 			$enabled = ($options['temp_allow_legacy_adplugg_com_endpoint'] == 1) ? true : false;
 		}
 
