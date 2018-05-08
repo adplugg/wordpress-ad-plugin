@@ -1,3 +1,7 @@
+= 1.8.8 =
+
+* Added help for using AdPlugg for Facebook Instant Articles to the contextual help on the widgets page in the admin.
+
 = 1.8.7 =
 
 * Updated styling of all 'if' statements to match WP coding standards.
