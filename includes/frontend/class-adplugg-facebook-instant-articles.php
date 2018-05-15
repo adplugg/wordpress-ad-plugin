@@ -116,7 +116,7 @@ class AdPlugg_Facebook_Instant_Articles {
 								->get_ad_tags( 'facebook_ia_header_ads' );
 			
 			/* @var $ad_tag \AdPlugg_Ad_Tag */
-			foreach( $ad_tags->to_array() as $ad_tag ) {
+			foreach ( $ad_tags->to_array() as $ad_tag ) {
 				
 				// ------ Compute iframe src ------ //
 				$post_url = $post->get_canonical_url();

@@ -77,7 +77,7 @@ class AdPlugg_Notice_Controller {
 		
 		//print the notices
 		$out = '';
-		foreach( $notices as $notice ) {
+		foreach ( $notices as $notice ) {
 			$out .= $notice->get_rendered();
 		}
 		echo $out;

@@ -59,7 +59,7 @@ class AdPlugg_AMP_Ad_Injection_Sanitizer extends AMP_Base_Sanitizer {
 			$num_ads_inserted = 0;
 			$i = 0;
 			//loop through all p tags
-			while( ( $i < $p_nodes_len ) && ( $ad_tag !== null ) ) {
+			while ( ( $i < $p_nodes_len ) && ( $ad_tag !== null ) ) {
 				/* @var $p_node \DOMElement */
 				$p_node = $p_nodes->item( $i );
 				$content = $p_node->nodeValue;
