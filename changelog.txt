@@ -1,3 +1,7 @@
+= 1.8.9 =
+
+* Misc fixes for WP coding standards (spaces after while and foreach, snake_case variables).
+
 = 1.8.8 =
 
 * Added help for using AdPlugg for Facebook Instant Articles to the contextual help on the widgets page in the admin.
