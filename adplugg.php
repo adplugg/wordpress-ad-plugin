@@ -88,6 +88,7 @@ if ( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-privacy.php' );
 	
 	//Initialize notifications system.
 	AdPlugg_Notice_Controller::get_instance();
@@ -102,11 +103,10 @@ if ( is_admin() ) {
 	$adplugg_options_page = new AdPlugg_Options_Page();
 	add_filter( 'contextual_help', 'adplugg_help_dispatch', 10, 3 );
 	
-	//Facebook integration
+	//Miscellaneous admin initializations.
 	AdPlugg_Facebook_Options_Page::get_instance();
-	
-	//AMP integration
 	AdPlugg_AMP_Options_Page::get_instance();
+	AdPlugg_Privacy::get_instance();
 	
 	//Load qunit
 	if ( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
