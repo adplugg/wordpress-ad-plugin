@@ -1,3 +1,9 @@
+= 1.9.0 =
+
+* Added info regarding GDPR compliance to the readme.txt.
+* Updated the readme.txt to reflect that the plugin has been tested and is compatible with up to WP v4.9.6.
+* Now displaying suggested privacy policy text in the privacy policy settings screen in the wp-admin.
+
 = 1.8.9 =
 
 * Misc fixes for WP coding standards (spaces after while and foreach, snake_case variables).
