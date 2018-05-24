@@ -24,6 +24,7 @@ The AdPlugg WordPress Ad Plugin includes the following awesome features:
 * Support for Zones allowing you to put different ads in different locations on a page.
 * Support for Facebook Instant Articles allowing you to include ads in your FBIA feed.
 * Support for AMP (Accelerated Mobile Pages) allowing you to include ads in your AMP pages.
+* GDPR compliant.
 * Works with AdPlugg's Free and Pro versions.
 
 <strong>PS: You'll need a free [adplugg.com Access Code](https://www.adplugg.com/apusers/signup?utm_source=wpo-listing&utm_campaign=feat-l1) in order to use the plugin.</strong>
@@ -40,6 +41,7 @@ The FREE AdPlugg Ad Service includes the following amazing features:
 * Placements - Group your ads into placements to simplify management and tracking.
 * Easy Setup - Easily create and setup your ads.
 * Timed Rotate - Set your ads to rotate after a set interval.
+* GDPR compliant - Serve ads while adhering to the privacy rules of the GDPR.
 
 The PRO AdPlugg Ad Service adds the following additional features:
 
