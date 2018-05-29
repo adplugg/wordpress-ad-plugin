@@ -1,3 +1,7 @@
+= 1.9.1 =
+
+* Fixed a testing bug with the test-facebook-options-page-help.php when run in isolation.
+
 = 1.9.0 =
 
 * Added info regarding GDPR compliance to the readme.txt.
