@@ -91,9 +91,10 @@ class Test_Options_Page extends WP_UnitTestCase {
 	
 	/**
 	 * Test the admin_init function.
+	 * @global array $wp_settings_sections
+	 * @global array $wp_settings_fields
 	 */	
 	public function test_admin_init() {
-		global $wp_filter;
 		global $wp_settings_sections;
 		global $wp_settings_fields;
 		
