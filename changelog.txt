@@ -1,3 +1,8 @@
+= 1.9.2 =
+
+* Cleaned up the test_admin_init test function in the Test_Options_Page class.
+* Now fully testing the admin_init method of the AdPlugg_Facebook_Options_Page class.
+
 = 1.9.1 =
 
 * Fixed a testing bug with the test-facebook-options-page-help.php when run in isolation.
