@@ -30,20 +30,41 @@ class Test_AdPlugg_Facebook_Options_Page extends WP_UnitTestCase {
 	
 	/**
 	 * Test the admin_init function.
+	 * @global array $wp_settings_sections
+	 * @global array $wp_settings_fields
 	 */	
 	public function test_admin_init() {
-		global $wp_filter;
+		global $wp_settings_sections;
+		global $wp_settings_fields;
 		
+		// Instantiate the SUT (System Under Test) class.
 		$adplugg_facebook_options_page = new AdPlugg_Facebook_Options_Page();
 		
-		//Run the function
+		// Run the function.
 		$adplugg_facebook_options_page->admin_init();
 		
-		//Assert that the expected settings fields were registered and rendered
+		//---------------------------------------------------//
+		//Get the output from rendering the form
 		ob_start();
 		settings_fields( 'adplugg_facebook_options' );
-		$outbound = ob_get_contents();
+		$output = ob_get_contents();
 		ob_end_clean();
+		
+		// Assert that the adplugg_options hidden field is registered/rendered
+		$this->assertContains( "value='adplugg_facebook_options'", $output );
+		
+		//---------------------------------------------------//
+		//assert that the adplugg_options_access_section section is registered
+		$this->assertArrayHasKey(
+			'adplugg_facebook_instant_articles_section', 
+			$wp_settings_sections['adplugg_facebook_instant_articles_settings'] 
+		);
+		
+		//assert that the ia_enable_automatic_placement field is registered
+		$this->assertArrayHasKey( 
+			'ia_enable_automatic_placement', 
+			$wp_settings_fields['adplugg_facebook_instant_articles_settings']['adplugg_facebook_instant_articles_section'] 
+		);
 	}
 	
 	/**
