@@ -62,11 +62,15 @@ class AdPlugg_Admin {
 			}
 		}
 		
-		//Add the AdPlugg admin stylesheet to the WP admin head
+		// Add the adplugg-wp font stylesheet to the WP admin head.
+		wp_register_style( 'adplugg-wp-font', plugins_url( '../../assets/fonts/adplugg-wp/adplugg-wp.css', __FILE__ ) );
+		wp_enqueue_style( 'adplugg-wp-font' );
+		
+		// Add the AdPlugg admin stylesheet to the WP admin head.
 		wp_register_style( 'adplugg-admin', plugins_url( '../../assets/css/admin/admin.css', __FILE__ ) );
 		wp_enqueue_style( 'adplugg-admin' );
 		
-		//Add the AdPlugg admin JavaScript page to the WP admin head
+		// Add the AdPlugg admin JavaScript page to the WP admin head.
 		wp_register_script( 'adplugg-admin', plugins_url( '../../assets/js/admin/admin.js', __FILE__ ) );
 		wp_enqueue_script( 'adplugg-admin' );
 	}

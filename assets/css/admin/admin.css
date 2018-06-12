@@ -4,6 +4,12 @@
  * @since 1.1
  */
 
+/* ================== Menu ================== */
+#adminmenu #toplevel_page_adplugg .menu-icon-generic div.wp-menu-image::before {
+    font-family: 'adplugg-wp' !important;
+    content: '\e800';
+}
+
 /* ================= Widget ================= */
 fieldset.adplugg-widget-fieldset {
 	padding: 4px 6px 6px 6px;
