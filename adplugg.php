@@ -87,7 +87,7 @@ if ( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
-	require_once( ADPLUGG_INCLUDES . 'admin/help/help-dispatch.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/class-help-dispatch.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-privacy.php' );
 	
 	//Initialize notifications system.
@@ -99,11 +99,9 @@ if ( is_admin() ) {
 	register_deactivation_hook( __FILE__, array( 'AdPlugg_Admin', 'deactivate' ));
 	register_uninstall_hook( __FILE__, array( 'AdPlugg_Admin', 'uninstall' ));
 	
-	//Set up the options page 
+	// Admin Initializations.
 	$adplugg_options_page = new AdPlugg_Options_Page();
-	add_filter( 'contextual_help', 'adplugg_help_dispatch', 10, 3 );
-	
-	//Miscellaneous admin initializations.
+	AdPlugg_Help_Dispatch::get_instance();
 	AdPlugg_Facebook_Options_Page::get_instance();
 	AdPlugg_AMP_Options_Page::get_instance();
 	AdPlugg_Privacy::get_instance();
