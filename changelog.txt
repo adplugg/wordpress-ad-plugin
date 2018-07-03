@@ -1,3 +1,7 @@
+= 1.9.5 =
+
+* Fixed some issues with the PHPDoc on the AdPlugg_Notice_Controller class.
+
 = 1.9.4 =
 
 * Restructured the admin contextual help dispatch system for better OOP design.
