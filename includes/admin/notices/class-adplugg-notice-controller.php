@@ -13,7 +13,7 @@ class AdPlugg_Notice_Controller {
 	
 	/**
 	 * Class instance.
-	 * @var AdPlugg_Facebook_Options_Page
+	 * @var AdPlugg_Notice_Controller
 	 */
 	static $instance;
 	
@@ -142,8 +142,10 @@ class AdPlugg_Notice_Controller {
 		return $notices;
 	}
 	
-	/*
-	 * Singleton instance 
+	/**
+	 * Gets the singleton instance of the class.
+	 * @return AdPlugg_Notice_Controller Returns the singleton instance of the
+	 * class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
