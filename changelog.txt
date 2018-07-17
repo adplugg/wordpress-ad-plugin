@@ -1,3 +1,7 @@
+= 1.9.7 =
+
+* Fixed the PHPDoc on the get_instance method on several classes.
+
 = 1.9.6 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WP 4.9.7
