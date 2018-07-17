@@ -57,8 +57,10 @@ class AdPlugg_Sdk {
 
 	}
 	
-	/*
-	 * Get the singleton instance 
+	/**
+	 * Gets the singleton instance.
+	 * @return \AdPlugg_Sdk Returns the singleton instance of this 
+	 * class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {

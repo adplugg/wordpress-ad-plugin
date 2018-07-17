@@ -65,7 +65,8 @@ class AdPlugg_Help_Dispatch {
 	
 	/**
 	 * Gets the singleton instance.
-	 * @return AdPlugg_Help_Dispatch
+	 * @return AdPlugg_Help_Dispatch Returns the singleton instance of this 
+	 * class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {

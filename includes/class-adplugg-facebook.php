@@ -102,7 +102,8 @@ class AdPlugg_Facebook {
 	}
 	
 	/**
-	 * Singleton instance 
+	 * Gets the singleton instance.
+	 * @return \AdPlugg_Facebook Returns the singleton instance of this class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {

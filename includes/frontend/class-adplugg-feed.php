@@ -21,17 +21,6 @@ class AdPlugg_Feed {
 		add_filter( 'the_content_feed', array( $this, 'filter_feed' ), 1 );
 	}
 	
-	/*
-	 * Get the singleton instance 
-	 */
-	public static function get_instance() {
-		if ( ! isset( self::$instance ) ) {
-			self::$instance = new self();
-		}
-
-		return self::$instance;
-	}
-	
 	/**
 	 * Filter out AdPlugg in content ad tags from the feed (feed ads aren't
 	 * currently supported and the AdPlugg ad tag's use of HTML5 data attributes
@@ -50,6 +39,19 @@ class AdPlugg_Feed {
 		$filtered_content = preg_replace( $adtag_regex, '', $content );
 		
 		return $filtered_content;
+	}
+	
+	/**
+	 * Gets the singleton instance.
+	 * @return \AdPlugg_Feed Returns the singleton instance of this
+	 * class.
+	 */
+	public static function get_instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
 	}
 
 }

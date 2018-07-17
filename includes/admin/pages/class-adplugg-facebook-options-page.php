@@ -247,8 +247,10 @@ class AdPlugg_Facebook_Options_Page {
 		return $new_options;
 	}
 	
-	/*
-	 * Singleton instance 
+	/**
+	 * Gets the singleton instance.
+	 * @return \AdPlugg_Facebook_Options_Page Returns the singleton instance of 
+	 * this class.
 	 */
 	public static function get_instance() {
 		if ( ! isset( self::$instance ) ) {
