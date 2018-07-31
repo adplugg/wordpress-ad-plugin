@@ -9,6 +9,12 @@
 class AdPlugg_Options_Page {
 	
 	/**
+	 * Class instance.
+	 * @var AdPlugg_Options_Page
+	 */
+	static $instance;
+	
+	/**
 	 * Constructor, constructs the options page and adds it to the Settings
 	 * menu.
 	 */
@@ -178,5 +184,18 @@ class AdPlugg_Options_Page {
 		}
 		
 		return $new_options;
+	}
+	
+	/**
+	 * Gets the singleton instance.
+	 * @return \AdPlugg_Options_Page Returns the singleton instance of this
+	 * class.
+	 */
+	public static function get_instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
+
+		return self::$instance;
 	}
 }
