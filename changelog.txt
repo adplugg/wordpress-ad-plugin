@@ -1,3 +1,7 @@
+= 1.9.9 =
+
+* Updated the readme.txt to reflect that the plugin has been tested with up to WP 4.9.8.
+
 = 1.9.8 =
 
 * Converted the AdPlugg_Options_Page class to a singleton to match the rest of our admin pages.
