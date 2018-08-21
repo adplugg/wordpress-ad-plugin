@@ -2,6 +2,7 @@
 /**
  * Functions for rendering the AdPlugg contextual help for the AMP options page
  * within the WordPress Administrator.
+ *
  * @package AdPlugg
  * @since 1.7.0
  */
@@ -9,21 +10,21 @@
 /**
  * Add help for the adplugg amp options page into the WordPress admin help
  * system.
- * @param string $contextual_help The default contextual help that our 
+ *
+ * @param string $contextual_help The default contextual help that our
  * function is going to replace.
  * @param string $screen_id Used to identify the page that we are on.
  * @param string $screen Used to access the elements of the current page.
  * @return string The new contextual help.
  */
-function adplugg_amp_options_page_help( 
-							$contextual_help, 
-							$screen_id, 
-							$screen ) 
-{
+function adplugg_amp_options_page_help(
+							$contextual_help,
+							$screen_id,
+							$screen ) {
 	$overview_content = '
 		<h2>AMP Settings Help</h2>
 		<p>
-			These settings allow you to include AdPlugg ads in your 
+			These settings allow you to include AdPlugg ads in your
 			AMP pages.
 		</p>
 		<p>
@@ -31,18 +32,18 @@ function adplugg_amp_options_page_help(
 			on your regular pages first before attempting to include them in
 			your AMP pages.
 		';
-	
+
 	$requirements_content = '
 		<h3>Requirements</h3>
 		<p>
-			For these settings to work, you will need to have the <a href="https://wordpress.org/plugins/amp/" 
+			For these settings to work, you will need to have the <a href="https://wordpress.org/plugins/amp/"
 			target="_blank" title="AMP">
 			AMP</a> plugin installed.
 		</p>
 		<p>
 			You will also need to have an AdPlugg account with at least one Ad.
 		</p>';
-	
+
 	$tips_content = '
 		<h3>Tips</h3>
 		<p>
@@ -52,16 +53,16 @@ function adplugg_amp_options_page_help(
 			want to appear in your AMP ages to the AMP specific Zone. You could
 			target the ads directly or via a Placement.
 		</p>';
-	
+
 	$widgets_content = '
 		<h3>Widgets Help</h3>
 		<p>
-			Once you\'ve enabled automatic placement. Go to the <a href="' . 
+			Once you\'ve enabled automatic placement. Go to the <a href="' .
 			admin_url( 'widgets.php' ) . '" title="Widgets configuration page">
-			Widgets Configuration Page</a> and drag the AdPlugg Widget into the 
-			AMP Ads Widget Area. Configure the 
-			Widget including the Zone machine name, the width, the height and 
-			whether or not you want the Zone to be the "default" ad. 
+			Widgets Configuration Page</a> and drag the AdPlugg Widget into the
+			AMP Ads Widget Area. Configure the
+			Widget including the Zone machine name, the width, the height and
+			whether or not you want the Zone to be the "default" ad.
 		</p>
 		<p>
 			The code from any Widgets in the AMP Ads Widget Area will be
@@ -81,7 +82,7 @@ function adplugg_amp_options_page_help(
 			If you don\'t choose a "default" ad/widget, each widget will be
 			placed once and then the plugin will stop inserting ads.
 		</p>
-		
+
 		';
 
 	$sidebar_content = '
@@ -92,33 +93,41 @@ function adplugg_amp_options_page_help(
 		<br/>
 		';
 
-	//overview tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_amp_overview',
-		'title' => 'Overview',
-		'content' => $overview_content
-	) );
-	
-	//requirements tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_amp_requirements',
-		'title' => 'Requirements',
-		'content' => $requirements_content
-	) );
-	
-	//tips tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_amp_tips',
-		'title' => 'Tips',
-		'content' => $tips_content
-	) );
-	
-	//widgets tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_amp_widgets',
-		'title' => 'Widgets',
-		'content' => $widgets_content
-	) );
+	// Overview tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_amp_overview',
+			'title'   => 'Overview',
+			'content' => $overview_content,
+		)
+	);
+
+	// Requirements tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_amp_requirements',
+			'title'   => 'Requirements',
+			'content' => $requirements_content,
+		)
+	);
+
+	// Tips tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_amp_tips',
+			'title'   => 'Tips',
+			'content' => $tips_content,
+		)
+	);
+
+	// Widgets tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_amp_widgets',
+			'title'   => 'Widgets',
+			'content' => $widgets_content,
+		)
+	);
 
 	$screen->set_help_sidebar( $sidebar_content );
 

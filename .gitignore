@@ -1,3 +1,11 @@
+# NetBeans
 nbproject
-config.php
+
+# OSX
 .DS_Store
+
+# Composer
+vendor
+
+# AdPlugg
+config.php
