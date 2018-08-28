@@ -6,7 +6,7 @@ Tags: ads, advertising, banners, ad rotator, ad server, ad manager, adsense
 Requires at least: 3.3
 Tested up to: 4.9.8
 Requires PHP: 5.2.4
-FBIA tested up to: 4.0.6
+FBIA tested up to: 4.1.1
 Stable tag: 1.9.10
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server 
