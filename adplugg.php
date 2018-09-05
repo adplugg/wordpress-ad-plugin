@@ -82,30 +82,30 @@ if ( is_admin() ) {
 	// Includes
 	require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/notices/class-adplugg-notice-controller.php' );
-	
+
 	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-admin.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
-	require_once( ADPLUGG_INCLUDES . 'admin/help/class-help-dispatch.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-help-dispatch.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-privacy.php' );
-	
+
 	// Initialize notifications system.
 	AdPlugg_Notice_Controller::get_instance();
-	
+
 	// Plugin setup and registrations.
 	$adplugg_admin = new AdPlugg_Admin();
 	register_activation_hook( __FILE__, array( 'AdPlugg_Admin', 'activate' ));
 	register_deactivation_hook( __FILE__, array( 'AdPlugg_Admin', 'deactivate' ));
 	register_uninstall_hook( __FILE__, array( 'AdPlugg_Admin', 'uninstall' ));
-	
+
 	// Admin Initializations.
 	AdPlugg_Options_Page::get_instance();
 	AdPlugg_Help_Dispatch::get_instance();
 	AdPlugg_Facebook_Options_Page::get_instance();
 	AdPlugg_AMP_Options_Page::get_instance();
 	AdPlugg_Privacy::get_instance();
-	
+
 	// Load QUnit.
 	if ( ( defined('ADPLUGG_LOAD_QUNIT') ) && ( ADPLUGG_LOAD_QUNIT == true ) ) {
 		add_action( 'admin_footer', 'adplugg_load_qunit' );
@@ -116,15 +116,15 @@ if ( is_admin() ) {
 	// Add the SDK.
 	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-sdk.php' );
 	AdPlugg_Sdk::get_instance();
-	
+
 	// Feeds
 	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php' );
 	AdPlugg_Feed::get_instance();
-	
+
 	// Facebook Instant Articles (only works on PHP 5.3.0 or higher).
 	if ( version_compare( PHP_VERSION, '5.3.0' ) >= 0 ) {
 		require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-facebook-instant-articles.php' );
 		AdPlugg_Facebook_Instant_Articles::get_instance();
 	}
-	
+
 }
