@@ -1,3 +1,7 @@
+= 1.9.13 =
+
+* Linted the facebook-options-page-help.php file to meet all of the WP coding standards.
+
 = 1.9.12 =
 
 * Renamed and linted the class-adplugg-help-dispatch.php file to meet all of the WP coding standards.
