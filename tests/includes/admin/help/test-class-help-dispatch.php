@@ -60,7 +60,7 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 	 * options page.
 	 * @global string $adplugg_hook
 	 */
-	public function test_dispatch_for_facebook_page() {
+	public function test_dispatch_for_facebook_options_page() {
 		global $adplugg_hook;
 
 		//set up the variables
@@ -80,6 +80,33 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 
 		//Asset that the Facebook settings help is now in the screen.
 		$this->assertContains( 'Facebook Settings Help', serialize( $screen ) );
+	}
+
+	/**
+	 * Test that the dispatch function properly dispatches help for the AMP
+	 * options page.
+	 * @global string $adplugg_hook
+	 */
+	public function test_dispatch_for_amp_options_page() {
+		global $adplugg_hook;
+
+		//set up the variables
+		$contextual_help = '';
+		$adplugg_hook = 'mock-hook';
+		$screen_id = $adplugg_hook . '_page_adplugg_amp_settings';
+		$screen = WP_Screen::get( $screen_id );
+
+		// Init the class.
+		$adplugg_help_dispatch = new AdPlugg_Help_Dispatch();
+
+		//Assert that the AMP settings help is not in the screen.
+		$this->assertNotContains( 'AMP Settings Help', serialize( $screen ) );
+
+		//run the function
+		$adplugg_help_dispatch->dispatch( $contextual_help, $screen_id, $screen );
+
+		//Asset that the AMP settings help is now in the screen.
+		$this->assertContains( 'AMP Settings Help', serialize( $screen ) );
 	}
 
 	/**
