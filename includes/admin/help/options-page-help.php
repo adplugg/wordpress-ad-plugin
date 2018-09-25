@@ -1,14 +1,16 @@
 <?php
 /**
- * Functions for rendering the AdPlugg contextual help for the options page 
+ * Functions for rendering the AdPlugg contextual help for the options page
  * within the WordPress Administrator.
+ *
  * @package AdPlugg
  * @since 1.0
  */
 
 /**
  * Add help for the adplugg options page into the WordPress admin help system.
- * @param string $contextual_help The default contextual help that our 
+ *
+ * @param string $contextual_help The default contextual help that our
  * function is going to replace.
  * @param string $screen_id Used to identify the page that we are on.
  * @param string $screen Used to access the elements of the current page.
@@ -25,7 +27,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
 		<div class="adplugg-video-tile">
 			<h2>Quick Start Video</h2>
 			<figure>
-				<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><span class="wistia_embed wistia_async_qh4ytc46co popover=true popoverAnimateThumbnail=true" style="display:inline-block;height:94px;width:150px">&nbsp;</span>	
+				<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><span class="wistia_embed wistia_async_qh4ytc46co popover=true popoverAnimateThumbnail=true" style="display:inline-block;height:94px;width:150px">&nbsp;</span>
 				<figcaption>(3:38)</figcaption>
 			</figure>
 		</div>
@@ -37,7 +39,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
 			</figure>
 		</div>
 	</div>
-	
+
 	';
 
 	$installation_content = '
@@ -84,23 +86,23 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
 	</ul>
 	<p>Access my <a href="https://www.adplugg.com/apusers/login?utm_source=wpplugin&utm_campaign=ohelp-ua-l2" target="_blank" title="AdPlugg account">AdPlugg account</a></p>
 	';
-	
+
 	$tags_content = '
 	<h2>Ad Tags/Shortcodes</h2>
 	<p>Once you have AdPlugg intalled, you can add AdPlugg Ad Tags to your site
 	and they will be filled with any ads that you target to them from your
-	account at <a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=ohelp-ats-l1" target="_blank" 
+	account at <a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=ohelp-ats-l1" target="_blank"
 	title="adplugg.com">adplugg.com</a>.
 	</p>
 	<p>You can add AdPlugg Ad Tags to Posts, Pages, theme files, etc.</p>
 	<p>The AdPlugg Widget simply adds an Ad Tag to your Widget Area. You could
-	insert the same Ad Tag by other means if you wanted (by using a text widget 
+	insert the same Ad Tag by other means if you wanted (by using a text widget
 	for example).
 	</p>
-	<p>Though they work in a similar fashion to Shortcodes, AdPlugg has chosen 
-	to use Ad Tags instead of shortcodes as they are more powerfull, more 
+	<p>Though they work in a similar fashion to Shortcodes, AdPlugg has chosen
+	to use Ad Tags instead of shortcodes as they are more powerfull, more
 	flexible, and more familiar to most users. You can read more about Ad Tags
-	<a href="https://www.adplugg.com/support/help/ad-tags?utm_source=wpplugin&utm_campaign=ohelp-ats-l2" 
+	<a href="https://www.adplugg.com/support/help/ad-tags?utm_source=wpplugin&utm_campaign=ohelp-ats-l2"
 	title="Ad Tags" target="_blank">here</a>.
 	</p>';
 
@@ -111,14 +113,14 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
 		<li>Is The AdPlugg plugin installed and activated?</li>
 		<li>Have you created an AdPlugg account at <a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=ohelp-t-l1" title="adplugg.com">www.adplugg.com</a>?</li>
 		<li>Do you have at least one active ad in your AdPlugg account?</li>
-		<li>Have you added the AdPlugg Ad Widget to a Widget Area? You can do this from the 
-		<a href="' . admin_url('widgets.php') . '" title="Widgets configuration page">Widgets configuration page</a>.</li>
+		<li>Have you added the AdPlugg Ad Widget to a Widget Area? You can do this from the
+		<a href="' . admin_url( 'widgets.php' ) . '" title="Widgets configuration page">Widgets configuration page</a>.</li>
 	</ul>
 	<p>
 	Please <a href="https://www.adplugg.com/contact?utm_source=wpplugin&utm_campaign=ohelp-t-l2" target="_blank" title="contact us">contact us</a> for additional support.
 	</p>
 	';
-	
+
 	$faq_content = '
 	<h2>FAQ</h2>
 	<h5>Why do I need an access code?</h5>
@@ -127,7 +129,7 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
 		own high powered, cloud based ad server/ad manager system. From your
 		new AdPlugg account, you can serve ads to any number of sites using
 		sophisticated scheduling and rotation strategies. In addition, AdPlugg
-		will track your ad\'s impressions and clicks and provide you with detailed 
+		will track your ad\'s impressions and clicks and provide you with detailed
 		analytics. All of this is much too computationally expensive to attempt
 		on a typical WordPress shared hosting account. So instead, AdPlugg was
 		designed to run as a service separate from your website.
@@ -135,16 +137,16 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
 	<p>
 		Once you\'ve registered, you are given an access code. You enter your
 		access code into the AdPlugg WordPress Plugin settings so that your
-		wordpress site can retrieve ads from your AdPlugg account.
+		WordPress site can retrieve ads from your AdPlugg account.
 	</p>
 	<p>
-		You can sign up for a free AdPlugg account and get your access code 
+		You can sign up for a free AdPlugg account and get your access code
 		by going <a href="https://www.adplugg.com/apusers/signup?utm_source=wpplugin&utm_campaign=ohelp-faq-l1" target="_blank" title="AdPlugg Signup">here</a>.
 	</p>
 	<h5>More Questions and Answers</h5>
 	<p>
 		Not seeing the question/answer that you are looking for? Please see our
-		<a href="https://www.adplugg.com/support/question-answer?utm_source=wpplugin&utm_campaign=ohelp-faq-l2" 
+		<a href="https://www.adplugg.com/support/question-answer?utm_source=wpplugin&utm_campaign=ohelp-faq-l2"
 		target="_blank" title="Question and Answer Forum">Question/Answer forum
 		</a> for much more.
 	</p>
@@ -157,42 +159,54 @@ function adplugg_options_page_help( $contextual_help, $screen_id, $screen ) {
 	<a href="https://www.adplugg.com/contact?utm_source=wpplugin&utm_campaign=ohelp-mi-l3" target="_blank" title="Contact AdPlugg">Contact AdPlugg</a><br/>
 	';
 
-	//overview tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_overview',
-		'title' => 'Overview',
-		'content' => $overview_content
-	) );
-	//installation tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_installation',
-		'title' => 'Installation',
-		'content' => $installation_content
-	) );
-	//use tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_use',
-		'title' => 'Using AdPlugg',
-		'content' => $use_content
-	) );
-	//tags tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_tags',
-		'title' => 'Tags/Shortcodes',
-		'content' => $tags_content
-	) );
-	//troubleshooting tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_troubleshooting',
-		'title' => 'Troubleshooting',
-		'content' => $troubleshooting_content
-	) );
-	//FAQ tab
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_faq',
-		'title' => 'FAQ',
-		'content' => $faq_content
-	) );
+	// Overview tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_overview',
+			'title'   => 'Overview',
+			'content' => $overview_content,
+		)
+	);
+	// Installation tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_installation',
+			'title'   => 'Installation',
+			'content' => $installation_content,
+		)
+	);
+	// Use tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_use',
+			'title'   => 'Using AdPlugg',
+			'content' => $use_content,
+		)
+	);
+	// Tags tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_tags',
+			'title'   => 'Tags/Shortcodes',
+			'content' => $tags_content,
+		)
+	);
+	// Troubleshooting tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_troubleshooting',
+			'title'   => 'Troubleshooting',
+			'content' => $troubleshooting_content,
+		)
+	);
+	// FAQ tab.
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_faq',
+			'title'   => 'FAQ',
+			'content' => $faq_content,
+		)
+	);
 
 	$screen->set_help_sidebar( $sidebar_content );
 
