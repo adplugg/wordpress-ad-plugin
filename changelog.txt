@@ -1,3 +1,7 @@
+= 1.9.15 =
+
+* Linted the options-page-help.php file.
+
 = 1.9.14 =
 
 * Added unit testing to the Test_Help_Dispatch class for testing the contextual help for the AMP settings page.
