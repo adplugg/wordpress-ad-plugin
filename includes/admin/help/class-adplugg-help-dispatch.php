@@ -27,7 +27,7 @@ class AdPlugg_Help_Dispatch {
 	 *
 	 * @var AdPlugg_Help_Dispatch
 	 */
-	public static $instance;
+	private static $instance;
 
 	/**
 	 * Constructor, constructs the AdPlugg_Notice_Controller and registers

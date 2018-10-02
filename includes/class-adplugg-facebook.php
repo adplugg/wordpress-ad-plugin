@@ -9,13 +9,13 @@
  * @since 1.3.0
  */
 class AdPlugg_Facebook {
-	
+
 	/**
 	 * Singleton instance.
-	 * @var AdPlugg_Facebook 
+	 * @var AdPlugg_Facebook
 	 */
-	static $instance;
-	
+	private static $instance;
+
 	/**
 	 * Constructor, constructs the class and registers filters and actions.
 	 */
@@ -23,7 +23,7 @@ class AdPlugg_Facebook {
 		add_action( 'widgets_init', array( &$this, 'facebook_instant_articles_header_widget_area_init' ) );
 		add_action( 'instant_articles_compat_registry_ads', array( $this, 'add_to_registry' ), 10, 1 );
 	}
-	
+
 	/**
 	 * Add the Facebook Instant Articles Header widget area.
 	 */
@@ -36,7 +36,7 @@ class AdPlugg_Facebook {
 			) );
 		}
 	}
-	
+
 	/**
 	 * Function that looks to see if Facebook Instant Articles automatic ad
 	 * placement is enabled.
@@ -52,11 +52,11 @@ class AdPlugg_Facebook {
 
 		return $enabled;
 	}
-	
+
 	/**
-	 * Function that looks to see if the temporary Use Legacy adplugg.com 
+	 * Function that looks to see if the temporary Use Legacy adplugg.com
 	 * Endpoint setting is turned on.
-	 * @return boolean Returns true if the temporary Use Legacy adplugg.com 
+	 * @return boolean Returns true if the temporary Use Legacy adplugg.com
 	 * Endpoint setting is turned on, otherwise returns false.
 	 */
 	static function temp_use_legacy_adplugg_com_endpoint() {
@@ -68,11 +68,11 @@ class AdPlugg_Facebook {
 
 		return $enabled;
 	}
-	
+
 	/**
-	 * Function that looks to see if the temporary Allow Legacy adplugg.com 
+	 * Function that looks to see if the temporary Allow Legacy adplugg.com
 	 * Endpoint setting is turned on.
-	 * @return boolean Returns true if the temporary Allow Legacy adplugg.com 
+	 * @return boolean Returns true if the temporary Allow Legacy adplugg.com
 	 * Endpoint setting is turned on, otherwise returns false.
 	 */
 	static function temp_allow_legacy_adplugg_com_endpoint() {
@@ -84,7 +84,7 @@ class AdPlugg_Facebook {
 
 		return $enabled;
 	}
-	
+
 	/**
 	 * Add AdPlugg to the Facebook Instant Articles plugin ad registry.
 	 * (fb-instant-articles 0.3+)
@@ -100,7 +100,7 @@ class AdPlugg_Facebook {
 				'name' => $display_name,
 		);
 	}
-	
+
 	/**
 	 * Gets the singleton instance.
 	 * @return \AdPlugg_Facebook Returns the singleton instance of this class.

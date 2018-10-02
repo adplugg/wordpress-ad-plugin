@@ -8,26 +8,29 @@
  * @since 1.2.48
  */
 class AdPlugg_Feed {
-	
-	// singleton instance
-	static $instance;
-	
+
+	/**
+	 * Singleton instance.
+	 * @var AdPlugg_Feed
+	 */
+	private static $instance;
+
 	/**
 	 * Constructor, constructs the class and registers filters and actions.
-	 * 
+	 *
 	 * This is private, call get_instance instead to get the singleton instnace.
 	 */
 	private function __construct() {
 		add_filter( 'the_content_feed', array( $this, 'filter_feed' ), 1 );
 	}
-	
+
 	/**
 	 * Filter out AdPlugg in content ad tags from the feed (feed ads aren't
 	 * currently supported and the AdPlugg ad tag's use of HTML5 data attributes
 	 * breaks some feed validators).
-	 * 
+	 *
 	 * Ref: https://codex.wordpress.org/Plugin_API/Filter_Reference/the_content_feed
-	 * 
+	 *
 	 * @param $content Content of feed (post)
 	 * @return string The feed with any AdPlugg Ad Tags removed.
 	 */
@@ -35,12 +38,12 @@ class AdPlugg_Feed {
 
 		//ex: "<div class="adplugg-tag" data-adplugg-zone="incontent"></div>"
 		$adtag_regex = '/[\s]*<div[^>]*?class\=["\']adplugg-tag["\'][^>]*?><\/div>[\s]*/i';
-		
+
 		$filtered_content = preg_replace( $adtag_regex, '', $content );
-		
+
 		return $filtered_content;
 	}
-	
+
 	/**
 	 * Gets the singleton instance.
 	 * @return \AdPlugg_Feed Returns the singleton instance of this

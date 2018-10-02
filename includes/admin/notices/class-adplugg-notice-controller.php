@@ -2,21 +2,21 @@
 
 /**
  * AdPlugg Notices class.
- * 
- * The AdPlugg Notices Controller class sets up and controls the AdPlugg 
+ *
+ * The AdPlugg Notices Controller class sets up and controls the AdPlugg
  * notices.
  *
  * @package AdPlugg
  * @since 1.2
  */
 class AdPlugg_Notice_Controller {
-	
+
 	/**
 	 * Class instance.
 	 * @var AdPlugg_Notice_Controller
 	 */
-	static $instance;
-	
+	private static $instance;
+
 	/**
 	 * Constructor, constructs the AdPlugg_Notice_Controller and registers
 	 * actions.
@@ -31,17 +31,17 @@ class AdPlugg_Notice_Controller {
 	 * notices based on the current state of the plugin (see code).
 	 */
 	public function admin_notices() {
-		
+
 		$screen = get_current_screen();
 		$screen_id = ( ! empty( $screen ) ? $screen->id : null );
-		
+
 		// Start the notices array off with any that are queued.
 		$notices = $this->pull_all_queued();
-		
+
 		// Add any new notices based on the current state of the plugin, etc.
 		if ( ! AdPlugg_Options::is_access_code_installed() ) {
 			if ( $screen_id != 'toplevel_page_adplugg' ) {
-				$notices[] = AdPlugg_Notice::create( 
+				$notices[] = AdPlugg_Notice::create(
 								'nag_configure',  //id
 								'You\'ve activated the AdPlugg Plugin, yay! Now let\'s <a title="Configure the AdPlugg Plugin!" href="' . admin_url('admin.php?page=adplugg') . '">configure</a> it!',
 								'updated', //type (for styling)
@@ -54,15 +54,15 @@ class AdPlugg_Notice_Controller {
 		} else {
 			if ( ! adplugg_is_widget_active() ) {
 				if ( $screen_id == 'widgets' ) {
-					$notices[] = AdPlugg_Notice::create( 
+					$notices[] = AdPlugg_Notice::create(
 									'nag_widget_1', //id
-									'Drag the AdPlugg Widget into a Widget Area to display ads on your site.', 
+									'Drag the AdPlugg Widget into a Widget Area to display ads on your site.',
 									'updated', //type (for styling)
 									true, //dismissible
 									'+30 days' //remind when
 								);
 				} else {
-					$notices[] = AdPlugg_Notice::create( 
+					$notices[] = AdPlugg_Notice::create(
 									'nag_widget_2', //id
 									'You\'re configured and ready to go. Now just drag the AdPlugg Widget into a Widget Area.',
 									'updated', //type (for styling)
@@ -74,7 +74,7 @@ class AdPlugg_Notice_Controller {
 				}
 			}
 		}
-		
+
 		//print the notices
 		$out = '';
 		foreach ( $notices as $notice ) {
@@ -82,7 +82,7 @@ class AdPlugg_Notice_Controller {
 		}
 		echo $out;
 	}
-	
+
 	/**
 	 * Called via ajax to dismiss a notice. Registered in the constructor above.
 	 */
@@ -96,22 +96,22 @@ class AdPlugg_Notice_Controller {
 		if ( $remind_when != null ) {
 			$remind_on = strtotime( $remind_when );
 		}
-		
+
 		//Add the dismissal to the database
 		$dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
 		$dismissals[$notice_key] = $remind_on;
 		update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
-		
+
 		//Build the return array
 		$ret = array();
 		$ret['notice_key'] = $notice_key;
 		$ret['status'] = 'success';
-		
+
 		//return the json
 		echo json_encode( $ret );
 		wp_die(); //terminate immediately and return a proper response
 	}
-	
+
 	/**
 	 * Adds a notice to the database for display on the next refresh
 	 * @param AdPlugg_Notice $notice The notice that you want to queue.
@@ -141,7 +141,7 @@ class AdPlugg_Notice_Controller {
 
 		return $notices;
 	}
-	
+
 	/**
 	 * Gets the singleton instance of the class.
 	 * @return AdPlugg_Notice_Controller Returns the singleton instance of the

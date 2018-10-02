@@ -7,13 +7,13 @@
  * @since 1.0
  */
 class AdPlugg_Options_Page {
-	
+
 	/**
 	 * Class instance.
 	 * @var AdPlugg_Options_Page
 	 */
-	static $instance;
-	
+	private static $instance;
+
 	/**
 	 * Constructor, constructs the options page and adds it to the Settings
 	 * menu.
@@ -22,18 +22,18 @@ class AdPlugg_Options_Page {
 		add_action( 'admin_menu', array( &$this, 'add_to_menu' ) );
 		add_action( 'admin_init', array( &$this, 'admin_init' ) );
 	}
-	
+
 	/**
 	 * Function to add the options page to the settings menu.
 	 */
 	function add_to_menu() {
 		global $adplugg_hook;
 		$adplugg_hook = 'adplugg';
-		
+
 		add_menu_page( 'AdPlugg Settings', 'AdPlugg', 'manage_options', $adplugg_hook, array( &$this, 'render_page' ), null, '55.2' );
 		add_submenu_page( $adplugg_hook, 'General', 'General', 'manage_options', $adplugg_hook );
 	}
-	
+
 	/**
 	 * Function to render the AdPlugg options page.
 	 */
@@ -96,11 +96,11 @@ class AdPlugg_Options_Page {
 				To use AdPlugg, you will need an AdPlugg Access Code. Your AdPlugg
 				Access Code ties your WordPress site to your AdPlugg account (and
 				hosted AdPlugg ad server). To get your AdPlugg Access Code, log in
-				or register (it's free) at 
+				or register (it's free) at
 				<a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=opts-l2" target="_blank" title="adplugg.com">
 					adplugg.com</a>.
 			</p>
-		<?php 
+		<?php
 		}
 	}
 
@@ -120,14 +120,14 @@ class AdPlugg_Options_Page {
 				<br/>
 				<a href="#" onclick="
 					jQuery( '#contextual-help-link' ).trigger( 'click' );
-					jQuery( '#tab-link-adplugg_faq>a' ).trigger( 'click' ); 
+					jQuery( '#tab-link-adplugg_faq>a' ).trigger( 'click' );
 					return false;
 				" title="Why do I need an access code?">Why do I need an access code?</a>
 			<?php } //end if?>
 		</p>
 	<?php
 	}
-	
+
 	/**
 	 * Function to initialize the AdPlugg options page.
 	 */
@@ -140,19 +140,19 @@ class AdPlugg_Options_Page {
 			'adplugg'
 		);
 		add_settings_field(
-			'access_code', 
-			'Access Code', 
+			'access_code',
+			'Access Code',
 			array( &$this, 'render_access_code' ),
-			'adplugg', 
+			'adplugg',
 			'adplugg_options_access_section'
 		);
 	}
 
 	/**
-	 * Function to validate the submitted AdPlugg options field values. 
-	 * 
-	 * This function overwrites the old values instead of completely replacing 
-	 * them so that we don't overwrite values that weren't submitted (such as 
+	 * Function to validate the submitted AdPlugg options field values.
+	 *
+	 * This function overwrites the old values instead of completely replacing
+	 * them so that we don't overwrite values that weren't submitted (such as
 	 * the version).
 	 * @param array $input The submitted values
 	 * @return array Returns the new options to be stored in the database.
@@ -160,11 +160,11 @@ class AdPlugg_Options_Page {
 	function validate( $input ) {
 		$old_options = get_option( ADPLUGG_OPTIONS_NAME );
 		$new_options = $old_options;  //start with the old options.
-		
+
 		$has_errors = false;
 		$msg_type = null;
 		$msg_message = null;
-		
+
 		//process the new values
 		$new_options['access_code'] = trim( $input['access_code'] );
 		if ( ! preg_match( '/^[a-z0-9]*$/i', $new_options['access_code'] ) ) {
@@ -172,7 +172,7 @@ class AdPlugg_Options_Page {
 			$msg_message = 'Please enter a valid Access Code.';
 			$new_options['access_code'] = '';
 		}
-		
+
 		if ( $has_errors ) {
 			$msg_type = 'error';
 			add_settings_error(
@@ -182,10 +182,10 @@ class AdPlugg_Options_Page {
 				$msg_type
 			);
 		}
-		
+
 		return $new_options;
 	}
-	
+
 	/**
 	 * Gets the singleton instance.
 	 * @return \AdPlugg_Options_Page Returns the singleton instance of this
