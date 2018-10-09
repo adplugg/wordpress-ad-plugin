@@ -87,8 +87,14 @@ if ( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-facebook-options-page.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/pages/class-adplugg-amp-options-page.php' );
-	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-help-dispatch.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-privacy.php' );
+
+	// Help system includes.
+	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-help-dispatch.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/options-page-help.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/facebook-options-page-help.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/amp-options-page-help.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/widgets-page-help.php' );
 
 	// Initialize notifications system.
 	AdPlugg_Notice_Controller::get_instance();

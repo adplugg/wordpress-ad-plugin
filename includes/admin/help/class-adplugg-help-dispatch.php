@@ -10,14 +10,6 @@
  */
 
 /**
- * Require our help system files.
- */
-require_once ADPLUGG_INCLUDES . 'admin/help/options-page-help.php';
-require_once ADPLUGG_INCLUDES . 'admin/help/facebook-options-page-help.php';
-require_once ADPLUGG_INCLUDES . 'admin/help/amp-options-page-help.php';
-require_once ADPLUGG_INCLUDES . 'admin/help/widgets-page-help.php';
-
-/**
  * AdPlugg_Help_Dispatch class.
  */
 class AdPlugg_Help_Dispatch {
