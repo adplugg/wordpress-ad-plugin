@@ -1,3 +1,8 @@
+= 1.9.17 =
+
+* Moved the help system includes to the main plugin file.
+* Linted the widgets-page-help.php file to meet the WP coding standards.
+
 = 1.9.16 =
 
 * Updated the visibility on the 'instance' property of all singletons to 'private'.
