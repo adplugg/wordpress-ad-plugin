@@ -1,21 +1,23 @@
 <?php
 /**
- * Functions for rendering the AdPlugg contextual help for the widgets page 
+ * Functions for rendering the AdPlugg contextual help for the widgets page
  * within the WordPress Administrator.
+ *
  * @package AdPlugg
  * @since 1.1.29
  */
 
 /**
  * Add help for the AdPlugg widget into the WordPress admin help system.
- * @param string $contextual_help The default contextual help that our 
+ *
+ * @param string $contextual_help The default contextual help that our
  * function is going to replace.
  * @param string $screen_id Used to identify the page that we are on.
  * @param string $screen Used to access the elements of the current page.
  * @return string The new contextual help.
  */
 function adplugg_widgets_page_help( $contextual_help, $screen_id, $screen ) {
-	
+
 	$content = '
 	<h1>AdPlugg Widget Help</h1>
 	<p>Using the AdPlugg Widget is easy! Just drag it from the list of available
@@ -31,12 +33,12 @@ function adplugg_widgets_page_help( $contextual_help, $screen_id, $screen ) {
 			the word "Sponsors" display above your ads. Don\'t want a title?
 			Just leave this field blank.
 		</li>
-		<li><strong>Zone:</strong> If you\'ve added zones to your 
+		<li><strong>Zone:</strong> If you\'ve added zones to your
 			<a href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=whelp-os-l1" target="_blank" title="adplugg.com">
 			adplugg.com</a> configuration, you can use this field to tie a zone
 			to the widget. Enter the zone\'s machine name into this field. Once
 			the widget is tied to a zone, you can control what displays in the
-			widget by modifying your zone settings and zone targeting at <a 
+			widget by modifying your zone settings and zone targeting at <a
 			href="https://www.adplugg.com?utm_source=wpplugin&utm_campaign=whelp-os-l2" target="_blank" title="adplugg.com">
 			adplugg.com</a>.
 		</li>
@@ -46,16 +48,16 @@ function adplugg_widgets_page_help( $contextual_help, $screen_id, $screen ) {
 	Ads.</p>
 	<h4>Instructions</h4>
 	<ul>
-		<li>If you haven\'t already done so, follow the instructions on the 
+		<li>If you haven\'t already done so, follow the instructions on the
 			<a href="admin.php?page=adplugg_facebook_settings">AdPlugg Facebook
 			settings page</a> to install the Facebook Instant Articles for WP
 			plugin, enable automatic placement and configure AdPlugg as your Ad
 			Type.
 		</li>
-		<li>You should now see a "Facebook Instant Articles Ads" widget area 
+		<li>You should now see a "Facebook Instant Articles Ads" widget area
 			below.
 		</li>
-		<li>Drag the AdPlugg Widget into the "Facebook Instant Articles Ads" 
+		<li>Drag the AdPlugg Widget into the "Facebook Instant Articles Ads"
 			widget area.
 		</li>
 		<li>Enter the zone machine name of the AdPlugg Zone that you want to
@@ -72,24 +74,26 @@ function adplugg_widgets_page_help( $contextual_help, $screen_id, $screen ) {
 	</p>
 	<h4>The Default Widget</h4>
 	<p>
-		As mentioned above, you can drag multiple widgets into the Facebook 
-		Instant Articles Ads widget area. The widgets (or the ads that they 
+		As mentioned above, you can drag multiple widgets into the Facebook
+		Instant Articles Ads widget area. The widgets (or the ads that they
 		produce) will be automatically inserted thoughout the Instant Article in
 		the order that they are shown in the widget area. After all ads/widgets
 		have been inserted, if there is still more content, the "Default" widget
 		will be inserted again.
 	</p>
-	<p>A common configuration is to use a single widget, set it to be the 
+	<p>A common configuration is to use a single widget, set it to be the
 	default and then use AdPlugg\'s ad rotation features to rotate the ads that
 	appear.</p>
 	';
-	
-	$screen->add_help_tab( array(
-		'id' => 'adplugg_widget',
-		'title' => 'AdPlugg Widget',
-		'content' => $content
-	) );
-	
+
+	$screen->add_help_tab(
+		array(
+			'id'      => 'adplugg_widget',
+			'title'   => 'AdPlugg Widget',
+			'content' => $content,
+		)
+	);
+
 	return $contextual_help;
 
 }
