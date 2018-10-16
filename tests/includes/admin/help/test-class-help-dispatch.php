@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-help-dispatch.php' );
+require_once ADPLUGG_INCLUDES . 'admin/help/class-adplugg-help-dispatch.php';
 
 /**
  * The Test_Help_Dispatch class includes tests for testing the
@@ -22,7 +22,7 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 
 		//Assert that the dispatch function is registered.
 		$function_names = get_function_names( $wp_filter['contextual_help'] );
-		//var_dump( $function_names );
+
 		$this->assertContains( 'dispatch', $function_names );
 	}
 
@@ -34,10 +34,10 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 	public function test_dispatch_for_options_page() {
 		global $adplugg_hook;
 
-		//set up the variables
+		// Set up the variables.
 		$contextual_help = '';
-		$adplugg_hook = 'mock-hook';
-		$screen_id = 'toplevel_page_' . $adplugg_hook;
+		$adplugg_hook    = 'mock-hook';
+		$screen_id       = 'toplevel_page_' . $adplugg_hook;
 
 		// Init the class.
 		$adplugg_help_dispatch = new AdPlugg_Help_Dispatch();
@@ -45,14 +45,18 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 		// Get the screen.
 		$screen = WP_Screen::get( $screen_id );
 
-		//Assert that the AdPlugg help is not in the screen.
+		// Assert that the AdPlugg help is not in the screen.
+		// phpcs:disable
 		$this->assertNotContains( 'AdPlugg Plugin Help', serialize( $screen ) );
+		// phpcs:enable
 
-		//run the function
+		// Run the function.
 		$adplugg_help_dispatch->dispatch( $contextual_help, $screen_id, $screen );
 
 		//Asset that the AdPlugg help is now in the screen.
+		// phpcs:disable
 		$this->assertContains( 'AdPlugg Plugin Help', serialize( $screen ) );
+		// phpcs:enable
 	}
 
 	/**
@@ -65,48 +69,25 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 
 		//set up the variables
 		$contextual_help = '';
-		$adplugg_hook = 'mock-hook';
-		$screen_id = $adplugg_hook . '_page_adplugg_facebook_settings';
-		$screen = WP_Screen::get( $screen_id );
+		$adplugg_hook    = 'mock-hook';
+		$screen_id       = $adplugg_hook . '_page_adplugg_facebook_settings';
+		$screen          = WP_Screen::get( $screen_id );
 
 		// Init the class.
 		$adplugg_help_dispatch = new AdPlugg_Help_Dispatch();
 
 		//Assert that the Facebook settings help is not in the screen.
+		// phpcs:disable
 		$this->assertNotContains( 'Facebook Settings Help', serialize( $screen ) );
+		// phpcs:enable
 
 		//run the function
 		$adplugg_help_dispatch->dispatch( $contextual_help, $screen_id, $screen );
 
 		//Asset that the Facebook settings help is now in the screen.
+		// phpcs:disable
 		$this->assertContains( 'Facebook Settings Help', serialize( $screen ) );
-	}
-
-	/**
-	 * Test that the dispatch function properly dispatches help for the AMP
-	 * options page.
-	 * @global string $adplugg_hook
-	 */
-	public function test_dispatch_for_amp_options_page() {
-		global $adplugg_hook;
-
-		//set up the variables
-		$contextual_help = '';
-		$adplugg_hook = 'mock-hook';
-		$screen_id = $adplugg_hook . '_page_adplugg_amp_settings';
-		$screen = WP_Screen::get( $screen_id );
-
-		// Init the class.
-		$adplugg_help_dispatch = new AdPlugg_Help_Dispatch();
-
-		//Assert that the AMP settings help is not in the screen.
-		$this->assertNotContains( 'AMP Settings Help', serialize( $screen ) );
-
-		//run the function
-		$adplugg_help_dispatch->dispatch( $contextual_help, $screen_id, $screen );
-
-		//Asset that the AMP settings help is now in the screen.
-		$this->assertContains( 'AMP Settings Help', serialize( $screen ) );
+		// phpcs:enable
 	}
 
 	/**
@@ -114,22 +95,26 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 	 * widgets page.
 	 */
 	public function test_dispatch_for_widgets_page() {
-		//set up the variables
+		// Set up the variables.
 		$contextual_help = '';
-		$screen_id = 'widgets';
-		$screen = WP_Screen::get( $screen_id );
+		$screen_id       = 'widgets';
+		$screen          = WP_Screen::get( $screen_id );
 
-		//Assert that the AdPlugg help is not in the screen.
+		// Assert that the AdPlugg help is not in the screen.
+		// phpcs:disable
 		$this->assertNotContains( 'AdPlugg Widget Help', serialize( $screen ) );
+		// phpcs:enable
 
 		// Init the class.
 		$adplugg_help_dispatch = new AdPlugg_Help_Dispatch();
 
-		//run the function
+		// Run the function.
 		$adplugg_help_dispatch->dispatch( $contextual_help, $screen_id, $screen );
 
-		//Asset that the AdPlugg help is now in the screen.
+		// Asset that the AdPlugg help is now in the screen.
+		// phpcs:disable
 		$this->assertContains( 'AdPlugg Widget Help', serialize( $screen ) );
+		// phpcs:enable
 	}
 
 }
