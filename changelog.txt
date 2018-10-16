@@ -1,3 +1,7 @@
+= 1.9.18 =
+
+* Moved the AMP Options page help to a class (instead of a global function).
+
 = 1.9.17 =
 
 * Moved the help system includes to the main plugin file.
