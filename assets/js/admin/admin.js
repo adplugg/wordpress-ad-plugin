@@ -1,20 +1,23 @@
 /**
- * Style for AdPlugg in the administrator.
+ * AdPlugg JavaScript functions for the wp-admin.
  * @package AdPlugg
  * @since 1.2.0
  */
 
 /**
  * Function that is called when a notice button is clicked.
+ * 
  * @param {object} buttonObj The button calling the function.
+ * @param {string} nonce The nonce for posting back to the server.
  * @param {string} noticeKey The noticeKey of the notice.
  * @param {string} remindWhen When to remind (ex. '+30 days'), or null to never
  * remind again.
  * @returns {boolean} Retruns false;
  */
-function adpluggPostNoticePref(buttonObj, noticeKey, remindWhen) {
+function adpluggPostNoticePref(buttonObj, nonce, noticeKey, remindWhen) {
 	var data = {
 		'action': 'adplugg_set_notice_pref',
+		'nonce': nonce,
 		'notice_key': noticeKey,
 		'remind_when': remindWhen
 	};
@@ -30,7 +33,8 @@ function adpluggPostNoticePref(buttonObj, noticeKey, remindWhen) {
 }
 
 /**
- * Set the rating link click action
+ * Set the rating link click action.
+ * 
  * @param {type} param
  */
 jQuery(document).ready(function() {
