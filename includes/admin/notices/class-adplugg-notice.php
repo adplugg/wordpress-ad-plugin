@@ -186,6 +186,15 @@ class AdPlugg_Notice {
 	}
 
 	/**
+	 * Gets the nonce for the Notice. This is used for testing.
+	 *
+	 * @return string Returns the nonce.
+	 */
+	public function get_nonce() {
+		return $this->nonce;
+	}
+
+	/**
 	 * Gets the value of message.
 	 * @return string Returns the Notice message.
 	 */

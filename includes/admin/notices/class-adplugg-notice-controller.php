@@ -92,12 +92,10 @@ class AdPlugg_Notice_Controller {
 	 * the notice_key post variable isn't set.
 	 */
 	public function set_notice_pref_callback() {
-
 		// Protect against CSRF attacks.
-		check_ajax_referer( 'adplugg_set_notice_pref', 'nonce' );
+		check_ajax_referer( 'adplugg_set_notice_pref' );
 
 		// Get the variables from the post request.
-		$notice_key = ( isset( $_POST['notice_key'] ) ) ? sanitize_key( $_POST['notice_key'] ) : null;
 		$notice_key = ( isset( $_POST['notice_key'] ) ) ? sanitize_key( $_POST['notice_key'] ) : null;
 		$remind_on  = ( isset( $_POST['remind_when'] ) ) ? strtotime( sanitize_text_field( wp_unslash( $_POST['remind_when'] ) ) ) : null;
 

@@ -17,7 +17,7 @@
 function adpluggPostNoticePref(buttonObj, nonce, noticeKey, remindWhen) {
 	var data = {
 		'action': 'adplugg_set_notice_pref',
-		'nonce': nonce,
+		'_ajax_nonce': nonce,
 		'notice_key': noticeKey,
 		'remind_when': remindWhen
 	};
