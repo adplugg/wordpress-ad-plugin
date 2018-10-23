@@ -1,3 +1,8 @@
+= 1.9.19 =
+
+* Linted the AdPlugg_Notice_Controller class. 
+* Added CSRF protection to the notice system.
+
 = 1.9.18 =
 
 * Moved the AMP Options page help to a class (instead of a global function).
