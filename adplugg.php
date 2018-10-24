@@ -69,8 +69,13 @@ require_once( ADPLUGG_INCLUDES . 'amp/class-adplugg-amp.php' );
 
 require_once( ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php' );
 
-//Register the AdPlugg Widget
-add_action( 'widgets_init', create_function( '', 'return register_widget("AdPlugg_Widget");' ) );
+/**
+ * Register Widgets.
+ */
+function adplugg_register_widgets() {
+	register_widget( 'AdPlugg_Widget' );
+}
+add_action( 'widgets_init', 'adplugg_register_widgets' );
 
 //Inits
 AdPlugg_Facebook::get_instance();
