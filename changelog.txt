@@ -1,3 +1,7 @@
+= 1.9.20 =
+
+* Removed the use of the deprecated 'create_function' when registering the widget.
+
 = 1.9.19 =
 
 * Linted the AdPlugg_Notice_Controller class. 
