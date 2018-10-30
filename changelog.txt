@@ -1,3 +1,7 @@
+= 1.9.21 =
+
+* Linted the AdPlugg_Notice class to meet all WP coding standards.
+
 = 1.9.20 =
 
 * Removed the use of the deprecated 'create_function' when registering the widget.
