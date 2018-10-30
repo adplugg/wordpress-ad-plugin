@@ -1,60 +1,71 @@
 <?php
+/**
+ * The AdPlugg Notice class represents an AdPlugg notice.
+ *
+ * @package AdPlugg
+ * @since 1.2
+ */
 
 /**
  * AdPlugg Notice class.
- * The AdPlugg Notice class represents an AdPlugg notice.
- * @package AdPlugg
- * @since 1.2
  */
 class AdPlugg_Notice {
 
 	/**
 	 * The notice_key is a key such as "nag_widget".
-	 * @var $notice_key string
+	 *
+	 * @var string
 	 */
 	private $notice_key;
 
 	/**
 	 * A nonce for the notice.
+	 *
 	 * @var string
 	 */
 	private $nonce;
 
 	/**
 	 * The message that you want to display to the user.
-	 * @var $message string
+	 *
+	 * @var string
 	 */
 	private $message;
 
-	/*
+	/**
 	 * The notice type ('error', 'updated', or 'update-nag') See:
 	 * https://codex.wordpress.org/Plugin_API/Action_Reference/admin_notices
-	 * @var $type string The type of notice this is.
+	 *
+	 * @var string The type of notice this is.
 	 */
 	private $type;
 
 	/**
 	 * Whether or not the message is dismissible.
-	 * @var $notice_key boolean
+	 *
+	 * @var boolean
 	 */
 	private $dismissible;
 
 	/**
 	 * A string (such as '+30 days') for use in php's strtotime function.
-	 * @var $remind_when string
+	 *
+	 * @var string
 	 */
 	private $remind_when;
 
 	/**
 	 * A string (such as 'Configure Now') for use in a CTA button to be included
 	 * in the Notice.
-	 * @var $cta_text string
+	 *
+	 * @var string
 	 */
 	private $cta_text;
 
 	/**
 	 * The url for the CTA button.
-	 * @var $cta_url string
+	 *
+	 * @var string
 	 */
 	private $cta_url;
 
@@ -62,20 +73,22 @@ class AdPlugg_Notice {
 	 * Constructor.
 	 */
 	public function __construct() {
-		//
 	}
 
 	/**
 	 * Static function to create a new Notice. Call using
 	 * AdPlugg_Notice::create('nag_widget', 'some message', true/false );
-	 * @param string $notice_key The notice_key is a key such as "nag_widget".
-	 * @param string $message The message that you want to display to the user.
-	 * @param string $type (optional) The notice type ('error', 'updated', or
-	 * 'update-nag').
-	 * @param boolean $dismissible (optional) Whether or not the message is
+	 *
+	 * @param string      $notice_key The notice_key is a key such as
+	 * "nag_widget".
+	 * @param string      $message The message that you want to display to the
+	 * user.
+	 * @param string      $type (optional) The notice type ('error', 'updated',
+	 * or 'update-nag').
+	 * @param boolean     $dismissible (optional) Whether or not the message is
 	 * dismissible.
-	 * @param string $remind_when A string (such as '+30 days') for use in php's
-	 * strtotime function.
+	 * @param string      $remind_when A string (such as '+30 days') for use in
+	 * PHP's strtotime function.
 	 * @param string|null $cta_text (optional) A string (such as 'Configure
 	 * Now') for use in a CTA button to be included in the Notice. Leave off or
 	 * null for no CTA button.
@@ -90,17 +103,16 @@ class AdPlugg_Notice {
 								$remind_when = null,
 								$cta_text = null,
 								$cta_url = null
-							)
-	{
+							) {
 		$instance = new self();
 
-		$instance->notice_key = $notice_key;
-		$instance->message = $message;
-		$instance->type = $type;
+		$instance->notice_key  = $notice_key;
+		$instance->message     = $message;
+		$instance->type        = $type;
 		$instance->dismissible = $dismissible;
 		$instance->remind_when = $remind_when;
-		$instance->cta_text = $cta_text;
-		$instance->cta_url = $cta_url;
+		$instance->cta_text    = $cta_text;
+		$instance->cta_url     = $cta_url;
 
 		$instance->nonce = wp_create_nonce( 'adplugg_set_notice_pref' );
 
@@ -110,24 +122,26 @@ class AdPlugg_Notice {
 	/**
 	 * Static function to recreate a Notice. Call using
 	 * AdPlugg_Notice::recreate( $data_array );
+	 *
 	 * See the to_array function below for the expected array structure.
-	 * @param array $array An array containing the Notice data
+	 *
+	 * @param array $array An array containing the Notice data.
 	 * @return \self Works like a constructor.
 	 */
 	public static function recreate( $array ) {
 		$instance = new self();
 
-		$instance->notice_key = $array['notice_key'];
-		$instance->message = $array['message'];
-		$instance->type = $array['type'];
+		$instance->notice_key  = $array['notice_key'];
+		$instance->message     = $array['message'];
+		$instance->type        = $array['type'];
 		$instance->dismissible = $array['dismissible'];
-		if ( isset($array['remind_when'] ) ) {
+		if ( isset( $array['remind_when'] ) ) {
 			$instance->remind_when = $array['remind_when'];
 		}
-		if ( isset($array['cta_text'] ) ) {
+		if ( isset( $array['cta_text'] ) ) {
 			$instance->cta_text = $array['cta_text'];
 		}
-		if ( isset($array['cta_url'] ) ) {
+		if ( isset( $array['cta_url'] ) ) {
 			$instance->cta_url = $array['cta_url'];
 		}
 
@@ -138,6 +152,7 @@ class AdPlugg_Notice {
 
 	/**
 	 * Gets the html for the notice.
+	 *
 	 * @return string Returns a string of html for rendering the notice.
 	 */
 	public function get_rendered() {
@@ -145,18 +160,17 @@ class AdPlugg_Notice {
 
 		if ( ! $this->is_dismissed() ) {
 			$buttons = '';
-			$html .= '<div id="' . $this->notice_key . '" class="' . $this->type . ' notice notice-' . $this->type . ' is-dismissible adplugg-notice">';
-			$html .=	 '<p>' .
+			$html   .= '<div id="' . $this->notice_key . '" class="' . $this->type . ' notice notice-' . $this->type . ' is-dismissible adplugg-notice">';
+			$html   .= '<p>' .
 							'<strong>AdPlugg:</strong> ' .
 							$this->message .
-						'</p>';
+					'</p>';
 			if ( $this->dismissible ) {
 				$buttons =
 							'<button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'' . $this->nonce . '\', \'' . $this->notice_key . '\', \'+30 days\');">Remind Me Later</button>' .
-							'<button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'' . $this->nonce . '\', \'' . $this->notice_key . '\', null);">Don\'t Remind Me Again</button>'
-						 ;
+							'<button type="button" class="button button-small adplugg-subtle-button" onclick="adpluggPostNoticePref(this, \'' . $this->nonce . '\', \'' . $this->notice_key . '\', null);">Don\'t Remind Me Again</button>';
 			}
-			if ( $this->cta_text !== null ) {
+			if ( null !== $this->cta_text ) {
 				$buttons .= '<button type="button" class="button button-primary button-small" onclick="window.location.href=\'' . $this->cta_url . '\'; return true;">' . $this->cta_text . '</button>';
 			}
 
@@ -174,11 +188,12 @@ class AdPlugg_Notice {
 	 * Renders the html for the notice.
 	 */
 	public function render() {
-		echo $this->get_rendered();
+		echo $this->get_rendered(); // phpcs:ignore
 	}
 
 	/**
 	 * Gets the value of notice_key.
+	 *
 	 * @return string Returns the notice_key.
 	 */
 	public function get_notice_key() {
@@ -196,6 +211,7 @@ class AdPlugg_Notice {
 
 	/**
 	 * Gets the value of message.
+	 *
 	 * @return string Returns the Notice message.
 	 */
 	public function get_message() {
@@ -204,6 +220,7 @@ class AdPlugg_Notice {
 
 	/**
 	 * Gets the value of type.
+	 *
 	 * @return string Returns the Notice type.
 	 */
 	public function get_type() {
@@ -212,6 +229,7 @@ class AdPlugg_Notice {
 
 	/**
 	 * Gets the value of dismissible.
+	 *
 	 * @return string Returns whether or not the Notice is dismissible.
 	 */
 	public function is_dismissible() {
@@ -220,17 +238,18 @@ class AdPlugg_Notice {
 
 	/**
 	 * Converts the class into an array for inserting into a WordPress option.
-	 * @param array An array representation of the object.
+	 *
+	 * @returns array Returns an array representation of the object.
 	 */
 	public function to_array() {
 		$data_array = array(
-			'notice_key' => $this->notice_key,
-			'message' => $this->message,
-			'type' => $this->type,
+			'notice_key'  => $this->notice_key,
+			'message'     => $this->message,
+			'type'        => $this->type,
 			'dismissible' => $this->dismissible,
 			'remind_when' => $this->remind_when,
-			'cta_text' => $this->cta_text,
-			'cta_url' => $this->cta_url,
+			'cta_text'    => $this->cta_text,
+			'cta_url'     => $this->cta_url,
 		);
 
 		return $data_array;
@@ -238,14 +257,15 @@ class AdPlugg_Notice {
 
 	/**
 	 * Returns whether or not the notice is dismissed.
+	 *
 	 * @return boolean Whether or not the notice is dismissed.
 	 */
 	public function is_dismissed() {
-		$ret = false;
+		$ret        = false;
 		$dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
 		if ( array_key_exists( $this->notice_key, $dismissals ) ) {
-			$remind_on = $dismissals[$this->notice_key];
-			if ( $remind_on != null ) {
+			$remind_on = $dismissals[ $this->notice_key ];
+			if ( null !== $remind_on ) {
 				if ( $remind_on > time() ) {
 					$ret = true;
 				}
