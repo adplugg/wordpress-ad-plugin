@@ -1,3 +1,7 @@
+= 1.9.22 =
+
+* Linted all admin page classes to meet WP coding standards.
+
 = 1.9.21 =
 
 * Linted the AdPlugg_Notice class to meet all WP coding standards.
