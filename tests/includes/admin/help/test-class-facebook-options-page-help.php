@@ -1,25 +1,26 @@
 <?php
 
-require_once ADPLUGG_INCLUDES . 'admin/help/class-adplugg-amp-options-page-help.php';
+require_once ADPLUGG_INCLUDES . 'admin/help/class-adplugg-facebook-options-page-help.php';
 
 /**
- * The Test_AMP_Options_Page_Help class includes tests for testing the
- * AdPlugg_AMP_Options_Page_Help class.
+ * The Test_Facebook_Options_Page_Help class includes tests for testing the
+ * AdPlugg_Facebook_Options_Page_Help class.
  *
  * @package AdPlugg
- * @since 1.7.0
+ * @since 1.3.0
  */
-class Test_AMP_Options_Page_Help extends WP_UnitTestCase {
+class Test_Facebook_Options_Page_Help extends WP_UnitTestCase {
 
 	/**
 	 * Test the constructor.
+	 *
 	 * @global array $wp_filter
 	 */
 	public function test_constructor() {
 		global $wp_filter;
 
 		// Call the constructor.
-		$adplugg_amp_options_page_help = new AdPlugg_AMP_Options_Page_Help();
+		$adplugg_facebook_options_page_help = new AdPlugg_Facebook_Options_Page_Help();
 
 		$function_names = get_function_names( $wp_filter['contextual_help'] );
 
@@ -37,19 +38,19 @@ class Test_AMP_Options_Page_Help extends WP_UnitTestCase {
 		//set up the variables
 		$contextual_help = '';
 		$adplugg_hook    = 'mock-hook';
-		$screen_id       = $adplugg_hook . '_page_adplugg_amp_settings';
+		$screen_id       = $adplugg_hook . '_page_adplugg_facebook_settings';
 		$screen          = WP_Screen::get( $adplugg_hook );
 
 		// Instanitate the SUT (System Under Test) class.
-		$adplugg_amp_options_page_help = new AdPlugg_AMP_Options_Page_Help();
+		$adplugg_facebook_options_page_help = new AdPlugg_Facebook_Options_Page_Help();
 
-		// Assert that the AMP settings help is not in the screen.
+		// Assert that the Facebook settings help is not in the screen.
 		// phpcs:disable
-		$this->assertNotContains( 'AMP Settings Help', serialize( $screen ) );
+		$this->assertNotContains( 'Facebook Settings Help', serialize( $screen ) );
 		// phpcs:enable
 
 		// Run the function.
-		$adplugg_amp_options_page_help->add_help(
+		$adplugg_facebook_options_page_help->add_help(
 			$contextual_help,
 			$screen_id,
 			$screen
@@ -57,7 +58,7 @@ class Test_AMP_Options_Page_Help extends WP_UnitTestCase {
 
 		// Asset that the AdPlugg help is now in the screen..
 		// phpcs:disable
-		$this->assertContains( 'AMP Settings Help', serialize( $screen ) );
+		$this->assertContains( 'Facebook Settings Help', serialize( $screen ) );
 		// phpcs:enable
 	}
 

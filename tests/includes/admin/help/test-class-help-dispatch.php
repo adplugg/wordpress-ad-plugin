@@ -60,37 +60,6 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 	}
 
 	/**
-	 * Test that the dispatch function properly dispatches help for the facebook
-	 * options page.
-	 * @global string $adplugg_hook
-	 */
-	public function test_dispatch_for_facebook_options_page() {
-		global $adplugg_hook;
-
-		//set up the variables
-		$contextual_help = '';
-		$adplugg_hook    = 'mock-hook';
-		$screen_id       = $adplugg_hook . '_page_adplugg_facebook_settings';
-		$screen          = WP_Screen::get( $screen_id );
-
-		// Init the class.
-		$adplugg_help_dispatch = new AdPlugg_Help_Dispatch();
-
-		//Assert that the Facebook settings help is not in the screen.
-		// phpcs:disable
-		$this->assertNotContains( 'Facebook Settings Help', serialize( $screen ) );
-		// phpcs:enable
-
-		//run the function
-		$adplugg_help_dispatch->dispatch( $contextual_help, $screen_id, $screen );
-
-		//Asset that the Facebook settings help is now in the screen.
-		// phpcs:disable
-		$this->assertContains( 'Facebook Settings Help', serialize( $screen ) );
-		// phpcs:enable
-	}
-
-	/**
 	 * Test that the dispatch function properly dispatches help for the options
 	 * widgets page.
 	 */
