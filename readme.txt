@@ -4,7 +4,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: ads, advertising, banners, ad rotator, ad server, ad manager, adsense
 Requires at least: 3.3
-Tested up to: 4.9.8
+Tested up to: 5.0
 Requires PHP: 5.2.4
 FBIA tested up to: 4.1.1
 Stable tag: 1.9.23
