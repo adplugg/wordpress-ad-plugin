@@ -1,3 +1,7 @@
+= 1.9.26 =
+
+* Fixed a bug with how the widget was being rendered (introduced in 1.9.24).
+
 = 1.9.25 =
 
 * Fixed a bug with the Test_AMP_Options_Page_Help class where it was adding help to all wp-admin pages (introduced in 1.9.23).
