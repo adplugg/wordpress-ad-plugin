@@ -30,6 +30,7 @@ class AdPlugg_Facebook_Options_Page_Help {
 	 * Add help for the adplugg facebook options page into the WordPress admin help
 	 * system.
 	 *
+	 * @global $adplugg_hook
 	 * @param string $contextual_help The default contextual help that our
 	 * function is going to replace.
 	 * @param string $screen_id Used to identify the page that we are on.
@@ -40,6 +41,14 @@ class AdPlugg_Facebook_Options_Page_Help {
 								$contextual_help,
 								$screen_id,
 								$screen ) {
+		global $adplugg_hook;
+
+		// Return the contextual help unaltered if this isn't our page.
+		$target_screen_id = $adplugg_hook . '_page_adplugg_facebook_settings';
+		if ( $screen_id !== $target_screen_id ) {
+			return $contextual_help;
+		}
+
 		$overview_content = '
 			<h2>Facebook Settings Help</h2>
 			<p>

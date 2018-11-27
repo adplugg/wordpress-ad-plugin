@@ -61,5 +61,36 @@ class Test_AMP_Options_Page_Help extends WP_UnitTestCase {
 		// phpcs:enable
 	}
 
+	/**
+	 * Test that the add_help function doesn't add help to a page that is not
+	 * the target page.
+	 *
+	 * @global string $adplugg_hook
+	 */
+	public function test_add_help_for_different_page() {
+		global $adplugg_hook;
+
+		//set up the variables
+		$contextual_help = '';
+		$adplugg_hook    = 'mock-hook';
+		$screen_id       = 'widgets';
+		$screen          = WP_Screen::get( 'widgets' );
+
+		// Instanitate the SUT (System Under Test) class.
+		$adplugg_amp_options_page_help = new AdPlugg_AMP_Options_Page_Help();
+
+		// Run the function.
+		$adplugg_amp_options_page_help->add_help(
+			$contextual_help,
+			$screen_id,
+			$screen
+		);
+
+		// Assert that the AMP settings help is not in the screen.
+		// phpcs:disable
+		$this->assertNotContains( 'AMP Settings Help', serialize( $screen ) );
+		// phpcs:enable
+	}
+
 }
 
