@@ -160,7 +160,7 @@ class AdPlugg_Widget extends WP_Widget {
 
 			// Add the AdPlugg tag.
 			echo '<div class="adplugg-tag"' . $zone_attribute . '></div>'; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
-			echo $args['before_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
+			echo $args['after_widget']; // phpcs:ignore WordPress.XSS.EscapeOutput.OutputNotEscaped
 		}
 
 	}
