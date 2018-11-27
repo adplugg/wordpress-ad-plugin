@@ -1,3 +1,7 @@
+= 1.9.25 =
+
+* Fixed a bug with the Test_AMP_Options_Page_Help class where it was adding help to all wp-admin pages (introduced in 1.9.23).
+
 = 1.9.24 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 5.0.
