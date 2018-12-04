@@ -1,3 +1,8 @@
+= 1.9.27 =
+
+* Updated the readme.txt to reflect that the plugin has been tested with up to v4.2.0 of the FBIA plugin.
+* Updated the readme.txt to reflect that the plugin has been tested with up to v0.7.2 of the AMP plugin.
+
 = 1.9.26 =
 
 * Fixed a bug with how the widget was being rendered (introduced in 1.9.24).
