@@ -95,11 +95,10 @@ if ( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'admin/class-adplugg-privacy.php' );
 
 	// Help system includes.
-	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-help-dispatch.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-options-page-help.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-facebook-options-page-help.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-amp-options-page-help.php' );
-	require_once( ADPLUGG_INCLUDES . 'admin/help/widgets-page-help.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-widgets-page-help.php' );
 
 	// Initialize notifications system.
 	AdPlugg_Notice_Controller::get_instance();
@@ -113,11 +112,11 @@ if ( is_admin() ) {
 	// Admin Initializations.
 	AdPlugg_Options_Page::get_instance();
 	AdPlugg_Options_Page_Help::get_instance();
-	AdPlugg_Help_Dispatch::get_instance();
 	AdPlugg_Facebook_Options_Page::get_instance();
 	AdPlugg_Facebook_Options_Page_Help::get_instance();
 	AdPlugg_AMP_Options_Page::get_instance();
 	AdPlugg_AMP_Options_Page_Help::get_instance();
+	AdPlugg_Widgets_Page_Help::get_instance();
 	AdPlugg_Privacy::get_instance();
 
 	// Load QUnit.
