@@ -28,39 +28,6 @@ class Test_Help_Dispatch extends WP_UnitTestCase {
 
 	/**
 	 * Test that the dispatch function properly dispatches help for the options
-	 * page.
-	 * @global string $adplugg_hook
-	 */
-	public function test_dispatch_for_options_page() {
-		global $adplugg_hook;
-
-		// Set up the variables.
-		$contextual_help = '';
-		$adplugg_hook    = 'mock-hook';
-		$screen_id       = 'toplevel_page_' . $adplugg_hook;
-
-		// Init the class.
-		$adplugg_help_dispatch = new AdPlugg_Help_Dispatch();
-
-		// Get the screen.
-		$screen = WP_Screen::get( $screen_id );
-
-		// Assert that the AdPlugg help is not in the screen.
-		// phpcs:disable
-		$this->assertNotContains( 'AdPlugg Plugin Help', serialize( $screen ) );
-		// phpcs:enable
-
-		// Run the function.
-		$adplugg_help_dispatch->dispatch( $contextual_help, $screen_id, $screen );
-
-		//Asset that the AdPlugg help is now in the screen.
-		// phpcs:disable
-		$this->assertContains( 'AdPlugg Plugin Help', serialize( $screen ) );
-		// phpcs:enable
-	}
-
-	/**
-	 * Test that the dispatch function properly dispatches help for the options
 	 * widgets page.
 	 */
 	public function test_dispatch_for_widgets_page() {

@@ -47,9 +47,6 @@ class AdPlugg_Help_Dispatch {
 		global $adplugg_hook;
 
 		switch ( $screen_id ) {
-			case 'toplevel_page_' . $adplugg_hook:
-				$contextual_help = adplugg_options_page_help( $contextual_help, $screen_id, $screen );
-				break;
 			case 'widgets':
 				$contextual_help = adplugg_widgets_page_help( $contextual_help, $screen_id, $screen );
 				break;

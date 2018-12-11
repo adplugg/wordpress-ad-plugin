@@ -96,7 +96,7 @@ if ( is_admin() ) {
 
 	// Help system includes.
 	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-help-dispatch.php' );
-	require_once( ADPLUGG_INCLUDES . 'admin/help/options-page-help.php' );
+	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-options-page-help.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-facebook-options-page-help.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/class-adplugg-amp-options-page-help.php' );
 	require_once( ADPLUGG_INCLUDES . 'admin/help/widgets-page-help.php' );
@@ -112,6 +112,7 @@ if ( is_admin() ) {
 
 	// Admin Initializations.
 	AdPlugg_Options_Page::get_instance();
+	AdPlugg_Options_Page_Help::get_instance();
 	AdPlugg_Help_Dispatch::get_instance();
 	AdPlugg_Facebook_Options_Page::get_instance();
 	AdPlugg_Facebook_Options_Page_Help::get_instance();
@@ -130,7 +131,7 @@ if ( is_admin() ) {
 	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-sdk.php' );
 	AdPlugg_Sdk::get_instance();
 
-	// Feeds
+	// Feeds.
 	require_once( ADPLUGG_INCLUDES . 'frontend/class-adplugg-feed.php' );
 	AdPlugg_Feed::get_instance();
 
