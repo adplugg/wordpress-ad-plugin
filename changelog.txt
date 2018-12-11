@@ -1,3 +1,9 @@
+= 1.9.28 =
+
+* Moved the AdPlugg general options page help to a class (instead of a global function).
+* Moved the AdPlugg widgets page help to a class (instead of a global function). 
+* Got rid of the no-longer-used AdPlugg_Help_Dispatch class.
+
 = 1.9.27 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to v4.2.0 of the FBIA plugin.
