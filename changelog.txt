@@ -1,3 +1,12 @@
+= 1.9.30 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.0.2.
+* Updated the copyright date to 2019.
+* Linted the main adplugg.php file to meet all WP coding standards.
+* Linted the functions.php file to meet all WP coding standards.
+* Linted the AdPlugg_Options class to meet all WP coding standards.
+* Linted the AdPlugg_Facebook class to meet all WP coding standards.
+
 = 1.9.29 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.0.1.
