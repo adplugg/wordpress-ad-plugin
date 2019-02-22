@@ -1,6 +1,6 @@
 <?php
 
-require_once( ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php' );
+require_once ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php';
 
 /**
  * The Test_AdPlugg_Widget class includes tests for testing the AdPlugg_Widget
@@ -50,30 +50,30 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 * Test the update function.
 	 */
 	public function test_update() {
-		$old_title = 'old_title';
-		$new_title = 'new_title';
-		$old_zone = 'old_zone';
-		$new_zone = 'new_zone';
-		$old_width = 100;
-		$new_width = 200;
-		$old_height = 300;
-		$new_height = 400;
-		$old_default = 0;
-		$new_default = 1;
+		$old_title      = 'old_title';
+		$new_title      = 'new_title';
+		$old_zone       = 'old_zone';
+		$new_zone       = 'new_zone';
+		$old_width      = 100;
+		$new_width      = 200;
+		$old_height     = 300;
+		$new_height     = 400;
+		$old_default    = 0;
+		$new_default    = 1;
 		$adplugg_widget = new AdPlugg_Widget();
 
-		$old_instance = array();
-		$old_instance['title'] = $old_title;
-		$old_instance['zone'] = $old_zone;
-		$old_instance['width'] = $old_width;
-		$old_instance['height'] = $old_height;
+		$old_instance            = array();
+		$old_instance['title']   = $old_title;
+		$old_instance['zone']    = $old_zone;
+		$old_instance['width']   = $old_width;
+		$old_instance['height']  = $old_height;
 		$old_instance['default'] = $old_default;
 
-		$new_instance = array();
-		$new_instance['title'] = $new_title;
-		$new_instance['zone'] = $new_zone;
-		$new_instance['width'] = $new_width;
-		$new_instance['height'] = $new_height;
+		$new_instance            = array();
+		$new_instance['title']   = $new_title;
+		$new_instance['zone']    = $new_zone;
+		$new_instance['width']   = $new_width;
+		$new_instance['height']  = $new_height;
 		$new_instance['default'] = $new_default;
 
 		//Run the function.
@@ -99,30 +99,30 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 * Test the update function's validation strips illegal and malicious data.
 	 */
 	public function test_update_validation_passes_when_valid() {
-		$old_title = 'old_title';
-		$new_title = 'Our Sponsors';
-		$old_zone = 'old_zone';
-		$new_zone = 'new_zone';
-		$old_width = 100;
-		$new_width = 200;
-		$old_height = 300;
-		$new_height = 400;
-		$old_default = 0;
-		$new_default = 1;
+		$old_title      = 'old_title';
+		$new_title      = 'Our Sponsors';
+		$old_zone       = 'old_zone';
+		$new_zone       = 'new_zone';
+		$old_width      = 100;
+		$new_width      = 200;
+		$old_height     = 300;
+		$new_height     = 400;
+		$old_default    = 0;
+		$new_default    = 1;
 		$adplugg_widget = new AdPlugg_Widget();
 
-		$old_instance = array();
-		$old_instance['title'] = $old_title;
-		$old_instance['zone'] = $old_zone;
-		$old_instance['width'] = $old_width;
-		$old_instance['height'] = $old_height;
+		$old_instance            = array();
+		$old_instance['title']   = $old_title;
+		$old_instance['zone']    = $old_zone;
+		$old_instance['width']   = $old_width;
+		$old_instance['height']  = $old_height;
 		$old_instance['default'] = $old_default;
 
-		$new_instance = array();
-		$new_instance['title'] = $new_title;
-		$new_instance['zone'] = $new_zone;
-		$new_instance['width'] = $new_width;
-		$new_instance['height'] = $new_height;
+		$new_instance            = array();
+		$new_instance['title']   = $new_title;
+		$new_instance['zone']    = $new_zone;
+		$new_instance['width']   = $new_width;
+		$new_instance['height']  = $new_height;
 		$new_instance['default'] = $new_default;
 
 		//Run the function.
@@ -148,37 +148,37 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 * Test the update function's validation strips illegal and malicious data.
 	 */
 	public function test_update_validation_strips_illegals() {
-		$old_title = 'old_title';
-		$new_title = '"><script>alert(document.cookie)</script>';
-		$old_zone = 'old_zone';
-		$new_zone = '"><script>alert(document.cookie)</script>';
-		$old_width = 100;
-		$new_width = '"><script>alert(document.cookie)</script>';
-		$old_height = 300;
-		$new_height = '"><script>alert(document.cookie)</script>';
-		$old_default = 0;
-		$new_default = '"><script>alert(document.cookie)</script>';
+		$old_title      = 'old_title';
+		$new_title      = '"><script>alert(document.cookie)</script>';
+		$old_zone       = 'old_zone';
+		$new_zone       = '"><script>alert(document.cookie)</script>';
+		$old_width      = 100;
+		$new_width      = '"><script>alert(document.cookie)</script>';
+		$old_height     = 300;
+		$new_height     = '"><script>alert(document.cookie)</script>';
+		$old_default    = 0;
+		$new_default    = '"><script>alert(document.cookie)</script>';
 		$adplugg_widget = new AdPlugg_Widget();
 
-		$old_instance = array();
-		$old_instance['title'] = $old_title;
-		$old_instance['zone'] = $old_zone;
-		$old_instance['width'] = $old_width;
-		$old_instance['height'] = $old_height;
+		$old_instance            = array();
+		$old_instance['title']   = $old_title;
+		$old_instance['zone']    = $old_zone;
+		$old_instance['width']   = $old_width;
+		$old_instance['height']  = $old_height;
 		$old_instance['default'] = $old_default;
 
-		$new_instance = array();
-		$new_instance['title'] = $new_title;
-		$new_instance['zone'] = $new_zone;
-		$new_instance['width'] = $new_width;
-		$new_instance['height'] = $new_height;
+		$new_instance            = array();
+		$new_instance['title']   = $new_title;
+		$new_instance['zone']    = $new_zone;
+		$new_instance['width']   = $new_width;
+		$new_instance['height']  = $new_height;
 		$new_instance['default'] = $new_default;
 
 		//Run the function.
 		$ret_instance = $adplugg_widget->update( $new_instance, $old_instance );
 
 		//Assert that the malicious code was removed
-		$illegal_regex = "/\<script\>/";
+		$illegal_regex = '/\<script\>/';
 		//echo $ret_instance['title'];
 		//echo $ret_instance['zone'];
 		$this->assertEquals( 0, preg_match( $illegal_regex, $ret_instance['title'] ) );
@@ -201,17 +201,17 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 */
 	public function test_widget() {
 		// Set up the variables.
-		$adplugg_widget = new AdPlugg_Widget();
-		$args = array();
+		$adplugg_widget        = new AdPlugg_Widget();
+		$args                  = array();
 		$args['before_widget'] = '<section>';
-		$args['after_widget'] = '</section>';
-		$args['before_title'] = '<h3>';
-		$args['after_title'] = '</h3>';
-		$instance = array();
-		$instance['title'] = 'Test Title';
+		$args['after_widget']  = '</section>';
+		$args['before_title']  = '<h3>';
+		$args['after_title']   = '</h3>';
+		$instance              = array();
+		$instance['title']     = 'Test Title';
 
-		$expected = '<section>'.
-					'<h3>Test Title</h3>'.
+		$expected = '<section>' .
+					'<h3>Test Title</h3>' .
 					'<div class="adplugg-tag"></div>' .
 					'</section>';
 
@@ -231,12 +231,12 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 */
 	public function test_widget_zones() {
 		//Set up the variables.
-		$adplugg_widget = new AdPlugg_Widget();
-		$args = array();
+		$adplugg_widget        = new AdPlugg_Widget();
+		$args                  = array();
 		$args['before_widget'] = '';
-		$args['after_widget'] = '';
-		$instance = array();
-		$instance['zone'] = 'test_zone';
+		$args['after_widget']  = '';
+		$instance              = array();
+		$instance['zone']      = 'test_zone';
 
 		//Assert that the widget form is output with zone info.
 		ob_start();
@@ -251,14 +251,14 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 */
 	public function test_widget_title() {
 		//Set up the variables.
-		$adplugg_widget = new AdPlugg_Widget();
-		$args = array();
+		$adplugg_widget        = new AdPlugg_Widget();
+		$args                  = array();
 		$args['before_widget'] = '';
-		$args['after_widget'] = '';
-		$args['before_title'] = '';
-		$args['after_title'] = '';
-		$instance = array();
-		$instance['title'] = 'test_title';
+		$args['after_widget']  = '';
+		$args['before_title']  = '';
+		$args['after_title']   = '';
+		$instance              = array();
+		$instance['title']     = 'test_title';
 
 		//Assert that the widget form is output with a title.
 		ob_start();
@@ -274,18 +274,18 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 */
 	public function test_widget_render_for_instant_articles_with_all_values() {
 		//Set up the variables.
-		$adplugg_widget = new AdPlugg_Widget();
-		$args = array();
-		$args['before_widget'] = '';
-		$args['after_widget'] = '';
-		$args['before_title'] = '';
-		$args['after_title'] = '';
-		$args['id'] = 'facebook_ia_header_ads';
-		$instance = array();
-		$instance['zone'] = 'test_zone';
-		$instance['width'] = 100;
-		$instance['height'] = 200;
-		$instance['default'] = 1;
+		$adplugg_widget                        = new AdPlugg_Widget();
+		$args                                  = array();
+		$args['before_widget']                 = '';
+		$args['after_widget']                  = '';
+		$args['before_title']                  = '';
+		$args['after_title']                   = '';
+		$args['id']                            = 'facebook_ia_header_ads';
+		$instance                              = array();
+		$instance['zone']                      = 'test_zone';
+		$instance['width']                     = 100;
+		$instance['height']                    = 200;
+		$instance['default']                   = 1;
 		$GLOBALS['adplugg_fbia_canonical_url'] = 'http://www.example.com/blog/hello-world/';
 
 		//Install an access code
@@ -315,18 +315,18 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 */
 	public function test_widget_render_for_instant_articles_with_no_values() {
 		//Set up the variables.
-		$adplugg_widget = new AdPlugg_Widget();
-		$args = array();
-		$args['before_widget'] = '';
-		$args['after_widget'] = '';
-		$args['before_title'] = '';
-		$args['after_title'] = '';
-		$args['id'] = 'facebook_ia_header_ads';
-		$instance = array();
-		$instance['zone'] = null;
-		$instance['width'] = null;
-		$instance['height'] = null;
-		$instance['default'] = 0;
+		$adplugg_widget                        = new AdPlugg_Widget();
+		$args                                  = array();
+		$args['before_widget']                 = '';
+		$args['after_widget']                  = '';
+		$args['before_title']                  = '';
+		$args['after_title']                   = '';
+		$args['id']                            = 'facebook_ia_header_ads';
+		$instance                              = array();
+		$instance['zone']                      = null;
+		$instance['width']                     = null;
+		$instance['height']                    = null;
+		$instance['default']                   = 0;
 		$GLOBALS['adplugg_fbia_canonical_url'] = 'http://www.example.com/blog/hello-world';
 
 		//Install an access code
@@ -352,18 +352,18 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 	 */
 	public function test_widget_render_for_instant_articles_with_no_access_code() {
 		//Set up the variables.
-		$adplugg_widget = new AdPlugg_Widget();
-		$args = array();
-		$args['before_widget'] = '';
-		$args['after_widget'] = '';
-		$args['before_title'] = '';
-		$args['after_title'] = '';
-		$args['id'] = 'facebook_ia_header_ads';
-		$instance = array();
-		$instance['zone'] = null;
-		$instance['width'] = null;
-		$instance['height'] = null;
-		$instance['default'] = 0;
+		$adplugg_widget                        = new AdPlugg_Widget();
+		$args                                  = array();
+		$args['before_widget']                 = '';
+		$args['after_widget']                  = '';
+		$args['before_title']                  = '';
+		$args['after_title']                   = '';
+		$args['id']                            = 'facebook_ia_header_ads';
+		$instance                              = array();
+		$instance['zone']                      = null;
+		$instance['width']                     = null;
+		$instance['height']                    = null;
+		$instance['default']                   = 0;
 		$GLOBALS['adplugg_fbia_canonical_url'] = 'http://www.example.com/blog/hello-world';
 
 		//Assert that the widget form is output with a title.

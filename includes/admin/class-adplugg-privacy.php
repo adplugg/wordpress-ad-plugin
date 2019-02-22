@@ -7,9 +7,10 @@
  * @since 1.9.0
  */
 class AdPlugg_Privacy {
-	
+
 	/**
 	 * Class instance.
+	 *
 	 * @var AdPlugg_Privacy
 	 */
 	private static $instance;
@@ -20,17 +21,17 @@ class AdPlugg_Privacy {
 	public function __construct() {
 		add_action( 'admin_init', array( &$this, 'add_privacy_message' ) );
 	}
-	
+
 	/**
 	 * Adds the AdPlugg privacy message suggestions to the privacy settings page
 	 * in the wp-admin.
 	 */
 	public function add_privacy_message() {
 		if ( function_exists( 'wp_add_privacy_policy_content' ) ) {
-			wp_add_privacy_policy_content( 
-					'AdPlugg', //plugin name
-					$this->get_privacy_message() //policy text
-				);
+			wp_add_privacy_policy_content(
+				'AdPlugg', // plugin name
+				$this->get_privacy_message() // policy text
+			);
 		}
 	}
 
@@ -44,13 +45,13 @@ class AdPlugg_Privacy {
 		$content = '
 			<div contenteditable="false">' .
 				'<p class="wp-policy-help"><i>' .
-					'This sample language is provided as an example of what you may want to include in your Privacy Policy regarding your use of AdPlugg. We recommend consulting with a lawyer when deciding what specific information to disclose on your privacy policy.'  .
+					'This sample language is provided as an example of what you may want to include in your Privacy Policy regarding your use of AdPlugg. We recommend consulting with a lawyer when deciding what specific information to disclose on your privacy policy.' .
 				'</i></p>' .
 				'<p class="wp-policy-help"><i>' .
 					'You are required to post a Privacy Policy on your website as per the <a href="https://www.adplugg.com/legal/terms" title="AdPlugg Terms of Use" target="_blank">AdPlugg Terms of Use</a>.' .
 				'</i></p>' .
 			'</div>' .
-			'<h2> Third Party Data Processors'  . '</h2>' .
+			'<h2> Third Party Data Processors' . '</h2>' .
 			'<div contenteditable="false">' .
 				'<p class="wp-policy-help"><i>In this subsection you should list which third party data processors you are using on your site, including AdPlugg.</i></p>' .
 			'</div>' .
@@ -62,9 +63,9 @@ class AdPlugg_Privacy {
 			'<p>AdPlugg does however, collect Anonymous Information, which is information that cannot reasonably be used to personally identify you. In addition, they collect Aggregate Information, which is information about groups or categories of Ad Audience Members, this information is also anonymous and cannot reasonably be used to personally identify you.</p>' .
 			'<p>AdPlugg collects this information in order to:</p>' .
 			'<ol>' .
-			    '<li>Provide us with ad perfomance statistics</li>' .
-			    '<li>Prevent fraud</li>' .
-			    '<li>Measure system usage</li>' .
+				'<li>Provide us with ad perfomance statistics</li>' .
+				'<li>Prevent fraud</li>' .
+				'<li>Measure system usage</li>' .
 			'</ol>' .
 			'<p>AdPlugg collects this information via:' .
 			'<ol>' .
@@ -72,12 +73,13 @@ class AdPlugg_Privacy {
 				'<li>Browser cookies</li>' .
 			'</ol>' .
 			'<p>To learn more, please see the <a href="https://www.adplugg.com/legal/audience-privacy" title="AdPlugg Audience Privacy Policy" target="_blank">AdPlugg Audience Privacy Policy.</a></p>';
-		
+
 		return $content;
 	}
-	
+
 	/**
 	 * Gets the singleton instance.
+	 *
 	 * @return \AdPlugg_Privacy Returns the singleton instance of this class.
 	 */
 	public static function get_instance() {

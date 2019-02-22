@@ -19,6 +19,6 @@ function get_function_names( $reg_array_1 ) {
 			$function_names[] = $reg_array_3['function'][1];
 		}
 	}
-	
+
 	return $function_names;
 }

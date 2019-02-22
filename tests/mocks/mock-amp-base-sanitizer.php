@@ -7,7 +7,7 @@
  * @since 1.7
  */
 class AMP_Base_Sanitizer {
-	
+
 	/**
 	 * Value used with the height attribute in an $attributes parameter is empty.
 	 *
@@ -25,7 +25,7 @@ class AMP_Base_Sanitizer {
 	 * @var array
 	 */
 	protected $DEFAULT_ARGS = array();
-	
+
 	/**
 	 * The root element used for sanitization. Either html or body.
 	 *
@@ -38,7 +38,7 @@ class AMP_Base_Sanitizer {
 	 * @var DOMDocument A standard PHP representation of an HTML document in object form.
 	 */
 	protected $dom;
-	
+
 	/**
 	 * Array of flags used to control sanitization.
 	 *
@@ -53,7 +53,7 @@ class AMP_Base_Sanitizer {
 	 * }
 	 */
 	protected $args;
-	
+
 	/**
 	 * AMP_Base_Sanitizer constructor.
 	 *
@@ -81,5 +81,5 @@ class AMP_Base_Sanitizer {
 			$this->root_element = $this->dom->getElementsByTagName( 'body' )->item( 0 );
 		}
 	}
-	
+
 }

@@ -1,12 +1,13 @@
 /**
  * AdPlugg JavaScript functions for the wp-admin.
+ *
  * @package AdPlugg
  * @since 1.2.0
  */
 
 /**
  * Function that is called when a notice button is clicked.
- * 
+ *
  * @param {object} buttonObj The button calling the function.
  * @param {string} nonce The nonce for posting back to the server.
  * @param {string} noticeKey The noticeKey of the notice.
@@ -23,23 +24,29 @@ function adpluggPostNoticePref(buttonObj, nonce, noticeKey, remindWhen) {
 	};
 
 	// since 2.8 ajaxurl is always defined in the admin header and points to admin-ajax.php
-	jQuery.post(ajaxurl, data, function(response) {
-		var data = jQuery.parseJSON(response);
-		//alert('Got this from the server: ' + data.notice_key);
-		jQuery('#' + data.notice_key).fadeOut();
-	});
-	
+	jQuery.post(
+		ajaxurl, data, function(response) {
+			var data = jQuery.parseJSON( response );
+			// alert('Got this from the server: ' + data.notice_key);
+			jQuery( '#' + data.notice_key ).fadeOut();
+		}
+	);
+
 	return false;
 }
 
 /**
  * Set the rating link click action.
- * 
+ *
  * @param {type} param
  */
-jQuery(document).ready(function() {
-	jQuery( 'a.adplugg-rating-link' ).click( function() {
-		jQuery.post( ajaxurl, { action: 'adplugg_rated' } );
-		jQuery( this ).parent().text( jQuery( this ).data( 'rated' ) );
-	});
-});
+jQuery( document ).ready(
+	function() {
+		jQuery( 'a.adplugg-rating-link' ).click(
+			function() {
+				jQuery.post( ajaxurl, { action: 'adplugg_rated' } );
+				jQuery( this ).parent().text( jQuery( this ).data( 'rated' ) );
+			}
+		);
+	}
+);

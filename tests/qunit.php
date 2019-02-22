@@ -12,15 +12,15 @@
  */
 function adplugg_load_qunit( $test_suite ) {
 	$supported_screens = array( 'settings_page_adplugg', 'widgets' );
-	
+
 	if ( $test_suite == null ) {
-		$screen = get_current_screen();
+		$screen    = get_current_screen();
 		$screen_id = ( ! empty( $screen ) ? $screen->id : null );
 		if ( in_array( $screen_id, $supported_screens ) ) {
 			$test_suite = $screen_id;
 		}
 	}
-	
+
 	if ( $test_suite != null ) {
 		?>
 			<link rel="stylesheet" href="//code.jquery.com/qunit/qunit-1.15.0.css">

@@ -11,6 +11,7 @@ class AdPlugg_Feed {
 
 	/**
 	 * Singleton instance.
+	 *
 	 * @var AdPlugg_Feed
 	 */
 	private static $instance;
@@ -36,7 +37,7 @@ class AdPlugg_Feed {
 	 */
 	public function filter_feed( $content ) {
 
-		//ex: "<div class="adplugg-tag" data-adplugg-zone="incontent"></div>"
+		// ex: "<div class="adplugg-tag" data-adplugg-zone="incontent"></div>"
 		$adtag_regex = '/[\s]*<div[^>]*?class\=["\']adplugg-tag["\'][^>]*?><\/div>[\s]*/i';
 
 		$filtered_content = preg_replace( $adtag_regex, '', $content );
@@ -46,6 +47,7 @@ class AdPlugg_Feed {
 
 	/**
 	 * Gets the singleton instance.
+	 *
 	 * @return \AdPlugg_Feed Returns the singleton instance of this
 	 * class.
 	 */

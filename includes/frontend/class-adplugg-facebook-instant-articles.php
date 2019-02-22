@@ -14,6 +14,7 @@ class AdPlugg_Facebook_Instant_Articles {
 
 	/**
 	 * Singleton instance.
+	 *
 	 * @var AdPlugg_Facebook_Instant_Articles
 	 */
 	private static $instance;
@@ -27,11 +28,11 @@ class AdPlugg_Facebook_Instant_Articles {
 	 * This is private, call get_instance instead to get the singleton instance.
 	 */
 	private function __construct() {
-		//fb-instant-articles <0.3
+		// fb-instant-articles <0.3
 		add_action( 'instant_articles_article_head', array( $this, 'head_injector' ), 10, 1 );
 		add_action( 'instant_articles_article_header', array( $this, 'header_injector' ), 10, 1 );
 
-		//fb-instant-articles >0.3
+		// fb-instant-articles >0.3
 		add_filter( 'instant_articles_transformed_element', array( $this, 'set_instant_article' ), 10, 1 );
 		add_action( 'instant_articles_after_transform_post', array( $this, 'insert_ads' ), 10, 1 );
 	}
@@ -46,7 +47,7 @@ class AdPlugg_Facebook_Instant_Articles {
 	 */
 	public function head_injector( $ia_post ) {
 		if ( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) {
-			//enable automatic placement
+			// enable automatic placement
 			?>
 
 				<!-- enable automatic ad placement -->
@@ -71,8 +72,7 @@ class AdPlugg_Facebook_Instant_Articles {
 		if (
 			 ( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) &&
 			 ( is_active_sidebar( 'facebook_ia_header_ads' ) )
-			)
-		{
+			) {
 			echo "<section class=\"op-ad-template\">\n";
 			dynamic_sidebar( 'facebook_ia_header_ads' );
 			echo "</section>\n";
@@ -82,6 +82,7 @@ class AdPlugg_Facebook_Instant_Articles {
 	/**
 	 * Store the instant article so that we can access it in the insert_ads
 	 * function below.
+	 *
 	 * @param Facebook\InstantArticles\Elements\InstantArticle $instant_article
 	 * The current Instant Article.
 	 * @return Facebook\InstantArticles\Elements\InstantArticle Returns the
@@ -96,6 +97,7 @@ class AdPlugg_Facebook_Instant_Articles {
 
 	/**
 	 * Inserts ads into the Instant Article header.
+	 *
 	 * @todo Add unit tests
 	 */
 	public function insert_ads( $post ) {
@@ -110,8 +112,7 @@ class AdPlugg_Facebook_Instant_Articles {
 			 ( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) &&
 			 ( is_active_sidebar( 'facebook_ia_header_ads' ) ) &&
 			 ( $source_of_ad == 'adplugg' )
-			)
-		{
+			) {
 			$ad_tags = AdPlugg_Ad_Tag_Collector::get_instance()
 								->get_ad_tags( 'facebook_ia_header_ads' );
 
@@ -119,20 +120,19 @@ class AdPlugg_Facebook_Instant_Articles {
 			foreach ( $ad_tags->to_array() as $ad_tag ) {
 
 				// ------ Compute iframe src ------ //
-				$post_url = $post->get_canonical_url();
-				$host = urlencode( parse_url( $post_url, PHP_URL_HOST ) );
-				$path = urlencode( parse_url( $post_url, PHP_URL_PATH ) );
+				$post_url   = $post->get_canonical_url();
+				$host       = urlencode( parse_url( $post_url, PHP_URL_HOST ) );
+				$path       = urlencode( parse_url( $post_url, PHP_URL_PATH ) );
 				$zone_param = ( $ad_tag->get_zone() != null ) ? '&zn=' . urlencode( $ad_tag->get_zone() ) : '';
 
 				$adplugg_adhtmlserver = ADPLUGG_ADHTMLSERVER;
-				//Temporarily allow serving from www.adplugg.com. Here to
-				//facilitate a judicious rollout of the new adplugg.io endpoint.
+				// Temporarily allow serving from www.adplugg.com. Here to
+				// facilitate a judicious rollout of the new adplugg.io endpoint.
 				if ( AdPlugg_Facebook::temp_use_legacy_adplugg_com_endpoint() ) {
 					$adplugg_adhtmlserver = 'www.adplugg.com';
 				}
 				$iframe_src = 'https://' . $adplugg_adhtmlserver . '/serve/' . AdPlugg_Options::get_active_access_code() . '/html/1.1/index.html?hn=' . $host . '&bu=' . $path . $zone_param;
 				// ------------------------------- //
-
 				$ad = Ad::create()
 						->enableDefaultForReuse()
 						->withWidth( $ad_tag->get_width() )
@@ -141,13 +141,13 @@ class AdPlugg_Facebook_Instant_Articles {
 
 				$header->addAd( $ad );
 			} //end foreach ad_tag
-
 		} //end if enabled
 
 	}
 
 	/**
 	 * Get the singleton instance.
+	 *
 	 * @return \AdPlugg_Facebook_Instant_Articles Returns the singleton instance
 	 * of this class.
 	 */

@@ -50,15 +50,15 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 	 * Test the set_notice_pref_callback function.
 	 */
 	public function test_set_notice_pref_callback() {
-		$notice_key = 'test_notice';
+		$notice_key  = 'test_notice';
 		$remind_when = '+30 days';
-		$expected = '{"notice_key":"'.$notice_key.'","status":"success"}';
+		$expected    = '{"notice_key":"' . $notice_key . '","status":"success"}';
 
 		// Spoof the nonce.
 		$_REQUEST['_ajax_nonce'] = wp_create_nonce( 'adplugg_set_notice_pref' );
 
 		// Set the post vars.
-		$_POST['notice_key'] = $notice_key;
+		$_POST['notice_key']  = $notice_key;
 		$_POST['remind_when'] = $remind_when;
 
 		$adplugg_notice_controller = new AdPlugg_Notice_Controller();
@@ -67,7 +67,7 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 		$this->expectOutputString( $expected );
 		try {
 			$adplugg_notice_controller->set_notice_pref_callback();
-		} catch( WPDieException $ex ) {
+		} catch ( WPDieException $ex ) {
 			//
 		}
 	}
@@ -77,7 +77,7 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 	 */
 	public function test_add_to_queue() {
 		$notice_key = 'test_notice';
-		$notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
+		$notice     = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
 
 		//get the notice controller.
 		$adplugg_notice_controller = AdPlugg_Notice_Controller::get_instance();
@@ -88,7 +88,7 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 		$notices = get_option( ADPLUGG_NOTICES_NAME );
 
 		//Assert that the queued notice was found in the database.
-		$this->assertNotEmpty( $notices[$notice_key] );
+		$this->assertNotEmpty( $notices[ $notice_key ] );
 	}
 
 	/**
@@ -96,11 +96,11 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 	 */
 	public function test_pull_all_queued() {
 		$notice_key = 'test_notice';
-		$notice = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
+		$notice     = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
 
 		//Add the notice to the database.
-		$stored_notices = get_option( ADPLUGG_NOTICES_NAME );
-		$stored_notices[$notice->get_notice_key()] = $notice->to_array();
+		$stored_notices                              = get_option( ADPLUGG_NOTICES_NAME );
+		$stored_notices[ $notice->get_notice_key() ] = $notice->to_array();
 		update_option( ADPLUGG_NOTICES_NAME, $stored_notices );
 
 		//get the notice controller.
