@@ -1,3 +1,8 @@
+= 1.9.31 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.1.0.
+* Installed and ran PHP Code Beautifier to fix a number of WordPress coding standards issues.
+
 = 1.9.30 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.0.2.
