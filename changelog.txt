@@ -1,3 +1,10 @@
+= 1.9.32 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.1.1.
+* Updated the readme.txt to reflect that the plugin is tested and working with v1.0.2 of the AMP plugin.
+* Linted the AdPlugg_Admin class to meet all WP coding standards.
+* Linted the AdPlugg_Privacy class to meet all WP coding standards.
+
 = 1.9.31 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.1.0.
