@@ -6,6 +6,10 @@
  * @package AdPlugg
  * @since 1.9.0
  */
+
+/**
+ * AdPlugg_Privacy class.
+ */
 class AdPlugg_Privacy {
 
 	/**
@@ -29,8 +33,8 @@ class AdPlugg_Privacy {
 	public function add_privacy_message() {
 		if ( function_exists( 'wp_add_privacy_policy_content' ) ) {
 			wp_add_privacy_policy_content(
-				'AdPlugg', // plugin name
-				$this->get_privacy_message() // policy text
+				'AdPlugg', // Plugin name.
+				$this->get_privacy_message() // Policy text.
 			);
 		}
 	}
@@ -51,7 +55,7 @@ class AdPlugg_Privacy {
 					'You are required to post a Privacy Policy on your website as per the <a href="https://www.adplugg.com/legal/terms" title="AdPlugg Terms of Use" target="_blank">AdPlugg Terms of Use</a>.' .
 				'</i></p>' .
 			'</div>' .
-			'<h2> Third Party Data Processors' . '</h2>' .
+			'<h2> Third Party Data Processors</h2>' .
 			'<div contenteditable="false">' .
 				'<p class="wp-policy-help"><i>In this subsection you should list which third party data processors you are using on your site, including AdPlugg.</i></p>' .
 			'</div>' .
