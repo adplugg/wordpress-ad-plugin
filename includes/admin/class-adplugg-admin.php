@@ -1,5 +1,4 @@
 <?php
-
 /**
  * AdPlugg Admin class.
  * The AdPlugg Admin class sets up and controls the AdPlugg Plugin administrator
@@ -8,12 +7,16 @@
  * @package AdPlugg
  * @since 1.0
  */
+
+/**
+ * AdPlugg_Admin class.
+ */
 class AdPlugg_Admin {
 
 	/**
 	 * Constructor, constructs the class and registers filters and actions.
 	 */
-	function __construct() {
+	public function __construct() {
 		add_filter( 'plugin_action_links_' . ADPLUGG_BASENAME, array( &$this, 'add_settings_link_to_plugin_listing' ) );
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), 1 );
 
@@ -24,10 +27,10 @@ class AdPlugg_Admin {
 	/**
 	 * Add settings link on plugin page listing.
 	 *
-	 * @param array $links An array of existing links for the plugin
+	 * @param array $links An array of existing links for the plugin.
 	 * @return array The new array of links
 	 */
-	function add_settings_link_to_plugin_listing( $links ) {
+	public function add_settings_link_to_plugin_listing( $links ) {
 		$settings_link = '<a href="admin.php?page=adplugg">Settings</a>';
 		array_unshift( $links, $settings_link );
 		return $links;
@@ -36,18 +39,19 @@ class AdPlugg_Admin {
 	/**
 	 * Init the adplugg admin
 	 */
-	function admin_init() {
+	public function admin_init() {
 		$options      = get_option( ADPLUGG_OPTIONS_NAME, array() );
 		$data_version = ( array_key_exists( 'version', $options ) ) ? $options['version'] : null;
-		if ( $data_version != ADPLUGG_VERSION ) {
+		if ( ADPLUGG_VERSION !== $data_version ) {
 			$options['version'] = ADPLUGG_VERSION;
 			update_option( ADPLUGG_OPTIONS_NAME, $options );
-			if ( ! is_null( $data_version ) ) {  // skip if not an upgrade
-				// do any necessary version data upgrades here
+
+			// Do the following block when upgrading.
+			if ( ! is_null( $data_version ) ) {
 
 				// FBIA ad endpoint change (prior to 1.6.0 we were using www.adplugg.com
 				// in 1.6.0 we changed to www.adplugg.io but had a period where accounts
-				// could temporarily stay on www.adplugg.com.)
+				// could temporarily stay on www.adplugg.com).
 				if ( version_compare( $data_version, '1.6.0', '<' ) ) {
 					if ( AdPlugg_Facebook::is_ia_automatic_placement_enabled() ) {
 						$fb_options = get_option( ADPLUGG_FACEBOOK_OPTIONS_NAME );
@@ -78,19 +82,19 @@ class AdPlugg_Admin {
 	/**
 	 * Change the admin footer text on AdPlugg admin pages.
 	 *
-	 * @param string $footer_text
-	 * @return string
+	 * @param string $footer_text The current admin footer text.
+	 * @return string Returns the filtered admin footer text.
 	 */
 	public function admin_footer_text( $footer_text ) {
 		$screen    = get_current_screen();
 		$screen_id = ( ! empty( $screen ) ? $screen->id : null );
 
 		// only do on the adplugg settings page and if the user has already added an access code.
-		if ( ( $screen_id == 'toplevel_page_adplugg' ) && ( AdPlugg_Options::is_access_code_installed() ) ) {
-			// if not already clicked/rated
+		if ( ( 'toplevel_page_adplugg' === $screen_id ) && ( AdPlugg_Options::is_access_code_installed() ) ) {
+			// If not already clicked/rated.
 			if ( ! get_option( ADPLUGG_RATED_NAME ) ) {
 
-				// NOTE: the click action for the link is defined in admin.js
+				// NOTE: the click action for the link is defined in admin.js.
 				$footer_text = 'If you like <strong>AdPlugg</strong>, please leave us a ' .
 								'<a ' .
 									'href="https://wordpress.org/support/plugin/adplugg/reviews/?filter=5#new-post" ' .
@@ -98,7 +102,7 @@ class AdPlugg_Admin {
 									'&#9733;&#9733;&#9733;&#9733;&#9733;' .
 								'</a> rating. A huge thank you in advance from the AdPlugg Team!';
 			} else {
-				// show when rating link already clicked
+				// Show when rating link already clicked.
 				$footer_text = 'Thank you for using AdPlugg.';
 			}
 		}
@@ -109,27 +113,27 @@ class AdPlugg_Admin {
 	/**
 	 * Called via ajax to when the rate link is clicked.
 	 */
-	function rated_callback() {
+	public function rated_callback() {
 		update_option( ADPLUGG_RATED_NAME, 1 );
-		wp_die(); // terminate immediately and return a proper response
+		wp_die(); // Terminate immediately and return a proper response.
 	}
 
 	/**
 	 * Called when the plugin is activated.
 	 */
-	static function activate() {
+	public static function activate() {
 	}
 
 	/**
 	 * Called when the plugin is deactivated.
 	 */
-	static function deactivate() {
+	public static function deactivate() {
 	}
 
 	/**
 	 * Called when plugin is uninstalled.
 	 */
-	static function uninstall() {
+	public static function uninstall() {
 		delete_option( ADPLUGG_OPTIONS_NAME );
 		delete_option( ADPLUGG_FACEBOOK_OPTIONS_NAME );
 		delete_option( ADPLUGG_NOTICES_NAME );
