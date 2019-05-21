@@ -8,7 +8,7 @@ Tested up to: 5.2.0
 Requires PHP: 5.2.4
 FBIA tested up to: 4.2.0
 AMP tested up to: 1.1.1
-Stable tag: 1.9.32
+Stable tag: 1.9.33
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server 
 allow you to easily manage, schedule, rotate and track your ads.
@@ -80,6 +80,11 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 1. The AdPlugg WordPress Ad Plugin makes it easy to place ads on your WordPress site.
 
 == Changelog ==
+
+= 1.9.33 =
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.2.0.
+* Updated the readme.txt to reflect that the plugin is tested and working with v1.1.1 of the AMP plugin.
+* Added info about the new AdPlugg Business Plan to the readme.txt.
 
 = 1.9.32 =
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.1.1.
