@@ -52,6 +52,16 @@ The PRO AdPlugg Ad Service adds the following additional features:
 * Additional targeting options (such as targeting ads by on-page meta tags).
 * Ability to serve ad tags from third party systems such as Google AdSense.
 
+The BUSINESS AdPlugg Ad Service adds the following additional features:
+
+* Automatically send reports to your advertisers.
+* Use geotargeting to show certain ads to users based on their geographic location.
+* Configure ads to serve a specified number of impressions per month. Pace the impressions throughout the month.
+* Configure ads to only show to each user once per day.
+* Use Ad Groups to A/B test ads or show different messages.
+* Serve skippable, in-stream ads within your video content (VAST/VPAID standards compliant).
+* Serve ads within your newsletters and other emails.
+
 == Installation ==
 
 1. Upload the AdPlugg WordPress Ad Plugin to your blog.
