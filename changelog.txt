@@ -1,3 +1,7 @@
+= 1.9.36 =
+
+* Fixed a bug where admin notices were showing despite having been dismissed.
+
 = 1.9.35 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.2.2.
