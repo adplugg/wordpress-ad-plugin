@@ -245,12 +245,33 @@ class Test_AdPlugg_Notice extends WP_UnitTestCase {
 		$notice_key = 'test_notice';
 		$notice     = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
 
-		// Add the dismissal to the database
+		// Add the dismissal to the database.
 		$dismissals                = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
 		$dismissals[ $notice_key ] = null;
 		update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
 
-		// Assert that dismissible is returned as expected.
+		// Assert that is_dismissed returns as expected.
+		$this->assertTrue( $notice->is_dismissed() );
+	}
+
+	/**
+	 * Test that the is_dismissed function returns true when dismissed
+	 * permanently.
+	 *
+	 * The option value is usually a date or null. However we have now also seen
+	 * it end up being set as 0. This may be a difference with newer versions
+	 * of WP or more likely, newer versions of PHP.
+	 */
+	public function test_is_dismissed_returns_true_when_dismissed_permanently_and_option_value_is_0() {
+		$notice_key = 'test_notice';
+		$notice     = AdPlugg_Notice::create( $notice_key, 'This is a test notice' );
+
+		// Add the dismissal to the database.
+		$dismissals                = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
+		$dismissals[ $notice_key ] = 0;
+		update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
+
+		// Assert that is_dismissed returns as expected.
 		$this->assertTrue( $notice->is_dismissed() );
 	}
 

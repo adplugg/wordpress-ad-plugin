@@ -265,7 +265,7 @@ class AdPlugg_Notice {
 		$dismissals = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
 		if ( array_key_exists( $this->notice_key, $dismissals ) ) {
 			$remind_on = $dismissals[ $this->notice_key ];
-			if ( null !== $remind_on ) {
+			if ( ! empty( $remind_on ) ) {
 				if ( $remind_on > time() ) {
 					$ret = true;
 				}
