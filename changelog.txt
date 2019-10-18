@@ -1,3 +1,7 @@
+= 1.9.38 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.2.4.
+
 = 1.9.37 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.2.3.
