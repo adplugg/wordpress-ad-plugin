@@ -1,3 +1,8 @@
+= 1.9.39 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.3.0.
+* Updated the readme.txt to reflect that the plugin is tested and working with v1.3.0 of the AMP plugin.
+
 = 1.9.38 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.2.4.
