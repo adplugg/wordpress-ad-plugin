@@ -23,23 +23,20 @@ class AdPlugg_Widgets_Page_Help {
 	 * Constructor, constructs the class and registers filters and actions.
 	 */
 	public function __construct() {
-		add_filter( 'contextual_help', array( &$this, 'add_help' ), 10, 3 );
+		add_action( 'current_screen', array( &$this, 'add_help' ), 50 );
 	}
 
 	/**
 	 * Add help for the AdPlugg widget into the WordPress admin help system.
-	 *
-	 * @param string $contextual_help The default contextual help that our
-	 * function is going to replace.
-	 * @param string $screen_id Used to identify the page that we are on.
-	 * @param string $screen Used to access the elements of the current page.
-	 * @return string The new contextual help.
 	 */
-	public function add_help( $contextual_help, $screen_id, $screen ) {
+	public function add_help() {
+
+		$screen = get_current_screen();
 
 		// Return the contextual help unaltered if this isn't our page.
-		if ( 'widgets' !== $screen_id ) {
-			return $contextual_help;
+		$target_screen_id = 'widgets';
+		if ( ( ! $screen ) || ( $screen->id !== $target_screen_id ) ) {
+			return;
 		}
 
 		$content = '
@@ -115,10 +112,10 @@ class AdPlugg_Widgets_Page_Help {
 				'id'      => 'adplugg_widget',
 				'title'   => 'AdPlugg Widget',
 				'content' => $content,
+				'callback' => false,
+				'priority' => 11,
 			)
 		);
-
-		return $contextual_help;
 	}
 
 	/**

@@ -22,7 +22,7 @@ class Test_Facebook_Options_Page_Help extends WP_UnitTestCase {
 		// Call the constructor.
 		$adplugg_facebook_options_page_help = new AdPlugg_Facebook_Options_Page_Help();
 
-		$function_names = get_function_names( $wp_filter['contextual_help'] );
+		$function_names = get_function_names( $wp_filter['current_screen'] );
 
 		// Assert that the add_help function is registered.
 		$this->assertContains( 'add_help', $function_names );
@@ -32,34 +32,40 @@ class Test_Facebook_Options_Page_Help extends WP_UnitTestCase {
 	 * Test the add_help function.
 	 *
 	 * @global string $adplugg_hook
+	 * @global string $current_screen
 	 */
 	public function test_add_help() {
 		global $adplugg_hook;
+		global $current_screen;
 
-		//set up the variables
-		$contextual_help = '';
-		$adplugg_hook    = 'mock-hook';
-		$screen_id       = $adplugg_hook . '_page_adplugg_facebook_settings';
-		$screen          = WP_Screen::get( $adplugg_hook );
+		// Set up the variables.
+		$adplugg_hook = 'mock-hook';
+		$screen_id    = $adplugg_hook . '_page_adplugg_facebook_settings';
+		$screen       = WP_Screen::get( $screen_id );
+
+		// Set the current screen (via $current_screen global).
+		$current_screen = $screen;
 
 		// Instanitate the SUT (System Under Test) class.
 		$adplugg_facebook_options_page_help = new AdPlugg_Facebook_Options_Page_Help();
 
 		// Assert that the Facebook settings help is not in the screen.
 		// phpcs:disable
-		$this->assertNotContains( 'Facebook Settings Help', serialize( $screen ) );
+		$this->assertNotContains(
+			'Facebook Settings Help',
+			json_encode( $screen->get_help_tabs() )
+		);
 		// phpcs:enable
 
 		// Run the function.
-		$adplugg_facebook_options_page_help->add_help(
-			$contextual_help,
-			$screen_id,
-			$screen
-		);
+		$adplugg_facebook_options_page_help->add_help();
 
 		// Assert that the AdPlugg help is now in the screen.
 		// phpcs:disable
-		$this->assertContains( 'Facebook Settings Help', serialize( $screen ) );
+		$this->assertContains(
+			'Facebook Settings Help',
+			json_encode( $screen->get_help_tabs() )
+		);
 		// phpcs:enable
 	}
 
@@ -68,31 +74,33 @@ class Test_Facebook_Options_Page_Help extends WP_UnitTestCase {
 	 * the target page.
 	 *
 	 * @global string $adplugg_hook
+	 * @global string $current_screen
 	 */
 	public function test_add_help_for_different_page() {
 		global $adplugg_hook;
+		global $current_screen;
 
-		//set up the variables
-		$contextual_help = '';
-		$adplugg_hook    = 'mock-hook';
-		$screen_id       = 'widgets';
-		$screen          = WP_Screen::get( 'widgets' );
+		// Set up the variables.
+		$adplugg_hook = 'mock-hook';
+		$screen_id    = 'widgets';
+		$screen       = WP_Screen::get( $screen_id );
+
+		// Set the current screen (via $current_screen global).
+		$current_screen = $screen;
 
 		// Instanitate the SUT (System Under Test) class.
 		$adplugg_facebook_options_page_help = new AdPlugg_Facebook_Options_Page_Help();
 
 		// Run the function.
-		$adplugg_facebook_options_page_help->add_help(
-			$contextual_help,
-			$screen_id,
-			$screen
-		);
+		$adplugg_facebook_options_page_help->add_help();
 
 		// Assert that the Facebook settings help is not in the screen.
 		// phpcs:disable
-		$this->assertNotContains( 'Facebook Settings Help', serialize( $screen ) );
+		$this->assertNotContains(
+			'Facebook Settings Help',
+			json_encode( $screen->get_help_tabs() )
+		);
 		// phpcs:enable
 	}
 
 }
-

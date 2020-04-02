@@ -23,30 +23,24 @@ class AdPlugg_Facebook_Options_Page_Help {
 	 * Constructor, constructs the class and registers filters and actions.
 	 */
 	public function __construct() {
-		add_filter( 'contextual_help', array( &$this, 'add_help' ), 10, 3 );
+		add_action( 'current_screen', array( &$this, 'add_help' ), 50 );
 	}
 
 	/**
-	 * Add help for the adplugg facebook options page into the WordPress admin help
-	 * system.
+	 * Add help for the adplugg facebook options page into the WordPress admin
+	 * help system.
 	 *
 	 * @global $adplugg_hook
-	 * @param string $contextual_help The default contextual help that our
-	 * function is going to replace.
-	 * @param string $screen_id Used to identify the page that we are on.
-	 * @param string $screen Used to access the elements of the current page.
-	 * @return string The new contextual help.
 	 */
-	public function add_help(
-								$contextual_help,
-								$screen_id,
-								$screen ) {
+	public function add_help() {
 		global $adplugg_hook;
+
+		$screen = get_current_screen();
 
 		// Return the contextual help unaltered if this isn't our page.
 		$target_screen_id = $adplugg_hook . '_page_adplugg_facebook_settings';
-		if ( $screen_id !== $target_screen_id ) {
-			return $contextual_help;
+		if ( ( ! $screen ) || ( $screen->id !== $target_screen_id ) ) {
+			return;
 		}
 
 		$overview_content = '
@@ -152,8 +146,6 @@ class AdPlugg_Facebook_Options_Page_Help {
 		);
 
 		$screen->set_help_sidebar( $sidebar_content );
-
-		return $contextual_help;
 	}
 
 	/**
