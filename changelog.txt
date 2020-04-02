@@ -1,3 +1,10 @@
+= 1.9.41 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.4.0.
+* Updated the readme.txt to reflect that the plugin is tested and working with v1.5.1 of the AMP plugin.
+* Updated the contextual help system to eliminate use of newly deprecated WP hooks.
+* Updated the copyright date to 2020.
+
 = 1.9.40 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.3.2.
