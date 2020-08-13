@@ -4,17 +4,17 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: ads, advertising, banners, ad rotator, ad server, ad manager, adsense
 Requires at least: 3.3
-Tested up to: 5.4.2
+Tested up to: 5.5.0
 Requires PHP: 5.2.4
 FBIA tested up to: 4.2.1
 AMP tested up to: 1.5.3
 Stable tag: 1.9.43
 
-Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server 
+Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server
 allow you to easily manage, schedule, rotate and track your ads.
 
 == Description ==
-The AdPlugg WordPress Ad Plugin works in conjunction with the <strong>FREE</strong> 
+The AdPlugg WordPress Ad Plugin works in conjunction with the <strong>FREE</strong>
 [adplugg.com](https://www.adplugg.com?utm_source=wpo-listing&utm_campaign=desc-l1) ad service.
 
 = Plugin Features =
@@ -145,7 +145,7 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 
 = 1.9.28 =
 * Moved the AdPlugg general options page help to a class (instead of a global function).
-* Moved the AdPlugg widgets page help to a class (instead of a global function). 
+* Moved the AdPlugg widgets page help to a class (instead of a global function).
 * Got rid of the no-longer-used AdPlugg_Help_Dispatch class.
 
 = 1.9.27 =
@@ -161,7 +161,7 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 = 1.9.24 =
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 5.0.
 * Updated the copyright date from 2017 to 2018.
-* Fixed an inconsequential error message that was showing when saving the widget. 
+* Fixed an inconsequential error message that was showing when saving the widget.
 * Linted the entire AdPlugg_Widget class to meet all WP coding standards.
 
 = 1.9.23 =
@@ -177,7 +177,7 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 * Removed the use of the deprecated 'create_function' when registering the widget.
 
 = 1.9.19 =
-* Linted the AdPlugg_Notice_Controller class. 
+* Linted the AdPlugg_Notice_Controller class.
 * Added CSRF protection to the notice system.
 
 = 1.9.18 =
@@ -327,7 +327,7 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 * Updated the readme.txt file to reflect that the plugin is fully tested and working with WP 4.8.3.
 
 = 1.6.8 =
-* Fixed a comment typo. 
+* Fixed a comment typo.
 * Now explicitly declaring visibility for all methods in the AdPlugg_Notice class.
 
 = 1.6.7 =
