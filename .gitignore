@@ -1,6 +1,9 @@
 # NetBeans
 nbproject
 
+# JetBrains
+.idea/
+
 # OSX
 .DS_Store
 
