@@ -1,3 +1,8 @@
+= 1.9.44 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.5.0.
+* Updated the readme.txt to reflect that the plugin is tested and working with v1.5.5 of the AMP plugin.
+
 = 1.9.43 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.4.2.
@@ -78,7 +83,7 @@
 = 1.9.28 =
 
 * Moved the AdPlugg general options page help to a class (instead of a global function).
-* Moved the AdPlugg widgets page help to a class (instead of a global function). 
+* Moved the AdPlugg widgets page help to a class (instead of a global function).
 * Got rid of the no-longer-used AdPlugg_Help_Dispatch class.
 
 = 1.9.27 =
@@ -98,7 +103,7 @@
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 5.0.
 * Updated the copyright date from 2017 to 2018.
-* Fixed an inconsequential error message that was showing when saving the widget. 
+* Fixed an inconsequential error message that was showing when saving the widget.
 * Linted the entire AdPlugg_Widget class to meet all WP coding standards.
 
 = 1.9.23 =
@@ -119,7 +124,7 @@
 
 = 1.9.19 =
 
-* Linted the AdPlugg_Notice_Controller class. 
+* Linted the AdPlugg_Notice_Controller class.
 * Added CSRF protection to the notice system.
 
 = 1.9.18 =
@@ -316,7 +321,7 @@
 
 = 1.6.8 =
 
-* Fixed a comment typo. 
+* Fixed a comment typo.
 * Now explicitly declaring visibility for all methods in the AdPlugg_Notice class.
 
 = 1.6.7 =
@@ -989,7 +994,7 @@
 = 1.1.8 =
 
 * Improved the validation on the settings page.
-* Fixed a bug that was causing an error when settings were saved. 
+* Fixed a bug that was causing an error when settings were saved.
 
 = 1.1.7 =
 
