@@ -22,9 +22,6 @@ fieldset.adplugg-widget-fieldset legend {
 	padding: 0;
 }
 
-fieldset.adplugg-widget-fieldset input[type='checkbox'] {
-	-webkit-appearance: button;
-}
 /* Hide the "Settings" legend and show the "Optional Settings" legend by default */
 legend.adplugg-widget-legend {display: none;}
 
