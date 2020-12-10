@@ -1,3 +1,9 @@
+= 1.9.47 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.6.0.
+* Updated the readme.txt to reflect that the plugin is tested and working with v2.0.8 of the AMP plugin.
+* Fixed the display of the checkbox on the Widget in the admin (via a CSS change).
+
 = 1.9.46 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.5.3.
