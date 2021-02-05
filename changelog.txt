@@ -1,3 +1,9 @@
+= 1.9.48 =
+
+* Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.6.1.
+* Updated the readme.txt to reflect that the plugin is tested and working with v2.0.10 of the AMP plugin.
+* Updated the copyright date to 2021.
+
 = 1.9.47 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.6.0.
