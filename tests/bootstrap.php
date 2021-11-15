@@ -1,9 +1,12 @@
 <?php
 /**
- * Bootstrap file for testing the plugin
+ * Bootstrap file for testing the AdPlugg plugin.
+ *
  * @package AdPlugg
  * @since 1.1.16
  */
+
+define( 'WP_TESTS_PHPUNIT_POLYFILLS_PATH', dirname( __FILE__ ) . '/../vendor/yoast/phpunit-polyfills' );
 
 $_tests_dir = getenv( 'WP_TESTS_DIR' );
 if ( ! $_tests_dir ) {

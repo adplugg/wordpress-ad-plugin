@@ -14,7 +14,8 @@
     "wp-coding-standards/wpcs": "^0.14",
     "phpunit/phpunit": "6.*",
     "wimg/php-compatibility": "^8.0",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+    "yoast/phpunit-polyfills": "^1.0"
   },
   "scripts": {
     "test": [
