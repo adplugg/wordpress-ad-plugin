@@ -7,7 +7,7 @@ Requires at least: 3.3
 Tested up to: 5.9.1
 Requires PHP: 5.2.4
 FBIA tested up to: 4.2.1
-AMP tested up to: 2.2.0
+AMP tested up to: 2.2.1
 Stable tag: 1.9.57
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server
