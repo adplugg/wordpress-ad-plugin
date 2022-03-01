@@ -1,3 +1,7 @@
+= 1.9.59 =
+
+* Updated the adplugg-wp icon font CSS namespacing to prevent collisions with other icon fonts.
+
 = 1.9.58 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.9.1.
