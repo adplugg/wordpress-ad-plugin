@@ -10,7 +10,7 @@
   font-style: normal;
 }
 
- [class^="icon-"]:before, [class*=" icon-"]:before {
+ [class^="adplugg-wp-icon-"]:before, [class*=" adplugg-wp-icon-"]:before {
   font-family: "adplugg-wp";
   font-style: normal;
   font-weight: normal;
@@ -45,4 +45,4 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-mr-pickles:before { content: '\e800'; } /* '' */
+.adplugg-wp-icon-mr-pickles:before { content: '\e800'; } /* '' */
