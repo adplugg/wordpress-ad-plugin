@@ -9,7 +9,7 @@
  * License: GPL v3
  *
  * AdPlugg WordPress Ad Plugin
- * Copyright (c) 2021 AdPlugg <legal@adplugg.com>
+ * Copyright (c) 2022 AdPlugg <legal@adplugg.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
