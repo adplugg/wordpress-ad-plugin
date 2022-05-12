@@ -1,3 +1,10 @@
+= 1.10.0 =
+
+* Added MailPoet integration.
+* Updated the readme.txt to reflect that the plugin is tested and working with v2.2.4 of the AMP plugin.
+* Updated the readme.txt to reflect that the plugin is tested with up to v3.89.0 of the MailPoet plugin.
+* Updated the copyright date to 2021.
+
 = 1.9.60 =
 
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.9.2.
