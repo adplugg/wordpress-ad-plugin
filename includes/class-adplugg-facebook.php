@@ -1,6 +1,6 @@
 <?php
 /**
- * The AdPlugg Facebook class controls AdPlugg's Facebook intragration. This
+ * The AdPlugg Facebook class controls AdPlugg's Facebook integration. This
  * class is used by both the frontend and the admin.
  *
  * @package AdPlugg
