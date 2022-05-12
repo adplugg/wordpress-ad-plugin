@@ -31,6 +31,7 @@
 // Define constants.
 define( 'ADPLUGG_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ADPLUGG_INCLUDES', ADPLUGG_PATH . 'includes/' );
+define( 'ADPLUGG_INTEGRATIONS', ADPLUGG_INCLUDES . 'integrations/' );
 define( 'ADPLUGG_BASENAME', plugin_basename( __FILE__ ) );
 define( 'ADPLUGG_URL', plugins_url( '/', __FILE__ ) );
 
@@ -63,6 +64,7 @@ define( 'ADPLUGG_WIDGET_OPTIONS_NAME', 'widget_adplugg' );
 require_once ADPLUGG_INCLUDES . 'class-adplugg-options.php';
 require_once ADPLUGG_INCLUDES . 'functions.php';
 require_once ADPLUGG_INCLUDES . 'class-adplugg-facebook.php';
+require_once ADPLUGG_INTEGRATIONS . 'mailpoet/class-adplugg-mailpoet.php';
 require_once ADPLUGG_PATH . 'tests/qunit.php';
 
 require_once ADPLUGG_INCLUDES . 'core/class-adplugg-ad-tag.php';
@@ -82,6 +84,7 @@ add_action( 'widgets_init', 'adplugg_register_widgets' );
 
 // Inits.
 AdPlugg_Facebook::get_instance();
+AdPlugg_MailPoet::get_instance();
 AdPlugg_AMP::get_instance();
 AdPlugg_Ad_Tag_Collector::get_instance();
 
