@@ -9,7 +9,7 @@ Requires PHP: 5.2.4
 FBIA tested up to: 4.2.1
 AMP tested up to: 2.2.4
 MailPoet tested up to: 3.89.3
-Stable tag: 1.10.0
+Stable tag: 1.10.1
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server
 allow you to easily manage, schedule, rotate and track your ads.
@@ -82,11 +82,16 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 
 == Changelog ==
 
+= 1.10.1 =
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.0.0.
+* Updated the readme.txt to reflect that the plugin is tested with up to v3.89.3 of the MailPoet plugin.
+* Fixed a bug with the unit tests (caused by the latest WP changes to the hook registry data format).
+
 = 1.10.0 =
 * Added MailPoet integration.
 * Updated the readme.txt to reflect that the plugin is tested and working with v2.2.4 of the AMP plugin.
 * Updated the readme.txt to reflect that the plugin is tested with up to v3.89.0 of the MailPoet plugin.
-* Updated the copyright date to 2021.
+* Updated the copyright date to 2022.
 
 = 1.9.60 =
 * Updated the readme.txt to reflect that the plugin is tested and working with WordPress 5.9.2.
