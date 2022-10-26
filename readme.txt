@@ -6,7 +6,7 @@ Tags: ads, advertising, banners, ad rotator, ad server, ad manager, adsense
 Requires at least: 3.3
 Tested up to: 6.0.3
 Requires PHP: 5.2.4
-FBIA tested up to: 4.2.1
+FBIA tested up to: 5.0.1
 AMP tested up to: 2.3.0
 MailPoet tested up to: 3.101.1
 Stable tag: 1.10.2
