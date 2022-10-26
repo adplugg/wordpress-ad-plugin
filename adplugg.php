@@ -40,6 +40,10 @@ if ( file_exists( ADPLUGG_PATH . 'config.php' ) ) {
 	include_once ADPLUGG_PATH . 'config.php';
 }
 
+if ( ( defined( 'ADPLUGG_VIA_CDN' ) ) && ( ! defined( 'ADPLUGG_ADJSSERVER' ) ) ) {
+	define( 'ADPLUGG_ADJSSERVER', 'cdn.adplugg.com/apusers' );
+}
+
 if ( ! defined( 'ADPLUGG_ADJSSERVER' ) ) {
 	define( 'ADPLUGG_ADJSSERVER', 'www.adplugg.com/apusers' );
 }
