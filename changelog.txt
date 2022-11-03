@@ -1,4 +1,11 @@
+= 1.10.5 =
+
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.1.0.
+* Updated the readme.txt to reflect that the plugin is tested with up to v5.0.2 of the FBIA plugin.
+* Updated the readme.txt to reflect that the plugin is tested with up to v3.102.1 of the MailPoet plugin.
+
 = 1.10.4 =
+
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.0.3.
 * Updated the readme.txt to reflect that the plugin is tested with up to v3.101.1 of the MailPoet plugin.
 * Updated the readme.txt to reflect that the plugin is tested with up to v5.0.1 of the FBIA plugin.
