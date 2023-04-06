@@ -1,3 +1,9 @@
+= 1.10.7 =
+
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.2.0.
+* Updated the readme.txt to reflect that the plugin is tested with up to v2.4.1 of the AMP plugin.
+* Updated the copyright date to 2023.
+
 = 1.10.6 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.1.1.
