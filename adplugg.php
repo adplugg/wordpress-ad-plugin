@@ -77,6 +77,7 @@ require_once ADPLUGG_INCLUDES . 'core/class-adplugg-ad-tag-collector.php';
 require_once ADPLUGG_INCLUDES . 'amp/class-adplugg-amp.php';
 
 require_once ADPLUGG_INCLUDES . 'widgets/class-adplugg-widget.php';
+require_once ADPLUGG_INCLUDES . 'blocks/adplugg/class-adplugg-block.php';
 
 /**
  * Register Widgets.
@@ -91,6 +92,7 @@ AdPlugg_Facebook::get_instance();
 AdPlugg_MailPoet::get_instance();
 AdPlugg_AMP::get_instance();
 AdPlugg_Ad_Tag_Collector::get_instance();
+AdPlugg_Block::get_instance();
 
 if ( is_admin() ) {
 	// ---- ADMIN ---- //

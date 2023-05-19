@@ -1,0 +1,12 @@
+/**
+ * Styles for the AdPlugg block in the editor.
+ *
+ * @package AdPlugg
+ * @since 1.11.0
+ */
+.wp-block-adplugg-adplugg {
+    color: #058a81;
+    background: #cee9e8;
+    border: 2px solid #6ab9b4;
+    padding: 20px;
+}
