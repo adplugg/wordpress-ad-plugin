@@ -1,3 +1,8 @@
+= 1.10.8 =
+
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.2.1.
+* Updated the readme.txt to reflect that the plugin is tested with up to v4.16.0 of the MailPoet plugin.
+
 = 1.10.7 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.2.0.

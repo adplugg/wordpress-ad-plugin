@@ -4,12 +4,12 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: ads, advertising, banners, ad rotator, ad server, ad manager, adsense
 Requires at least: 3.3
-Tested up to: 6.2.0
+Tested up to: 6.2.1
 Requires PHP: 5.2.4
 FBIA tested up to: 5.0.2
 AMP tested up to: 2.4.1
-MailPoet tested up to: 4.11.0
-Stable tag: 1.10.7
+MailPoet tested up to: 4.16.0
+Stable tag: 1.10.8
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server
 allow you to easily manage, schedule, rotate and track your ads.
@@ -81,6 +81,10 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 1. The AdPlugg WordPress Ad Plugin makes it easy to place ads on your WordPress site.
 
 == Changelog ==
+
+= 1.10.8 =
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.2.1.
+* Updated the readme.txt to reflect that the plugin is tested with up to v4.16.0 of the MailPoet plugin.
 
 = 1.10.7 =
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.2.0.
