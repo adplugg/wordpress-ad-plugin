@@ -1,3 +1,8 @@
+= 1.11.0 =
+
+* Added the AdPlugg Gutenberg block.
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.2.2.
+
 = 1.10.8 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.2.1.
