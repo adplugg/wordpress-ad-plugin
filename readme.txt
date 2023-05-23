@@ -22,7 +22,8 @@ The AdPlugg WordPress Ad Plugin works in conjunction with the <strong>FREE</stro
 The AdPlugg WordPress Ad Plugin includes the following awesome features:
 
 * Ability to add your AdPlugg ads to your WordPress site from the WordPress Administrator with no access to the underlying source code required.
-* Ability to add you AdPlugg ads to any Widget Area on your site by dragging the AdPlugg Widget into that area.
+* Ability to add your AdPlugg ads using the WordPress/Gutenberg block editor and the AdPlugg WordPress Ad Block.
+* Ability to add your AdPlugg ads to any Widget Area on your site by dragging the AdPlugg Widget into that area.
 * Support for Zones allowing you to put different ads in different locations on a page.
 * Support for Facebook Instant Articles allowing you to include ads in your FBIA feed.
 * Support for AMP (Accelerated Mobile Pages) allowing you to include ads in your AMP pages.
