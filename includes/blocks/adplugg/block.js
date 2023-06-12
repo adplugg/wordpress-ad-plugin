@@ -5,9 +5,9 @@
  * @since 1.11.0
  */
 (
-    function( blocks, editor, components, element, blockEditor ) {
+    function( blocks, components, element, blockEditor ) {
         var el = element.createElement;
-        var InspectorControls = editor.InspectorControls;
+        var InspectorControls = blockEditor.InspectorControls;
         var PanelBody = components.PanelBody;
         var TextControl = components.TextControl;
         var useBlockProps = blockEditor.useBlockProps;
@@ -72,5 +72,5 @@
             }
         );
 
-    }( window.wp.blocks, window.wp.editor, window.wp.components, window.wp.element, window.wp.blockEditor )
+    }( window.wp.blocks, window.wp.components, window.wp.element, window.wp.blockEditor )
 );
