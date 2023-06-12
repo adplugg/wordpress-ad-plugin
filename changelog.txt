@@ -1,3 +1,9 @@
+= 1.11.2 =
+
+* Updated the AdPlugg block to use blockEditor.InspectorControls instead of
+  editor.InspectorControls (which was deprecated), updated the block 
+  dependencies accordingly.
+
 = 1.11.1 =
 
 * Added info regarding the new Gutenberg block to the readme.txt file.
