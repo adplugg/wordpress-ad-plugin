@@ -7,7 +7,7 @@ Requires at least: 3.3
 Tested up to: 6.3.0
 Requires PHP: 5.2.4
 FBIA tested up to: 5.0.2
-AMP tested up to: 2.4.1
+AMP tested up to: 2.4.2
 MailPoet tested up to: 4.16.0
 Stable tag: 1.11.2
 
