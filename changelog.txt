@@ -1,3 +1,8 @@
+= 1.11.3 =
+
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.3.0.
+* Updated the readme.txt to reflect that the plugin is tested with up to v2.4.2 of the AMP plugin.
+
 = 1.11.2 =
 
 * Updated the AdPlugg block to use blockEditor.InspectorControls instead of
