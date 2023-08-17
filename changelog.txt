@@ -1,3 +1,9 @@
+= 1.11.4 =
+
+* Now registering the AdPlugg Block still in the init hook but with the default 
+  priority (10) instead of priority 0. This fixes a race condition with third 
+  party plugins that try to run before the blocks are registered.
+
 = 1.11.3 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.3.0.
