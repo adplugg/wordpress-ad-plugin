@@ -3,7 +3,7 @@
 /**
  * AdPlugg_Block class.
  *
- * The AdPlugg_Block class has functions for reginstring the AdPlugg Gutenberg
+ * The AdPlugg_Block class has functions for registering the AdPlugg Gutenberg
  * block.
  *
  * @package AdPlugg
@@ -22,7 +22,7 @@ class AdPlugg_Block {
 	 * Constructor, constructs the class and registers filters and actions.
 	 */
 	public function __construct() {
-		add_action( 'init', array( $this, 'register_block' ), 0 );
+		add_action( 'init', array( $this, 'register_block' ) );
 	}
 
 	/**
