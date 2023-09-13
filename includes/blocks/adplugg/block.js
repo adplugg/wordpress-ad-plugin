@@ -55,7 +55,7 @@
                         el(
                             'p',
                             useBlockProps( { className: props.className } ),
-                            (props.attributes.zone !== undefined ? 'AdPlugg: ' + props.attributes.zone : 'AdPlugg' )
+                            ( props.attributes.zone !== undefined ? 'AdPlugg: ' + props.attributes.zone : 'AdPlugg' )
                         )
                     ];
 
@@ -63,10 +63,12 @@
                 save: function( props ) {
                     return el(
                         'div',
-                        {
-                            className: "adplugg-tag",
-                            "data-adplugg-zone": (props.attributes.zone !== 'undefined' ? props.attributes.zone : null )
-                        }
+                        useBlockProps.save(
+                            {
+                                className: "adplugg-tag",
+                                "data-adplugg-zone": ( props.attributes.zone !== 'undefined' ? props.attributes.zone : null )
+                            }
+                        )
                     );
                 }
             }
