@@ -15,7 +15,7 @@
     "phpunit/phpunit": "6.*",
     "wimg/php-compatibility": "^8.0",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
-    "yoast/phpunit-polyfills": "^1.0"
+    "yoast/phpunit-polyfills": "^2.0"
   },
   "scripts": {
     "test": [
@@ -33,6 +33,12 @@
       "test": "Run unit tests",
       "phpcs": "Analyze code against the WordPress coding standards with PHP_CodeSniffer",
       "phpcbf": "Fix coding standards warnings/errors automatically with PHP Code Beautifier"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
   }
 }
