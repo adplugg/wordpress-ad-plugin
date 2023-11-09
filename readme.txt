@@ -84,7 +84,7 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 == Changelog ==
 
 = 1.12.2 =
-* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.4.2.
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.4.1.
 * Updated the Composer dependencies (for dev).
 
 = 1.12.1 =
