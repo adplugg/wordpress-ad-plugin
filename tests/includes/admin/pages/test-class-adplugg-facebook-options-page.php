@@ -51,7 +51,7 @@ class Test_AdPlugg_Facebook_Options_Page extends WP_UnitTestCase {
 		ob_end_clean();
 
 		// Assert that the adplugg_options hidden field is registered/rendered
-		$this->assertContains( "value='adplugg_facebook_options'", $output );
+		$this->assertStringContainsString( "value='adplugg_facebook_options'", $output );
 
 		//---------------------------------------------------//
 		//assert that the adplugg_options_access_section section is registered
@@ -97,7 +97,7 @@ class Test_AdPlugg_Facebook_Options_Page extends WP_UnitTestCase {
 		$adplugg_facebook_options_page->render_page();
 		$outbound = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'Facebook Settings - AdPlugg', $outbound );
+		$this->assertStringContainsString( 'Facebook Settings - AdPlugg', $outbound );
 	}
 
 	/**
@@ -119,7 +119,7 @@ class Test_AdPlugg_Facebook_Options_Page extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//Assert that the enable field is registered/rendered.
-		$this->assertContains( 'adplugg_facebook_options[ia_enable_automatic_placement]', $outbound );
+		$this->assertStringContainsString( 'adplugg_facebook_options[ia_enable_automatic_placement]', $outbound );
 	}
 
 	/**

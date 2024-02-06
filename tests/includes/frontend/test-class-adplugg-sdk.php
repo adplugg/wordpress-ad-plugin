@@ -20,7 +20,7 @@ class Test_AdPlugg_Sdk extends WP_UnitTestCase {
 
 		$sdk = new AdPlugg_Sdk();
 
-		//Assert that the render_sdk function is registered.
+		// Assert that the render_sdk function is registered.
 		$function_names = get_function_names( $wp_filter['wp_head'] );
 		$this->assertContains( 'render_sdk', $function_names );
 	}
@@ -42,7 +42,7 @@ class Test_AdPlugg_Sdk extends WP_UnitTestCase {
 		ob_end_clean();
 
 		if ( defined( 'ADPLUGG_OVERRIDE_ACCESS_CODE' ) ) {
-			$this->assertContains( ADPLUGG_OVERRIDE_ACCESS_CODE, $outbound );
+			$this->assertStringContainsString( ADPLUGG_OVERRIDE_ACCESS_CODE, $outbound );
 		} else {
 			$this->assertEquals( '', $outbound );
 		}
@@ -68,7 +68,7 @@ class Test_AdPlugg_Sdk extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//Assert that the SDK is output.
-		$this->assertContains( '<script', $outbound );
+		$this->assertStringContainsString( '<script', $outbound );
 
 	}
 
@@ -96,7 +96,7 @@ class Test_AdPlugg_Sdk extends WP_UnitTestCase {
 		$outbound = ob_get_contents();
 		ob_end_clean();
 
-		$this->assertContains( 'qunit', $outbound );
+		$this->assertStringContainsString( 'qunit', $outbound );
 	}
 
 	/**

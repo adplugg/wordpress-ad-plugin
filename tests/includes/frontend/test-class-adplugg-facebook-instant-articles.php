@@ -49,7 +49,7 @@ class Test_AdPlugg_Facebook_Instant_Articles extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//assert that the output was as expected
-		$this->assertContains( '<meta property="fb:use_automatic_ad_placement" content="true">', $output );
+		$this->assertStringContainsString( '<meta property="fb:use_automatic_ad_placement" content="true">', $output );
 	}
 
 	/**
@@ -81,7 +81,7 @@ class Test_AdPlugg_Facebook_Instant_Articles extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//assert that the output was as expected
-		$this->assertContains( '<section class="op-ad-template">', $output );
+		$this->assertStringContainsString( '<section class="op-ad-template">', $output );
 	}
 
 	/**

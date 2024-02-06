@@ -74,16 +74,16 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
 		$adplugg_notice_controller->admin_notices();
 		$outbound = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'Upgraded version from', $outbound );
+		$this->assertStringContainsString( 'Upgraded version from', $outbound );
 
 		//Assert that the expected stylesheets are registered
 		global $wp_styles;
-		$this->assertContains( 'adplugg-admin', serialize( $wp_styles ) );
-		$this->assertContains( 'adplugg-wp-font', serialize( $wp_styles ) );
+		$this->assertStringContainsString( 'adplugg-admin', serialize( $wp_styles ) );
+		$this->assertStringContainsString( 'adplugg-wp-font', serialize( $wp_styles ) );
 
 		//Assert that the admin script is registered
 		global $wp_scripts;
-		$this->assertContains( 'adplugg-admin', serialize( $wp_scripts ) );
+		$this->assertStringContainsString( 'adplugg-admin', serialize( $wp_scripts ) );
 	}
 
 	/**
@@ -107,7 +107,7 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
 		$footer_text = apply_filters( 'admin_footer_text', 'foo' );
 
 		//Assert that our 'rate us' text is in the footer text
-		$this->assertContains( 'If you like', $footer_text );
+		$this->assertStringContainsString( 'If you like', $footer_text );
 	}
 
 	/**
@@ -134,7 +134,7 @@ class Test_AdPlugg_Admin extends WP_UnitTestCase {
 		$footer_text = apply_filters( 'admin_footer_text', 'foo' );
 
 		//Assert that our 'rate us' text is in the footer text
-		$this->assertContains( 'Thank you for using AdPlugg', $footer_text );
+		$this->assertStringContainsString( 'Thank you for using AdPlugg', $footer_text );
 	}
 
 	/**

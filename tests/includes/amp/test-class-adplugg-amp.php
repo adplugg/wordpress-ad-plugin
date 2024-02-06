@@ -103,7 +103,7 @@ class Test_AdPlugg_AMP extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//Assert function output the expected css
-		$this->assertContains( 'amp-ad[type="adplugg"]', $output );
+		$this->assertStringContainsString( 'amp-ad[type="adplugg"]', $output );
 	}
 
 	/**

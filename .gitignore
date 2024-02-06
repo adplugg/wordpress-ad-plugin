@@ -10,5 +10,8 @@ nbproject
 # Composer
 vendor
 
+# PHPUnit
+.phpunit.result.cache
+
 # AdPlugg
 config.php

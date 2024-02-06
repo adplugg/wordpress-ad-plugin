@@ -37,7 +37,7 @@ class Test_AdPlugg_Privacy extends WP_UnitTestCase {
 		$content = $adplugg_privacy->get_privacy_message();
 
 		// Assert that the returned value contains the expected content.
-		$this->assertContains( 'This sample language', $content );
+		$this->assertStringContainsString( 'This sample language', $content );
 	}
 
 }

@@ -51,7 +51,7 @@ class Test_AdPlugg_Widgets_Page_Help extends WP_UnitTestCase {
 
 		// Assert that the AdPlugg settings help is not in the screen.
 		// phpcs:disable
-		$this->assertNotContains(
+		$this->assertStringNotContainsString(
 			'AdPlugg Widget Help',
 			json_encode( $screen->get_help_tabs() )
 		);
@@ -62,7 +62,7 @@ class Test_AdPlugg_Widgets_Page_Help extends WP_UnitTestCase {
 
 		// Asset that the AdPlugg plugin help is now in the screen.
 		// phpcs:disable
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'AdPlugg Widget Help',
 			json_encode( $screen->get_help_tabs() )
 		);
@@ -96,7 +96,7 @@ class Test_AdPlugg_Widgets_Page_Help extends WP_UnitTestCase {
 
 		// Assert that the AdPlugg plugin help is not in the screen.
 		// phpcs:disable
-		$this->assertNotContains(
+		$this->assertStringNotContainsString(
 			'AdPlugg Widget Help',
 			json_encode( $screen->get_help_tabs() )
 		);

@@ -51,7 +51,7 @@ class Test_Facebook_Options_Page_Help extends WP_UnitTestCase {
 
 		// Assert that the Facebook settings help is not in the screen.
 		// phpcs:disable
-		$this->assertNotContains(
+		$this->assertStringNotContainsString(
 			'Facebook Settings Help',
 			json_encode( $screen->get_help_tabs() )
 		);
@@ -62,7 +62,7 @@ class Test_Facebook_Options_Page_Help extends WP_UnitTestCase {
 
 		// Assert that the AdPlugg help is now in the screen.
 		// phpcs:disable
-		$this->assertContains(
+		$this->assertStringContainsString(
 			'Facebook Settings Help',
 			json_encode( $screen->get_help_tabs() )
 		);
@@ -96,7 +96,7 @@ class Test_Facebook_Options_Page_Help extends WP_UnitTestCase {
 
 		// Assert that the Facebook settings help is not in the screen.
 		// phpcs:disable
-		$this->assertNotContains(
+		$this->assertStringNotContainsString(
 			'Facebook Settings Help',
 			json_encode( $screen->get_help_tabs() )
 		);

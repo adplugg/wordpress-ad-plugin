@@ -71,7 +71,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//assert that the a amp_not_found notice was outputted
-		$this->assertContains( 'notify_amp_not_found', $output );
+		$this->assertStringContainsString( 'notify_amp_not_found', $output );
 	}
 
 	/**
@@ -92,7 +92,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//Assert that the expected settings fields were registered and rendered
-		$this->assertContains( 'adplugg_amp_options', $output );
+		$this->assertStringContainsString( 'adplugg_amp_options', $output );
 	}
 
 	/**
@@ -108,7 +108,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//Assert that the options page was rendered
-		$this->assertContains( 'AMP Settings - AdPlugg', $output );
+		$this->assertStringContainsString( 'AMP Settings - AdPlugg', $output );
 	}
 
 	/**
@@ -130,7 +130,7 @@ class Test_AdPlugg_AMP_Options_Page extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//Assert that the enable field is registered/rendered.
-		$this->assertContains( 'adplugg_amp_options[amp_enable_automatic_placement]', $outbound );
+		$this->assertStringContainsString( 'adplugg_amp_options[amp_enable_automatic_placement]', $outbound );
 	}
 
 	/**

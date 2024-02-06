@@ -20,12 +20,12 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 
 		global $wp_filter;
 
-		//Assert that the admin notices function is registered.
+		// Assert that the admin notices function is registered.
 		$function_names = get_function_names( $wp_filter['admin_notices'] );
 		//var_dump( $function_names );
 		$this->assertContains( 'admin_notices', $function_names );
 
-		//Assert that the admin notices function is registered.
+		// Assert that the admin notices function is registered.
 		$function_names = get_function_names( $wp_filter['wp_ajax_adplugg_set_notice_pref'] );
 		$this->assertContains( 'set_notice_pref_callback', $function_names );
 	}
@@ -43,7 +43,7 @@ class Test_AdPlugg_Notice_Controller extends WP_UnitTestCase {
 		$outbound = ob_get_contents();
 		ob_end_clean();
 
-		$this->assertContains( 'AdPlugg', $outbound );
+		$this->assertStringContainsString( 'AdPlugg', $outbound );
 	}
 
 	/**

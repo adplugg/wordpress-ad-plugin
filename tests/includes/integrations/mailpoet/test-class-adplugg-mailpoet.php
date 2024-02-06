@@ -39,7 +39,7 @@ class Test_AdPlugg_MailPoet extends WP_UnitTestCase {
 		);
 
 		// Assert that the tag is returned as expected.
-		$this->assertContains( 'adplugg-emailtag', $filtered_content );
+		$this->assertStringContainsString( 'adplugg-emailtag', $filtered_content );
 
 	}
 

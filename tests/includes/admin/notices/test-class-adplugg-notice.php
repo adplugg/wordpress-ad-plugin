@@ -302,7 +302,7 @@ class Test_AdPlugg_Notice extends WP_UnitTestCase {
 
 		// Add the dismissal to the database
 		$dismissals                = get_option( ADPLUGG_NOTICES_DISMISSED_NAME, array() );
-		$dismissals[ $notice_key ] = time( strtotime( 'yesterday' ) );
+		$dismissals[ $notice_key ] = strtotime( 'yesterday' );
 		update_option( ADPLUGG_NOTICES_DISMISSED_NAME, $dismissals );
 
 		// Assert that is_dismissed is returned as expected.

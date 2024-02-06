@@ -43,7 +43,7 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 		$adplugg_widget->form( $instance );
 		$outbound = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'adplugg-widget-fieldset', $outbound );
+		$this->assertStringContainsString( 'adplugg-widget-fieldset', $outbound );
 	}
 
 	/**
@@ -243,7 +243,7 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 		$adplugg_widget->widget( $args, $instance );
 		$outbound = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'data-adplugg-zone="test_zone"', $outbound );
+		$this->assertStringContainsString( 'data-adplugg-zone="test_zone"', $outbound );
 	}
 
 	/**
@@ -265,7 +265,7 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 		$adplugg_widget->widget( $args, $instance );
 		$outbound = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'test_title', $outbound );
+		$this->assertStringContainsString( 'test_title', $outbound );
 	}
 
 	/**
@@ -300,13 +300,13 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 		$adplugg_widget->widget( $args, $instance );
 		$outbound = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'op-ad', $outbound );
-		$this->assertContains( 'test_zone', $outbound );
-		$this->assertContains( '100', $outbound );
-		$this->assertContains( '200', $outbound );
-		$this->assertContains( 'op-ad-default', $outbound );
-		$this->assertContains( 'www.example.com', $outbound );
-		$this->assertContains( '/blog/hello-world/', urldecode( $outbound ) );
+		$this->assertStringContainsString( 'op-ad', $outbound );
+		$this->assertStringContainsString( 'test_zone', $outbound );
+		$this->assertStringContainsString( '100', $outbound );
+		$this->assertStringContainsString( '200', $outbound );
+		$this->assertStringContainsString( 'op-ad-default', $outbound );
+		$this->assertStringContainsString( 'www.example.com', $outbound );
+		$this->assertStringContainsString( '/blog/hello-world/', urldecode( $outbound ) );
 	}
 
 	/**
@@ -340,10 +340,10 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 		$adplugg_widget->widget( $args, $instance );
 		$outbound = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'op-ad', $outbound );
-		$this->assertContains( '300', $outbound );
-		$this->assertContains( '250', $outbound );
-		$this->assertNotContains( 'op-ad-default', $outbound );
+		$this->assertStringContainsString( 'op-ad', $outbound );
+		$this->assertStringContainsString( '300', $outbound );
+		$this->assertStringContainsString( '250', $outbound );
+		$this->assertStringNotContainsString( 'op-ad-default', $outbound );
 	}
 
 	/**
@@ -371,7 +371,7 @@ class Test_AdPlugg_Widget extends WP_UnitTestCase {
 		$adplugg_widget->widget( $args, $instance );
 		$outbound = ob_get_contents();
 		ob_end_clean();
-		$this->assertNotContains( 'op-ad', $outbound );
+		$this->assertStringNotContainsString( 'op-ad', $outbound );
 	}
 
 }

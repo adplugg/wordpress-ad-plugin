@@ -41,7 +41,7 @@ class Test_Options_Page extends WP_UnitTestCase {
 		$adplugg_options_page->render_page();
 		$output = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'AdPlugg General Settings', $output );
+		$this->assertStringContainsString( 'AdPlugg General Settings', $output );
 	}
 
 	/**
@@ -72,7 +72,7 @@ class Test_Options_Page extends WP_UnitTestCase {
 		$adplugg_options_page->render_access_section_text();
 		$output = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'To use AdPlugg', $output );
+		$this->assertStringContainsString( 'To use AdPlugg', $output );
 	}
 
 	/**
@@ -86,7 +86,7 @@ class Test_Options_Page extends WP_UnitTestCase {
 		$adplugg_options_page->render_access_code();
 		$output = ob_get_contents();
 		ob_end_clean();
-		$this->assertContains( 'AdPlugg Access Code', $output );
+		$this->assertStringContainsString( 'AdPlugg Access Code', $output );
 	}
 
 	/**
@@ -111,13 +111,13 @@ class Test_Options_Page extends WP_UnitTestCase {
 		ob_end_clean();
 
 		//Assert that the adplugg_options hidden field is registered/rendered
-		$this->assertContains( "value='adplugg_options'", $output );
+		$this->assertStringContainsString( "value='adplugg_options'", $output );
 
 		//Assert that the _secret_wpnonce field is registered/rendered.
-		$this->assertContains( '<input type="hidden" id="_wpnonce" name="_wpnonce"', $output );
+		$this->assertStringContainsString( '<input type="hidden" id="_wpnonce" name="_wpnonce"', $output );
 
 		//Assert that the _wp_http_referer field is registered/rendered.
-		$this->assertContains( '<input type="hidden" name="_wp_http_referer"', $output );
+		$this->assertStringContainsString( '<input type="hidden" name="_wp_http_referer"', $output );
 
 		//---------------------------------------------------//
 		//assert that the adplugg_options_access_section section is registered
