@@ -7,8 +7,8 @@ Requires at least: 3.3
 Tested up to: 6.5.0
 Requires PHP: 5.2.4
 FBIA tested up to: 5.0.2
-AMP tested up to: 2.5.2
-MailPoet tested up to: 4.43.0
+AMP tested up to: 2.5.3
+MailPoet tested up to: 4.48.1
 Stable tag: 1.12.4
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server
