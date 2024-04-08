@@ -1,3 +1,9 @@
+= 1.12.5 =
+
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.5.0.
+* Updated the readme.txt to reflect that the plugin is tested with up to v2.5.3 of the AMP plugin.
+* Updated the readme.txt to reflect that the plugin is tested with up to v4.48.1 of the MailPoet plugin.
+
 = 1.12.4 =
 
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.4.3.
