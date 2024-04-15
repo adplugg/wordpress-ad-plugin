@@ -9,7 +9,7 @@ Requires PHP: 5.2.4
 FBIA tested up to: 5.0.2
 AMP tested up to: 2.5.3
 MailPoet tested up to: 4.48.2
-Stable tag: 1.12.5
+Stable tag: 1.12.6
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server
 allow you to easily manage, schedule, rotate and track your ads.
@@ -82,6 +82,10 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 1. The AdPlugg WordPress Ad Plugin makes it easy to place ads on your WordPress site.
 
 == Changelog ==
+
+= 1.12.6 =
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.5.2.
+* Updated the readme.txt to reflect that the plugin is tested with up to v4.48.2 of the MailPoet plugin.
 
 = 1.12.5 =
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.5.0.
@@ -325,113 +329,5 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 
 = 1.9.23 =
 * Moved the Facebook Options page help to a class (instead of a global function).
-
-= 1.9.22 =
-* Linted all admin page classes to meet WP coding standards.
-
-= 1.9.21 =
-* Linted the AdPlugg_Notice class to meet all WP coding standards.
-
-= 1.9.20 =
-* Removed the use of the deprecated 'create_function' when registering the widget.
-
-= 1.9.19 =
-* Linted the AdPlugg_Notice_Controller class.
-* Added CSRF protection to the notice system.
-
-= 1.9.18 =
-* Moved the AMP Options page help to a class (instead of a global function).
-
-= 1.9.17 =
-* Moved the help system includes to the main plugin file.
-* Linted the widgets-page-help.php file to meet the WP coding standards.
-
-= 1.9.16 =
-* Updated the visibility on the 'instance' property of all singletons to 'private'.
-
-= 1.9.15 =
-* Linted the options-page-help.php file.
-
-= 1.9.14 =
-* Added unit testing to the Test_Help_Dispatch class for testing the contextual help for the AMP settings page.
-
-= 1.9.13 =
-* Linted the facebook-options-page-help.php file to meet all of the WP coding standards.
-
-= 1.9.12 =
-* Renamed and linted the class-adplugg-help-dispatch.php file to meet all of the WP coding standards.
-
-= 1.9.11 =
-* Updated the readme.txt to reflect that the plugin has been tested with up to v4.1.1 of the FBIA plugin.
-
-= 1.9.10 =
-* Added Composer (for installing our dev dependencies).
-* Added a phpcs.xml file (for checking our code against the WP coding standards).
-* Linted the amp-options-page-help.php file to meet all of the WP coding standards.
-
-= 1.9.9 =
-* Updated the readme.txt to reflect that the plugin has been tested with up to WP 4.9.8.
-
-= 1.9.8 =
-* Converted the AdPlugg_Options_Page class to a singleton to match the rest of our admin pages.
-
-= 1.9.7 =
-* Fixed the PHPDoc on the get_instance method on several classes.
-
-= 1.9.6 =
-* Updated the readme.txt to reflect that the plugin has been tested with up to WP 4.9.7
-
-= 1.9.5 =
-* Fixed some issues with the PHPDoc on the AdPlugg_Notice_Controller class.
-
-= 1.9.4 =
-* Restructured the admin contextual help dispatch system for better OOP design.
-
-= 1.9.3 =
-* Added a new AdPlugg icon font.
-* Now using the AdPlugg icon font for the admin menu (instead of an embedded SVG).
-
-= 1.9.2 =
-* Cleaned up the test_admin_init test function in the Test_Options_Page class.
-* Now fully testing the admin_init method of the AdPlugg_Facebook_Options_Page class.
-
-= 1.9.1 =
-* Fixed a testing bug with the test-facebook-options-page-help.php when run in isolation.
-
-= 1.9.0 =
-* Added info regarding GDPR compliance to the readme.txt.
-* Updated the readme.txt to reflect that the plugin has been tested and is compatible with up to WP v4.9.6.
-* Now displaying suggested privacy policy text in the privacy policy settings screen in the wp-admin.
-
-= 1.8.9 =
-* Misc fixes for WP coding standards (spaces after while and foreach, snake_case variables).
-
-= 1.8.8 =
-* Added help for using AdPlugg for Facebook Instant Articles to the contextual help on the widgets page in the admin.
-
-= 1.8.7 =
-* Updated styling of all 'if' statements to match WP coding standards.
-
-= 1.8.6 =
-* Updated the incorrect PHPDoc on some of the FBIA related methods.
-
-= 1.8.5 =
-* Updated the label text on the FBIA automatic placement option to be more clear and consistent.
-* Updated the readme.txt to remove "New" from the timed rotate feature.
-
-= 1.8.4 =
-* Updated the readme to reflect that the plugin has been test up to WordPress 4.9.5.
-
-= 1.8.3 =
-* Fixed an issue with the option validation.
-
-= 1.8.2 =
-* AMP ad bottom margin now properly matches its top margin.
-
-= 1.8.1 =
-* Now inserts an ad at the bottom of any short AMP posts.
-
-= 1.8.0 =
-* Now backwards compatible down to PHP 5.2.4.
 
 [See changelog.txt for more](http://plugins.svn.wordpress.org/adplugg/trunk/changelog.txt).
