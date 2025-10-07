@@ -4,11 +4,11 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: ads, advertising, banners, ad rotator, ad server, ad manager, adsense
 Requires at least: 3.3
-Tested up to: 6.8.2
+Tested up to: 6.8.3
 Requires PHP: 5.2.4
 FBIA tested up to: 5.0.2
 AMP tested up to: 2.5.5
-MailPoet tested up to: 5.12.11
+MailPoet tested up to: 5.16.0
 Stable tag: 1.12.18
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server
