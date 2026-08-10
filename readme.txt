@@ -9,7 +9,7 @@ Requires PHP: 5.2.4
 FBIA tested up to: 5.0.2
 AMP tested up to: 2.5.5
 MailPoet tested up to: 5.35.0
-Stable tag: 1.12.25
+Stable tag: 1.12.26
 
 Advertising is easy with AdPlugg. The AdPlugg WordPress Ad Plugin and ad server
 allow you to easily manage, schedule, rotate and track your ads.
@@ -82,6 +82,10 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 1. The AdPlugg WordPress Ad Plugin makes it easy to place ads on your WordPress site.
 
 == Changelog ==
+
+= 1.12.26 =
+* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 7.0.3.
+* Updated the readme.txt to reflect that the plugin has been tested with up to v5.35.0 of the MailPoet plugin.
 
 = 1.12.25 =
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 7.0.2.
@@ -191,26 +195,5 @@ For questions and answers, visit the [AdPlugg Question/Answer System at AdPlugg.
 
 = 1.11.5 =
 * Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.3.1.
-
-= 1.11.4 =
-* Now registering the AdPlugg Block still in the init hook but with the default 
-  priority (10) instead of priority 0. This fixes a race condition with third 
-  party plugins that try to run before the blocks are registered.
-
-= 1.11.3 =
-* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.3.0.
-* Updated the readme.txt to reflect that the plugin is tested with up to v2.4.2 of the AMP plugin.
-
-= 1.11.2 =
-* Updated the AdPlugg block to use blockEditor.InspectorControls instead of
-  editor.InspectorControls (which was deprecated), updated the block 
-  dependencies accordingly.
-
-= 1.11.1 =
-* Added info regarding the new Gutenberg block to the readme.txt file.
-
-= 1.11.0 =
-* Added the AdPlugg Gutenberg block.
-* Updated the readme.txt to reflect that the plugin has been tested with up to WordPress 6.2.2.
 
 [See changelog.txt for more](http://plugins.svn.wordpress.org/adplugg/trunk/changelog.txt).
